@@ -130,7 +130,7 @@
     <div class="main__content">
       <div class="main__header">
         <h3 class="main__block-name">New Products</h3>
-        <button class="main__btn-view">Viev all</button>
+        <button class="main__btn-view">View all</button>
       </div>
       <div class="main__slider-container">
         <div class="main__item-slider">
