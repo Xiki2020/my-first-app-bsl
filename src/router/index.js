@@ -1,9 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../components/Home.vue'
-import ComparisonList from '../components/ComparisonList.vue'
-import Basket from '../components/Basket.vue'
-import PersonalArea from '../components/PersonalArea.vue'
+import HomePage from '../pages/Home.vue'
+import WishListPage from '../pages/WishList.vue'
+import CartPage from '../pages/Cart.vue'
+import PersonalAreaPage from '../components/PersonalArea.vue'
 
+// TODO: https://vueschool.io/articles/vuejs-tutorials/how-to-structure-a-large-scale-vue-js-application/ изучить подходы к структурированию проектов.
 
 const routes = [
   {
@@ -14,17 +15,17 @@ const routes = [
   {
     path: '/wishlist',
     name: 'ComparisonList',
-    component: ComparisonList
+    component: WishListPage
   },
   {
     path: '/cart',
     name: 'Basket',
-    component: Basket
+    component: CartPage
   },
   {
     path: '/lk',
     name: 'PersonalArea',
-    component: PersonalArea
+    component: PersonalAreaPage
   },
 ]
 
