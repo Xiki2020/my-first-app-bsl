@@ -4,7 +4,10 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
+// TODO: https://sass-scss.ru/ изучить и начать применять
+$red: #534958;
+
 // TODO: scoped
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 :root {
@@ -22,8 +25,8 @@ h1 {
 .container {
   max-width: 100vw;
   height: 100vh;
-
   margin: 0 auto;
   overflow: hidden;
+  color: $red;
 }
 </style>
