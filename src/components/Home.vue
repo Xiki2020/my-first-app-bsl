@@ -312,6 +312,8 @@ export default {
 </script>
 
 <style scoped>
+
+// TODO: PostCSS Sorting - попробуй использовать такой подход к сортировке свойств
 .header {
   width: 100%;
   height: 231px;
