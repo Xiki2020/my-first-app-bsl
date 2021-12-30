@@ -22,5 +22,7 @@ h1 {
   height: 100vh;
 
   margin: 0 auto;
+  overflow: hidden;
 }
 </style>
+// sdadasd
