@@ -1,4 +1,7 @@
 <template>
+  <!--
+    https://swiperjs.com/vue интегрировать плагин карусели в наше приложении
+  -->
   <header class="header">
     <div class="search">
       <input
