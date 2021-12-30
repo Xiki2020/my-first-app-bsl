@@ -127,7 +127,110 @@
     </div>
   </div>
   <main class="main">
-    <div class="main__content"></div>
+    <div class="main__content">
+      <div class="main__header">
+        <h3 class="main__block-name">New Products</h3>
+        <button class="main__btn-view">Viev all</button>
+      </div>
+      <div class="main__slider-container">
+        <div class="main__item-slider">
+          <div class="main__img-item">
+            <img
+              src="../assets/05e36463-7f7d-4cbd-b246-e7e1a804bffa.jpg"
+              alt="picture of a sneaker"
+              width="100%"
+            />
+          </div>
+          <p class="main__name-product">Nike React Miler</p>
+          <p class="main__color-product">5 Colors</p>
+          <div class="main__bottom">
+            <p class="main__price-product">$170.00</p>
+            <button class="main__btn-add-product">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6.5 5.5H11V6.5H6.5V11H5.5V6.5H1V5.5H5.5V1H6.5V5.5Z"
+                  fill="#3E4958"
+                  stroke="#3E4958"
+                  stroke-width="0.5"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="main__item-slider">
+          <div class="main__img-item">
+            <img
+              src="../assets/sneaker2.jpg"
+              alt="picture of a sneaker"
+              width="100%"
+            />
+          </div>
+          <p class="main__name-product">Nike Air Max 270</p>
+          <p class="main__color-product">5 Colors</p>
+          <div class="main__bottom">
+            <p class="main__price-product">$112.00</p>
+            <button class="main__btn-add-product">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6.5 5.5H11V6.5H6.5V11H5.5V6.5H1V5.5H5.5V1H6.5V5.5Z"
+                  fill="#3E4958"
+                  stroke="#3E4958"
+                  stroke-width="0.5"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="main__item-slider">
+          <div class="main__img-item">
+            <img
+              src="../assets/sneaker2.jpg"
+              alt="picture of a sneaker"
+              width="100%"
+            />
+          </div>
+          <p class="main__name-product">Nike Air Max 270</p>
+          <p class="main__color-product">5 Colors</p>
+          <div class="main__bottom">
+            <p class="main__price-product">$120.00</p>
+            <button class="main__btn-add-product">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6.5 5.5H11V6.5H6.5V11H5.5V6.5H1V5.5H5.5V1H6.5V5.5Z"
+                  fill="#3E4958"
+                  stroke="#3E4958"
+                  stroke-width="0.5"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <nav class="nav-main">
     <button class="nav-main__btn">
@@ -341,6 +444,138 @@ export default {
   background-color: #f7f8f9;
 
   border-radius: 25px;
+  padding: 0 9.6%;
+}
+
+.main__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 24px;
+}
+
+.main__block-name {
+  margin: 0;
+
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #3e4958;
+}
+
+.main__btn-view {
+  width: 73px;
+  height: 36px;
+
+  border-radius: 7px;
+  border: none;
+  outline: none;
+
+  background-color: var(--main-bg-color);
+
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 0em;
+  color: #ffffff;
+}
+
+.main__slider-container {
+  display: flex;
+
+  margin: 0 -4.5px;
+  padding-top: 19px;
+
+  text-align: center;
+}
+
+.main__item-slider {
+  width: 140px;
+  height: 233px;
+
+  margin: 0 4.5px;
+
+  padding: 8px;
+  padding-bottom: 15px;
+
+  border-radius: 16px;
+
+  background-color: #fefefe;
+}
+
+.main__img-item {
+  width: 125px;
+  height: 135px;
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.main__name-product {
+  height: 14px;
+  margin: 8px 0 3px;
+
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 17px;
+  letter-spacing: 0em;
+  color: #3e4958;
+}
+
+.main__color-product {
+  width: 54px;
+  height: 20px;
+
+  margin: 0 0 10px;
+
+  background-color: #d5dde0;
+  border-radius: 4px;
+
+  font-family: Montserrat;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: #ffffff;
+}
+
+.main__bottom {
+  padding-right: 9px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main__price-product {
+  margin: 0;
+
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0em;
+  color: #3e4958;
+}
+
+.main__btn-add-product {
+  height: 10px;
+  padding: 0;
+
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 
 .nav-main {
