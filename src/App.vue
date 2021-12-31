@@ -19,10 +19,11 @@ h1 {
   margin: 0;
 }
 .container {
-  max-width: 100vw;
-  height: 100vh;
+  max-width: 450px;
+  height: 812px;
 
   margin: 0 auto;
-  overflow: hidden;
+
+  position: relative;
 }
 </style>

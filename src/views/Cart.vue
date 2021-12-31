@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Basket",
+  name: "CartPage",
   props: {},
 };
 </script>

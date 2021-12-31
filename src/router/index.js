@@ -1,30 +1,30 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../components/Home.vue'
-import ComparisonList from '../components/ComparisonList.vue'
-import Basket from '../components/Basket.vue'
-import PersonalArea from '../components/PersonalArea.vue'
+import HomePage from '../views/Home.vue'
+import WishListPage from '../views/WishList.vue'
+import CartPage from '../views/Cart.vue'
+import PersonalAreaPage from '../views/PersonalArea.vue'
 
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'HomePage',
+    component: HomePage
   },
   {
     path: '/wishlist',
-    name: 'ComparisonList',
-    component: ComparisonList
+    name: 'WishListPage',
+    component: WishListPage
   },
   {
     path: '/cart',
-    name: 'Basket',
-    component: Basket
+    name: 'CartPage',
+    component: CartPage
   },
   {
     path: '/lk',
-    name: 'PersonalArea',
-    component: PersonalArea
+    name: 'PersonalAreaPage',
+    component: PersonalAreaPage
   },
 ]
 

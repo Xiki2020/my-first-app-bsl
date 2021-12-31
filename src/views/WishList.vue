@@ -1,10 +1,10 @@
 <template>
-  <h1>Личный кабинет</h1>
+  <h1>Список сравнения</h1>
 </template>
 
 <script>
 export default {
-  name: "PersonalArea",
+  name: "WishListPage",
   props: {},
 };
 </script>
