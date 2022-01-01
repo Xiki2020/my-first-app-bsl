@@ -1,3 +1,3 @@
 module.exports = {
-   publicPath: '/ my - first - app - bsl /'
+   publicPath: '/my-first-app-bsl/'
 }
