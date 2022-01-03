@@ -73,27 +73,28 @@ export default {
   props: {},
 };
 </script>
+
 <style scoped>
+.nav-main__btn:hover path {
+  fill: #4a5562;
+}
+
+.nav-main__btn path {
+  transition: all 0.2s linear;
+}
+
 .nav-main {
-  height: 68px;
-
-  position: sticky;
-  left: 0px;
-  bottom: 0px;
-
-  background-color: #ffffff;
-
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  background-color: #ffffff;
+  display: flex;
+  height: 68px;
+  justify-content: space-between;
 }
 .nav-main__btn {
-  width: 25%;
-  height: 100%;
-
-  border: none;
-  outline: none;
-
   background-color: #ffffff;
+  border: none;
+  height: 100%;
+  outline: none;
+  width: 25%;
 }
 </style>

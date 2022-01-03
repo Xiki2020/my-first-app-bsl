@@ -22,23 +22,8 @@
   </article>
   <header class="header">
     <div class="search">
-      <input
-        type="text"
-        class="search__input-text"
-        placeholder=""
-        id="search__input-text"
-      />
-      <label for="search__input-text" class="search__placeholder-input">
-        <div class="search__icon-placeholder">
-          <img
-            src="../assets/icon_search_input.png"
-            alt="icon search"
-            width="100%"
-          />
-        </div>
-        <p class="search__text-placeholder">Search</p>
-      </label>
-      <button class="search__btn-foto"></button>
+      <search-bar></search-bar>
+      <btn-search-photo></btn-search-photo>
     </div>
   </header>
   <div class="nav-filtr">
@@ -258,8 +243,10 @@
 
 <script>
 import TabBar from "../components/TabBar.vue";
+import SearchBar from "../components/SearchBar.vue";
+import BtnSearchPhoto from "../components/ButtonSearchPhoto.vue";
 export default {
-  components: { TabBar },
+  components: { TabBar, SearchBar, BtnSearchPhoto },
   name: "HomePage",
   props: {},
 };
@@ -376,68 +363,6 @@ export default {
   justify-content: space-between;
 
   position: relative;
-}
-
-.search__input-text,
-.search__btn-foto {
-  height: 100%;
-
-  border: none;
-  outline: none;
-  border-radius: 14px;
-  background-color: #f7f8f9;
-}
-
-.search__input-text {
-  width: 75%;
-
-  padding-left: 18px;
-
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  margin-right: 5px;
-}
-
-.search__btn-foto {
-  width: 60px;
-
-  background-image: url(../assets/icon_search_btn.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 25px;
-}
-
-.search__placeholder-input {
-  display: flex;
-  margin-left: 18px;
-
-  position: absolute;
-
-  transition: all 0.2s linear;
-}
-
-.search__icon-placeholder {
-  width: 20px;
-  height: 20px;
-}
-.search__text-placeholder {
-  margin: 0;
-  margin-left: 6.2px;
-
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-
-  color: #d5dde0;
-}
-
-.search__input-text:focus ~ .search__placeholder-input {
-  display: none;
 }
 
 .nav-filtr {
@@ -626,5 +551,15 @@ export default {
   border: none;
   outline: none;
   background-color: transparent;
+}
+
+.tab-bar {
+  bottom: 0px;
+  left: 0px;
+  position: sticky;
+}
+
+.search-bar {
+  width: 75%;
 }
 </style>
