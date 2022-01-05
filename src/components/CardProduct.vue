@@ -1,16 +1,12 @@
 <template>
   <div class="card">
     <div class="card__img-item">
-      <img
-        src="../assets/05e36463-7f7d-4cbd-b246-e7e1a804bffa.jpg"
-        alt="picture of a sneaker"
-        width="100%"
-      />
+      <img :src="card.img" alt="picture of a sneaker" />
     </div>
-    <p class="card__name-product">Nike React Miler</p>
-    <p class="card__color-product">5 Colors</p>
+    <p class="card__name-product">{{ card.name }}</p>
+    <p class="card__color-product">{{ card.countColors }} Colors</p>
     <div class="card__bottom">
-      <p class="card__price-product">$170.00</p>
+      <p class="card__price-product">{{ card.price }}</p>
       <button class="card__btn-add-product">
         <svg
           width="12"
@@ -35,7 +31,17 @@
 <script>
 export default {
   name: "CardProduct",
-  props: {},
+  props: {
+    card: {
+      type: Object,
+      reqired: true,
+    },
+  },
+  data() {
+    return {
+      test: this.card.img,
+    };
+  },
 };
 </script>
 <style scoped>
@@ -54,6 +60,11 @@ export default {
   height: 135px;
   overflow: hidden;
   width: 125px;
+}
+
+.card__img-item img {
+  width: 100%;
+  height: 100%;
 }
 
 .card__name-product {

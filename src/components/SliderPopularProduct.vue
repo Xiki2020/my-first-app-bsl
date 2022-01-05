@@ -2,16 +2,12 @@
   <article class="popular-product">
     <div class="popular-product__content">
       <div class="popular-product__pictures-product">
-        <img
-          src="../assets/popular-sneaker.jpg"
-          alt="picture of a sneaker"
-          width="100%"
-        />
+        <img src="../assets/popular-sneaker.jpg" alt="picture of a sneaker" />
       </div>
       <div class="popular-product__description-product">
         <h3 class="popular-product__header">Popular</h3>
         <p class="popular-product__model-product">Air Max 2090</p>
-        <button class="popular-product__btn-buy">Buy now</button>
+        <btn :btnInfo="btnBuy"></btn>
       </div>
     </div>
     <div class="popular-product__control-slider">
@@ -22,13 +18,28 @@
   </article>
 </template>
 <script>
+import Btn from "@/components/Btn.vue";
 export default {
+  components: {
+    Btn,
+  },
   name: "SliderPopularProduct",
   props: {},
+  data() {
+    return {
+      btnBuy: {
+        text: "Buy now",
+      },
+    };
+  },
 };
 </script>
 
 <style scoped>
+.btn {
+  background-color: #3e4958;
+}
+
 .popular-product {
   background-color: #ffffff;
   border-radius: 19px;
@@ -50,6 +61,11 @@ export default {
   height: 94px;
   overflow: hidden;
   width: 164px;
+}
+
+.popular-product__pictures-product img {
+  height: 100%;
+  width: 100%;
 }
 
 .popular-product__description-product {
@@ -76,21 +92,6 @@ export default {
   line-height: 17px;
   letter-spacing: 0em;
   margin: 0 0 8px;
-}
-
-.popular-product__btn-buy {
-  background-color: #3e4958;
-  border: none;
-  border-radius: 7px;
-  color: #ffffff;
-  font-family: Montserrat;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 15px;
-  letter-spacing: 0em;
-  height: 36px;
-  width: 73px;
 }
 
 .popular-product__control-slider {
