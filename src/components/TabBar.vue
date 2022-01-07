@@ -1,6 +1,6 @@
 <template>
   <nav class="nav-main">
-    <button class="nav-main__btn">
+    <button class="nav-main__btn" @click="$router.push({ name: 'HomePage' })">
       <svg
         width="25"
         height="23"
@@ -17,7 +17,10 @@
         <!-- fill изменение цвета иконки -->
       </svg>
     </button>
-    <button class="nav-main__btn">
+    <button
+      class="nav-main__btn"
+      @click="$router.push({ name: 'WishListPage' })"
+    >
       <svg
         width="25"
         height="22"
@@ -33,7 +36,7 @@
         />
       </svg>
     </button>
-    <button class="nav-main__btn">
+    <button class="nav-main__btn" @click="$router.push({ name: 'CartPage' })">
       <svg
         width="22"
         height="22"
@@ -49,7 +52,10 @@
         />
       </svg>
     </button>
-    <button class="nav-main__btn">
+    <button
+      class="nav-main__btn"
+      @click="$router.push({ name: 'PersonalAreaPage' })"
+    >
       <svg
         width="22"
         height="22"
