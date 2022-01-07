@@ -8,6 +8,7 @@
       <btn-search-photo></btn-search-photo>
     </div>
   </header>
+
   <nav-filtr></nav-filtr>
   <main class="main">
     <div class="main__content">

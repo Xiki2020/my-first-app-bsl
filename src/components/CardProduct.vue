@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card__img-item">
-      <img :src="card.img" alt="picture of a sneaker" />
+      <img :src="require('../assets/' + card.img)" alt="picture of a sneaker" />
     </div>
     <p class="card__name-product">{{ card.name }}</p>
     <p class="card__color-product">{{ card.countColors }} Colors</p>
