@@ -17,11 +17,9 @@ h1 {
   margin: 0;
 }
 .container {
-  max-width: 450px;
   height: 812px;
-
   margin: 0 auto;
-
+  max-width: 450px;
   position: relative;
 }
 </style>
