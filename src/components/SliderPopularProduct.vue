@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .btn {
   background-color: #3e4958;
 }
@@ -61,11 +61,10 @@ export default {
   height: 94px;
   overflow: hidden;
   width: 164px;
-}
-
-.popular-product__pictures-product img {
-  height: 100%;
-  width: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .popular-product__description-product {

@@ -80,7 +80,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .nav-main__btn:hover path {
   fill: #4a5562;
 }

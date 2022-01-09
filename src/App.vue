@@ -4,11 +4,9 @@
   </div>
 </template>
 
-<style>
+<style  lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
-:root {
-  --main-bg-color: #1152fd;
-}
+$main-bg-color: #1152fd;
 * {
   box-sizing: border-box;
 }

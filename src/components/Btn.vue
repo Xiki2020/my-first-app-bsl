@@ -1,5 +1,5 @@
 <template>
-  <button class="btn">{{ btnInfo.text }}l</button>
+  <button class="btn">{{ btnInfo.text }}</button>
 </template>
 
 <script>
@@ -14,9 +14,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$main-bg-color: #1152fd;
 .btn {
-  background-color: var(--main-bg-color);
+  background-color: $main-bg-color;
   border: none;
   border-radius: 7px;
   color: #ffffff;

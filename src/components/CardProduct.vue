@@ -44,7 +44,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style  lang="scss" scoped>
 .card {
   background-color: #fefefe;
   border-radius: 16px;
@@ -60,11 +60,10 @@ export default {
   height: 135px;
   overflow: hidden;
   width: 125px;
-}
-
-.card__img-item img {
-  width: 100%;
-  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .card__name-product {

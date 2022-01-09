@@ -8,7 +8,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .search-btn-foto {
   background-image: url(../assets/icon_search_btn.png);
   background-position: center;
