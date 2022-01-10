@@ -31,7 +31,7 @@ export default {
       cards: [
         {
           name: "Nike React Miler",
-          img: "05e36463-7f7d-4cbd-b246-e7e1a804bffa.jpg",
+          img: "product-temp.jpg",
           price: "$170.00",
           countColors: 5,
         },

@@ -7,7 +7,12 @@
       <div class="popular-product__description-product">
         <h3 class="popular-product__header">Popular</h3>
         <p class="popular-product__model-product">Air Max 2090</p>
-        <btn :btnInfo="btnBuy"></btn>
+        <Btn
+          class="popular-product__btn"
+          text="Buy now"
+          varaint="primary"
+          size="lg"
+        />
       </div>
     </div>
     <div class="popular-product__control-slider">
@@ -17,27 +22,26 @@
     </div>
   </article>
 </template>
+
 <script>
 import Btn from "@/components/Btn.vue";
+
 export default {
   components: {
     Btn,
   },
   name: "SliderPopularProduct",
-  props: {},
-  data() {
-    return {
-      btnBuy: {
-        text: "Buy now",
-      },
-    };
-  },
+  props: {}
 };
 </script>
 
 <style lang="scss" scoped>
 .btn {
   background-color: #3e4958;
+}
+
+.popular-product__btn {
+
 }
 
 .popular-product {

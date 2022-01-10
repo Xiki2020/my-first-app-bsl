@@ -1,50 +1,54 @@
 <template>
-  <slider-popular-product
+  <SliderPopularProduct
     class="slider-popular-product"
-  ></slider-popular-product>
+  />
   <header class="header">
-    <div class="search">
-      <search-bar></search-bar>
-      <btn-search-photo></btn-search-photo>
-    </div>
+    <Search />
   </header>
 
-  <nav-filtr></nav-filtr>
+  <NavFilter />
   <main class="main">
     <div class="main__content">
       <div class="main__header">
         <h3 class="main__block-name">New Products</h3>
-        <btn :btnInfo="btnView"></btn>
+        <Btn
+          class="main__btn"
+          text="View All"
+          style="padding"
+        />
       </div>
       <div class="main__slider-container">
-        <card-product
+        <CardProduct
           v-for="card in cards"
           :key="card.name"
           :card="card"
-        ></card-product>
+        />
       </div>
     </div>
+
+    <ProductsCarousel />
   </main>
   <tab-bar></tab-bar>
 </template>
 
 <script>
 import TabBar from "@/components/TabBar.vue";
-import SearchBar from "@/components/SearchBar.vue";
-import BtnSearchPhoto from "@/components/ButtonSearchPhoto.vue";
 import SliderPopularProduct from "@/components/SliderPopularProduct.vue";
-import NavFiltr from "@/components/NavFiltr.vue";
+import NavFilter from "@/components/NavFilter.vue";
 import CardProduct from "@/components/CardProduct.vue";
+import Search from "@/components/Search/index.vue";
 import Btn from "@/components/Btn.vue";
+import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
+
 export default {
   components: {
     TabBar,
-    SearchBar,
-    BtnSearchPhoto,
+    Search,
     SliderPopularProduct,
-    NavFiltr,
+    NavFilter,
     CardProduct,
     Btn,
+    ProductsCarousel
   },
   name: "HomePage",
   props: {
@@ -52,14 +56,7 @@ export default {
       type: Array,
       reqired: true,
     },
-  },
-  data() {
-    return {
-      btnView: {
-        text: "View all",
-      },
-    };
-  },
+  }
 };
 </script>
 
@@ -100,7 +97,6 @@ $main-bg-color: #1152fd;
 .main__header {
   align-items: center;
   display: flex;
-  justify-content: space-between;
   padding-top: 24px;
 }
 
@@ -117,8 +113,7 @@ $main-bg-color: #1152fd;
 }
 
 .main__btn {
-  height: 36px;
-  width: 73px;
+  margin-left: auto;
 }
 
 .main__slider-container {

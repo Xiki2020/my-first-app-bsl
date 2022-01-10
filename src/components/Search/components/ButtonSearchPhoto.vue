@@ -10,7 +10,7 @@ export default {
 
 <style lang="scss" scoped>
 .search-btn-foto {
-  background-image: url(../assets/icon_search_btn.png);
+  background-image: url('~@/assets/icon_search_btn.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 25px;

@@ -9,8 +9,7 @@
     <label for="search-bar__input-text" class="search-bar__placeholder-input">
       <div class="search-bar__icon-placeholder">
         <img
-          src="../assets/icon_search_input.png"
-          alt="icon search"
+          :src="require('@/assets/icon_search_input.png')"
           width="100%"
         />
       </div>
@@ -20,8 +19,7 @@
 </template>
 <script>
 export default {
-  name: "SearchBar",
-  props: {},
+  name: "SearchBar"
 };
 </script>
 
