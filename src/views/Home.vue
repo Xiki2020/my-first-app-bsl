@@ -1,31 +1,11 @@
 <template>
-  <SliderPopularProduct
-    class="slider-popular-product"
-  />
+  <SliderPopularProduct class="slider-popular-product" />
   <header class="header">
     <Search />
   </header>
 
   <NavFilter />
   <main class="main">
-    <div class="main__content">
-      <div class="main__header">
-        <h3 class="main__block-name">New Products</h3>
-        <Btn
-          class="main__btn"
-          text="View All"
-          style="padding"
-        />
-      </div>
-      <div class="main__slider-container">
-        <CardProduct
-          v-for="card in cards"
-          :key="card.name"
-          :card="card"
-        />
-      </div>
-    </div>
-
     <ProductsCarousel />
   </main>
   <tab-bar></tab-bar>
@@ -35,9 +15,9 @@
 import TabBar from "@/components/TabBar.vue";
 import SliderPopularProduct from "@/components/SliderPopularProduct.vue";
 import NavFilter from "@/components/NavFilter.vue";
-import CardProduct from "@/components/CardProduct.vue";
+
 import Search from "@/components/Search/index.vue";
-import Btn from "@/components/Btn.vue";
+
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 
 export default {
@@ -46,9 +26,7 @@ export default {
     Search,
     SliderPopularProduct,
     NavFilter,
-    CardProduct,
-    Btn,
-    ProductsCarousel
+    ProductsCarousel,
   },
   name: "HomePage",
   props: {
@@ -56,7 +34,7 @@ export default {
       type: Array,
       reqired: true,
     },
-  }
+  },
 };
 </script>
 
@@ -84,43 +62,6 @@ $main-bg-color: #1152fd;
   overflow: hidden;
   padding-top: 24px;
   width: 100%;
-}
-
-.main__content {
-  background-color: #f7f8f9;
-  border-radius: 25px 25px 0 0;
-  height: 100%;
-  padding: 0 9.6%;
-  width: 100%;
-}
-
-.main__header {
-  align-items: center;
-  display: flex;
-  padding-top: 24px;
-}
-
-.main__block-name {
-  color: #3e4958;
-  font-family: Montserrat;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0em;
-  line-height: 22px;
-  margin: 0;
-  text-align: left;
-}
-
-.main__btn {
-  margin-left: auto;
-}
-
-.main__slider-container {
-  display: flex;
-  margin: 0 -4.5px;
-  padding-top: 19px;
-  text-align: center;
 }
 
 .tab-bar {
