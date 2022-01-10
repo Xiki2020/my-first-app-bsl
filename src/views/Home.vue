@@ -127,6 +127,13 @@ $main-bg-color: #1152fd;
   bottom: 0px;
   left: 0px;
   position: sticky;
+  path {
+    fill: red;
+  }
+}
+
+.tab-bar__home {
+  fill: red;
 }
 
 .search-bar {
