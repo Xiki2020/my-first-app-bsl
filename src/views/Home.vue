@@ -5,8 +5,11 @@
   </header>
 
   <NavFilter />
+
   <main class="main">
-    <ProductsCarousel />
+    <ProductsCarousel
+      :products="cards"
+    />
   </main>
   <tab-bar></tab-bar>
 </template>
@@ -21,6 +24,8 @@ import Search from "@/components/Search/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 
 export default {
+  name: "HomePage",
+
   components: {
     TabBar,
     Search,
@@ -28,13 +33,47 @@ export default {
     NavFilter,
     ProductsCarousel,
   },
-  name: "HomePage",
-  props: {
-    cards: {
-      type: Array,
-      reqired: true,
-    },
+
+  data () {
+    return {
+      cards: []
+    }
   },
+
+  created () {
+    this.fetchProducts()
+  },
+
+  methods: {
+    fetchProducts () {
+      this.cards = [
+        {
+          name: "Nike React Miler",
+          img: "product-temp.jpg",
+          price: "$170.00",
+          countColors: 5,
+        },
+        {
+          name: "Nike Air Max 270",
+          img: "sneaker2.jpg",
+          price: "$112.00",
+          countColors: 5,
+        },
+        {
+          name: "Air Max 2090",
+          img: "popular-sneaker.jpg",
+          price: "$200.00",
+          countColors: 6,
+        },
+        {
+          name: "Air Max 2090",
+          img: "popular-sneaker.jpg",
+          price: "$200.00",
+          countColors: 6,
+        }
+      ]
+    }
+  }
 };
 </script>
 

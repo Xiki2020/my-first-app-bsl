@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <router-view :cards="cards" />
+    header
+    <router-view />
+    footer
   </div>
 </template>
 
@@ -23,32 +25,3 @@ h1 {
   position: relative;
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      cards: [
-        {
-          name: "Nike React Miler",
-          img: "product-temp.jpg",
-          price: "$170.00",
-          countColors: 5,
-        },
-        {
-          name: "Nike Air Max 270",
-          img: "sneaker2.jpg",
-          price: "$112.00",
-          countColors: 5,
-        },
-        {
-          name: "Air Max 2090",
-          img: "popular-sneaker.jpg",
-          price: "$200.00",
-          countColors: 6,
-        },
-      ],
-    };
-  },
-};
-</script>

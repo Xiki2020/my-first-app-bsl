@@ -1,13 +1,14 @@
 <template>
   <div class="card">
-    <div class="card__img-item">
-      <img :src="require(`@/assets/${card.img}`)" />
-    </div>
-    <p class="card__name-product">{{ card.name }}</p>
-    <p class="card__color-product">{{ card.countColors }} Colors</p>
-    <div class="card__bottom">
-      <p class="card__price-product">{{ card.price }}</p>
-      <button class="card__btn-add-product">
+    <img
+      class="card-product__img"
+      :src="require(`@/assets/${product.img}`)"
+    />
+    <div class="card-product__name">{{ product.name }}</div>
+    <div class="card-product__colors">{{ product.countColors }} Colors</div>
+    <div class="card-product__bottom">
+      <p class="card-product__price-product">{{ product.price }}</p>
+      <button class="card-product__btn-add-product">
         <svg
           width="12"
           height="12"
@@ -32,75 +33,60 @@
 export default {
   name: "CardProduct",
   props: {
-    card: {
+    product: {
       type: Object,
       reqired: true,
     },
-  },
-  data() {
-    return {
-      test: this.card.img,
-    };
-  },
+  }
 };
 </script>
 <style  lang="scss" scoped>
 .card {
   background-color: #fefefe;
-  border-radius: 16px;
-  height: 233px;
-  margin: 0 4.5px;
-  padding: 8px;
-  padding-bottom: 15px;
-  width: 140px;
-}
-
-.card__img-item {
-  border-radius: 10px;
-  height: 135px;
-  overflow: hidden;
-  width: 125px;
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.card__name-product {
-  color: #3e4958;
   font-family: Montserrat;
+  border-radius: 16px;
+  padding: 10px 8px;
+}
+
+.card-product__img {
+  border-radius: 10px;
+  object-fit: contain;
+  aspect-ratio: 125 / 135;
+  width: 100%;
+  height: 100%;
+}
+
+.card-product__name {
+  color: #3e4958;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  height: 14px;
-  letter-spacing: 0em;
-  line-height: 17px;
-  margin: 8px 0 3px;
+  line-height: 1.15;
+  margin-top: 10px;
 }
 
-.card__color-product {
-  background-color: #d5dde0;
+.card-product__colors {
+  background-color: #9ea8ac;
   border-radius: 4px;
   color: #ffffff;
-  font-family: Montserrat;
   font-size: 9px;
   font-style: normal;
   font-weight: 600;
   height: 20px;
   letter-spacing: 0em;
   line-height: 20px;
-  margin: 0 0 10px;
+  margin-top: 10px;
   width: 54px;
 }
 
-.card__bottom {
+.card-product__bottom {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-right: 9px;
+  margin-top: 10px;
 }
 
-.card__price-product {
+.card-product__price-product {
   color: #3e4958;
   font-family: Montserrat;
   font-size: 14px;
@@ -111,7 +97,7 @@ export default {
   margin: 0;
 }
 
-.card__btn-add-product {
+.card-product__btn-add-product {
   background-color: transparent;
   border: none;
   height: 10px;
