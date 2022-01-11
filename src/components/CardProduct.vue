@@ -58,6 +58,9 @@ export default {
   font-weight: 600;
   line-height: 1.15;
   margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-product__colors {

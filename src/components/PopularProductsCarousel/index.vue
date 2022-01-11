@@ -5,16 +5,10 @@
     :pagination="{
       clickable: true,
     }"
-    class="swiper"
+    class="slider-popular-product"
   >
-    <SwiperSlide>
-      <CardPopularProduct style="width: 100%" />
-    </SwiperSlide>
-    <SwiperSlide>
-      <CardPopularProduct style="width: 100%" />
-    </SwiperSlide>
-    <SwiperSlide>
-      <CardPopularProduct style="width: 100%" />
+    <SwiperSlide v-for="(product, index) in products" :key="index">
+      <CardPopularProduct style="width: 100%" :product="product" />
     </SwiperSlide>
   </Swiper>
 </template>
@@ -37,18 +31,19 @@ export default {
     CardPopularProduct,
   },
 
-  date() {
-    return {};
-  },
-
   name: "PopularProductsCarousel",
 
-  props: {},
+  props: {
+    products: {
+      type: Array,
+      reqired: true,
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.swiper {
+.slider-popular-product {
   height: 145px;
   background-color: #ffffff;
   border-radius: 19px;

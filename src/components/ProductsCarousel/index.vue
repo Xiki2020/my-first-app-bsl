@@ -60,10 +60,6 @@ export default {
   width: 100%;
 }
 
-.products-carousel__slide {
-  max-width: 140px;
-}
-
 .products-carousel__header {
   align-items: center;
   display: flex;
@@ -82,7 +78,7 @@ export default {
 }
 
 .products-carousel__body {
-  margin-right: -140px;
+  margin-right: -100px;
   padding-left: 36px;
 }
 </style>
