@@ -1,13 +1,19 @@
 <template>
-  <button class="btn">{{ btnInfo.text }}</button>
+  <button class="btn" :class="`btn-${variant}`">{{ text }}</button>
 </template>
 
 <script>
 export default {
   name: "Btn",
   props: {
-    btnInfo: {
-      type: Object,
+    text: {
+      type: String,
+      reqired: true,
+    },
+
+    variant: {
+      type: String,
+      default: () => "primary",
       reqired: true,
     },
   },
@@ -16,19 +22,24 @@ export default {
 
 <style lang="scss" scoped>
 $main-bg-color: #1152fd;
+
 .btn {
-  background-color: $main-bg-color;
   border: none;
   border-radius: 7px;
   color: #ffffff;
-  font-family: Montserrat;
   font-size: 12px;
-  font-style: normal;
   font-weight: 600;
   height: 36px;
-  letter-spacing: 0em;
   line-height: 15px;
   outline: none;
   width: 73px;
+}
+
+.btn-primary {
+  background-color: $main-bg-color;
+}
+
+.btn-gray {
+  background-color: #555;
 }
 </style>

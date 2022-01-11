@@ -3,12 +3,9 @@
 </template>
 
 <script>
-// import Carousel from "@/components/testSwiper.vue";
 export default {
   name: "CartPage",
   props: {},
-  components: {
-    // Carousel,
-  },
+  components: {},
 };
 </script>
