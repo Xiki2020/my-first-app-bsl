@@ -56,7 +56,7 @@ export default {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 16px 36px 20px;
+  padding: 16px 36px 19px;
 }
 
 .products-carousel__title {
