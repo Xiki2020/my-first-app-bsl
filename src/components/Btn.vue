@@ -1,5 +1,11 @@
 <template>
-  <button class="btn" :class="`btn-${variant}`">{{ text }}</button>
+  <button
+    class="btn"
+    :class="`btn-${variant}`"
+    @click="$router.push({ name: 'Temp' })"
+  >
+    {{ text }}
+  </button>
 </template>
 
 <script>
@@ -33,6 +39,7 @@ $main-bg-color: #1152fd;
   line-height: 15px;
   outline: none;
   width: 73px;
+  white-space: nowrap;
 }
 
 .btn-primary {

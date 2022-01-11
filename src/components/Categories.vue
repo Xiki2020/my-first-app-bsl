@@ -1,7 +1,7 @@
 <template>
   <div class="сategories">
     <div class="сategories__wrapper-btn">
-      <button class="сategories__btn">
+      <button class="сategories__btn" @click="$router.push({ name: 'Temp' })">
         <svg
           width="19"
           height="27"
@@ -20,7 +20,7 @@
       <div class="сategories__name-btn">Men</div>
     </div>
     <div class="сategories__wrapper-btn">
-      <button class="сategories__btn">
+      <button class="сategories__btn" @click="$router.push({ name: 'Temp' })">
         <svg
           width="23"
           height="27"
@@ -39,7 +39,7 @@
       <div class="сategories__name-btn">Women</div>
     </div>
     <div class="сategories__wrapper-btn">
-      <button class="сategories__btn">
+      <button class="сategories__btn" @click="$router.push({ name: 'Temp' })">
         <svg
           width="30"
           height="27"
@@ -76,7 +76,7 @@
       <div class="сategories__name-btn">Kids</div>
     </div>
     <div class="сategories__wrapper-btn">
-      <button class="сategories__btn">
+      <button class="сategories__btn" @click="$router.push({ name: 'Temp' })">
         <svg
           width="25"
           height="26"

@@ -1,10 +1,13 @@
 <template>
-  <PopularProductsCarousel class="slider-popular-product" />
+  <PopularProductsCarousel
+    class="slider-popular-product"
+    :products="products"
+  />
 
   <Categories />
 
   <main class="main">
-    <ProductsCarousel :products="cards" />
+    <ProductsCarousel :products="products" />
   </main>
 </template>
 
@@ -24,7 +27,7 @@ export default {
 
   data() {
     return {
-      cards: [],
+      products: [],
     };
   },
 
@@ -34,7 +37,7 @@ export default {
 
   methods: {
     fetchProducts() {
-      this.cards = [
+      this.products = [
         {
           name: "Nike React Miler",
           img: "product-temp.jpg",

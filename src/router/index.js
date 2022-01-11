@@ -3,6 +3,7 @@ import HomePage from '../views/Home.vue'
 import WishListPage from '../views/WishList.vue'
 import CartPage from '../views/Cart.vue'
 import PersonalAreaPage from '../views/PersonalArea.vue'
+import Temp from '../views/Temp.vue'
 
 
 const routes = [
@@ -25,6 +26,11 @@ const routes = [
     path: '/lk',
     name: 'PersonalAreaPage',
     component: PersonalAreaPage
+  },
+  {
+    path: '/tm',
+    name: 'Temp',
+    component: Temp
   },
 ]
 
