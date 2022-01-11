@@ -3,26 +3,24 @@
     class="slider-popular-product"
     :products="products"
   />
-
   <Categories />
-
-  <main class="main">
+  <div class="wrapper-carousel-product">
     <ProductsCarousel :products="products" />
-  </main>
+  </div>
 </template>
 
 <script>
 import Categories from "@/components/Categories.vue";
-import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
+import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 
 export default {
   name: "HomePage",
 
   components: {
     Categories,
-    ProductsCarousel,
     PopularProductsCarousel,
+    ProductsCarousel,
   },
 
   data() {
@@ -71,7 +69,7 @@ export default {
 <style lang="scss" scoped>
 $main-bg-color: #1152fd;
 
-.main {
+.wrapper-carousel-product {
   height: 100%;
   overflow: hidden;
   padding-top: 24px;

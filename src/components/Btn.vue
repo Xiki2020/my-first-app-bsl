@@ -1,11 +1,11 @@
 <template>
-  <button
+  <div
     class="btn"
     :class="`btn-${variant}`"
     @click="$router.push({ name: 'Temp' })"
   >
     {{ text }}
-  </button>
+  </div>
 </template>
 
 <script>
@@ -27,23 +27,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$main-bg-color: #1152fd;
-
 .btn {
-  border: none;
   border-radius: 7px;
   color: #ffffff;
   font-size: 12px;
   font-weight: 600;
   height: 36px;
-  line-height: 15px;
-  outline: none;
+  line-height: 36px;
+  text-align: center;
   width: 73px;
   white-space: nowrap;
 }
 
 .btn-primary {
-  background-color: $main-bg-color;
+  background-color: #1152fd;
 }
 
 .btn-gray {

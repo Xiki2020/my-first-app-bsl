@@ -2,15 +2,13 @@
   <div class="search-bar">
     <input
       type="text"
-      class="search-bar__input-text"
-      placeholder=""
-      id="search-bar__input-text"
+      class="search-bar__input"
+      id="search-bar__input"
+      @keypress.enter="$router.push({ name: 'Temp' })"
     />
-    <label for="search-bar__input-text" class="search-bar__placeholder-input">
-      <div class="search-bar__icon-placeholder">
-        <img :src="require('@/assets/icon_search_input.png')" width="100%" />
-      </div>
-      <p class="search-bar__text-placeholder">Search</p>
+    <label for="search-bar__input" class="search-bar__placeholder">
+      <img src="@/assets/icon_search_input.png" />
+      <div class="search-bar__text-placeholder">Search</div>
     </label>
   </div>
 </template>
@@ -28,22 +26,13 @@ export default {
   width: 75%;
 }
 
-.search-bar__placeholder-input {
-  display: flex;
-  margin-left: 18px;
-  position: absolute;
-  transition: all 0.2s linear;
-}
-
-.search-bar__input-text {
+.search-bar__input {
   background-color: #f7f8f9;
   border: none;
   border-radius: 14px;
-  font-family: Montserrat;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 17px;
+  line-height: 1.25;
   margin-right: 5px;
   height: 100%;
   outline: none;
@@ -51,22 +40,26 @@ export default {
   width: 100%;
 }
 
-.search-bar__icon-placeholder {
-  height: 20px;
-  width: 20px;
+.search-bar__placeholder {
+  cursor: text;
+  display: flex;
+  margin-left: 18px;
+  position: absolute;
+
+  img {
+    height: 20px;
+    width: 20px;
+  }
 }
 .search-bar__text-placeholder {
   color: #d5dde0;
-  font-family: Montserrat;
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 17px;
-  margin: 0;
+  line-height: 1.25;
   margin-left: 6.2px;
 }
 
-.search-bar__input-text:focus ~ .search-bar__placeholder-input {
+.search-bar__input:focus ~ .search-bar__placeholder {
   display: none;
 }
 </style>

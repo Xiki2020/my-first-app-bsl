@@ -137,7 +137,7 @@ export default {
   color: #3e4958;
   font-size: 12px;
   font-weight: 600;
-  line-height: 15px;
+  line-height: 1.25;
   margin-top: 8px;
   width: 100%;
 }

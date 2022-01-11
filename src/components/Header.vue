@@ -16,9 +16,8 @@ export default {
 };
 </script>
 <style  lang="scss" scoped>
-$main-bg-color: #1152fd;
 .header {
-  background-color: $main-bg-color;
+  background-color: #1152fd;
   border-radius: 0 0 38px 38px;
   height: 231px;
   padding: 53px 9.6% 0;
