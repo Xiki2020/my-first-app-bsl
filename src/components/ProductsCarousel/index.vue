@@ -2,19 +2,11 @@
   <div class="products-carousel" ref="container">
     <div class="products-carousel__header">
       <div class="products-carousel__title">New Products</div>
-      <Btn class="products-carousel__btn" text="View All" />
+      <Btn text="View All" />
     </div>
     <div class="products-carousel__body">
-      <Swiper
-        class="products-carousel__carousel"
-        :slides-per-view="3"
-        :space-between="10"
-      >
-        <SwiperSlide
-          class="products-carousel__slide"
-          v-for="(product, index) in products"
-          :key="index"
-        >
+      <Swiper :slides-per-view="3" :space-between="10">
+        <SwiperSlide v-for="(product, index) in products" :key="index">
           <CardProduct style="height: 100%; width: 100%" :product="product" />
         </SwiperSlide>
         <SwiperSlide></SwiperSlide>
@@ -24,20 +16,20 @@
 </template>
 
 <script>
+import Btn from "@/components/Btn.vue";
 import CardProduct from "@/components/CardProduct.vue";
 import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
-// Styles must use direct files imports
-import "swiper/swiper.scss"; // core Swiper
-import "swiper/modules/navigation/navigation.scss"; // Navigation module
-import "swiper/modules/pagination/pagination.scss"; // Pagination module
 
-import Btn from "@/components/Btn.vue";
+import "swiper/swiper.scss";
+import "swiper/modules/navigation/navigation.scss";
+import "swiper/modules/pagination/pagination.scss";
+
 export default {
   components: {
+    Btn,
     CardProduct,
     Swiper,
     SwiperSlide,
-    Btn,
   },
 
   name: "ProductsCarousel",
@@ -63,6 +55,7 @@ export default {
 .products-carousel__header {
   align-items: center;
   display: flex;
+  justify-content: space-between;
   padding: 16px 36px 20px;
 }
 
@@ -70,11 +63,7 @@ export default {
   color: #3e4958;
   font-size: 18px;
   font-weight: 700;
-  line-height: 22px;
-}
-
-.products-carousel__btn {
-  margin-left: auto;
+  line-height: 1.25;
 }
 
 .products-carousel__body {

@@ -79,18 +79,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav__btn:hover {
-  path {
-    fill: #4a5562;
-  }
-}
-
-.nav__btn {
-  path {
-    transition: all 0.2s linear;
-  }
-}
-
 .nav {
   align-items: center;
   background-color: #ffffff;
@@ -99,11 +87,22 @@ export default {
   height: 68px;
   justify-content: space-between;
 }
+
 .nav__btn {
   background-color: #ffffff;
   border: none;
   height: 100%;
   outline: none;
   width: 25%;
+
+  path {
+    transition: all 0.2s linear;
+  }
+}
+
+.nav__btn:hover {
+  path {
+    fill: #4a5562;
+  }
 }
 </style>

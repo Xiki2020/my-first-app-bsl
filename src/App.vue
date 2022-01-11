@@ -16,6 +16,24 @@ export default {
     NavBar,
     Header,
   },
+  // date() {
+  //   return {
+  //     url: "",
+  //     navBarUrl: [],
+  //     ifNavBar: true,
+  //   };
+  // },
+  // created() {
+  //   this.getUrl();
+  // },
+  // methods: {
+  //   getUrl() {
+  //     this.url = window.location.href.split("/");
+  //     this.navBarUrl = ["", "lk", "wishlist"];
+  //     this.ifNavBar = this.navBarUrl.includes(this.url[this.url.length - 1]);
+  //     console.log(this.ifNavBar);
+  //   },
+  // },
 };
 </script>
 
