@@ -46,7 +46,7 @@ export default {
   border: 0.5px solid #d5dde0;
   border-radius: 10px;
   height: 94px;
-  object-fit: cover;
+  object-fit: fill;
   width: 60%;
 }
 
