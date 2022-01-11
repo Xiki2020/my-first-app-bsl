@@ -16,12 +16,6 @@ export default {
       default: () => "primary",
       reqired: true,
     },
-
-    size: {
-      type: String,
-      default: () => "primary",
-      reqired: true,
-    },
   },
 };
 </script>
@@ -30,7 +24,6 @@ export default {
 $main-bg-color: #1152fd;
 
 .btn {
-  background-color: #555;
   border: none;
   border-radius: 7px;
   color: #ffffff;
@@ -44,5 +37,9 @@ $main-bg-color: #1152fd;
 
 .btn-primary {
   background-color: $main-bg-color;
+}
+
+.btn-gray {
+  background-color: #555;
 }
 </style>

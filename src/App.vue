@@ -36,6 +36,7 @@ h1 {
   min-height: 100vh;
   margin: 0 auto;
   max-width: 450px;
+  padding-bottom: 68px;
   position: relative;
   footer {
     bottom: 0;

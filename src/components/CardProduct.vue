@@ -45,6 +45,7 @@ export default {
 }
 
 .card-product__img {
+  border: 0.5px solid #d5dde0;
   border-radius: 10px;
   object-fit: fill;
   aspect-ratio: 125 / 135;
@@ -66,7 +67,8 @@ export default {
   font-size: 9px;
   font-weight: 600;
   line-height: 20px;
-  margin-top: 10px;
+  margin-top: 3px;
+  text-align: center;
   width: 54px;
 }
 

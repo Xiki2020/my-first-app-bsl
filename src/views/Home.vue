@@ -1,5 +1,5 @@
 <template>
-  <SliderPopularProduct class="slider-popular-product" />
+  <PopularProductsCarousel class="slider-popular-product" />
 
   <Categories />
 
@@ -9,17 +9,17 @@
 </template>
 
 <script>
-import SliderPopularProduct from "@/components/SliderPopularProduct.vue";
 import Categories from "@/components/Categories.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
+import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
 
 export default {
   name: "HomePage",
 
   components: {
-    SliderPopularProduct,
     Categories,
     ProductsCarousel,
+    PopularProductsCarousel,
   },
 
   data() {
@@ -69,7 +69,7 @@ export default {
 $main-bg-color: #1152fd;
 
 .main {
-  height: 354px;
+  height: 100%;
   overflow: hidden;
   padding-top: 24px;
   width: 100%;

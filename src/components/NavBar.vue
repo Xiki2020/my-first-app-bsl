@@ -94,6 +94,7 @@ export default {
 .nav {
   align-items: center;
   background-color: #ffffff;
+  border: 0.5px solid #d5dde0;
   display: flex;
   height: 68px;
   justify-content: space-between;
