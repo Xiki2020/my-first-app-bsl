@@ -1,6 +1,6 @@
 <template>
-  <nav class="tab-bar">
-    <button class="tab-bar__btn" @click="$router.push({ name: 'HomePage' })">
+  <nav class="nav">
+    <button class="nav__btn" @click="$router.push({ name: 'HomePage' })">
       <svg
         width="25"
         height="23"
@@ -9,7 +9,7 @@
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          class="tab-bar__home"
+          class="nav__home"
           fill-rule="evenodd"
           clip-rule="evenodd"
           d="M5.44063 8.90317L12.1195 2.2243L18.7984 8.90317H18.7969V20.0322H5.44206V8.90317H5.44063ZM3.21625 11.1276L1.57275 12.7711L0 11.1983L10.547 0.65134C11.4155 -0.217154 12.8236 -0.217154 13.6921 0.65134L24.239 11.1983L22.6663 12.7711L21.0227 11.1275V20.0322C21.0227 21.2615 20.0262 22.258 18.7969 22.258H5.44206C4.21278 22.258 3.21625 21.2615 3.21625 20.0322V11.1276Z"
@@ -18,10 +18,7 @@
         <!-- fill изменение цвета иконки -->
       </svg>
     </button>
-    <button
-      class="tab-bar__btn"
-      @click="$router.push({ name: 'WishListPage' })"
-    >
+    <button class="nav__btn" @click="$router.push({ name: 'WishListPage' })">
       <svg
         width="25"
         height="22"
@@ -37,7 +34,7 @@
         />
       </svg>
     </button>
-    <button class="tab-bar__btn" @click="$router.push({ name: 'CartPage' })">
+    <button class="nav__btn" @click="$router.push({ name: 'CartPage' })">
       <svg
         width="22"
         height="22"
@@ -54,7 +51,7 @@
       </svg>
     </button>
     <button
-      class="tab-bar__btn"
+      class="nav__btn"
       @click="$router.push({ name: 'PersonalAreaPage' })"
     >
       <svg
@@ -76,32 +73,32 @@
 </template>
 <script>
 export default {
-  name: "TabBar",
+  name: "NavBar",
   props: {},
 };
 </script>
 
 <style lang="scss" scoped>
-.tab-bar__btn:hover {
+.nav__btn:hover {
   path {
     fill: #4a5562;
   }
 }
 
-.tab-bar__btn {
+.nav__btn {
   path {
     transition: all 0.2s linear;
   }
 }
 
-.tab-bar {
+.nav {
   align-items: center;
   background-color: #ffffff;
   display: flex;
   height: 68px;
   justify-content: space-between;
 }
-.tab-bar__btn {
+.nav__btn {
   background-color: #ffffff;
   border: none;
   height: 100%;

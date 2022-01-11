@@ -1,8 +1,5 @@
 <template>
-  <button
-    class="btn"
-    :class="`btn-${variant}`"
-  >{{ text }}</button>
+  <button class="btn" :class="`btn-${variant}`">{{ text }}</button>
 </template>
 
 <script>
@@ -11,20 +8,20 @@ export default {
   props: {
     text: {
       type: String,
-      reqired: true
+      reqired: true,
     },
 
     variant: {
       type: String,
-      default: () => 'primary',
+      default: () => "primary",
       reqired: true,
     },
 
     size: {
       type: String,
-      default: () => 'primary',
+      default: () => "primary",
       reqired: true,
-    }
+    },
   },
 };
 </script>
@@ -37,12 +34,9 @@ $main-bg-color: #1152fd;
   border: none;
   border-radius: 7px;
   color: #ffffff;
-  font-family: Montserrat;
   font-size: 12px;
-  font-style: normal;
   font-weight: 600;
   height: 36px;
-  letter-spacing: 0em;
   line-height: 15px;
   outline: none;
   width: 73px;

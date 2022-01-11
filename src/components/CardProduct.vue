@@ -1,9 +1,6 @@
 <template>
-  <div class="card">
-    <img
-      class="card-product__img"
-      :src="require(`@/assets/${product.img}`)"
-    />
+  <div class="card-product">
+    <img class="card-product__img" :src="require(`@/assets/${product.img}`)" />
     <div class="card-product__name">{{ product.name }}</div>
     <div class="card-product__colors">{{ product.countColors }} Colors</div>
     <div class="card-product__bottom">
@@ -37,29 +34,26 @@ export default {
       type: Object,
       reqired: true,
     },
-  }
+  },
 };
 </script>
 <style  lang="scss" scoped>
-.card {
+.card-product {
   background-color: #fefefe;
-  font-family: Montserrat;
   border-radius: 16px;
   padding: 10px 8px;
 }
 
 .card-product__img {
   border-radius: 10px;
-  object-fit: contain;
+  object-fit: fill;
   aspect-ratio: 125 / 135;
   width: 100%;
-  height: 100%;
 }
 
 .card-product__name {
   color: #3e4958;
   font-size: 14px;
-  font-style: normal;
   font-weight: 600;
   line-height: 1.15;
   margin-top: 10px;
@@ -70,10 +64,7 @@ export default {
   border-radius: 4px;
   color: #ffffff;
   font-size: 9px;
-  font-style: normal;
   font-weight: 600;
-  height: 20px;
-  letter-spacing: 0em;
   line-height: 20px;
   margin-top: 10px;
   width: 54px;
@@ -88,11 +79,8 @@ export default {
 
 .card-product__price-product {
   color: #3e4958;
-  font-family: Montserrat;
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
-  letter-spacing: 0em;
   line-height: 17px;
   margin: 0;
 }

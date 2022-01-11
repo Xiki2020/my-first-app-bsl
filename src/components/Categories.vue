@@ -1,7 +1,7 @@
 <template>
-  <div class="nav-filtr">
-    <div class="nav-filtr__container-btn">
-      <button class="nav-filtr__btn">
+  <div class="сategories">
+    <div class="сategories__wrapper-btn">
+      <button class="сategories__btn">
         <svg
           width="19"
           height="27"
@@ -17,10 +17,10 @@
           />
         </svg>
       </button>
-      <p class="nav-filtr__signature-btn">Men</p>
+      <div class="сategories__name-btn">Men</div>
     </div>
-    <div class="nav-filtr__container-btn">
-      <button class="nav-filtr__btn">
+    <div class="сategories__wrapper-btn">
+      <button class="сategories__btn">
         <svg
           width="23"
           height="27"
@@ -36,10 +36,10 @@
           />
         </svg>
       </button>
-      <p class="nav-filtr__signature-btn">Women</p>
+      <div class="сategories__name-btn">Women</div>
     </div>
-    <div class="nav-filtr__container-btn">
-      <button class="nav-filtr__btn">
+    <div class="сategories__wrapper-btn">
+      <button class="сategories__btn">
         <svg
           width="30"
           height="27"
@@ -73,10 +73,10 @@
           />
         </svg>
       </button>
-      <p class="nav-filtr__signature-btn">Kids</p>
+      <div class="сategories__name-btn">Kids</div>
     </div>
-    <div class="nav-filtr__container-btn">
-      <button class="nav-filtr__btn">
+    <div class="сategories__wrapper-btn">
+      <button class="сategories__btn">
         <svg
           width="25"
           height="26"
@@ -102,19 +102,19 @@
           />
         </svg>
       </button>
-      <p class="nav-filtr__signature-btn">Sale</p>
+      <div class="сategories__name-btn">Sale</div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "NavFiltr",
+  name: "Categories",
   props: {},
 };
 </script>
 
 <style lang="scss" scoped>
-.nav-filtr {
+.сategories {
   align-items: flex-end;
   display: flex;
   height: 158px;
@@ -124,7 +124,7 @@ export default {
   width: 100%;
 }
 
-.nav-filtr__btn {
+.сategories__btn {
   background-color: rgba(17, 81, 251, 0.2);
   border-radius: 12px;
   border: none;
@@ -133,16 +133,12 @@ export default {
   width: 55px;
 }
 
-.nav-filtr__signature-btn {
+.сategories__name-btn {
   color: #3e4958;
-  height: 12px;
   font-size: 12px;
-  font-style: normal;
   font-weight: 600;
-  letter-spacing: 0em;
   line-height: 15px;
-  margin: 8px 0 0;
-  font-family: Montserrat;
+  margin-top: 8px;
   width: 100%;
 }
 </style>
