@@ -5,7 +5,6 @@ import CartPage from '../views/Cart.vue'
 import PersonalAreaPage from '../views/PersonalArea.vue'
 import Temp from '../views/Temp.vue'
 
-
 const routes = [
   {
     path: '/',
@@ -46,6 +45,7 @@ router.beforeEach((to, from, next) => {
     'PersonalAreaPage': 'account',
   }
   window.localStorage.setItem('url', url[to.name]);
+
   next(true);
 });
 

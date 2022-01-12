@@ -15,7 +15,7 @@
           fill="#3E4958"
         />
       </svg>
-      <div class="header__name-page">My</div>
+      <div class="header__name-page">My {{ getUrl() }}</div>
     </div>
   </div>
 </template>
@@ -28,6 +28,11 @@ export default {
     return {
       url: window.localStorage.getItem("url"),
     };
+  },
+  methods: {
+    getUrl() {
+      return window.localStorage.getItem("url");
+    },
   },
 };
 </script>
