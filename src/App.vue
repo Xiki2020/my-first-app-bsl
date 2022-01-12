@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Header v-if="$route.meta.title" />
+    <HeaderApp v-if="$route.meta.title" />
     <router-view />
     <footer v-if="$route.meta.navBar">
       <NavBar />
@@ -10,11 +10,11 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import Header from "@/components/Header.vue";
+import HeaderApp from "@/components/HeaderApp.vue";
 export default {
   components: {
     NavBar,
-    Header,
+    HeaderApp,
   },
 };
 </script>

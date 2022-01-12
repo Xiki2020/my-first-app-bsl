@@ -1,7 +1,10 @@
 <template>
   <div class="сategories">
     <div class="сategories__wrapper-btn">
-      <button class="сategories__btn" @click="$router.push({ name: 'Temp' })">
+      <button
+        class="сategories__btn"
+        @click="$router.push({ name: 'TempPage' })"
+      >
         <svg
           width="19"
           height="27"
@@ -20,7 +23,10 @@
       <div class="сategories__name-btn">Men</div>
     </div>
     <div class="сategories__wrapper-btn">
-      <button class="сategories__btn" @click="$router.push({ name: 'Temp' })">
+      <button
+        class="сategories__btn"
+        @click="$router.push({ name: 'TempPage' })"
+      >
         <svg
           width="23"
           height="27"
@@ -39,7 +45,10 @@
       <div class="сategories__name-btn">Women</div>
     </div>
     <div class="сategories__wrapper-btn">
-      <button class="сategories__btn" @click="$router.push({ name: 'Temp' })">
+      <button
+        class="сategories__btn"
+        @click="$router.push({ name: 'TempPage' })"
+      >
         <svg
           width="30"
           height="27"
@@ -76,7 +85,10 @@
       <div class="сategories__name-btn">Kids</div>
     </div>
     <div class="сategories__wrapper-btn">
-      <button class="сategories__btn" @click="$router.push({ name: 'Temp' })">
+      <button
+        class="сategories__btn"
+        @click="$router.push({ name: 'TempPage' })"
+      >
         <svg
           width="25"
           height="26"
@@ -128,6 +140,7 @@ export default {
   background-color: rgba(17, 81, 251, 0.2);
   border-radius: 12px;
   border: none;
+  cursor: pointer;
   height: 55px;
   outline: none;
   width: 55px;

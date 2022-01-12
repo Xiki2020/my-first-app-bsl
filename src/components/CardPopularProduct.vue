@@ -9,17 +9,17 @@
       <div class="popular-product__name" :title="product.name">
         {{ product.name }}
       </div>
-      <Btn class="popular-product__btn" text="Buy now" variant="gray" />
+      <BaseBtn class="popular-product__btn" text="Buy now" variant="gray" />
     </div>
   </div>
 </template>
 
 <script>
-import Btn from "@/components/Btn.vue";
+import BaseBtn from "@/components/BaseBtn.vue";
 
 export default {
   components: {
-    Btn,
+    BaseBtn,
   },
   name: "CardPopularProduct",
   props: {

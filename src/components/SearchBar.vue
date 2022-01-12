@@ -4,7 +4,7 @@
       type="text"
       class="search-bar__input"
       id="search-bar__input"
-      @keypress.enter="$router.push({ name: 'Temp' })"
+      @keypress.enter="$router.push({ name: 'TempPage' })"
     />
     <label for="search-bar__input" class="search-bar__placeholder">
       <img src="@/assets/icon_search_input.png" />

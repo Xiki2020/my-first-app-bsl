@@ -1,5 +1,5 @@
 <template>
-  <button class="search-btn-foto">
+  <button class="search-btn-foto" @click="$router.push({ name: 'TempPage' })">
     <svg
       width="25"
       height="20"
@@ -27,6 +27,7 @@ export default {
 .search-btn-foto {
   border: none;
   border-radius: 14px;
+  cursor: pointer;
   height: 60px;
   width: 60px;
 }

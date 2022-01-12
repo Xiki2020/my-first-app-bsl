@@ -2,7 +2,7 @@
   <div
     class="btn"
     :class="`btn-${variant}`"
-    @click="$router.push({ name: 'Temp' })"
+    @click="$router.push({ name: 'TempPage' })"
   >
     {{ text }}
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "Btn",
+  name: "BaseBtn",
   props: {
     text: {
       type: String,
@@ -30,6 +30,7 @@ export default {
 .btn {
   border-radius: 7px;
   color: #ffffff;
+  cursor: pointer;
   font-size: 12px;
   font-weight: 600;
   height: 36px;

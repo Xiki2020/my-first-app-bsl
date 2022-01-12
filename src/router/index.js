@@ -1,9 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomePage from '@/views/Home.vue'
-import WishListPage from '@/views/WishList.vue'
-import CartPage from '@/views/Cart.vue'
-import PersonalAreaPage from '@/views/PersonalArea.vue'
-import Temp from '@/views/Temp.vue'
+import HomePage from '@/views/HomePage.vue'
+import WishListPage from '@/views/WishListPage.vue'
+import CartPage from '@/views/CartPage.vue'
+import PersonalAreaPage from '@/views/PersonalAreaPage.vue'
+import TempPage from '@/views/TempPage.vue'
 
 const routes = [
   {
@@ -43,8 +43,8 @@ const routes = [
   },
   {
     path: '/tm',
-    name: 'Temp',
-    component: Temp
+    name: 'TempPage',
+    component: TempPage
   },
 ]
 
