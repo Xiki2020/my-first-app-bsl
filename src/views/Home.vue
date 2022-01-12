@@ -29,13 +29,31 @@ export default {
   data() {
     return {
       products: [],
-      popularProducts: [],
+      popularProducts: [
+        {
+          name: "Air Max 2090",
+          img: "popular-sneaker.jpg",
+          price: "$200.00",
+          countColors: 6,
+        },
+        {
+          name: "Nike React Miler",
+          img: "product-temp.jpg",
+          price: "$170.00",
+          countColors: 5,
+        },
+        {
+          name: "Nike Air Max 270",
+          img: "sneaker2.jpg",
+          price: "$112.00",
+          countColors: 5,
+        },
+      ],
     };
   },
 
   created() {
     this.fetchProducts();
-    this.fetchPopularProducts();
   },
 
   methods: {
@@ -67,40 +85,11 @@ export default {
         },
       ];
     },
-    fetchPopularProducts() {
-      this.popularProducts = [
-        {
-          name: "Air Max 2090",
-          img: "popular-sneaker.jpg",
-          price: "$200.00",
-          countColors: 6,
-        },
-        {
-          name: "Nike React Miler",
-          img: "product-temp.jpg",
-          price: "$170.00",
-          countColors: 5,
-        },
-        {
-          name: "Nike Air Max 270",
-          img: "sneaker2.jpg",
-          price: "$112.00",
-          countColors: 5,
-        },
-      ];
-    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-$main-bg-color: #1152fd;
-
-.header {
-  position: absolute;
-  top: 0;
-}
-
 .wrapper-carousel-product {
   height: 100%;
   overflow: hidden;

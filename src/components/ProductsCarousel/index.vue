@@ -1,5 +1,5 @@
 <template>
-  <div class="products-carousel" ref="container">
+  <div class="products-carousel">
     <div class="products-carousel__header">
       <div class="products-carousel__title">New Products</div>
       <Btn text="View All" />
@@ -9,11 +9,13 @@
         <SwiperSlide v-for="(product, index) in products" :key="index">
           <CardProduct style="height: 100%; width: 100%" :product="product" />
         </SwiperSlide>
-        <SwiperSlide></SwiperSlide>
+        <SwiperSlide />
       </Swiper>
     </div>
   </div>
 </template>
+
+//::v-deep
 
 <script>
 import Btn from "@/components/Btn.vue";

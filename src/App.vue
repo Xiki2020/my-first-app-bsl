@@ -1,8 +1,8 @@
 <template>
-  <div class="wrapper">
-    <Header />
+  <div class="app">
+    <Header v-if="$route.meta.title" />
     <router-view />
-    <footer>
+    <footer v-if="$route.meta.navBar">
       <NavBar />
     </footer>
   </div>
@@ -16,30 +16,11 @@ export default {
     NavBar,
     Header,
   },
-  // date() {
-  //   return {
-  //     url: "",
-  //     navBarUrl: [],
-  //     ifNavBar: true,
-  //   };
-  // },
-  // created() {
-  //   this.getUrl();
-  // },
-  // methods: {
-  //   getUrl() {
-  //     this.url = window.location.href.split("/");
-  //     this.navBarUrl = ["", "lk", "wishlist"];
-  //     this.ifNavBar = this.navBarUrl.includes(this.url[this.url.length - 1]);
-  //     console.log(this.ifNavBar);
-  //   },
-  // },
 };
 </script>
 
 <style  lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
-$main-bg-color: #1152fd;
 * {
   box-sizing: border-box;
   font-family: Montserrat;
@@ -50,7 +31,7 @@ body {
 h1 {
   margin: 0;
 }
-.wrapper {
+.app {
   min-height: 100vh;
   margin: 0 auto;
   max-width: 450px;

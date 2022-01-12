@@ -22,3 +22,12 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+12.01.22
+Подключить variables.scss глобально чтобы использовать в компонент.
+в компонентах
+
+Задать переменные для кастомизации плагина
+
+Изучить тему слотов и реализовать Header и HeaderHome в одном компоненте

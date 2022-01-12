@@ -1,30 +1,45 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomePage from '../views/Home.vue'
-import WishListPage from '../views/WishList.vue'
-import CartPage from '../views/Cart.vue'
-import PersonalAreaPage from '../views/PersonalArea.vue'
-import Temp from '../views/Temp.vue'
+import HomePage from '@/views/Home.vue'
+import WishListPage from '@/views/WishList.vue'
+import CartPage from '@/views/Cart.vue'
+import PersonalAreaPage from '@/views/PersonalArea.vue'
+import Temp from '@/views/Temp.vue'
 
 const routes = [
   {
     path: '/',
     name: 'HomePage',
     component: HomePage,
+    meta: {
+      navBar: true,
+    },
   },
   {
     path: '/wishlist',
     name: 'WishListPage',
-    component: WishListPage
+    component: WishListPage,
+    meta: {
+      title: "My wishlist",
+      navBar: true,
+    },
   },
   {
     path: '/cart',
     name: 'CartPage',
-    component: CartPage
+    component: CartPage,
+    meta: {
+      title: "My cart",
+      navBar: true,
+    },
   },
   {
     path: '/lk',
     name: 'PersonalAreaPage',
-    component: PersonalAreaPage
+    component: PersonalAreaPage,
+    meta: {
+      title: "My account",
+      navBar: true,
+    },
   },
   {
     path: '/tm',
@@ -35,18 +50,10 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  // mode: 'history',
+  // hashbang: false,
+  // hash: false,
 })
-
-router.beforeEach((to, from, next) => {
-  let url = {
-    'WishListPage': 'wishlist',
-    'CartPage': 'cart',
-    'PersonalAreaPage': 'account',
-  }
-  window.localStorage.setItem('url', url[to.name]);
-
-  next(true);
-});
 
 export default router

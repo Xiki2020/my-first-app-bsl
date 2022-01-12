@@ -1,6 +1,6 @@
 <template>
   <Swiper
-    :slides-per-view="auto"
+    slides-per-view="auto"
     :space-between="14"
     :pagination="{
       clickable: true,
@@ -37,15 +37,6 @@ export default {
     products: {
       type: Array,
       reqired: true,
-    },
-  },
-  created() {
-    this.testConsole();
-  },
-
-  methods: {
-    testConsole() {
-      console.log(this.products);
     },
   },
 };
