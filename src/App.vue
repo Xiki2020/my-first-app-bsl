@@ -1,8 +1,8 @@
 <template>
-  <div class="wrapper" @click="getNameHeader">
-    <Header :name="nameHeader" />
+  <div class="app">
+    <Header v-if="$route.meta.title" />
     <router-view />
-    <footer>
+    <footer v-if="$route.meta.navBar">
       <NavBar />
     </footer>
   </div>
@@ -16,25 +16,11 @@ export default {
     NavBar,
     Header,
   },
-  date() {
-    return {
-      nameHeader: "",
-    };
-  },
-  created() {
-    this.getNameHeader();
-  },
-  methods: {
-    getNameHeader() {
-      this.nameHeader = window.localStorage.getItem("url");
-    },
-  },
 };
 </script>
 
 <style  lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
-$main-bg-color: #1152fd;
 * {
   box-sizing: border-box;
   font-family: Montserrat;
@@ -45,7 +31,7 @@ body {
 h1 {
   margin: 0;
 }
-.wrapper {
+.app {
   min-height: 100vh;
   margin: 0 auto;
   max-width: 450px;

@@ -87,12 +87,4 @@ export default {
   font-weight: 700;
   line-height: 1.25;
 }
-
-// .card-product__btn-add {
-//   background-color: transparent;
-//   border: none;
-//   height: 10px;
-//   outline: none;
-//   padding: 0;
-// }
 </style>>

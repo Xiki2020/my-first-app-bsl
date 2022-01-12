@@ -1,5 +1,5 @@
 <template>
-  <h1>Затычка!!!</h1>
+  <h1>Затычка</h1>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="header" @click="getUrl">
-    <div class="header__title-page">
+  <div class="header">
+    <div class="header__title-page" @click="$router.go(-1)">
       <svg
         width="19"
         height="18"
@@ -15,7 +15,7 @@
           fill="#3E4958"
         />
       </svg>
-      <div class="header__name-page">My {{ name }}</div>
+      <div class="header__name-page">{{ $route.meta.title }}</div>
     </div>
   </div>
 </template>
@@ -23,22 +23,9 @@
 export default {
   components: {},
 
-  props: {
-    name: {
-      type: String,
-      reqired: true,
-    },
-  },
+  props: {},
 
   name: "Header",
-  date() {
-    return {};
-  },
-  methods: {
-    getUrl() {
-      console.log(this.name);
-    },
-  },
 };
 </script>
 <style  lang="scss" scoped>

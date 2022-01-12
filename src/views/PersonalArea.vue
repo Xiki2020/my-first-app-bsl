@@ -1,5 +1,5 @@
 <template>
-  <h1>Личный кабинет</h1>
+  <h1></h1>
 </template>
 
 <script>
