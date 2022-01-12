@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <Header />
+  <div class="wrapper" @click="getNameHeader">
+    <Header :name="nameHeader" />
     <router-view />
     <footer>
       <NavBar />
@@ -16,24 +16,19 @@ export default {
     NavBar,
     Header,
   },
-  // date() {
-  //   return {
-  //     url: "",
-  //     navBarUrl: [],
-  //     ifNavBar: true,
-  //   };
-  // },
-  // created() {
-  //   this.getUrl();
-  // },
-  // methods: {
-  //   getUrl() {
-  //     this.url = window.location.href.split("/");
-  //     this.navBarUrl = ["", "lk", "wishlist"];
-  //     this.ifNavBar = this.navBarUrl.includes(this.url[this.url.length - 1]);
-  //     console.log(this.ifNavBar);
-  //   },
-  // },
+  date() {
+    return {
+      nameHeader: "",
+    };
+  },
+  created() {
+    this.getNameHeader();
+  },
+  methods: {
+    getNameHeader() {
+      this.nameHeader = window.localStorage.getItem("url");
+    },
+  },
 };
 </script>
 

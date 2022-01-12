@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" @click="getUrl">
     <div class="header__title-page">
       <svg
         width="19"
@@ -15,7 +15,7 @@
           fill="#3E4958"
         />
       </svg>
-      <div class="header__name-page">My {{ getUrl() }}</div>
+      <div class="header__name-page">My {{ name }}</div>
     </div>
   </div>
 </template>
@@ -23,15 +23,20 @@
 export default {
   components: {},
 
+  props: {
+    name: {
+      type: String,
+      reqired: true,
+    },
+  },
+
   name: "Header",
   date() {
-    return {
-      url: window.localStorage.getItem("url"),
-    };
+    return {};
   },
   methods: {
     getUrl() {
-      return window.localStorage.getItem("url");
+      console.log(this.name);
     },
   },
 };
