@@ -90,6 +90,7 @@ export default {
 .nav__btn {
   background-color: #ffffff;
   border: none;
+  cursor: pointer;
   height: 100%;
   outline: none;
   width: 25%;

@@ -35,6 +35,10 @@ export default {
   width: 100%;
 }
 
+.header__title-page {
+  cursor: pointer;
+}
+
 .header__name-page {
   color: #3e4958;
   display: inline-block;

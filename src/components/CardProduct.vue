@@ -6,12 +6,13 @@
     <div class="card-product__bottom">
       <div class="card-product__price">{{ product.price }}</div>
       <svg
+        class="card-product__btn"
         width="12"
         height="12"
         viewBox="0 0 12 12"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        @click="$router.push({ name: 'Temp' })"
+        @click="$router.push({ name: 'TempPage' })"
       >
         <path
           fill-rule="evenodd"
@@ -86,5 +87,9 @@ export default {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.25;
+}
+
+.card-product__btn {
+  cursor: pointer;
 }
 </style>>
