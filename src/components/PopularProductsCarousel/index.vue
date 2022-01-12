@@ -39,6 +39,15 @@ export default {
       reqired: true,
     },
   },
+  created() {
+    this.testConsole();
+  },
+
+  methods: {
+    testConsole() {
+      console.log(this.products);
+    },
+  },
 };
 </script>
 

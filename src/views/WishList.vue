@@ -1,5 +1,5 @@
 <template>
-  <h1>Список сравнения</h1>
+  <h1></h1>
 </template>
 
 <script>

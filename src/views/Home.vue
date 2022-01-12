@@ -1,7 +1,8 @@
 <template>
+  <HeaderHome class="header" />
   <PopularProductsCarousel
     class="slider-popular-product"
-    :products="products"
+    :products="popularProducts"
   />
   <Categories />
   <div class="wrapper-carousel-product">
@@ -11,6 +12,7 @@
 
 <script>
 import Categories from "@/components/Categories.vue";
+import HeaderHome from "@/components/HeaderHome.vue";
 import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 
@@ -19,6 +21,7 @@ export default {
 
   components: {
     Categories,
+    HeaderHome,
     PopularProductsCarousel,
     ProductsCarousel,
   },
@@ -26,11 +29,13 @@ export default {
   data() {
     return {
       products: [],
+      popularProducts: [],
     };
   },
 
   created() {
     this.fetchProducts();
+    this.fetchPopularProducts();
   },
 
   methods: {
@@ -62,12 +67,39 @@ export default {
         },
       ];
     },
+    fetchPopularProducts() {
+      this.popularProducts = [
+        {
+          name: "Air Max 2090",
+          img: "popular-sneaker.jpg",
+          price: "$200.00",
+          countColors: 6,
+        },
+        {
+          name: "Nike React Miler",
+          img: "product-temp.jpg",
+          price: "$170.00",
+          countColors: 5,
+        },
+        {
+          name: "Nike Air Max 270",
+          img: "sneaker2.jpg",
+          price: "$112.00",
+          countColors: 5,
+        },
+      ];
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 $main-bg-color: #1152fd;
+
+.header {
+  position: absolute;
+  top: 0;
+}
 
 .wrapper-carousel-product {
   height: 100%;

@@ -5,12 +5,11 @@ import CartPage from '../views/Cart.vue'
 import PersonalAreaPage from '../views/PersonalArea.vue'
 import Temp from '../views/Temp.vue'
 
-
 const routes = [
   {
     path: '/',
     name: 'HomePage',
-    component: HomePage
+    component: HomePage,
   },
   {
     path: '/wishlist',
@@ -38,5 +37,16 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  let url = {
+    'WishListPage': 'wishlist',
+    'CartPage': 'cart',
+    'PersonalAreaPage': 'account',
+  }
+  window.localStorage.setItem('url', url[to.name]);
+
+  next(true);
+});
 
 export default router
