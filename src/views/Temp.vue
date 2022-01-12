@@ -1,5 +1,5 @@
 <template>
-  <h1>Затычка</h1>
+  <h1 @click="$router.go(-1)">Затычка</h1>
 </template>
 
 <script>
