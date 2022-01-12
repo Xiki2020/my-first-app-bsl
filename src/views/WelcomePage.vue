@@ -1,0 +1,52 @@
+<template>
+  <div class="wrapper">
+    <div class="logo">
+      <svg
+        width="88"
+        height="86"
+        viewBox="0 0 88 86"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M75.6746 18.0457H10.0338C3.68145 18.0457 -1.0591 23.8923 0.205047 30.0866L3.42862 45.7305L5.92531 57.7714H18.2191H67.4892L64.2657 73.4153H21.4743H9.18048L11.6772 85.4563H23.971H61.8006H74.0944L76.5911 73.4153L79.8147 57.7714C81.1104 51.5455 76.3382 45.7305 69.9859 45.7305H15.754L12.5305 30.0866H73.2095L71.5661 38.0508H83.8599L85.5033 30.0866L88 18.0457H75.6746Z"
+          fill="white"
+        />
+        <path d="M58.6084 0H27.0996V12.1358H58.6084V0Z" fill="white" />
+      </svg>
+    </div>
+    <BigBtn text="Sign Up" variant="white" />
+    <BigBtn text="Sign In" />
+  </div>
+</template>
+
+<script>
+import BigBtn from "@/components/AppButton/BigBtn.vue";
+export default {
+  name: "WelcomePage",
+  components: {
+    BigBtn,
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.btn {
+  margin: 0 auto;
+}
+
+.wrapper {
+  background-color: #1152fd;
+  height: 100vh;
+  padding-top: calc(100vh - 155px);
+  position: relative;
+  width: 100%;
+}
+
+.logo {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>

@@ -1,28 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomePage from '@/views/HomePage.vue'
-import WishListPage from '@/views/WishListPage.vue'
+
 import CartPage from '@/views/CartPage.vue'
+import HomePage from '@/views/HomePage.vue'
 import PersonalAreaPage from '@/views/PersonalAreaPage.vue'
 import TempPage from '@/views/TempPage.vue'
+import WelcomePage from '@/views/WelcomePage.vue'
+import WishListPage from '@/views/WishListPage.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'HomePage',
-    component: HomePage,
-    meta: {
-      navBar: true,
-    },
-  },
-  {
-    path: '/wishlist',
-    name: 'WishListPage',
-    component: WishListPage,
-    meta: {
-      navBar: true,
-      title: "My wishlist",
-    },
-  },
   {
     path: '/cart',
     name: 'CartPage',
@@ -30,6 +15,14 @@ const routes = [
     meta: {
       navBar: true,
       title: "My cart",
+    },
+  },
+  {
+    path: '/',
+    name: 'HomePage',
+    component: HomePage,
+    meta: {
+      navBar: true,
     },
   },
   {
@@ -45,6 +38,20 @@ const routes = [
     path: '/tm',
     name: 'TempPage',
     component: TempPage
+  },
+  {
+    path: '/wishlist',
+    name: 'WishListPage',
+    component: WishListPage,
+    meta: {
+      navBar: true,
+      title: "My wishlist",
+    },
+  },
+  {
+    path: '/welcome',
+    name: 'WelcomePage',
+    component: WelcomePage
   },
 ]
 

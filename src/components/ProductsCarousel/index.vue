@@ -2,7 +2,7 @@
   <div class="products-carousel">
     <div class="products-carousel__header">
       <div class="products-carousel__title">New Products</div>
-      <BaseBtn text="View All" />
+      <SmallBtn text="View All" />
     </div>
     <div class="products-carousel__body">
       <Swiper :slides-per-view="3" :space-between="10">
@@ -18,8 +18,8 @@
 //::v-deep
 
 <script>
-import BaseBtn from "@/components/BaseBtn.vue";
 import CardProduct from "@/components/CardProduct.vue";
+import SmallBtn from "@/components/AppButton/SmallBtn.vue";
 import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
 
 import "swiper/swiper.scss";
@@ -28,8 +28,8 @@ import "swiper/modules/pagination/pagination.scss";
 
 export default {
   components: {
-    BaseBtn,
     CardProduct,
+    SmallBtn,
     Swiper,
     SwiperSlide,
   },
