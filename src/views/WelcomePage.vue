@@ -15,7 +15,11 @@
         <path d="M58.6084 0H27.0996V12.1358H58.6084V0Z" fill="white" />
       </svg>
     </div>
-    <BigBtn text="Sign Up" variant="white" />
+    <BigBtn
+      text="Sign Up"
+      variant="white"
+      @click="$router.push({ name: 'SignUpPage' })"
+    />
     <BigBtn text="Sign In" />
   </div>
 </template>
