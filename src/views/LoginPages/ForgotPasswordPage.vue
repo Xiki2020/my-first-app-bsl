@@ -5,7 +5,7 @@
       Select which contact details should we use to reset your password:
     </div>
     <div class="nav">
-      <div class="nav__btn">
+      <div class="nav__btn" @click="$router.push({ name: 'RecoveryCodePage' })">
         <div class="nav__icon">
           <svg
             width="29"
