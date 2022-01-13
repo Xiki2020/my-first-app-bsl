@@ -37,7 +37,7 @@ export default {
     height: 22px;
     position: absolute;
     top: -2px;
-    transition: all 0.1s linear;
+    transition: border 0.1s linear;
     width: 22px;
   }
   input:hover::before {
