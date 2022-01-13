@@ -103,7 +103,10 @@ const routes = [
   {
     path: '/welcome',
     name: 'WelcomePage',
-    component: WelcomePage
+    component: WelcomePage,
+    // beforeEnter: (to, from, next) => {
+    //   if (to.name === 'SignInPage') next()
+    // },
   },
   {
     path: '/welcomeBack',
@@ -122,5 +125,51 @@ const router = createRouter({
   // hashbang: false,
   // hash: false,
 })
+
+router.beforeEach((to, from, next) => {
+  // let loginPages = [
+  //   'ForgotPasswordPage',
+  //   'NewPasswordPage',
+  //   'PasswordResetSubmitPage',
+  //   'RecoveryCodePage',
+  //   'SignInPage',
+  //   'SignUpPage',
+  //   'WelcomeBackPage',
+  //   'WelcomePage',
+  // ];
+  if (window.sessionStorage.getItem('logIn')) {
+    // if (loginPages.find(elem => elem === to.name)) {
+    //   next({ name: 'HomePage' })
+    // };
+    next();
+  }
+  else if (to.name === 'WelcomePage') {
+    next();
+  }
+  else if ((
+    from.name === 'WelcomePage' || from.name === 'SignInPage' ||
+    from.name === 'SignUpPage' || from.name === 'ForgotPasswordPage')
+    && (
+      to.name === 'SignInPage' || to.name === 'SignUpPage'
+    )) {
+    next();
+  }
+  else if (from.name === 'SignInPage' && to.name === 'ForgotPasswordPage') {
+    next()
+  }
+  else if (from.name === 'ForgotPasswordPage' && to.name === 'RecoveryCodePage') {
+    next()
+  }
+  else if (from.name === 'RecoveryCodePage' && to.name === 'NewPasswordPage') {
+    next()
+  }
+  else if (from.name === 'NewPasswordPage' && to.name === 'PasswordResetSubmitPage') {
+    next()
+  }
+  else if (from.name === 'PasswordResetSubmitPage' && to.name === 'WelcomeBackPage') {
+    next()
+  }
+  else next({ name: 'WelcomePage' });
+});
 
 export default router
