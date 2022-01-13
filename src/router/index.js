@@ -1,12 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import CartPage from '@/views/CartPage.vue'
+import ForgotPasswordPage from '@/views/LoginPages/ForgotPasswordPage.vue'
 import HomePage from '@/views/HomePage.vue'
 import PersonalAreaPage from '@/views/PersonalAreaPage.vue'
-import SignInPage from '@/views/SignInPage.vue'
-import SignUpPage from '@/views/SignUpPage.vue'
+import SignInPage from '@/views/LoginPages/SignInPage.vue'
+import SignUpPage from '@/views/LoginPages/SignUpPage.vue'
 import TempPage from '@/views/TempPage.vue'
-import WelcomePage from '@/views/WelcomePage.vue'
+import WelcomePage from '@/views/LoginPages/WelcomePage.vue'
 import WishListPage from '@/views/WishListPage.vue'
 
 const routes = [
@@ -17,6 +18,14 @@ const routes = [
     meta: {
       navBar: true,
       title: "My cart",
+    },
+  },
+  {
+    path: '/forgotPassword',
+    name: 'ForgotPasswordPage',
+    component: ForgotPasswordPage,
+    meta: {
+      text: "Forgot password",
     },
   },
   {
