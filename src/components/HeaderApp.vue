@@ -23,7 +23,6 @@ export default {
 <style  lang="scss" scoped>
 .header {
   padding: 49px 9.6% 0;
-  width: 100%;
 }
 
 .header__title-page {

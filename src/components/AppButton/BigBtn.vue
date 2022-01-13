@@ -1,8 +1,8 @@
 <template>
-  <div class="btn" :class="`btn-${variant}`">
+  <button class="btn" :class="`btn-${variant}`">
     {{ text }}
     <slot></slot>
-  </div>
+  </button>
 </template>
 
 <script>
@@ -26,6 +26,7 @@ export default {
 <style lang="scss" scoped>
 .btn {
   align-items: center;
+  border: none;
   border-radius: 14px;
   color: #ffffff;
   cursor: pointer;
@@ -35,8 +36,8 @@ export default {
   height: 60px;
   justify-content: center;
   line-height: 60px;
-  width: 80%;
   white-space: nowrap;
+  width: 100%;
 }
 
 .btn-white {

@@ -20,7 +20,7 @@
       variant="white"
       @click="$router.push({ name: 'SignUpPage' })"
     />
-    <BigBtn text="Sign In" />
+    <BigBtn text="Sign In" @click="$router.push({ name: 'SignInPage' })" />
   </div>
 </template>
 
@@ -39,18 +39,18 @@ export default {
   margin: 0 auto;
 }
 
-.wrapper {
-  background-color: #1152fd;
-  height: 100vh;
-  padding-top: calc(100vh - 155px);
-  position: relative;
-  width: 100%;
-}
-
 .logo {
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  background-color: #1152fd;
+  height: 100vh;
+  padding: calc(100vh - 155px) 9.6% 0;
+  position: relative;
+  width: 100%;
 }
 </style>
