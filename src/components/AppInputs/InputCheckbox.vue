@@ -1,7 +1,7 @@
 <template>
   <div class="input">
     <input type="checkbox" id="input__checkbox" />
-    <label for="input__checkbox">Forgot password?</label>
+    <label for="input__checkbox"> <div>Forgot password?</div> </label>
   </div>
 </template>
 
@@ -21,32 +21,36 @@ export default {
 
 .input {
   input {
-    border-color: white;
-    border-radius: 50%;
-    height: 0px;
-    position: relative;
-    width: 0px;
+    display: none;
   }
-  input::before {
+
+  label {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  label::before {
     background-color: #f7f8f9;
     border: 0.5px solid #d5dde0;
     border-radius: 4px;
     content: "";
+    cursor: pointer;
     display: inline-block;
-    left: -4px;
     height: 22px;
-    position: absolute;
-    top: -11px;
     transition: border 0.1s linear;
     width: 22px;
   }
-  input:hover::before {
+
+  label:hover::before {
     border-color: black;
   }
-  input:checked::before {
+
+  input:checked + label::before {
     background-image: url("icons/check.jpg");
     background-size: cover;
-    border: none;
+    border-color: #00d455;
   }
 }
 </style>
