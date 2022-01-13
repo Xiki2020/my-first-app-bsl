@@ -8,7 +8,7 @@
       <InputEmail />
       <InputPassword style="margin-top: 20px" />
       <InputCheckbox style="margin-top: 25px" />
-      <BigBtn text="Sign In" style="margin-top: 50px" />
+      <BigBtn text="Sign In" style="margin-top: 50px" @click="toCome" />
     </form>
     <FooterLogin style="margin-top: 60px" />
   </div>
@@ -31,6 +31,12 @@ export default {
     InputCheckbox,
     InputEmail,
     InputPassword,
+  },
+  methods: {
+    toCome() {
+      window.sessionStorage.setItem("logIn", "User");
+      this.$router.push({ name: "HomePage" });
+    },
   },
 };
 </script>
