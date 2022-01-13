@@ -23,7 +23,7 @@ export default {
   input {
     border-color: white;
     border-radius: 50%;
-    height: 20px;
+    height: 0px;
     position: relative;
     width: 0px;
   }
@@ -36,7 +36,7 @@ export default {
     left: -4px;
     height: 22px;
     position: absolute;
-    top: -2px;
+    top: -11px;
     transition: border 0.1s linear;
     width: 22px;
   }
