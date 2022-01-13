@@ -4,6 +4,7 @@ import CartPage from '@/views/CartPage.vue'
 import ForgotPasswordPage from '@/views/LoginPages/ForgotPasswordPage.vue'
 import HomePage from '@/views/HomePage.vue'
 import PersonalAreaPage from '@/views/PersonalAreaPage.vue'
+import RecoveryCodePage from '@/views/LoginPages/RecoveryCodePage.vue'
 import SignInPage from '@/views/LoginPages/SignInPage.vue'
 import SignUpPage from '@/views/LoginPages/SignUpPage.vue'
 import TempPage from '@/views/TempPage.vue'
@@ -43,6 +44,14 @@ const routes = [
     meta: {
       navBar: true,
       title: "My account",
+    },
+  },
+  {
+    path: '/recoveryCode',
+    name: 'RecoveryCodePage',
+    component: RecoveryCodePage,
+    meta: {
+      text: "Recovery code",
     },
   },
   {
