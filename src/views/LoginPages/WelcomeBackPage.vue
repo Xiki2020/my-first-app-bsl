@@ -2,30 +2,34 @@
   <HeaderApp />
   <div class="container">
     <div class="description">
-      Your new password must be different from previously used passwords.
+      Please fill E-mail & password to login your Shopy application account.
     </div>
     <form class="form">
-      <InputPassword text="new password" />
-      <InputPassword text="confirm password" style="margin-top: 20px" />
-      <div class="container-btn">
-        <BigBtn
-          text="Update"
-          @click="$router.push({ name: 'PasswordResetSubmitPage' })"
-        />
-      </div>
+      <InputEmail />
+      <InputPassword style="margin-top: 20px" />
+      <InputCheckbox style="margin-top: 25px" />
+      <BigBtn text="Sign In" style="margin-top: 50px" />
     </form>
+    <FooterLogin style="margin-top: 60px" />
   </div>
 </template>
 
 <script>
 import BigBtn from "@/components/AppButton/BigBtn.vue";
+import FooterLogin from "@/components/FooterLogin.vue";
 import HeaderApp from "@/components/HeaderApp.vue";
+import InputCheckbox from "@/components/AppInputs/InputCheckbox.vue";
+import InputEmail from "@/components/AppInputs/InputEmail.vue";
 import InputPassword from "@/components/AppInputs/InputPassword.vue";
+
 export default {
-  name: "NewPasswordPage",
+  name: "WelcomeBackPage",
   components: {
     BigBtn,
+    FooterLogin,
     HeaderApp,
+    InputCheckbox,
+    InputEmail,
     InputPassword,
   },
 };
@@ -34,15 +38,6 @@ export default {
 <style lang="scss" scoped>
 .container {
   padding: 15px 9.6% 0;
-}
-
-.container-btn {
-  bottom: 7vh;
-  left: 50%;
-  margin: 0 auto;
-  position: absolute;
-  transform: translateX(-50%);
-  width: 80%;
 }
 
 .description {

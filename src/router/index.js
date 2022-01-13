@@ -4,12 +4,14 @@ import CartPage from '@/views/CartPage.vue'
 import ForgotPasswordPage from '@/views/LoginPages/ForgotPasswordPage.vue'
 import HomePage from '@/views/HomePage.vue'
 import NewPasswordPage from '@/views/LoginPages/NewPasswordPage.vue'
+import PasswordResetSubmitPage from '@/views/LoginPages/PasswordResetSubmitPage.vue'
 import PersonalAreaPage from '@/views/PersonalAreaPage.vue'
 import RecoveryCodePage from '@/views/LoginPages/RecoveryCodePage.vue'
 import SignInPage from '@/views/LoginPages/SignInPage.vue'
 import SignUpPage from '@/views/LoginPages/SignUpPage.vue'
 import TempPage from '@/views/TempPage.vue'
 import WelcomePage from '@/views/LoginPages/WelcomePage.vue'
+import WelcomeBackPage from '@/views/LoginPages/WelcomeBackPage.vue'
 import WishListPage from '@/views/WishListPage.vue'
 
 const routes = [
@@ -37,6 +39,11 @@ const routes = [
     meta: {
       navBar: true,
     },
+  },
+  {
+    path: '/passwordResetSubmit',
+    name: 'PasswordResetSubmitPage',
+    component: PasswordResetSubmitPage,
   },
   {
     path: '/newPassword',
@@ -97,6 +104,14 @@ const routes = [
     path: '/welcome',
     name: 'WelcomePage',
     component: WelcomePage
+  },
+  {
+    path: '/welcomeBack',
+    name: 'WelcomeBackPage',
+    component: WelcomeBackPage,
+    meta: {
+      text: "Welcome back",
+    },
   },
 ]
 
