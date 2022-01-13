@@ -5,22 +5,27 @@
       The recovery code was sent to your mobile. Code expiration time is 120s.
       Please enter the code:
     </div>
-    <div class="display-pin">
-      <input
-        type="text"
-        id="display-pin__input"
-        v-model="pinValue"
-        @input="validationPin"
-      />
-      <div class="display-pin__input">
-        <label for="display-pin__input" v-for="n in 4" :key="n">{{
-          pinValue[n - 1]
-        }}</label>
+    <form class="form">
+      <div class="form__pin">
+        <input
+          type="text"
+          id="form__input"
+          v-model="pinValue"
+          @input="validationPin"
+        />
+        <div class="form__input">
+          <label for="form__input" v-for="n in 4" :key="n">{{
+            pinValue[n - 1]
+          }}</label>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="container-btn">
-    <BigBtn text="Send again" />
+      <div class="container-btn">
+        <BigBtn
+          text="Send again"
+          @click="$router.push({ name: 'NewPasswordPage' })"
+        />
+      </div>
+    </form>
   </div>
 </template>
 
@@ -70,13 +75,13 @@ export default {
   line-height: 24px;
 }
 
-.display-pin {
+.form__pin {
   display: flex;
   justify-content: space-between;
   margin-top: 55px;
   position: relative;
 
-  .display-pin__input {
+  .form__input {
     display: flex;
     justify-content: space-between;
     position: absolute;
@@ -87,7 +92,7 @@ export default {
     opacity: 0;
   }
 
-  input:focus ~ .display-pin__input label {
+  input:focus ~ .form__input label {
     border-color: #000000;
   }
 
