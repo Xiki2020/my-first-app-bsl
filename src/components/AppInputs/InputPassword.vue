@@ -1,7 +1,13 @@
 <template>
   <div class="input">
-    <label for="input__password">Password</label>
-    <input type="password" id="input__password" placeholder="**********" />
+    <label :for="'input__' + text.split(' ').join('-')">{{
+      text[0].toUpperCase() + text.substring(1)
+    }}</label>
+    <input
+      type="password"
+      :id="'input__' + text.split(' ').join('-')"
+      placeholder="**********"
+    />
   </div>
 </template>
 
@@ -9,6 +15,13 @@
 export default {
   name: "InputPassword",
   components: {},
+  props: {
+    text: {
+      type: String,
+      default: () => "password",
+      reqired: true,
+    },
+  },
 };
 </script>
 

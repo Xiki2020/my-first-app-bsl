@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import CartPage from '@/views/CartPage.vue'
 import ForgotPasswordPage from '@/views/LoginPages/ForgotPasswordPage.vue'
 import HomePage from '@/views/HomePage.vue'
+import NewPasswordPage from '@/views/LoginPages/NewPasswordPage.vue'
 import PersonalAreaPage from '@/views/PersonalAreaPage.vue'
 import RecoveryCodePage from '@/views/LoginPages/RecoveryCodePage.vue'
 import SignInPage from '@/views/LoginPages/SignInPage.vue'
@@ -35,6 +36,14 @@ const routes = [
     component: HomePage,
     meta: {
       navBar: true,
+    },
+  },
+  {
+    path: '/newPassword',
+    name: 'NewPasswordPage',
+    component: NewPasswordPage,
+    meta: {
+      text: "New password",
     },
   },
   {
