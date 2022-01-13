@@ -3,6 +3,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import CartPage from '@/views/CartPage.vue'
 import HomePage from '@/views/HomePage.vue'
 import PersonalAreaPage from '@/views/PersonalAreaPage.vue'
+import SignInPage from '@/views/SignInPage.vue'
+import SignUpPage from '@/views/SignUpPage.vue'
 import TempPage from '@/views/TempPage.vue'
 import WelcomePage from '@/views/WelcomePage.vue'
 import WishListPage from '@/views/WishListPage.vue'
@@ -32,6 +34,22 @@ const routes = [
     meta: {
       navBar: true,
       title: "My account",
+    },
+  },
+  {
+    path: '/signIn',
+    name: 'SignInPage',
+    component: SignInPage,
+    meta: {
+      text: "Sign In",
+    },
+  },
+  {
+    path: '/signUp',
+    name: 'SignUpPage',
+    component: SignUpPage,
+    meta: {
+      text: "Sign Up",
     },
   },
   {
