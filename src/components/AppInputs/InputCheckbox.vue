@@ -1,7 +1,13 @@
 <template>
   <div class="input">
     <input type="checkbox" id="input__checkbox" />
-    <label for="input__checkbox"> <div>Forgot password?</div> </label>
+    <label for="input__checkbox"></label>
+    <div
+      @click="$router.push({ name: 'ForgotPasswordPage' })"
+      class="input__btn-f-p"
+    >
+      Forgot password?
+    </div>
   </div>
 </template>
 
@@ -25,10 +31,7 @@ export default {
   }
 
   label {
-    align-items: center;
     display: flex;
-    justify-content: space-between;
-    width: 100%;
   }
 
   label::before {
@@ -51,6 +54,13 @@ export default {
     background-image: url("icons/check.jpg");
     background-size: cover;
     border-color: #00d455;
+  }
+
+  .input__btn-f-p {
+    color: #3e4958;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
   }
 }
 </style>
