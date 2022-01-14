@@ -1,7 +1,13 @@
 <template>
   <div class="input">
     <label for="input__name">Name</label>
-    <input type="name" id="input__name" placeholder="John Doe" />
+    <input
+      type="name"
+      id="input__name"
+      placeholder="John Doe"
+      v-model="value"
+      @input="test"
+    />
   </div>
 </template>
 
@@ -9,6 +15,18 @@
 export default {
   name: "InputName",
   components: {},
+  data() {
+    return {
+      value: "",
+    };
+  },
+  methods: {
+    test() {
+      console.log(/[a-zA-Z]|[ ]$/.exec(this.value));
+      if (!/[a-zA-Z]|[ ]$/.exec(this.value))
+        this.value = this.value.substring(0, this.value.length - 1);
+    },
+  },
 };
 </script>
 

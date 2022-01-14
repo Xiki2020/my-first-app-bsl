@@ -1,5 +1,4 @@
 <template>
-  <HeaderApp />
   <div class="container">
     <div class="description">
       Select which contact details should we use to reset your password:
@@ -54,19 +53,15 @@
 </template>
 
 <script>
-import HeaderApp from "@/components/HeaderApp.vue";
-
 export default {
   name: "ForgotPasswordPage",
-  components: {
-    HeaderApp,
-  },
+  components: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .container {
-  padding: 15px 9.6% 0;
+  padding-top: 15px;
 }
 
 .description {

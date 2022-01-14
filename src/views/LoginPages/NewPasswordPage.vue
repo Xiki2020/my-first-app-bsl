@@ -1,5 +1,4 @@
 <template>
-  <HeaderApp />
   <div class="container">
     <div class="description">
       Your new password must be different from previously used passwords.
@@ -19,13 +18,11 @@
 
 <script>
 import BigBtn from "@/components/AppButton/BigBtn.vue";
-import HeaderApp from "@/components/HeaderApp.vue";
 import InputPassword from "@/components/AppInputs/InputPassword.vue";
 export default {
   name: "NewPasswordPage",
   components: {
     BigBtn,
-    HeaderApp,
     InputPassword,
   },
 };
@@ -33,7 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding: 15px 9.6% 0;
+  padding-top: 15px;
 }
 
 .container-btn {
