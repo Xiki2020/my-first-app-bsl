@@ -3,8 +3,14 @@
     class="slider-popular-product"
     :products="popularProducts"
   />
-  <Categories style="margin-bottom: 40vh" />
+  <div class="container">
+    <Categories />
+  </div>
   <div class="wrapper-carousel-product">
+    <div class="wrapper-carousel__header">
+      <div class="wrapper-carousel__title">New Products</div>
+      <SmallBtn text="View All" />
+    </div>
     <ProductsCarousel :products="products" />
   </div>
 </template>
@@ -13,6 +19,7 @@
 import Categories from "@/components/Categories.vue";
 import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
+import SmallBtn from "@/components/AppButton/SmallBtn.vue";
 
 export default {
   name: "HomePage",
@@ -21,6 +28,7 @@ export default {
     Categories,
     PopularProductsCarousel,
     ProductsCarousel,
+    SmallBtn,
   },
 
   data() {
@@ -87,19 +95,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper-carousel-product {
-  bottom: 68px;
-  height: 40vh;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
+.container {
+  min-height: 510px;
+  padding-top: 28%;
 }
 
 .slider-popular-product {
   left: 50%;
   top: 146px;
-  transform: translateX(-50%);
   position: absolute;
+  transform: translateX(-50%);
+}
+
+.wrapper-carousel-product {
+  background-color: #e0e4e7;
+  border-radius: 25px 25px 0 0;
+  bottom: 68px;
+  min-height: 330px;
+  left: 0;
+  overflow-x: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.wrapper-carousel__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 36px 19px;
+
+  .wrapper-carousel__title {
+    color: #3e4958;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
 }
 </style>
