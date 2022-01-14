@@ -10,6 +10,7 @@
         <BigBtn
           text="Update"
           @click="$router.push({ name: 'PasswordResetSubmitPage' })"
+          type="button"
         />
       </div>
     </form>
