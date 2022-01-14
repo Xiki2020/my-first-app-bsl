@@ -5,8 +5,10 @@
       'padding-bottom': $route.meta.navBar ? '68px' : 0,
     }"
   >
-    <HeaderApp v-if="$route.meta.title" />
-    <router-view />
+    <HeaderApp />
+    <div class="wrapper">
+      <router-view />
+    </div>
     <footer v-if="$route.meta.navBar">
       <NavBar />
     </footer>
@@ -40,14 +42,18 @@ h1 {
   min-height: 100vh;
   margin: 0 auto;
   max-width: 450px;
-  padding-bottom: 68px;
   position: relative;
+
   footer {
     bottom: 0;
     left: 0;
     position: absolute;
     width: 100%;
     z-index: 1000;
+  }
+
+  .wrapper {
+    padding: 0 9.6%;
   }
 }
 </style>

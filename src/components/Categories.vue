@@ -130,7 +130,6 @@ export default {
   align-items: flex-end;
   display: flex;
   height: 158px;
-  padding: 0 9.6% 0;
   justify-content: space-between;
   text-align: center;
   width: 100%;

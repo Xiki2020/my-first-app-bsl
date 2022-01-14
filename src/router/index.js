@@ -29,7 +29,7 @@ const routes = [
     name: 'ForgotPasswordPage',
     component: ForgotPasswordPage,
     meta: {
-      text: "Forgot password",
+      title: "Forgot password",
     },
   },
   {
@@ -50,7 +50,7 @@ const routes = [
     name: 'NewPasswordPage',
     component: NewPasswordPage,
     meta: {
-      text: "New password",
+      title: "New password",
     },
   },
   {
@@ -67,7 +67,7 @@ const routes = [
     name: 'RecoveryCodePage',
     component: RecoveryCodePage,
     meta: {
-      text: "Recovery code",
+      title: "Recovery code",
     },
   },
   {
@@ -75,7 +75,7 @@ const routes = [
     name: 'SignInPage',
     component: SignInPage,
     meta: {
-      text: "Sign In",
+      title: "Sign In",
     },
   },
   {
@@ -83,7 +83,7 @@ const routes = [
     name: 'SignUpPage',
     component: SignUpPage,
     meta: {
-      text: "Sign Up",
+      title: "Sign Up",
     },
   },
   {
@@ -113,7 +113,7 @@ const routes = [
     name: 'WelcomeBackPage',
     component: WelcomeBackPage,
     meta: {
-      text: "Welcome back",
+      title: "Welcome back",
     },
   },
 ]
@@ -127,40 +127,40 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  // let loginPages = [
-  //   'ForgotPasswordPage',
-  //   'NewPasswordPage',
-  //   'PasswordResetSubmitPage',
-  //   'RecoveryCodePage',
-  //   'SignInPage',
-  //   'SignUpPage',
-  //   'WelcomeBackPage',
-  //   'WelcomePage',
-  // ];
+  let loginPages = [
+    'ForgotPasswordPage',
+    'NewPasswordPage',
+    'PasswordResetSubmitPage',
+    'RecoveryCodePage',
+    'SignInPage',
+    'SignUpPage',
+    'WelcomeBackPage',
+    'WelcomePage',
+  ];
+
+  function isLogPage() {
+    if (loginPages.find(elem => elem === to.name)) next(false)
+  }
+
   if (window.sessionStorage.getItem('logIn')) {
-    // if (loginPages.find(elem => elem === to.name)) {
-    //   next({ name: 'HomePage' })
-    // };
+    isLogPage();
     next();
   }
   else if (to.name === 'WelcomePage') {
     next();
   }
-  else if ((
-    from.name === 'WelcomePage' || from.name === 'SignInPage' ||
+  else if ((from.name === 'WelcomePage' || from.name === 'SignInPage' ||
     from.name === 'SignUpPage' || from.name === 'ForgotPasswordPage')
-    && (
-      to.name === 'SignInPage' || to.name === 'SignUpPage'
-    )) {
+    && (to.name === 'SignInPage' || to.name === 'SignUpPage')) {
     next();
   }
-  else if (from.name === 'SignInPage' && to.name === 'ForgotPasswordPage') {
+  else if ((from.name === 'SignInPage' || from.name === 'WelcomeBackPage') && to.name === 'ForgotPasswordPage') {
     next()
   }
   else if (from.name === 'ForgotPasswordPage' && to.name === 'RecoveryCodePage') {
     next()
   }
-  else if (from.name === 'RecoveryCodePage' && to.name === 'NewPasswordPage') {
+  else if (from.name === 'RecoveryCodePage' && (to.name === 'NewPasswordPage' || to.name === 'ForgotPasswordPage')) {
     next()
   }
   else if (from.name === 'NewPasswordPage' && to.name === 'PasswordResetSubmitPage') {

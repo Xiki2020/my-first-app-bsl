@@ -1,10 +1,9 @@
 <template>
-  <HeaderHome class="header" />
   <PopularProductsCarousel
     class="slider-popular-product"
     :products="popularProducts"
   />
-  <Categories />
+  <Categories style="margin-bottom: 40vh" />
   <div class="wrapper-carousel-product">
     <ProductsCarousel :products="products" />
   </div>
@@ -12,7 +11,6 @@
 
 <script>
 import Categories from "@/components/Categories.vue";
-import HeaderHome from "@/components/HeaderHome.vue";
 import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 
@@ -21,7 +19,6 @@ export default {
 
   components: {
     Categories,
-    HeaderHome,
     PopularProductsCarousel,
     ProductsCarousel,
   },
@@ -91,9 +88,11 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper-carousel-product {
-  height: 100%;
+  bottom: 68px;
+  height: 40vh;
+  left: 0;
   overflow: hidden;
-  padding-top: 24px;
+  position: absolute;
   width: 100%;
 }
 

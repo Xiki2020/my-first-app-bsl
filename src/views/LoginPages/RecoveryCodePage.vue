@@ -1,5 +1,4 @@
 <template>
-  <HeaderApp />
   <div class="container" @click="test">
     <div class="description">
       The recovery code was sent to your mobile. Code expiration time is 120s.
@@ -31,13 +30,11 @@
 
 <script>
 import BigBtn from "@/components/AppButton/BigBtn.vue";
-import HeaderApp from "@/components/HeaderApp.vue";
 
 export default {
   name: "RecoveryCodePage",
   components: {
     BigBtn,
-    HeaderApp,
   },
   data() {
     return {
@@ -46,10 +43,12 @@ export default {
   },
   methods: {
     validationPin() {
-      if (this.pinValue.length > 4)
+      if (this.pinValue.length > 4) {
         this.pinValue = this.pinValue.substring(0, 4);
-      if (!/[0-9]/.exec(this.pinValue))
+      }
+      if (!/[0-9]$/.exec(this.pinValue)) {
         this.pinValue = this.pinValue.substring(0, this.pinValue.length - 1);
+      }
     },
   },
 };
@@ -57,7 +56,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding: 15px 9.6% 0;
+  padding-top: 15px;
 }
 
 .container-btn {

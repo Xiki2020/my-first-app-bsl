@@ -49,8 +49,9 @@ export default {
 .wrapper {
   background-color: #1152fd;
   height: 100vh;
+  left: 0;
   padding: calc(100vh - 155px) 9.6% 0;
-  position: relative;
+  position: absolute;
   width: 100%;
 }
 </style>

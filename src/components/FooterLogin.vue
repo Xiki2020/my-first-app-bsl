@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="footer__delimiter">
       <div class="footer__delimiter-text">
-        Or {{ $route.meta.text.toLowerCase() }} with
+        Or {{ $route.meta.title.toLowerCase() }} with
       </div>
     </div>
     <div class="footer__nav-log">
@@ -38,8 +38,8 @@
     <div class="footer__bottom">
       Already have an account?
       <span
-        @click="$router.push({ name: text.split(' ').join('') + 'Page' })"
-        >{{ text }}</span
+        @click="$router.push({ name: title.split(' ').join('') + 'Page' })"
+        >{{ title }}</span
       >
     </div>
   </div>
@@ -53,7 +53,7 @@ export default {
     BigBtn,
   },
   props: {
-    text: {
+    title: {
       type: String,
       default: () => "Sign Up",
       reqired: true,

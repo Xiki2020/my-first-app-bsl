@@ -57,7 +57,6 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding: 15px 9.6% 0;
   text-align: center;
 }
 
@@ -75,6 +74,10 @@ export default {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  svg {
+    transform: translateX(-5%);
+  }
 }
 
 .info__header {
