@@ -1,18 +1,11 @@
 <template>
-  <div class="products-carousel">
-    <div class="products-carousel__body">
-      <Swiper :slides-per-view="3" :space-between="10">
-        <SwiperSlide v-for="(product, index) in products" :key="index">
-          <CardProduct style="height: 100%; width: 100%" :product="product" />
-        </SwiperSlide>
-        <SwiperSlide />
-      </Swiper>
-    </div>
-  </div>
+  <Swiper :slides-per-view="3" :space-between="10" class="products-carousel">
+    <SwiperSlide v-for="(product, index) in products" :key="index">
+      <CardProduct :product="product" />
+    </SwiperSlide>
+    <SwiperSlide />
+  </Swiper>
 </template>
-
-//::v-deep
-
 <script>
 import CardProduct from "@/components/CardProduct.vue";
 import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
@@ -41,12 +34,6 @@ export default {
 
 <style lang="scss" scoped>
 .products-carousel {
-  height: 100%;
-  padding-bottom: 25px;
-  width: 100%;
-}
-
-.products-carousel__body {
   margin-right: -100px;
   padding-left: 36px;
 }
