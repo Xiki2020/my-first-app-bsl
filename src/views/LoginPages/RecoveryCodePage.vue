@@ -41,6 +41,9 @@ export default {
   },
   methods: {
     validationPin() {
+      if (this.pinValue === this.correctPin) {
+        this.$router.push({ name: "NewPasswordPage" });
+      }
       if (this.pinValue.length > 4) {
         this.pinValue = this.pinValue.substring(0, 4);
       }
