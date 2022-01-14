@@ -50,10 +50,8 @@
         />
       </svg>
     </button>
-    <button
-      class="nav__btn"
-      @click="$router.push({ name: 'PersonalAreaPage' })"
-    >
+    <!-- <button class="nav__btn" @click="$router.push({ name: 'PersonalAreaPage' })"> -->
+    <button class="nav__btn" @click="exit">
       <svg
         width="22"
         height="22"
@@ -75,6 +73,12 @@
 export default {
   name: "NavBar",
   props: {},
+  methods: {
+    exit() {
+      window.sessionStorage.removeItem("logIn");
+      this.$router.push({ name: "WelcomePage" });
+    },
+  },
 };
 </script>
 
