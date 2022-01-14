@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <AppWrapper style="padding-top: 15px">
     <div class="description">
       Select which contact details should we use to reset your password:
     </div>
@@ -49,21 +49,20 @@
         </div>
       </div>
     </div>
-  </div>
+  </AppWrapper>
 </template>
 
 <script>
+import AppWrapper from "@/components/AppWrapper.vue";
 export default {
   name: "ForgotPasswordPage",
-  components: {},
+  components: {
+    AppWrapper,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
-  padding-top: 15px;
-}
-
 .description {
   color: #3e4958;
   font-size: 13px;

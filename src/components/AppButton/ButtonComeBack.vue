@@ -5,6 +5,7 @@
     viewBox="0 0 19 18"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    @click="$router.go(-1)"
   >
     <path
       fill-rule="evenodd"
@@ -20,8 +21,11 @@ export default {
 
   props: {},
 
-  name: "BackArrow",
+  name: "ButtonComeBack",
 };
 </script>
 <style  lang="scss" scoped>
+svg {
+  cursor: pointer;
+}
 </style>>

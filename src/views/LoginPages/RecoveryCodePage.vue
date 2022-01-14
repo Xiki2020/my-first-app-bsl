@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @click="test">
+  <AppWrapper style="padding-top: 15px">
     <div class="description">
       The recovery code was sent to your mobile. Code expiration time is 120s.
       Please enter the code:
@@ -18,19 +18,21 @@
           }}</label>
         </div>
       </div>
-      <div class="container-btn">
+      <div class="btn-send">
         <BigBtn text="Send again" @click="isValidationPin" type="button" />
       </div>
     </form>
-  </div>
+  </AppWrapper>
 </template>
 
 <script>
+import AppWrapper from "@/components/AppWrapper.vue";
 import BigBtn from "@/components/AppButton/BigBtn.vue";
 
 export default {
   name: "RecoveryCodePage",
   components: {
+    AppWrapper,
     BigBtn,
   },
   data() {
@@ -61,11 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  padding-top: 15px;
-}
-
-.container-btn {
+.btn-send {
   bottom: 7vh;
   left: 50%;
   margin: 0 auto;

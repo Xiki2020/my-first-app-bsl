@@ -1,21 +1,24 @@
 <template>
-  <PopularProductsCarousel
-    class="slider-popular-product"
-    :products="popularProducts"
-  />
-  <div class="container">
-    <Categories />
-  </div>
-  <div class="wrapper-carousel-product">
-    <div class="wrapper-carousel__header">
-      <div class="wrapper-carousel__title">New Products</div>
-      <SmallBtn text="View All" />
+  <AppWrapper>
+    <PopularProductsCarousel
+      class="slider-popular-product"
+      :products="popularProducts"
+    />
+    <div class="container">
+      <Categories />
     </div>
-    <ProductsCarousel :products="products" />
-  </div>
+    <div class="wrapper-carousel-product">
+      <div class="wrapper-carousel__header">
+        <div class="wrapper-carousel__title">New Products</div>
+        <SmallBtn text="View All" />
+      </div>
+      <ProductsCarousel :products="products" />
+    </div>
+  </AppWrapper>
 </template>
 
 <script>
+import AppWrapper from "@/components/AppWrapper.vue";
 import Categories from "@/components/Categories.vue";
 import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
@@ -25,6 +28,7 @@ export default {
   name: "HomePage",
 
   components: {
+    AppWrapper,
     Categories,
     PopularProductsCarousel,
     ProductsCarousel,
