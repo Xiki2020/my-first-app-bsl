@@ -89,7 +89,10 @@ const routes = [
   {
     path: '/tm',
     name: 'TempPage',
-    component: TempPage
+    component: TempPage,
+    meta: {
+      title: "Затычка",
+    },
   },
   {
     path: '/wishlist',

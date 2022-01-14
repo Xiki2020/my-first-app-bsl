@@ -4,7 +4,7 @@
     <label for="input__checkbox"></label>
     <div
       @click="$router.push({ name: 'ForgotPasswordPage' })"
-      class="input__btn-f-p"
+      class="input__btn-forg-pass"
     >
       Forgot password?
     </div>
@@ -56,7 +56,7 @@ export default {
     border-color: #00d455;
   }
 
-  .input__btn-f-p {
+  .input__btn-forg-pass {
     color: #3e4958;
     cursor: pointer;
     font-size: 14px;

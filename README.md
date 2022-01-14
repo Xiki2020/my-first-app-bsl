@@ -31,3 +31,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 Задать переменные для кастомизации плагина
 
 Изучить тему слотов и реализовать Header и HeaderHome в одном компоненте
+
+//::v-deep

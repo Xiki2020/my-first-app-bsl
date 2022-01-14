@@ -114,6 +114,7 @@ export default {
   min-height: 330px;
   left: 0;
   overflow-x: hidden;
+  padding-bottom: 25px;
   position: absolute;
   width: 100%;
 }
