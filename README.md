@@ -33,3 +33,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 Изучить тему слотов и реализовать Header и HeaderHome в одном компоненте
 
 //::v-deep
+
+17.01.22
+
+добавить hover состояния для кнопок
+
+проверить адаптив
+
+vuex

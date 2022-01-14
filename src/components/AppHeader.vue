@@ -1,32 +1,35 @@
 <template>
-  <div class="header-app" @click="$router.go(-1)" v-if="$route.meta.title">
-    <BackArrow />
-    <div class="header-app__name-page">
-      {{ $route.meta.title }}{{ $route.meta.text }}
+  <AppWrapper v-if="$route.meta.title">
+    <div class="header-app">
+      <ButtonComeBack />
+      <div class="header-app__name-page">
+        {{ $route.meta.title }}
+      </div>
     </div>
-  </div>
+  </AppWrapper>
   <div class="header-home" v-else-if="$route.name === 'HomePage'">
     <Search class="search" />
   </div>
 </template>
 <script>
-import BackArrow from "@/components/AppButton/BackArrow.vue";
+import AppWrapper from "@/components/AppWrapper.vue";
+import ButtonComeBack from "@/components/AppButton/ButtonComeBack.vue";
 import Search from "@/components/Search/index.vue";
 export default {
   components: {
-    BackArrow,
+    AppWrapper,
+    ButtonComeBack,
     Search,
   },
 
   props: {},
 
-  name: "Header",
+  name: "AppHeader",
 };
 </script>
 <style  lang="scss" scoped>
 .header-app {
-  cursor: pointer;
-  padding: 49px 9.6% 0;
+  padding-top: 49px;
   white-space: nowrap;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <AppWrapper>
     <div class="info">
       <svg
         width="174"
@@ -39,28 +39,26 @@
         when logging in
       </div>
     </div>
-    <div class="container-btn">
+    <div class="btn-login">
       <BigBtn text="Login" @click="$router.push({ name: 'WelcomeBackPage' })" />
     </div>
-  </div>
+  </AppWrapper>
 </template>
 
 <script>
+import AppWrapper from "@/components/AppWrapper.vue";
 import BigBtn from "@/components/AppButton/BigBtn.vue";
 export default {
   name: "NewPasswordPage",
   components: {
+    AppWrapper,
     BigBtn,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
-  text-align: center;
-}
-
-.container-btn {
+.btn-login {
   bottom: 7vh;
   left: 50%;
   margin: 0 auto;
@@ -72,6 +70,7 @@ export default {
 .info {
   left: 50%;
   position: absolute;
+  text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
 

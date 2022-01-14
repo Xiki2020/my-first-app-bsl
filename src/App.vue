@@ -5,23 +5,19 @@
       'padding-bottom': $route.meta.navBar ? '68px' : 0,
     }"
   >
-    <HeaderApp />
-    <div class="wrapper">
-      <router-view />
-    </div>
-    <footer v-if="$route.meta.navBar">
-      <NavBar />
-    </footer>
+    <AppHeader />
+    <router-view />
+    <AppNav v-if="$route.meta.navBar" class="app-nav" />
   </div>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
-import HeaderApp from "@/components/HeaderApp.vue";
+import AppNav from "@/components/AppNav.vue";
+import AppHeader from "@/components/AppHeader.vue";
 export default {
   components: {
-    NavBar,
-    HeaderApp,
+    AppNav,
+    AppHeader,
   },
 };
 </script>
@@ -40,20 +36,17 @@ h1 {
 }
 .app {
   min-height: 100vh;
+  min-width: 320px;
   margin: 0 auto;
   max-width: 450px;
   position: relative;
+}
 
-  footer {
-    bottom: 0;
-    position: fixed;
-    max-width: 450px;
-    width: 100%;
-    z-index: 1000;
-  }
-
-  .wrapper {
-    padding: 0 9.6%;
-  }
+.app-nav {
+  bottom: 0;
+  position: fixed;
+  max-width: 450px;
+  width: 100%;
+  z-index: 1000;
 }
 </style>

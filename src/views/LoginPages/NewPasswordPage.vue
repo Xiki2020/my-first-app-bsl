@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <AppWrapper style="padding-top: 15px">
     <div class="description">
       Your new password must be different from previously used passwords.
     </div>
     <form class="form">
       <InputPassword text="new password" />
       <InputPassword text="confirm password" style="margin-top: 20px" />
-      <div class="container-btn">
+      <div class="btn-update">
         <BigBtn
           text="Update"
           @click="$router.push({ name: 'PasswordResetSubmitPage' })"
@@ -14,15 +14,17 @@
         />
       </div>
     </form>
-  </div>
+  </AppWrapper>
 </template>
 
 <script>
+import AppWrapper from "@/components/AppWrapper.vue";
 import BigBtn from "@/components/AppButton/BigBtn.vue";
 import InputPassword from "@/components/AppInputs/InputPassword.vue";
 export default {
   name: "NewPasswordPage",
   components: {
+    AppWrapper,
     BigBtn,
     InputPassword,
   },
@@ -30,11 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  padding-top: 15px;
-}
-
-.container-btn {
+.btn-update {
   bottom: 7vh;
   left: 50%;
   margin: 0 auto;

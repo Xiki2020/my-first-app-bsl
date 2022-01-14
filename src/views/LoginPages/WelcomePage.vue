@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="welcome-container">
     <div class="logo">
       <svg
         width="88"
@@ -15,43 +15,50 @@
         <path d="M58.6084 0H27.0996V12.1358H58.6084V0Z" fill="white" />
       </svg>
     </div>
-    <BigBtn
-      text="Sign Up"
-      variant="white"
-      @click="$router.push({ name: 'SignUpPage' })"
-    />
-    <BigBtn text="Sign In" @click="$router.push({ name: 'SignInPage' })" />
+    <AppWrapper class="wrapper-button">
+      <BigBtn
+        text="Sign Up"
+        variant="white"
+        @click="$router.push({ name: 'SignUpPage' })"
+      />
+      <BigBtn text="Sign In" @click="$router.push({ name: 'SignInPage' })" />
+    </AppWrapper>
   </div>
 </template>
 
 <script>
+import AppWrapper from "@/components/AppWrapper.vue";
 import BigBtn from "@/components/AppButton/BigBtn.vue";
 export default {
   name: "WelcomePage",
   components: {
+    AppWrapper,
     BigBtn,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.btn {
-  margin: 0 auto;
+.welcome-container {
+  align-items: center;
+  background-color: #1152fd;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 400px;
+  justify-content: center;
 }
 
 .logo {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 55px 0;
 }
 
-.wrapper {
-  background-color: #1152fd;
-  height: 100vh;
-  left: 0;
-  padding: calc(100vh - 155px) 9.6% 0;
-  position: absolute;
+.wrapper-button {
+  margin-top: auto;
+  padding-bottom: 55px;
   width: 100%;
 }
 </style>

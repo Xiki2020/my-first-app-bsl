@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <AppWrapper style="padding-top: 15px">
     <div class="description">
       Please fill E-mail & password to login your Shopy application account.
     </div>
@@ -15,10 +15,11 @@
       />
     </form>
     <FooterLogin style="margin: 60px 0 55px" />
-  </div>
+  </AppWrapper>
 </template>
 
 <script>
+import AppWrapper from "@/components/AppWrapper.vue";
 import BigBtn from "@/components/AppButton/BigBtn.vue";
 import FooterLogin from "@/components/FooterLogin.vue";
 import InputCheckbox from "@/components/AppInputs/InputCheckbox.vue";
@@ -28,6 +29,7 @@ import InputPassword from "@/components/AppInputs/InputPassword.vue";
 export default {
   name: "SignInPage",
   components: {
+    AppWrapper,
     BigBtn,
     FooterLogin,
     InputCheckbox,
@@ -45,10 +47,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  padding-top: 15px;
-}
-
 .description {
   color: #3e4958;
   font-size: 13px;
