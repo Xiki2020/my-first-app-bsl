@@ -7,7 +7,7 @@
     <form class="form">
       <div class="form__pin">
         <input
-          type="number"
+          type="tel"
           id="form__input"
           v-model="pinValue"
           @input="validationPin"
@@ -43,9 +43,12 @@ export default {
   },
   methods: {
     validationPin() {
-      this.pinValue += "";
-      if (this.pinValue.length > 4)
+      if (this.pinValue.length > 4) {
         this.pinValue = this.pinValue.substring(0, 4);
+      }
+      if (!/[0-9]$/.exec(this.pinValue)) {
+        this.pinValue = this.pinValue.substring(0, this.pinValue.length - 1);
+      }
     },
   },
 };
