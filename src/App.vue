@@ -46,8 +46,8 @@ h1 {
 
   footer {
     bottom: 0;
-    left: 0;
-    position: absolute;
+    position: fixed;
+    max-width: 450px;
     width: 100%;
     z-index: 1000;
   }

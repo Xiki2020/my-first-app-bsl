@@ -1,8 +1,8 @@
 <template>
-  <div class="сategories">
-    <div class="сategories__wrapper-btn">
+  <div class="categories">
+    <div class="categories__wrapper-btn">
       <button
-        class="сategories__btn"
+        class="categories__btn"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -20,11 +20,11 @@
           />
         </svg>
       </button>
-      <div class="сategories__name-btn">Men</div>
+      <div class="categories__name-btn">Men</div>
     </div>
-    <div class="сategories__wrapper-btn">
+    <div class="categories__wrapper-btn">
       <button
-        class="сategories__btn"
+        class="categories__btn"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -42,11 +42,11 @@
           />
         </svg>
       </button>
-      <div class="сategories__name-btn">Women</div>
+      <div class="categories__name-btn">Women</div>
     </div>
-    <div class="сategories__wrapper-btn">
+    <div class="categories__wrapper-btn">
       <button
-        class="сategories__btn"
+        class="categories__btn"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -82,11 +82,11 @@
           />
         </svg>
       </button>
-      <div class="сategories__name-btn">Kids</div>
+      <div class="categories__name-btn">Kids</div>
     </div>
-    <div class="сategories__wrapper-btn">
+    <div class="categories__wrapper-btn">
       <button
-        class="сategories__btn"
+        class="categories__btn"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -114,7 +114,7 @@
           />
         </svg>
       </button>
-      <div class="сategories__name-btn">Sale</div>
+      <div class="categories__name-btn">Sale</div>
     </div>
   </div>
 </template>
@@ -126,16 +126,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.сategories {
-  align-items: flex-end;
+.categories {
+  align-items: center;
   display: flex;
-  height: 158px;
   justify-content: space-between;
   text-align: center;
   width: 100%;
 }
 
-.сategories__btn {
+.categories__btn {
   background-color: rgba(17, 81, 251, 0.2);
   border-radius: 12px;
   border: none;
@@ -145,7 +144,7 @@ export default {
   width: 55px;
 }
 
-.сategories__name-btn {
+.categories__name-btn {
   color: #3e4958;
   font-size: 12px;
   font-weight: 600;
