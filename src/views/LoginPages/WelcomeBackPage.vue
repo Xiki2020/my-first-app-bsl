@@ -7,7 +7,12 @@
       <InputEmail />
       <InputPassword style="margin-top: 20px" />
       <InputCheckbox style="margin-top: 25px" />
-      <BigBtn text="Sign In" style="margin-top: 50px" @click="toCome" />
+      <BigBtn
+        text="Sign In"
+        style="margin-top: 50px"
+        @click="toCome"
+        type="button"
+      />
     </form>
     <FooterLogin style="margin: 60px 0 55px" />
   </div>

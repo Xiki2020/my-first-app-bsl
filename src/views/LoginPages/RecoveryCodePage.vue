@@ -19,10 +19,7 @@
         </div>
       </div>
       <div class="container-btn">
-        <BigBtn
-          text="Send again"
-          @click="$router.push({ name: 'NewPasswordPage' })"
-        />
+        <BigBtn text="Send again" @click="isValidationPin" type="button" />
       </div>
     </form>
   </div>
@@ -39,6 +36,7 @@ export default {
   data() {
     return {
       pinValue: "",
+      correctPin: "1111",
     };
   },
   methods: {
@@ -48,6 +46,11 @@ export default {
       }
       if (!/[0-9]$/.exec(this.pinValue)) {
         this.pinValue = this.pinValue.substring(0, this.pinValue.length - 1);
+      }
+    },
+    isValidationPin() {
+      if (this.pinValue === this.correctPin) {
+        this.$router.push({ name: "NewPasswordPage" });
       }
     },
   },

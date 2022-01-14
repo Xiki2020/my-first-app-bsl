@@ -4,7 +4,7 @@
       <InputName />
       <InputEmail style="margin-top: 20px" />
       <InputPassword style="margin-top: 20px" />
-      <BigBtn text="Sign Up" style="margin-top: 45px" />
+      <BigBtn text="Sign Up" style="margin-top: 45px" type="button" />
     </form>
     <FooterLogin style="margin: 60px 0 55px" title="Sign In" />
   </div>
