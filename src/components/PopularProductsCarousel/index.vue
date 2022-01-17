@@ -43,6 +43,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+:root {
+  --swiper-pagination-bullet-size: 5px;
+}
 .slider-popular-product {
   height: 145px;
   background-color: #ffffff;
