@@ -139,16 +139,16 @@ const router = createRouter({
   //history: createWebHashHistory(),
   history: createWebHistory(),
   routes,
-  role: "guest",
+  // role: "guest",
   // mode: 'history',
   // hashbang: false,
   // hash: false,
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(router.options)
-  if (to.meta.roles.find((e) => e === router.options.role)) next()
-  else if (router.options.role === "user") next({ name: from.name })
+  if (!window.localStorage.getItem("logIn")) window.localStorage.setItem("logIn", "guest");
+  if (to.meta.roles.find((e) => e === window.localStorage.getItem("logIn"))) next()
+  else if (window.localStorage.getItem("logIn") === "user") next({ name: from.name })
   else next({ name: "WelcomePage" });
 });
 

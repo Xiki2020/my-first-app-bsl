@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     toCome() {
-      this.$router.options.role = "user";
+      window.localStorage.setItem("logIn", "user");
       this.$router.push({ name: "HomePage" });
     },
   },
