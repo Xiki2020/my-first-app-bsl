@@ -22,21 +22,10 @@ export default {
 };
 </script>
 
-<style  lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
-* {
-  box-sizing: border-box;
-  font-family: Montserrat;
-}
-body {
-  margin: 0;
-}
-h1 {
-  margin: 0;
-}
+<style  lang="scss" scoped>
 .app {
   min-height: 100vh;
-  min-width: 320px;
+  min-width: 280px;
   margin: 0 auto;
   max-width: 450px;
   position: relative;

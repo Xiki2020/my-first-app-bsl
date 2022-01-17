@@ -10,7 +10,11 @@
     <div class="wrapper-carousel-product">
       <div class="wrapper-carousel__header">
         <div class="wrapper-carousel__title">New Products</div>
-        <SmallBtn text="View All" />
+        <AppButton
+          text="View All"
+          size="small"
+          class="wrapper-carousel__btn-view"
+        />
       </div>
       <ProductsCarousel :products="products" />
     </div>
@@ -18,21 +22,21 @@
 </template>
 
 <script>
+import AppButton from "@/components/AppButton.vue";
 import AppWrapper from "@/components/AppWrapper.vue";
 import Categories from "@/components/Categories.vue";
 import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
-import SmallBtn from "@/components/AppButton/SmallBtn.vue";
 
 export default {
   name: "HomePage",
 
   components: {
+    AppButton,
     AppWrapper,
     Categories,
     PopularProductsCarousel,
     ProductsCarousel,
-    SmallBtn,
   },
 
   data() {
@@ -118,7 +122,7 @@ export default {
   min-height: 330px;
   left: 0;
   overflow-x: hidden;
-  padding-bottom: 25px;
+  padding-bottom: 1.5625rem;
   position: absolute;
   width: 100%;
 }
@@ -127,13 +131,17 @@ export default {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 16px 36px 19px;
+  padding: 1rem 2.25rem 1.25rem;
 
   .wrapper-carousel__title {
-    color: #3e4958;
-    font-size: 18px;
+    color: $fc-gray;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.25;
+  }
+
+  .wrapper-carousel__btn-view:hover {
+    transform: translateY(-3px);
   }
 }
 </style>

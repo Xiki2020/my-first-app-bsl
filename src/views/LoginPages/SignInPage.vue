@@ -1,26 +1,27 @@
 <template>
-  <AppWrapper style="padding-top: 15px">
+  <AppWrapper style="padding-top: 0.95rem">
     <div class="description">
       Please fill E-mail & password to login your Shopy application account.
     </div>
     <form class="form">
       <InputEmail />
-      <InputPassword style="margin-top: 20px" />
-      <InputCheckbox style="margin-top: 25px" />
-      <BigBtn
+      <InputPassword style="margin-top: 1.25rem" />
+      <InputCheckbox style="margin-top: 1.5rem" />
+      <AppButton
         text="Sign In"
-        style="margin-top: 50px"
+        style="margin-top: 3.125rem"
         @click="toCome"
         type="button"
+        class="btn__translate"
       />
     </form>
-    <FooterLogin style="margin: 60px 0 55px" />
+    <FooterLogin style="margin: 3.75rem 0 3.5rem" />
   </AppWrapper>
 </template>
 
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
-import BigBtn from "@/components/AppButton/BigBtn.vue";
+import AppButton from "@/components/AppButton.vue";
 import FooterLogin from "@/components/FooterLogin.vue";
 import InputCheckbox from "@/components/AppInputs/InputCheckbox.vue";
 import InputEmail from "@/components/AppInputs/InputEmail.vue";
@@ -30,7 +31,7 @@ export default {
   name: "SignInPage",
   components: {
     AppWrapper,
-    BigBtn,
+    AppButton,
     FooterLogin,
     InputCheckbox,
     InputEmail,
@@ -48,12 +49,12 @@ export default {
 
 <style lang="scss" scoped>
 .description {
-  color: #3e4958;
-  font-size: 13px;
-  line-height: 24px;
+  color: $fc-gray;
+  font-size: 0.8125rem;
+  line-height: 1.85;
 }
 
 .form {
-  margin-top: 50px;
+  margin-top: 3.125rem;
 }
 </style>

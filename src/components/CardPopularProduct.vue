@@ -9,17 +9,22 @@
       <div class="popular-product__name" :title="product.name">
         {{ product.name }}
       </div>
-      <SmallBtn class="popular-product__btn" text="Buy now" variant="gray" />
+      <AppButton
+        class="popular-product__btn"
+        text="Buy now"
+        variant="gray"
+        size="small"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import SmallBtn from "@/components/AppButton/SmallBtn.vue";
+import AppButton from "@/components/AppButton.vue";
 
 export default {
   components: {
-    SmallBtn,
+    AppButton,
   },
   name: "CardPopularProduct",
   props: {
@@ -51,28 +56,32 @@ export default {
 }
 
 .popular-product__description {
-  margin-left: 5px;
+  margin-left: 0.3125rem;
   width: 40%;
 }
 
 .popular-product__header {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.25;
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }
 
 .popular-product__name {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.25;
-  margin-top: 2px;
+  margin-top: 0.125rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .popular-product__btn {
-  margin-top: 8px;
+  margin-top: 0.5rem;
+}
+
+.popular-product__btn:hover {
+  transform: translateY(-3px);
 }
 </style>

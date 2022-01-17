@@ -7,11 +7,12 @@
       <InputEmail />
       <InputPassword style="margin-top: 20px" />
       <InputCheckbox style="margin-top: 25px" />
-      <BigBtn
+      <AppButton
         text="Sign In"
         style="margin-top: 50px"
         @click="toCome"
         type="button"
+        class="btn__translate"
       />
     </form>
     <FooterLogin style="margin: 60px 0 55px" />
@@ -20,7 +21,7 @@
 
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
-import BigBtn from "@/components/AppButton/BigBtn.vue";
+import AppButton from "@/components/AppButton.vue";
 import FooterLogin from "@/components/FooterLogin.vue";
 import InputCheckbox from "@/components/AppInputs/InputCheckbox.vue";
 import InputEmail from "@/components/AppInputs/InputEmail.vue";
@@ -30,7 +31,7 @@ export default {
   name: "WelcomeBackPage",
   components: {
     AppWrapper,
-    BigBtn,
+    AppButton,
     FooterLogin,
     InputCheckbox,
     InputEmail,

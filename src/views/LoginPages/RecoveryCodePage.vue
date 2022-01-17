@@ -1,5 +1,5 @@
 <template>
-  <AppWrapper style="padding-top: 15px">
+  <AppWrapper style="padding-top: 0.95rem">
     <div class="description">
       The recovery code was sent to your mobile. Code expiration time is 120s.
       Please enter the code:
@@ -13,13 +13,20 @@
           @input="validationPin"
         />
         <div class="form__input">
-          <label for="form__input" v-for="n in 4" :key="n">{{
-            pinValue[n - 1]
-          }}</label>
+          <label for="form__input" v-for="n in 4" :key="n"
+            ><div>
+              {{ pinValue[n - 1] }}
+            </div></label
+          >
         </div>
       </div>
       <div class="btn-send">
-        <BigBtn text="Send again" @click="isValidationPin" type="button" />
+        <AppButton
+          text="Send again"
+          @click="isValidationPin"
+          type="button"
+          class="btn__translate"
+        />
       </div>
     </form>
   </AppWrapper>
@@ -27,13 +34,13 @@
 
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
-import BigBtn from "@/components/AppButton/BigBtn.vue";
+import AppButton from "@/components/AppButton.vue";
 
 export default {
   name: "RecoveryCodePage",
   components: {
     AppWrapper,
-    BigBtn,
+    AppButton,
   },
   data() {
     return {
@@ -63,19 +70,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.form {
+  min-height: 200px;
+}
+
 .btn-send {
-  bottom: 7vh;
+  bottom: 3.4375rem;
   left: 50%;
   margin: 0 auto;
   position: absolute;
   transform: translateX(-50%);
-  width: 80%;
+  width: calc(100% - 4.5rem);
 }
 
 .description {
-  color: #3e4958;
-  font-size: 13px;
-  line-height: 24px;
+  color: $fc-gray;
+  font-size: 0.8125rem;
+  line-height: 1.85;
 }
 
 .form__pin {
@@ -100,18 +111,20 @@ export default {
   }
 
   label {
+    align-items: center;
     background: #f7f8f9;
-    border: 0.5px solid #d5dde0;
+    border: 0.5px solid $secondary;
     border-radius: 14px;
-    color: #3e4958;
+    color: $fc-gray;
     cursor: pointer;
-    display: block;
+    display: flex;
     font-weight: 600;
-    font-size: 26px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-    width: 60px;
+    font-size: 1.625rem;
+    height: 16vw;
+    justify-content: center;
+    max-height: 60px;
+    max-width: 60px;
+    width: 16vw;
   }
 }
 </style>
