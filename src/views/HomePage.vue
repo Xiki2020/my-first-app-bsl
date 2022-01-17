@@ -16,7 +16,7 @@
             @click="$router.push({ name: 'TempPage' })"
           />
         </div>
-        <ProductsCarousel :products="products" class="products-carousel" />
+        <ProductsCarousel :products="products" />
       </div>
     </div>
   </AppWrapper>
@@ -104,6 +104,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.slider-popular-product {
+  left: 50%;
+  top: 146px;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
 .wrapper-content {
   align-items: center;
   display: flex;
@@ -115,15 +122,7 @@ export default {
   align-items: center;
   display: flex;
   height: 100%;
-  min-height: 190px;
   padding: 5rem 0 1rem;
-}
-
-.slider-popular-product {
-  left: 50%;
-  top: 146px;
-  position: absolute;
-  transform: translateX(-50%);
 }
 
 .wrapper-carousel-product {
@@ -141,18 +140,18 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2.25rem 1.25rem;
-
-  .wrapper-carousel__title {
-    color: $fc-gray;
-    font-size: 1.125rem;
-    font-weight: 700;
-    line-height: 1.25;
-  }
-
-  .wrapper-carousel__btn-view:hover {
-    transform: translateY(-3px);
-  }
 }
-.products-carousel {
+
+.wrapper-carousel__title {
+  color: $fc-gray;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-right: 1rem;
+  white-space: nowrap;
+}
+
+.wrapper-carousel__btn-view:hover {
+  transform: translateY(-3px);
 }
 </style>

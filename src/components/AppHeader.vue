@@ -46,8 +46,8 @@ export default {
 </script>
 <style  lang="scss" scoped>
 .header-app {
+  display: flex;
   padding-top: 3.125rem;
-  white-space: nowrap;
 }
 
 .btn-comeback {
@@ -64,12 +64,12 @@ export default {
 }
 
 .header-app__name-page {
-  color: #3e4958;
+  color: $fc-gray;
   display: inline-block;
   font-weight: 600;
   font-size: 1.625rem;
   line-height: 1.25;
-  margin-left: 1rem;
+  margin: 0 1rem;
 }
 
 .header-home {
