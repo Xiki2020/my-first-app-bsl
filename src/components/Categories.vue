@@ -2,7 +2,7 @@
   <div class="categories">
     <div class="categories__wrapper-btn">
       <button
-        class="categories__btn"
+        class="categories__btn btn__translate"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -24,7 +24,7 @@
     </div>
     <div class="categories__wrapper-btn">
       <button
-        class="categories__btn"
+        class="categories__btn btn__translate"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -46,7 +46,7 @@
     </div>
     <div class="categories__wrapper-btn">
       <button
-        class="categories__btn"
+        class="categories__btn btn__translate"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -86,7 +86,7 @@
     </div>
     <div class="categories__wrapper-btn">
       <button
-        class="categories__btn"
+        class="categories__btn btn__translate"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -134,21 +134,26 @@ export default {
   width: 100%;
 }
 
+.categories__wrapper-btn {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .categories__btn {
+  align-items: center;
   background-color: rgba(17, 81, 251, 0.2);
   border-radius: 12px;
   border: none;
   cursor: pointer;
+  display: flex;
   height: 15vw;
+  justify-content: center;
   max-height: 55px;
   max-width: 55px;
   outline: none;
   transition: all 0.1s linear;
   width: 15vw;
-}
-
-.categories__btn:hover {
-  transform: translateY(-5px);
 }
 
 .categories__name-btn {

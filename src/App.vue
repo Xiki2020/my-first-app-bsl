@@ -22,14 +22,14 @@ export default {
   min-height: 100vh;
   min-width: 280px;
   margin: 0 auto;
-  max-width: 450px;
+  max-width: 430px;
   position: relative;
 }
 
 .app-nav {
   bottom: 0;
   position: fixed;
-  max-width: 450px;
+  max-width: 430px;
   width: 100%;
   z-index: 1000;
 }
