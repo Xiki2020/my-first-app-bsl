@@ -14,6 +14,7 @@
         text="Buy now"
         variant="gray"
         size="small"
+        @click="$router.push({ name: 'TempPage' })"
       />
     </div>
   </div>

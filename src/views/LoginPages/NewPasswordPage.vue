@@ -21,7 +21,7 @@
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
 import AppButton from "@/components/AppButton.vue";
-import InputPassword from "@/components/AppInputs/InputPassword.vue";
+import InputPassword from "@/components/FormComponents/InputPassword.vue";
 export default {
   name: "NewPasswordPage",
   components: {
