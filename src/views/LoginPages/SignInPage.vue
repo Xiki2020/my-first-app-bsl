@@ -23,9 +23,9 @@
 import AppWrapper from "@/components/AppWrapper.vue";
 import AppButton from "@/components/AppButton.vue";
 import FooterLogin from "@/components/FooterLogin.vue";
-import InputCheckbox from "@/components/AppInputs/InputCheckbox.vue";
-import InputEmail from "@/components/AppInputs/InputEmail.vue";
-import InputPassword from "@/components/AppInputs/InputPassword.vue";
+import InputCheckbox from "@/components/FormComponents/InputCheckbox.vue";
+import InputEmail from "@/components/FormComponents/InputEmail.vue";
+import InputPassword from "@/components/FormComponents/InputPassword.vue";
 
 export default {
   name: "SignInPage",
@@ -39,9 +39,8 @@ export default {
   },
   methods: {
     toCome() {
-      window.sessionStorage.setItem("logIn", "User");
+      this.$router.options.role = "user";
       this.$router.push({ name: "HomePage" });
-      // console.log(document.forms[0][0].value);
     },
   },
 };

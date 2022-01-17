@@ -75,7 +75,7 @@ export default {
   props: {},
   methods: {
     exit() {
-      window.sessionStorage.removeItem("logIn");
+      this.$router.options.role = "guest";
       this.$router.push({ name: "WelcomePage" });
     },
   },

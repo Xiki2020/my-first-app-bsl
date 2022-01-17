@@ -14,6 +14,7 @@
           text="View All"
           size="small"
           class="wrapper-carousel__btn-view"
+          @click="$router.push({ name: 'TempPage' })"
         />
       </div>
       <ProductsCarousel :products="products" />

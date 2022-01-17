@@ -19,9 +19,9 @@
 import AppWrapper from "@/components/AppWrapper.vue";
 import AppButton from "@/components/AppButton.vue";
 import FooterLogin from "@/components/FooterLogin.vue";
-import InputEmail from "@/components/AppInputs/InputEmail.vue";
-import InputName from "@/components/AppInputs/InputName.vue";
-import InputPassword from "@/components/AppInputs/InputPassword.vue";
+import InputEmail from "@/components/FormComponents/InputEmail.vue";
+import InputName from "@/components/FormComponents/InputName.vue";
+import InputPassword from "@/components/FormComponents/InputPassword.vue";
 
 export default {
   name: "SignUpPage",

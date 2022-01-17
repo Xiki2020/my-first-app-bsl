@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import CartPage from '@/views/CartPage.vue'
 import ForgotPasswordPage from '@/views/LoginPages/ForgotPasswordPage.vue'
@@ -21,6 +21,7 @@ const routes = [
     component: CartPage,
     meta: {
       navBar: true,
+      roles: ["user",],
       title: "My cart",
     },
   },
@@ -29,6 +30,7 @@ const routes = [
     name: 'ForgotPasswordPage',
     component: ForgotPasswordPage,
     meta: {
+      roles: ["guest",],
       title: "Forgot password",
     },
   },
@@ -38,18 +40,23 @@ const routes = [
     component: HomePage,
     meta: {
       navBar: true,
+      roles: ["user",],
     },
   },
   {
     path: '/passwordResetSubmit',
     name: 'PasswordResetSubmitPage',
     component: PasswordResetSubmitPage,
+    meta: {
+      roles: ["guest",],
+    },
   },
   {
     path: '/newPassword',
     name: 'NewPasswordPage',
     component: NewPasswordPage,
     meta: {
+      roles: ["guest",],
       title: "New password",
     },
   },
@@ -59,6 +66,7 @@ const routes = [
     component: PersonalAreaPage,
     meta: {
       navBar: true,
+      roles: ["user",],
       title: "My account",
     },
   },
@@ -67,6 +75,7 @@ const routes = [
     name: 'RecoveryCodePage',
     component: RecoveryCodePage,
     meta: {
+      roles: ["guest",],
       title: "Recovery code",
     },
   },
@@ -75,6 +84,7 @@ const routes = [
     name: 'SignInPage',
     component: SignInPage,
     meta: {
+      roles: ["guest",],
       title: "Sign In",
     },
   },
@@ -83,6 +93,7 @@ const routes = [
     name: 'SignUpPage',
     component: SignUpPage,
     meta: {
+      roles: ["guest",],
       title: "Sign Up",
     },
   },
@@ -91,6 +102,7 @@ const routes = [
     name: 'TempPage',
     component: TempPage,
     meta: {
+      roles: ["user",],
       title: "Затычка",
     },
   },
@@ -100,6 +112,7 @@ const routes = [
     component: WishListPage,
     meta: {
       navBar: true,
+      roles: ["user",],
       title: "My wishlist",
     },
   },
@@ -107,72 +120,36 @@ const routes = [
     path: '/welcome',
     name: 'WelcomePage',
     component: WelcomePage,
-    // beforeEnter: (to, from, next) => {
-    //   if (to.name === 'SignInPage') next()
-    // },
+    meta: {
+      roles: ["guest",],
+    },
   },
   {
     path: '/welcomeBack',
     name: 'WelcomeBackPage',
     component: WelcomeBackPage,
     meta: {
+      roles: ["guest",],
       title: "Welcome back",
     },
   },
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  //history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
+  role: "guest",
   // mode: 'history',
   // hashbang: false,
   // hash: false,
 })
 
 router.beforeEach((to, from, next) => {
-  let loginPages = [
-    'ForgotPasswordPage',
-    'NewPasswordPage',
-    'PasswordResetSubmitPage',
-    'RecoveryCodePage',
-    'SignInPage',
-    'SignUpPage',
-    'WelcomeBackPage',
-    'WelcomePage',
-  ];
-
-  function isLogPage() {
-    if (loginPages.find(elem => elem === to.name)) next(false)
-  }
-
-  if (window.sessionStorage.getItem('logIn')) {
-    isLogPage();
-    next();
-  }
-  else if (to.name === 'WelcomePage') {
-    next();
-  }
-  else if ((from.name === 'WelcomePage' || from.name === 'SignInPage' ||
-    from.name === 'SignUpPage' || from.name === 'ForgotPasswordPage')
-    && (to.name === 'SignInPage' || to.name === 'SignUpPage')) {
-    next();
-  }
-  else if ((from.name === 'SignInPage' || from.name === 'WelcomeBackPage') && to.name === 'ForgotPasswordPage') {
-    next()
-  }
-  else if (from.name === 'ForgotPasswordPage' && to.name === 'RecoveryCodePage') {
-    next()
-  }
-  else if (from.name === 'RecoveryCodePage' && (to.name === 'NewPasswordPage' || to.name === 'ForgotPasswordPage')) {
-    next()
-  }
-  else if (from.name === 'NewPasswordPage' && to.name === 'PasswordResetSubmitPage') {
-    next()
-  }
-  else if (from.name === 'PasswordResetSubmitPage' && to.name === 'WelcomeBackPage') {
-    next()
-  }
-  else next({ name: 'WelcomePage' });
+  console.log(router.options)
+  if (to.meta.roles.find((e) => e === router.options.role)) next()
+  else if (router.options.role === "user") next({ name: from.name })
+  else next({ name: "WelcomePage" });
 });
 
 export default router
