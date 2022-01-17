@@ -41,7 +41,7 @@ export default {
 .card-product {
   background-color: #fefefe;
   border-radius: 16px;
-  padding: 10px 8px;
+  padding: 0.625rem 0.5rem;
 }
 
 .card-product__img {
@@ -54,10 +54,10 @@ export default {
 
 .card-product__name {
   color: #3e4958;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.15;
-  margin-top: 10px;
+  margin-top: 0.625rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -67,7 +67,7 @@ export default {
   background-color: #9ea8ac;
   border-radius: 4px;
   color: #ffffff;
-  font-size: 9px;
+  font-size: 0.5rem;
   font-weight: 600;
   line-height: 20px;
   margin-top: 3px;
@@ -79,17 +79,22 @@ export default {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .card-product__price {
   color: #3e4958;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
 .card-product__btn {
   cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+.card-product__btn:hover {
+  transform: scale(1.3);
 }
 </style>>

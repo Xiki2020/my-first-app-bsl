@@ -7,10 +7,11 @@
       <InputPassword text="new password" />
       <InputPassword text="confirm password" style="margin-top: 20px" />
       <div class="btn-update">
-        <BigBtn
+        <AppButton
           text="Update"
           @click="$router.push({ name: 'PasswordResetSubmitPage' })"
           type="button"
+          class="btn__translate"
         />
       </div>
     </form>
@@ -19,13 +20,13 @@
 
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
-import BigBtn from "@/components/AppButton/BigBtn.vue";
+import AppButton from "@/components/AppButton.vue";
 import InputPassword from "@/components/AppInputs/InputPassword.vue";
 export default {
   name: "NewPasswordPage",
   components: {
     AppWrapper,
-    BigBtn,
+    AppButton,
     InputPassword,
   },
 };
@@ -33,12 +34,12 @@ export default {
 
 <style lang="scss" scoped>
 .btn-update {
-  bottom: 7vh;
+  bottom: 3.4375rem;
   left: 50%;
   margin: 0 auto;
   position: absolute;
   transform: translateX(-50%);
-  width: 80%;
+  width: calc(100% - 4.5rem);
 }
 
 .description {
@@ -49,5 +50,6 @@ export default {
 
 .form {
   margin-top: 50px;
+  min-height: 325px;
 }
 </style>

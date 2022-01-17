@@ -1,3 +1,9 @@
-// module.exports = {
-//    publicPath: '/shopy/'
-// }
+module.exports = {
+   css: {
+      loaderOptions: {
+         sass: {
+            additionalData: `@import "@/styles/app-styles.scss";`
+         }
+      }
+   }
+};

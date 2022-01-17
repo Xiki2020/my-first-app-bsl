@@ -57,8 +57,7 @@ export default {
 label,
 input {
   display: block;
-  color: #3e4958;
-  font-size: 14px;
+  color: $fc-gray;
   font-weight: 500;
   line-height: 1.2;
   text-align: left;
@@ -67,7 +66,7 @@ input {
 }
 input {
   background-color: #f7f8f9;
-  border: 0.5px solid #d5dde0;
+  border: 0.5px solid $secondary;
   border-radius: 14px;
   height: 60px;
   margin-top: 10px;
@@ -78,8 +77,7 @@ input:hover {
   border-color: black;
 }
 input::placeholder {
-  color: #d5dde0;
-  font-size: 14px;
+  color: $secondary;
 }
 
 .input {
@@ -93,5 +91,11 @@ input::placeholder {
   right: 18px;
   top: 46%;
   transform: translateY(50%);
+  transition: all 0.1s linear;
+}
+
+.input__btn-show:hover {
+  border: 0.2px solid black;
+  border-radius: 50%;
 }
 </style>

@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="footer__nav-log">
-      <BigBtn variant="secondary" style="width: 47%">
+      <AppButton variant="secondary" style="width: 47%" class="btn__translate">
         <svg
           width="15"
           height="28"
@@ -19,8 +19,8 @@
             fill="white"
           />
         </svg>
-      </BigBtn>
-      <BigBtn variant="secondary" style="width: 47%">
+      </AppButton>
+      <AppButton variant="secondary" style="width: 47%" class="btn__translate">
         <svg
           width="29"
           height="29"
@@ -33,7 +33,7 @@
             fill="white"
           />
         </svg>
-      </BigBtn>
+      </AppButton>
     </div>
     <div class="footer__bottom">
       Already have an account?
@@ -46,11 +46,11 @@
 </template>
 
 <script>
-import BigBtn from "@/components/AppButton/BigBtn.vue";
+import AppButton from "@/components/AppButton.vue";
 export default {
   name: "FooterLogin",
   components: {
-    BigBtn,
+    AppButton,
   },
   props: {
     title: {
@@ -64,35 +64,38 @@ export default {
 
 <style lang="scss" scoped>
 .footer__delimiter {
-  background-color: #d5dde0;
+  background-color: $secondary;
   height: 1px;
   text-align: center;
 }
 .footer__delimiter-text {
-  background-color: #ffffff;
+  background-color: $white;
   display: inline-block;
-  font-size: 14px;
+
   font-weight: 600;
-  padding: 0 5px;
+  padding: 0 0.3125rem;
   transform: translateY(-0.6rem);
 }
 
 .footer__nav-log {
   display: flex;
   justify-content: space-between;
-  margin-top: 35px;
+  margin-top: 2.1875rem;
 }
 
 .footer__bottom {
-  font-size: 14px;
   font-weight: 500;
-  line-height: 1.2;
-  margin-top: 50px;
+  margin-top: 3.125rem;
   text-align: center;
 
   span {
     cursor: pointer;
+    display: inline-block;
     font-weight: 600;
+    transition: all 0.1s linear;
+  }
+  span:hover {
+    transform: translateX(5px);
   }
 }
 </style>

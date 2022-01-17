@@ -141,15 +141,20 @@ export default {
   cursor: pointer;
   height: 55px;
   outline: none;
+  transition: all 0.1s linear;
   width: 55px;
+}
+
+.categories__btn:hover {
+  transform: translateY(-5px);
 }
 
 .categories__name-btn {
   color: #3e4958;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.25;
-  margin-top: 8px;
+  margin-top: 0.5rem;
   width: 100%;
 }
 </style>

@@ -16,24 +16,29 @@
       </svg>
     </div>
     <AppWrapper class="wrapper-button">
-      <BigBtn
+      <AppButton
         text="Sign Up"
         variant="white"
         @click="$router.push({ name: 'SignUpPage' })"
+        class="btn__translate"
       />
-      <BigBtn text="Sign In" @click="$router.push({ name: 'SignInPage' })" />
+      <AppButton
+        class="btn-sign-in"
+        text="Sign In"
+        @click="$router.push({ name: 'SignInPage' })"
+      />
     </AppWrapper>
   </div>
 </template>
 
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
-import BigBtn from "@/components/AppButton/BigBtn.vue";
+import AppButton from "@/components/AppButton.vue";
 export default {
   name: "WelcomePage",
   components: {
     AppWrapper,
-    BigBtn,
+    AppButton,
   },
 };
 </script>
@@ -41,7 +46,7 @@ export default {
 <style lang="scss" scoped>
 .welcome-container {
   align-items: center;
-  background-color: #1152fd;
+  background-color: $primary;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -53,12 +58,16 @@ export default {
   align-items: center;
   display: flex;
   height: 100%;
-  padding: 55px 0;
+  padding: 3.5rem 0;
 }
 
 .wrapper-button {
   margin-top: auto;
-  padding-bottom: 55px;
+  padding-bottom: 3.5rem;
   width: 100%;
+}
+
+.btn-sign-in:hover {
+  opacity: 0.8;
 }
 </style>

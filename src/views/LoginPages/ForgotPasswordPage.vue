@@ -1,5 +1,5 @@
 <template>
-  <AppWrapper style="padding-top: 15px">
+  <AppWrapper style="padding-top: 0.95rem; padding-bottom: 0.95rem">
     <div class="description">
       Select which contact details should we use to reset your password:
     </div>
@@ -65,12 +65,12 @@ export default {
 <style lang="scss" scoped>
 .description {
   color: #3e4958;
-  font-size: 13px;
-  line-height: 24px;
+  font-size: 0.8125rem;
+  line-height: 1.85;
 }
 
 .nav {
-  margin-top: 70px;
+  margin-top: 4.375rem;
 }
 
 .nav__btn {
@@ -80,8 +80,8 @@ export default {
   display: flex;
   height: 113px;
   justify-content: space-between;
-  margin-top: 10px;
-  padding: 6px;
+  margin-top: 0.625rem;
+  padding: 0.375rem;
   transition: all 0.2s linear;
 }
 
@@ -109,11 +109,14 @@ export default {
   color: #3e4958;
   display: flex;
   flex-direction: column;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   justify-content: center;
-  padding-left: 23px;
+  overflow: hidden;
+  padding-left: 1.375rem;
   text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 68%;
 }
 </style>
