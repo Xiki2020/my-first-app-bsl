@@ -75,7 +75,7 @@ export default {
   props: {},
   methods: {
     exit() {
-      this.$router.options.role = "guest";
+      window.localStorage.setItem("logIn", "guest");
       this.$router.push({ name: "WelcomePage" });
     },
   },

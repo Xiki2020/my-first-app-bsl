@@ -1,23 +1,23 @@
 <template>
-  <AppWrapper>
+  <AppWrapper style="height: calc(100vh - 235px)">
     <PopularProductsCarousel
       class="slider-popular-product"
       :products="popularProducts"
     />
-    <div class="container">
-      <Categories />
-    </div>
-    <div class="wrapper-carousel-product">
-      <div class="wrapper-carousel__header">
-        <div class="wrapper-carousel__title">New Products</div>
-        <AppButton
-          text="View All"
-          size="small"
-          class="wrapper-carousel__btn-view"
-          @click="$router.push({ name: 'TempPage' })"
-        />
+    <div class="wrapper-content">
+      <Categories class="wrapper-content__categories" />
+      <div class="wrapper-carousel-product">
+        <div class="wrapper-carousel__header">
+          <div class="wrapper-carousel__title">New Products</div>
+          <AppButton
+            text="View All"
+            size="small"
+            class="wrapper-carousel__btn-view"
+            @click="$router.push({ name: 'TempPage' })"
+          />
+        </div>
+        <ProductsCarousel :products="products" class="products-carousel" />
       </div>
-      <ProductsCarousel :products="products" />
     </div>
   </AppWrapper>
 </template>
@@ -104,9 +104,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  min-height: 510px;
-  padding-top: 28%;
+.wrapper-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.wrapper-content__categories {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  min-height: 190px;
+  padding: 5rem 0 1rem;
 }
 
 .slider-popular-product {
@@ -119,13 +129,11 @@ export default {
 .wrapper-carousel-product {
   background-color: #e0e4e7;
   border-radius: 25px 25px 0 0;
-  bottom: 68px;
-  min-height: 330px;
+  min-height: 390px;
   left: 0;
-  overflow-x: hidden;
-  padding-bottom: 1.5625rem;
-  position: absolute;
-  width: 100%;
+  overflow: hidden;
+  padding-bottom: 4.25rem;
+  width: calc(100% + 4.5rem);
 }
 
 .wrapper-carousel__header {
@@ -144,5 +152,7 @@ export default {
   .wrapper-carousel__btn-view:hover {
     transform: translateY(-3px);
   }
+}
+.products-carousel {
 }
 </style>

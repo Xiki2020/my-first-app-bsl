@@ -1,5 +1,10 @@
 <template>
-  <Swiper :slides-per-view="3" :space-between="10" class="products-carousel">
+  <Swiper
+    :slides-per-view="3"
+    :space-between="10"
+    class="products-carousel"
+    style="max-width: 490px"
+  >
     <SwiperSlide v-for="(product, index) in products" :key="index">
       <CardProduct :product="product" />
     </SwiperSlide>
@@ -34,7 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 .products-carousel {
-  margin-right: -6.25rem;
+  margin-right: -10%;
   padding-left: 2.25rem;
 }
 </style>

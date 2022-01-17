@@ -139,10 +139,12 @@ export default {
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  height: 55px;
+  height: 15vw;
+  max-height: 55px;
+  max-width: 55px;
   outline: none;
   transition: all 0.1s linear;
-  width: 55px;
+  width: 15vw;
 }
 
 .categories__btn:hover {

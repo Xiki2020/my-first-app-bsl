@@ -1,10 +1,5 @@
 <template>
-  <div
-    class="app"
-    :style="{
-      'padding-bottom': $route.meta.navBar ? '68px' : 0,
-    }"
-  >
+  <div class="app">
     <AppHeader />
     <router-view />
     <AppNav v-if="$route.meta.navBar" class="app-nav" />
