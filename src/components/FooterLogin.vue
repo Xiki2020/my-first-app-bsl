@@ -1,12 +1,12 @@
 <template>
   <div class="footer">
-    <div class="footer__delimiter">
-      <div class="footer__delimiter-text">
+    <div class="footer__separator">
+      <div class="footer__separator-text">
         Or {{ $route.meta.title.toLowerCase() }} with
       </div>
     </div>
     <div class="footer__nav-log">
-      <AppButton variant="secondary" style="width: 47%" class="btn__translate">
+      <AppButton variant="secondary" style="width: 47%">
         <svg
           width="15"
           height="28"
@@ -20,7 +20,7 @@
           />
         </svg>
       </AppButton>
-      <AppButton variant="secondary" style="width: 47%" class="btn__translate">
+      <AppButton variant="secondary" style="width: 47%">
         <svg
           width="29"
           height="29"
@@ -37,10 +37,10 @@
     </div>
     <div class="footer__bottom">
       Already have an account?
-      <span
-        @click="$router.push({ name: title.split(' ').join('') + 'Page' })"
-        >{{ title }}</span
-      >
+      <router-link
+        :to="{ name: toRouteName }"
+        >{{ title }}
+      </router-link>
     </div>
   </div>
 </template>
@@ -55,7 +55,10 @@ export default {
   props: {
     title: {
       type: String,
-      default: () => "Sign Up",
+      reqired: true,
+    },
+    toRoutename: {
+      type: String,
       reqired: true,
     },
   },
@@ -63,18 +66,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer__delimiter {
-  background-color: $secondary;
-  height: 1px;
+.footer__separator {
   text-align: center;
-}
-.footer__delimiter-text {
-  background-color: $white;
-  display: inline-block;
+  position: relative;
 
+  &::before {
+    content: '';
+    height: 1px;
+    background-color: $secondary;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+  }
+}
+
+.footer__separator-text {
+  background-color: $body-bg;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
   font-weight: 600;
   padding: 0 0.3125rem;
-  transform: translateY(-0.6rem);
 }
 
 .footer__nav-log {

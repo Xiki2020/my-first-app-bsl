@@ -2,7 +2,7 @@
   <div class="app">
     <AppHeader />
     <router-view />
-    <AppNav v-if="$route.meta.navBar" class="app-nav" />
+    <AppNav v-if="$route.meta.navBar" class="app__nav" />
   </div>
 </template>
 
@@ -19,18 +19,19 @@ export default {
 
 <style  lang="scss" scoped>
 .app {
+  background-color: $white;
   min-height: 100vh;
-  min-width: 280px;
   margin: 0 auto;
-  max-width: 430px;
+  max-width: $body-max-width;
   position: relative;
 }
 
-.app-nav {
+.app__nav {
   bottom: 0;
   position: fixed;
-  max-width: 430px;
+  min-width: $body-min-width;
+  max-width: $body-max-width;
   width: 100%;
-  z-index: 1000;
+  z-index: 10;
 }
 </style>

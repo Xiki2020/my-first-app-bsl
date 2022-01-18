@@ -9,3 +9,11 @@ $fz-basic: 0.875rem;
 $fz-small: 0.75rem;
 
 $fc-gray: #3e4958;
+
+$transition-base: .15s ease-in-out;
+
+// Body
+
+$body-bg: $white;
+$body-min-width: 320px;
+$body-max-width: 450px;

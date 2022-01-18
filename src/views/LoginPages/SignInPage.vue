@@ -6,13 +6,19 @@
     <form class="form">
       <InputEmail />
       <InputPassword style="margin-top: 1.25rem" />
-      <InputCheckbox style="margin-top: 1.5rem" />
+      <div class="signin-page__actions">
+        <CustomCheckbox title="Запомнить меня" />
+        <a
+          class="signin-page__forgot"
+          @click.prevent="$router.push({ name: 'ForgotPasswordPage' })"
+          href="#"
+        >Забыл пароль</a>
+      </div>
       <AppButton
         text="Sign In"
         style="margin-top: 3.125rem"
         @click="toCome"
         type="button"
-        class="btn__translate"
       />
     </form>
     <FooterLogin style="margin: 3.75rem 0 3.5rem" />
@@ -23,7 +29,7 @@
 import AppWrapper from "@/components/AppWrapper.vue";
 import AppButton from "@/components/AppButton.vue";
 import FooterLogin from "@/components/FooterLogin.vue";
-import InputCheckbox from "@/components/FormComponents/InputCheckbox.vue";
+import CustomCheckbox from "@/components/FormComponents/CustomCheckbox.vue";
 import InputEmail from "@/components/FormComponents/InputEmail.vue";
 import InputPassword from "@/components/FormComponents/InputPassword.vue";
 
@@ -33,7 +39,7 @@ export default {
     AppWrapper,
     AppButton,
     FooterLogin,
-    InputCheckbox,
+    CustomCheckbox,
     InputEmail,
     InputPassword,
   },
@@ -47,6 +53,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.signin-page__actions {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.signin-page__forgot {
+  margin-left: auto;
+}
+
 .description {
   color: $fc-gray;
   font-size: 0.8125rem;

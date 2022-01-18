@@ -6,22 +6,18 @@
    font-family: Montserrat;
 }
 body {
+   background-color: #f4f4f4;
    font-size: $fz-basic;
    font-style: normal;
    line-height: 1.2;
+   min-width: $body-min-width;
    margin: 0;
 }
 
-.btn__translate {
-   transition: all 0.2s linear;
-}
 .btn__scale {
    transition: all 0.1s linear;
 }
 
-.btn__translate:hover {
-   transform: translateY(-5px);
-}
 .btn__scale:hover {
    transform: scale(1.1);
 }

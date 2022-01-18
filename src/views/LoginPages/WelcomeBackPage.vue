@@ -6,13 +6,12 @@
     <form class="form">
       <InputEmail />
       <InputPassword style="margin-top: 20px" />
-      <InputCheckbox style="margin-top: 25px" />
+      <CustomCheckbox style="margin-top: 25px" />
       <AppButton
         text="Sign In"
         style="margin-top: 50px"
         @click="toCome"
         type="button"
-        class="btn__translate"
       />
     </form>
     <FooterLogin style="margin: 60px 0 55px" />
@@ -23,7 +22,7 @@
 import AppWrapper from "@/components/AppWrapper.vue";
 import AppButton from "@/components/AppButton.vue";
 import FooterLogin from "@/components/FooterLogin.vue";
-import InputCheckbox from "@/components/FormComponents/InputCheckbox.vue";
+import CustomCheckbox from "@/components/FormComponents/CustomCheckbox.vue";
 import InputEmail from "@/components/FormComponents/InputEmail.vue";
 import InputPassword from "@/components/FormComponents/InputPassword.vue";
 
@@ -33,7 +32,7 @@ export default {
     AppWrapper,
     AppButton,
     FooterLogin,
-    InputCheckbox,
+    CustomCheckbox,
     InputEmail,
     InputPassword,
   },

@@ -25,7 +25,6 @@
           text="Send again"
           @click="isValidationPin"
           type="button"
-          class="btn__translate"
         />
       </div>
     </form>

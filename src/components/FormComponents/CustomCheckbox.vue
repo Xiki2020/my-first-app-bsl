@@ -1,34 +1,40 @@
 <template>
-  <div class="input">
-    <input type="checkbox" id="input__checkbox" />
-    <label for="input__checkbox"></label>
-    <div
-      @click="$router.push({ name: 'ForgotPasswordPage' })"
-      class="input__btn-forg-pass btn__scale"
-    >
-      Forgot password?
-    </div>
+  <div class="custom-checkbox">
+    <input
+      class="custom-checkbox__input"
+      type="checkbox"
+      :id="uuid"
+    />
+    <label
+      class="custom-checkbox__label"
+      :for="uuid"
+    >{{ title }}</label>
   </div>
 </template>
 
 <script>
+import { getUniqId } from '@/utils/common'
 export default {
-  name: "InputCheckbox",
-  components: {},
+  name: "CustomCheckbox",
+  props: {
+    title: {
+      title: String,
+      required: () => true
+    }
+  },
+
+  computed: {
+    uuid () {
+      return getUniqId()
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.input {
+.custom-checkbox {
   align-items: center;
   display: flex;
-  justify-content: space-between;
-}
-
-.input {
-  input {
-    display: none;
-  }
 
   label {
     display: flex;
@@ -55,11 +61,15 @@ export default {
     background-size: cover;
     border-color: #00d455;
   }
+}
 
-  .input__btn-forg-pass {
-    color: $fc-gray;
-    cursor: pointer;
-    font-weight: 500;
-  }
+.custom-checkbox__btn-forg-pass {
+  color: $fc-gray;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.custom-checkbox__input {
+  display: none;
 }
 </style>

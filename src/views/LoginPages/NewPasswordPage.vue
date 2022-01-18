@@ -11,7 +11,6 @@
           text="Update"
           @click="$router.push({ name: 'PasswordResetSubmitPage' })"
           type="button"
-          class="btn__translate"
         />
       </div>
     </form>
