@@ -146,14 +146,14 @@ const router = createRouter({
   // hash: false,
 })
 
-router.beforeEach((to, from, next) => {
-  if (!window.localStorage.getItem("logIn")) window.localStorage.setItem("logIn", "guest");
+// router.beforeEach((to, from, next) => {
+//   if (!window.localStorage.getItem("logIn")) window.localStorage.setItem("logIn", "guest");
 
-  if (to.meta.roles.find((e) => e === window.localStorage.getItem("logIn"))) {
-    next()
-  } else if (window.localStorage.getItem("logIn") === "user") {
-    next({ name: from.name })
-  } else next({ name: "WelcomePage" });
-});
+//   if (to.meta.roles.find((e) => e === window.localStorage.getItem("logIn"))) {
+//     next()
+//   } else if (window.localStorage.getItem("logIn") === "user") {
+//     next({ name: from.name })
+//   } else next({ name: "WelcomePage" });
+// });
 
 export default router
