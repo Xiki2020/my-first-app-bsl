@@ -1,7 +1,7 @@
 <template>
   <Swiper
     slides-per-view="auto"
-    :space-between="14"
+    :space-between="18"
     :pagination="{
       clickable: true,
     }"
@@ -43,15 +43,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-:root {
-  --swiper-pagination-bullet-size: 5px;
-}
 .slider-popular-product {
   height: 145px;
   background-color: #ffffff;
   border-radius: 19px;
   box-shadow: -5px 15px 35px rgba(35, 35, 35, 0.1);
-  padding: 0.875rem 0.875rem 1rem;
-  width: 81%;
+  padding: 0.8125rem 0.8125rem 1rem;
+  width: calc(100% - 4.5rem);
+}
+.swiper-pagination-bullet {
+  $--swiper-pagination-bullet-size: 5px;
+  width: $--swiper-pagination-bullet-size;
 }
 </style>
