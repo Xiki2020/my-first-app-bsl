@@ -45,7 +45,6 @@
       <AppButton
         text="Login"
         @click="$router.push({ name: 'WelcomeBackPage' })"
-        class="btn__translate"
       />
     </div>
   </AppWrapper>

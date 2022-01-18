@@ -4,10 +4,6 @@
 
 //Задать переменные для кастомизации плагина
 
-:root {
-  --swiper-pagination-bullet-inactive-color: #{$primary};
-}
-
 .swiper-pagination {
   display: flex;
   align-items: center;
@@ -16,7 +12,10 @@
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
   background-color: #97ADB6;
-  position: relative;
+
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
 }
 
 .swiper-pagination-bullet-active {

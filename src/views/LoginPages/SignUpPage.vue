@@ -8,10 +8,9 @@
         text="Sign Up"
         style="margin-top: 2.8rem"
         type="button"
-        class="btn__translate"
       />
     </form>
-    <FooterLogin style="margin: 3.75rem 0 3.5rem" title="Sign In" />
+    <FooterLogin style="margin: 3.75rem 0 3.5rem" title="Sign In!!!" />
   </AppWrapper>
 </template>
 

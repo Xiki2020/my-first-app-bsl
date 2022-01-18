@@ -41,9 +41,13 @@ export default {
   height: 60px;
   justify-content: center;
   line-height: 60px;
-  transition: all 0.2s linear;
+  transition: $transition-base;
   white-space: nowrap;
   width: 100%;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .btn_size_small {

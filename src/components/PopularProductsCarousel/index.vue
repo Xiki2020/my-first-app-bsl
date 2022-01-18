@@ -2,9 +2,7 @@
   <Swiper
     slides-per-view="auto"
     :space-between="18"
-    :pagination="{
-      clickable: true,
-    }"
+    :pagination="paginationOptions"
     class="slider-popular-product"
   >
     <SwiperSlide v-for="(product, index) in products" :key="index">
@@ -39,6 +37,14 @@ export default {
       reqired: true,
     },
   },
+
+  data () {
+    return {
+      paginationOptions: {
+        clickable: true
+      }
+    }
+  }
 };
 </script>
 
@@ -54,5 +60,29 @@ export default {
 .swiper-pagination-bullet {
   $--swiper-pagination-bullet-size: 5px;
   width: $--swiper-pagination-bullet-size;
+}
+
+::v-deep {
+  .swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-bullet {
+    display: block;
+    background-color: #97ADB6;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+
+  .custom-bullet--active {
+    background-color: #3E4958;
+  }
 }
 </style>
