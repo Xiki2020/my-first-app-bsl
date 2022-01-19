@@ -36,5 +36,6 @@ export default {
 .products-carousel {
   margin-right: -25%;
   padding-left: 2.25rem;
+  user-select: none;
 }
 </style>

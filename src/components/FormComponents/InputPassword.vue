@@ -1,12 +1,11 @@
 <template>
-  <div class="input">
-    <label :for="'input__' + text.split(' ').join('-')">{{
-      text[0].toUpperCase() + text.substring(1)
-    }}</label>
+  <div class="input-password">
+    <label :for="uuid" class="input-password__label">{{ text }}</label>
     <input
       :type="type"
-      :id="'input__' + text.split(' ').join('-')"
+      :id="uuid"
       placeholder="**********"
+      class="input-password__input"
     />
     <svg
       width="17"
@@ -14,7 +13,7 @@
       viewBox="0 0 17 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      class="input__btn-show"
+      class="input-password__btn-show"
       @click="showPassword"
     >
       <path
@@ -28,13 +27,18 @@
 </template>
 
 <script>
+import { getUniqId } from "@/utils/common";
 export default {
   name: "InputPassword",
-  components: {},
+  computed: {
+    uuid() {
+      return getUniqId();
+    },
+  },
   props: {
     text: {
       type: String,
-      default: () => "password",
+      default: () => "Password",
       reqired: true,
     },
   },
@@ -54,17 +58,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-label,
-input {
+.input-password {
+  position: relative;
+  text-align: right;
+}
+
+.input-password__label,
+.input-password__input {
   display: block;
   color: $fc-gray;
   font-weight: 500;
-  line-height: 1.2;
   text-align: left;
-  transition: all 0.1s linear;
+  transition: $transition-base;
   width: 100%;
 }
-input {
+
+.input-password__input {
   background-color: #f7f8f9;
   border: 0.5px solid $secondary;
   border-radius: 14px;
@@ -72,30 +81,29 @@ input {
   margin-top: 10px;
   outline: none;
   padding: 20px 17px;
-}
-input:hover {
-  border-color: black;
-}
-input::placeholder {
-  color: $secondary;
+
+  &:hover {
+    border-color: black;
+  }
+
+  &::placeholder {
+    color: $secondary;
+    font-size: $font-size-base;
+  }
 }
 
-.input {
-  position: relative;
-  text-align: right;
-}
-
-.input__btn-show {
+.input-password__btn-show {
   cursor: pointer;
   position: absolute;
   right: 18px;
   top: 46%;
   transform: translateY(50%);
-  transition: all 0.1s linear;
-}
+  transition: $transition-base;
 
-.input__btn-show:hover {
-  border: 0.2px solid black;
-  border-radius: 50%;
+  &:hover {
+    path {
+      fill: $gray;
+    }
+  }
 }
 </style>

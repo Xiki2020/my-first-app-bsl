@@ -6,7 +6,7 @@
     class="slider-popular-product"
   >
     <SwiperSlide v-for="(product, index) in products" :key="index">
-      <CardPopularProduct style="width: 100%" :product="product" />
+      <CardPopularProduct :product="product" />
     </SwiperSlide>
   </Swiper>
 </template>
@@ -38,51 +38,50 @@ export default {
     },
   },
 
-  data () {
+  data() {
     return {
       paginationOptions: {
-        clickable: true
-      }
-    }
-  }
+        clickable: true,
+      },
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .slider-popular-product {
   height: 145px;
-  background-color: #ffffff;
+  background-color: $white;
   border-radius: 19px;
   box-shadow: -5px 15px 35px rgba(35, 35, 35, 0.1);
   padding: 0.8125rem 0.8125rem 1rem;
-  width: calc(100% - 4.5rem);
 }
-.swiper-pagination-bullet {
-  $--swiper-pagination-bullet-size: 5px;
-  width: $--swiper-pagination-bullet-size;
-}
+// .swiper-pagination-bullet {
+//   $--swiper-pagination-bullet-size: 5px;
+//   width: $--swiper-pagination-bullet-size;
+// }
 
-::v-deep {
-  .swiper-pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+// ::v-deep {
+//   .swiper-pagination {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
 
-  .custom-bullet {
-    display: block;
-    background-color: #97ADB6;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
+//   .custom-bullet {
+//     display: block;
+//     background-color: #97adb6;
+//     width: 5px;
+//     height: 5px;
+//     border-radius: 50%;
 
-    &:not(:last-child) {
-      margin-right: 5px;
-    }
-  }
+//     &:not(:last-child) {
+//       margin-right: 5px;
+//     }
+//   }
 
-  .custom-bullet--active {
-    background-color: #3E4958;
-  }
-}
+//   .custom-bullet--active {
+//     background-color: #3e4958;
+//   }
+// }
 </style>

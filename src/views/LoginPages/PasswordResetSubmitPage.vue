@@ -1,13 +1,14 @@
 <template>
-  <AppWrapper class="container">
-    <div class="info">
-      <div class="info__content">
+  <AppWrapper class="password-submit-page">
+    <div class="password-submit-page__wrapper-content">
+      <div class="password-submit-page__content">
         <svg
           width="174"
           height="119"
           viewBox="0 0 174 119"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="password-submit-page__img"
         >
           <rect x="40" y="8" width="110" height="110" rx="55" fill="#00D455" />
           <path
@@ -34,14 +35,16 @@
             stroke-width="0.664972"
           />
         </svg>
-        <div class="info__header">Password reset successful</div>
-        <div class="info__body">
+        <div class="password-submit-page__content-header">
+          Password reset successful
+        </div>
+        <div class="password-submit-page__content-text">
           You have successfully reset your password.Please use your new password
           when logging in
         </div>
       </div>
     </div>
-    <div class="btn-login">
+    <div class="password-submit-page__btn">
       <AppButton
         text="Login"
         @click="$router.push({ name: 'WelcomeBackPage' })"
@@ -63,50 +66,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn-login {
-  margin-top: auto;
-  padding-bottom: 3.4375rem;
-  width: 100%;
-}
-
-.container {
+.password-submit-page {
   align-items: center;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  min-height: 400px;
+  min-height: 500px;
   justify-content: center;
 }
-
-.info {
+.password-submit-page__wrapper-content {
   align-items: center;
   display: flex;
   height: 100%;
   padding: 3.5rem 0;
 }
-.info__content {
+.password-submit-page__content {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-
-  svg {
-    transform: translateX(-5%);
-  }
 }
-
-.info__header {
+.password-submit-page__img {
+  transform: translateX(-5%);
+}
+.password-submit-page__content-header {
   color: $fc-gray;
   font-size: 1.125rem;
   font-weight: bold;
   margin-top: 15px;
   max-width: 145px;
 }
-
-.info__body {
+.password-submit-page__content-text {
   color: $secondary;
   font-weight: 500;
   margin-top: 10px;
+}
+.password-submit-page__btn {
+  margin-top: auto;
+  width: 100%;
 }
 </style>

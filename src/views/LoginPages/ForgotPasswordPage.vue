@@ -1,11 +1,14 @@
 <template>
-  <AppWrapper style="padding-top: 0.95rem; padding-bottom: 0.95rem">
-    <div class="description">
+  <AppWrapper class="forgot-password-page">
+    <div class="forgot-password-page__description">
       Select which contact details should we use to reset your password:
     </div>
-    <div class="nav">
-      <div class="nav__btn" @click="$router.push({ name: 'RecoveryCodePage' })">
-        <div class="nav__icon">
+    <div class="forgot-password-page__btns">
+      <div
+        class="forgot-password-page__btn"
+        @click="$router.push({ name: 'RecoveryCodePage' })"
+      >
+        <div class="forgot-password-page__icon">
           <svg
             width="29"
             height="29"
@@ -21,13 +24,13 @@
             />
           </svg>
         </div>
-        <div class="nav__description-btn">
+        <div class="forgot-password-page__description-btn">
           <div>via sms:</div>
           <div style="font-weight: 700">*** *******61</div>
         </div>
       </div>
-      <div class="nav__btn">
-        <div class="nav__icon">
+      <div class="forgot-password-page__btn">
+        <div class="forgot-password-page__icon">
           <svg
             width="35"
             height="29"
@@ -43,7 +46,7 @@
             />
           </svg>
         </div>
-        <div class="nav__description-btn">
+        <div class="forgot-password-page__description-btn">
           <div>via email:</div>
           <div style="font-weight: 700">****ic16@gmail.com</div>
         </div>
@@ -63,18 +66,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.description {
-  color: #3e4958;
-  font-size: 0.8125rem;
-  line-height: 1.85;
+.forgot-password-page {
+  color: $fc-gray;
+  padding-top: 0.95rem;
 }
 
-.nav {
+.forgot-password-page__description {
+  font-size: 0.8125rem;
+  line-height: 1.85;
+  word-wrap: break-word;
+}
+
+.forgot-password-page__btns {
   margin-top: 4.375rem;
 }
 
-.nav__btn {
-  border: 0.5px solid #d5dde0;
+.forgot-password-page__btn {
+  border: 0.5px solid $secondary;
   border-radius: 14px;
   cursor: pointer;
   display: flex;
@@ -82,20 +90,20 @@ export default {
   justify-content: space-between;
   margin-top: 0.625rem;
   padding: 0.375rem;
-  transition: all 0.2s linear;
+  transition: $transition-base;
+
+  &:hover {
+    border-color: #000000;
+
+    .forgot-password-page__icon {
+      border-color: #000000;
+    }
+  }
 }
 
-.nav__btn:hover {
-  border-color: #000000;
-}
-
-.nav__btn:hover .nav__icon {
-  border-color: #000000;
-}
-
-.nav__icon {
+.forgot-password-page__icon {
   align-items: center;
-  border: 0.5px solid #d5dde0;
+  border: 0.5px solid $secondary;
   border-radius: 7px;
   display: flex;
   height: 100%;
@@ -104,9 +112,8 @@ export default {
   width: 32%;
 }
 
-.nav__description-btn {
+.forgot-password-page__description-btn {
   align-items: left;
-  color: #3e4958;
   display: flex;
   flex-direction: column;
   font-size: 0.875rem;

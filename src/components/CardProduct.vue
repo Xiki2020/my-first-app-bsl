@@ -43,17 +43,15 @@ export default {
   border-radius: 16px;
   padding: 0.625rem 0.5rem;
 }
-
 .card-product__img {
-  border: 0.5px solid #d5dde0;
+  border: 0.5px solid $secondary;
   border-radius: 10px;
   object-fit: fill;
   aspect-ratio: 125 / 135;
   width: 100%;
 }
-
 .card-product__name {
-  color: #3e4958;
+  color: $fc-gray;
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.15;
@@ -62,11 +60,10 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 .card-product__colors {
   background-color: #9ea8ac;
   border-radius: 4px;
-  color: #ffffff;
+  color: $white;
   font-size: 0.5rem;
   font-weight: 600;
   line-height: 20px;
@@ -74,27 +71,24 @@ export default {
   text-align: center;
   width: 54px;
 }
-
 .card-product__bottom {
   align-items: center;
   display: flex;
   justify-content: space-between;
   margin-top: 0.625rem;
 }
-
 .card-product__price {
-  color: #3e4958;
+  color: $fc-gray;
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.25;
 }
-
 .card-product__btn {
   cursor: pointer;
-  transition: all 0.1s linear;
-}
+  transition: $transition-base;
 
-.card-product__btn:hover {
-  transform: scale(1.3);
+  &:hover {
+    transform: scale(1.3);
+  }
 }
 </style>>

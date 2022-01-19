@@ -52,3 +52,8 @@ vuex
 - выпилить кнопку поиску по фото везде
 
 - CSS-property select-user for learning
+
+
+:root {
+   --swiper-pagination-bullet-inactive-color: #{$primary};
+ } нативное изменение объявление переменной 

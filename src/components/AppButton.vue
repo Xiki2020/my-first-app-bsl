@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" :class="`btn-${variant} btn_size_${size}`">
+  <button class="btn-app" :class="`btn-app--${variant} btn-app--${size}`">
     {{ text }}
     <slot></slot>
   </button>
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn {
+.btn-app {
   align-items: center;
   border: none;
   border-radius: 14px;
@@ -41,6 +41,8 @@ export default {
   height: 60px;
   justify-content: center;
   line-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: $transition-base;
   white-space: nowrap;
   width: 100%;
@@ -50,7 +52,7 @@ export default {
   }
 }
 
-.btn_size_small {
+.btn-app--small {
   border-radius: 7px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -59,19 +61,19 @@ export default {
   width: 73px;
 }
 
-.btn-gray {
+.btn-app--gray {
   background-color: $gray;
 }
 
-.btn-primary {
+.btn-app--primary {
   background-color: $primary;
 }
 
-.btn-secondary {
+.btn-app--secondary {
   background-color: $secondary;
 }
 
-.btn-white {
+.btn-app--white {
   background-color: $white;
   color: $primary;
 }

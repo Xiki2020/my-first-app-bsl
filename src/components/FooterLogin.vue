@@ -1,12 +1,12 @@
 <template>
-  <div class="footer">
-    <div class="footer__separator">
-      <div class="footer__separator-text">
+  <div class="footer-login">
+    <div class="footer-login__separator">
+      <div class="footer-login__separator-title">
         Or {{ $route.meta.title.toLowerCase() }} with
       </div>
     </div>
-    <div class="footer__nav-log">
-      <AppButton variant="secondary" style="width: 47%">
+    <div class="footer-login__btns">
+      <AppButton variant="secondary" class="footer-login__btn">
         <svg
           width="15"
           height="28"
@@ -20,7 +20,7 @@
           />
         </svg>
       </AppButton>
-      <AppButton variant="secondary" style="width: 47%">
+      <AppButton variant="secondary" class="footer-login__btn">
         <svg
           width="29"
           height="29"
@@ -35,10 +35,9 @@
         </svg>
       </AppButton>
     </div>
-    <div class="footer__bottom">
+    <div class="footer-login__description-link">
       Already have an account?
-      <router-link
-        :to="{ name: toRouteName }"
+      <router-link :to="{ name: toRouteName }" class="footer-login__link"
         >{{ title }}
       </router-link>
     </div>
@@ -57,7 +56,7 @@ export default {
       type: String,
       reqired: true,
     },
-    toRoutename: {
+    toRouteName: {
       type: String,
       reqired: true,
     },
@@ -66,49 +65,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer__separator {
-  text-align: center;
+.footer-login__separator {
   position: relative;
+  text-align: center;
 
   &::before {
-    content: '';
-    height: 1px;
     background-color: $secondary;
-    position: absolute;
-    top: 50%;
+    content: "";
+    height: 1px;
     left: 0;
+    position: absolute;
     right: 0;
+    top: 50%;
+  }
+}
+.footer-login__separator-title {
+  background-color: $body-bg;
+  display: inline-block;
+  font-weight: 600;
+  padding: 0 0.3125rem;
+  position: relative;
+  z-index: 2;
+}
+//
+.footer-login__btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.75rem;
+
+  .footer-login__btn {
+    width: 47%;
   }
 }
 
-.footer__separator-text {
-  background-color: $body-bg;
-  display: inline-block;
-  position: relative;
-  z-index: 2;
-  font-weight: 600;
-  padding: 0 0.3125rem;
-}
-
-.footer__nav-log {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2.1875rem;
-}
-
-.footer__bottom {
+.footer-login__description-link {
   font-weight: 500;
   margin-top: 3.125rem;
   text-align: center;
+}
 
-  span {
-    cursor: pointer;
-    display: inline-block;
-    font-weight: 600;
-    transition: all 0.1s linear;
-  }
-  span:hover {
-    transform: translateX(5px);
+.footer-login__link {
+  color: #3e4958;
+  font-weight: 600;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    opacity: 0.8;
   }
 }
 </style>

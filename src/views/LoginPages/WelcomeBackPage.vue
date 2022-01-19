@@ -1,20 +1,31 @@
 <template>
-  <AppWrapper style="padding-top: 15px">
-    <div class="description">
+  <AppWrapper class="welcome-back-page">
+    <div class="welcome-back-page__description">
       Please fill E-mail & password to login your Shopy application account.
     </div>
-    <form class="form">
+    <form class="welcome-back-page__form">
       <InputEmail />
-      <InputPassword style="margin-top: 20px" />
-      <CustomCheckbox style="margin-top: 25px" />
+      <InputPassword class="welcome-back-page__input-password" />
+      <div class="welcome-back-page__actions">
+        <CustomCheckbox title="Запомнить меня" />
+        <router-link
+          class="welcome-back-page__link-forgot"
+          :to="{ name: 'ForgotPasswordPage' }"
+          >Forgot password?</router-link
+        >
+      </div>
       <AppButton
         text="Sign In"
-        style="margin-top: 50px"
+        class="welcome-back-page__btn"
         @click="toCome"
         type="button"
       />
     </form>
-    <FooterLogin style="margin: 60px 0 55px" />
+    <FooterLogin
+      class="welcome-back-page__footer"
+      title="Sign Up"
+      toRouteName="SignUpPage"
+    />
   </AppWrapper>
 </template>
 
@@ -46,13 +57,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.description {
-  color: #3e4958;
-  font-size: 13px;
-  line-height: 24px;
+.welcome-back-page {
+  padding-top: 1.3rem;
+}
+.welcome-back-page__description {
+  color: $fc-gray;
+  font-size: 0.8125rem;
+  line-height: 1.85;
+}
+.welcome-back-page__form {
+  margin-top: 3.125rem;
+}
+.welcome-back-page__input-password {
+  margin-top: 1.25rem;
 }
 
-.form {
-  margin-top: 50px;
+.welcome-back-page__actions {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.welcome-back-page__link-forgot {
+  color: $fc-gray;
+  font-weight: 500;
+  margin-left: auto;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.8;
+    transition: $transition-base;
+  }
+}
+.welcome-back-page__btn {
+  margin-top: 2.8rem;
+}
+.welcome-back-page__footer {
+  margin-top: 3.125rem;
 }
 </style>

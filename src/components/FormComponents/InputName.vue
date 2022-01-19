@@ -1,60 +1,52 @@
 <template>
-  <div class="input">
-    <label for="input__name">Name</label>
+  <div class="input-name">
+    <label :for="uuid" class="input-name__label">Name</label>
     <input
       type="name"
-      id="input__name"
+      :id="uuid"
       placeholder="John Doe"
-      v-model="value"
-      @input="test"
+      class="input-name__input"
     />
   </div>
 </template>
 
 <script>
+import { getUniqId } from "@/utils/common";
 export default {
   name: "InputName",
-  components: {},
-  data() {
-    return {
-      value: "",
-    };
-  },
-  methods: {
-    test() {
-      console.log(/[a-zA-Z]|[ ]$/.exec(this.value));
-      if (!/[a-zA-Z]|[ ]$/.exec(this.value))
-        this.value = this.value.substring(0, this.value.length - 1);
+  computed: {
+    uuid() {
+      return getUniqId();
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-label,
-input {
+.input-name__label,
+.input-name__input {
   display: block;
-  color: #3e4958;
-  font-size: 14px;
+  color: $fc-gray;
   font-weight: 500;
-  line-height: 1.2;
-  transition: all 0.1s linear;
+  transition: $transition-base;
   width: 100%;
 }
-input {
+.input-name__input {
   background-color: #f7f8f9;
-  border: 0.5px solid #d5dde0;
+  border: 0.5px solid $secondary;
   border-radius: 14px;
   height: 60px;
   margin-top: 10px;
   outline: none;
   padding: 20px 17px;
-}
-input:hover {
-  border-color: black;
-}
-input::placeholder {
-  color: #d5dde0;
-  font-size: 14px;
+
+  &:hover {
+    border-color: black;
+  }
+
+  &::placeholder {
+    color: $secondary;
+    font-size: $font-size-base;
+  }
 }
 </style>
