@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import CartPage from '@/views/CartPage.vue'
 import ForgotPasswordPage from '@/views/LoginPages/ForgotPasswordPage.vue'
@@ -137,8 +137,8 @@ const routes = [
 ]
 
 const router = createRouter({
-	//history: createWebHashHistory(),
-	history: createWebHistory(),
+	history: createWebHashHistory(),
+	// history: createWebHistory(),
 	routes,
 	// role: "guest",
 	// mode: 'history',
