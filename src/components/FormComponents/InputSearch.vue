@@ -3,18 +3,24 @@
     <input
       type="text"
       class="search-bar__input"
-      id="search-bar__input"
+      :id="uuid"
       @keypress.enter="$router.push({ name: 'TempPage' })"
     />
-    <label for="search-bar__input" class="search-bar__placeholder">
+    <label :for="uuid" class="search-bar__placeholder">
       <img src="@/assets/icon_search_input.png" />
       <div class="search-bar__text-placeholder">Search</div>
     </label>
   </div>
 </template>
 <script>
+import { getUniqId } from "@/utils/common";
 export default {
   name: "SearchBar",
+  computed: {
+    uuid() {
+      return getUniqId();
+    },
+  },
 };
 </script>
 
@@ -23,14 +29,12 @@ export default {
   align-items: center;
   display: flex;
   height: 60px;
-  width: 75%;
 }
 
 .search-bar__input {
   background-color: #f7f8f9;
   border: none;
   border-radius: 14px;
-  font-size: 14px;
   font-weight: 500;
   line-height: 1.25;
   margin-right: 5px;
@@ -38,6 +42,10 @@ export default {
   outline: none;
   padding-left: 18px;
   width: 100%;
+
+  &:focus ~ .search-bar__placeholder {
+    display: none;
+  }
 }
 
 .search-bar__placeholder {
@@ -52,14 +60,9 @@ export default {
   }
 }
 .search-bar__text-placeholder {
-  color: #d5dde0;
+  color: $secondary;
   font-weight: 500;
-  font-size: 14px;
   line-height: 1.25;
   margin-left: 6.2px;
-}
-
-.search-bar__input:focus ~ .search-bar__placeholder {
-  display: none;
 }
 </style>

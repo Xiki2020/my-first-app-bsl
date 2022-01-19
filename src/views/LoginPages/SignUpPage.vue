@@ -1,16 +1,16 @@
 <template>
-  <AppWrapper style="padding-top: 3.75rem">
-    <form class="form">
+  <AppWrapper class="sign-up-page">
+    <form class="sign-up-page__form">
       <InputName />
-      <InputEmail style="margin-top: 1.25rem" />
-      <InputPassword style="margin-top: 1.25rem" />
-      <AppButton
-        text="Sign Up"
-        style="margin-top: 2.8rem"
-        type="button"
-      />
+      <InputEmail class="sign-up-page__input-mail" />
+      <InputPassword class="sign-up-page__input-password" />
+      <AppButton class="sign-up-page__btn" text="Sign Up" type="button" />
     </form>
-    <FooterLogin style="margin: 3.75rem 0 3.5rem" title="Sign In!!!" />
+    <FooterLogin
+      class="sign-up-page__footer"
+      title="Sign In"
+      toRouteName="SignInPage"
+    />
   </AppWrapper>
 </template>
 
@@ -36,4 +36,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sign-up-page {
+  padding-top: 3.25rem;
+}
+.sign-up-page__input-mail {
+  margin-top: 1.25rem;
+}
+.sign-up-page__input-password {
+  margin-top: 1.25rem;
+}
+.sign-up-page__btn {
+  margin-top: 2.8rem;
+}
+.sign-up-page__footer {
+  margin-top: 3.125rem;
+}
 </style>

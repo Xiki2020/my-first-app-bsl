@@ -2,7 +2,7 @@
   <div class="categories">
     <div class="categories__wrapper-btn">
       <button
-        class="categories__btn btn__translate"
+        class="categories__btn"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -24,7 +24,7 @@
     </div>
     <div class="categories__wrapper-btn">
       <button
-        class="categories__btn btn__translate"
+        class="categories__btn"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -46,7 +46,7 @@
     </div>
     <div class="categories__wrapper-btn">
       <button
-        class="categories__btn btn__translate"
+        class="categories__btn"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -86,7 +86,7 @@
     </div>
     <div class="categories__wrapper-btn">
       <button
-        class="categories__btn btn__translate"
+        class="categories__btn"
         @click="$router.push({ name: 'TempPage' })"
       >
         <svg
@@ -133,35 +133,31 @@ export default {
   text-align: center;
   width: 100%;
 }
-
 .categories__wrapper-btn {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  width: 55px;
 }
-
 .categories__btn {
-  align-items: center;
   background-color: rgba(17, 81, 251, 0.2);
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  display: flex;
-  height: 15vw;
-  justify-content: center;
-  max-height: 55px;
-  max-width: 55px;
+  height: 55px;
   outline: none;
-  transition: all 0.1s linear;
-  width: 15vw;
+  transition: $transition-base;
+  width: 100%;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
 }
 
 .categories__name-btn {
-  color: #3e4958;
+  color: $fc-gray;
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.25;
   margin-top: 0.5rem;
-  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

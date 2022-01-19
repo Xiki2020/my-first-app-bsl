@@ -1,12 +1,15 @@
 <template>
-  <AppWrapper style="padding-top: 15px">
-    <div class="description">
+  <AppWrapper class="new-password-page">
+    <div class="new-password-page__description">
       Your new password must be different from previously used passwords.
     </div>
-    <form class="form">
-      <InputPassword text="new password" />
-      <InputPassword text="confirm password" style="margin-top: 20px" />
-      <div class="btn-update">
+    <form class="new-password-page__form">
+      <InputPassword text="New password" />
+      <InputPassword
+        text="Confirm password"
+        class="new-password-page__input-passwrod"
+      />
+      <div class="new-password-page__btn">
         <AppButton
           text="Update"
           @click="$router.push({ name: 'PasswordResetSubmitPage' })"
@@ -32,23 +35,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn-update {
-  bottom: 3.4375rem;
+.new-password-page {
+  padding-top: 15px;
+}
+.new-password-page__description {
+  color: $fc-gray;
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  word-wrap: break-word;
+}
+.new-password-page__form {
+  margin-top: 50px;
+  min-height: 325px;
+}
+.new-password-page__input-passwrod {
+  margin-top: 1.25rem;
+}
+.new-password-page__btn {
+  bottom: 3.125rem;
   left: 50%;
   margin: 0 auto;
   position: absolute;
   transform: translateX(-50%);
   width: calc(100% - 4.5rem);
-}
-
-.description {
-  color: #3e4958;
-  font-size: 13px;
-  line-height: 24px;
-}
-
-.form {
-  margin-top: 50px;
-  min-height: 325px;
 }
 </style>

@@ -1,42 +1,52 @@
 <template>
-  <div class="input">
-    <label for="input__email">E-mail</label>
-    <input type="email" id="input__email" placeholder="example@gmail.com" />
+  <div class="input-email">
+    <label :for="uuid" class="input-email__label">E-mail</label>
+    <input
+      type="email"
+      :id="uuid"
+      placeholder="example@gmail.com"
+      class="input-email__input"
+    />
   </div>
 </template>
 
 <script>
+import { getUniqId } from "@/utils/common";
 export default {
   name: "InputEmail",
-  components: {},
+  computed: {
+    uuid() {
+      return getUniqId();
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-label,
-input {
+.input-email__label,
+.input-email__input {
   display: block;
-  color: #3e4958;
-  font-size: 14px;
+  color: $fc-gray;
   font-weight: 500;
-  line-height: 1.2;
-  transition: all 0.1s linear;
+  transition: $transition-base;
   width: 100%;
 }
-input {
+.input-email__input {
   background-color: #f7f8f9;
-  border: 0.5px solid #d5dde0;
+  border: 0.5px solid $secondary;
   border-radius: 14px;
   height: 60px;
   margin-top: 10px;
   outline: none;
   padding: 20px 17px;
-}
-input:hover {
-  border-color: black;
-}
-input::placeholder {
-  color: #d5dde0;
-  font-size: 14px;
+
+  &:hover {
+    border-color: black;
+  }
+
+  &::placeholder {
+    color: $secondary;
+    font-size: $font-size-base;
+  }
 }
 </style>

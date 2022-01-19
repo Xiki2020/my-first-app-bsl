@@ -1,7 +1,7 @@
 <template>
-  <AppWrapper v-if="$route.meta.title">
-    <div class="header-app">
-      <AppButton @click="$router.go(-1)" class="btn-comeback">
+  <AppWrapper v-if="$route.meta.title" class="header-app">
+    <div class="header-app__content">
+      <AppButton @click="$router.go(-1)" class="header-app__btn">
         <svg
           width="19"
           height="18"
@@ -17,26 +17,26 @@
           />
         </svg>
       </AppButton>
-      <div class="header-app__name-page">
+      <div class="header-app__title">
         {{ $route.meta.title }}
       </div>
     </div>
   </AppWrapper>
   <div class="header-home" v-else-if="$route.name === 'HomePage'">
     <AppWrapper>
-      <Search class="search" />
+      <InputSearch />
     </AppWrapper>
   </div>
 </template>
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
 import AppButton from "@/components/AppButton.vue";
-import Search from "@/components/Search/index.vue";
+import InputSearch from "@/components/FormComponents/InputSearch.vue";
 export default {
   components: {
     AppButton,
     AppWrapper,
-    Search,
+    InputSearch,
   },
 
   props: {},
@@ -46,46 +46,45 @@ export default {
 </script>
 <style  lang="scss" scoped>
 .header-app {
-  display: flex;
+  padding-bottom: 0;
   padding-top: 3.125rem;
 }
 
-.btn-comeback {
+.header-app__content {
+  align-items: center;
+  display: flex;
+}
+
+.header-app__btn {
   background-color: transparent;
   display: inline-block;
   width: auto;
   height: auto;
   line-height: 1;
   padding: 0;
+
+  &:hover {
+    opacity: 0.8;
+    transform: none;
+  }
 }
 
-.btn-comeback:hover {
-  transform: translateX(-3px);
-}
-
-.header-app__name-page {
+.header-app__title {
   color: $fc-gray;
   display: inline-block;
   font-weight: 600;
   font-size: 1.625rem;
   line-height: 1.25;
   margin: 0 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-home {
-  background-color: #1152fd;
+  background-color: $primary;
   border-radius: 0 0 38px 38px;
   height: 231px;
   padding-top: 3.3rem;
-  width: 100%;
-}
-
-.search {
-  align-items: center;
-  display: flex;
-  height: 60px;
-  justify-content: space-between;
-  position: relative;
   width: 100%;
 }
 </style>>

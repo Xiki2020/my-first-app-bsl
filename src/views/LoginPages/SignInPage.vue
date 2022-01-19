@@ -1,27 +1,31 @@
 <template>
-  <AppWrapper style="padding-top: 0.95rem">
-    <div class="description">
+  <AppWrapper class="sign-in-page">
+    <div class="sign-in-page__description">
       Please fill E-mail & password to login your Shopy application account.
     </div>
-    <form class="form">
+    <form class="sign-in-page__form">
       <InputEmail />
-      <InputPassword style="margin-top: 1.25rem" />
-      <div class="signin-page__actions">
+      <InputPassword class="sign-in-page__input-password" />
+      <div class="sign-in-page__actions">
         <CustomCheckbox title="Запомнить меня" />
-        <a
-          class="signin-page__forgot"
-          @click.prevent="$router.push({ name: 'ForgotPasswordPage' })"
-          href="#"
-        >Забыл пароль</a>
+        <router-link
+          class="sign-in-page__link-forgot"
+          :to="{ name: 'ForgotPasswordPage' }"
+          >Forgot password?</router-link
+        >
       </div>
       <AppButton
         text="Sign In"
-        style="margin-top: 3.125rem"
+        class="sign-in-page__btn"
         @click="toCome"
         type="button"
       />
     </form>
-    <FooterLogin style="margin: 3.75rem 0 3.5rem" />
+    <FooterLogin
+      class="sign-in-page__footer"
+      title="Sign Up"
+      toRouteName="SignUpPage"
+    />
   </AppWrapper>
 </template>
 
@@ -53,23 +57,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.signin-page__actions {
+.sign-in-page {
+  padding-top: 1.3rem;
+}
+.sign-in-page__description {
+  color: $fc-gray;
+  font-size: 0.8125rem;
+  line-height: 1.85;
+}
+.sign-in-page__form {
+  margin-top: 3.125rem;
+}
+.sign-in-page__input-password {
+  margin-top: 1.25rem;
+}
+
+.sign-in-page__actions {
   display: flex;
   align-items: center;
   margin-top: 1rem;
 }
 
-.signin-page__forgot {
-  margin-left: auto;
-}
-
-.description {
+.sign-in-page__link-forgot {
   color: $fc-gray;
-  font-size: 0.8125rem;
-  line-height: 1.85;
-}
+  font-weight: 500;
+  margin-left: auto;
+  text-decoration: none;
 
-.form {
+  &:hover {
+    opacity: 0.8;
+    transition: $transition-base;
+  }
+}
+.sign-in-page__btn {
+  margin-top: 2.8rem;
+}
+.sign-in-page__footer {
   margin-top: 3.125rem;
 }
 </style>

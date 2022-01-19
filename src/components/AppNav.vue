@@ -1,6 +1,6 @@
 <template>
-  <nav class="nav">
-    <button class="nav__btn" @click="$router.push({ name: 'HomePage' })">
+  <nav class="nav-app">
+    <button class="nav-app__btn" @click="$router.push({ name: 'HomePage' })">
       <svg
         width="25"
         height="23"
@@ -18,7 +18,10 @@
         <!-- fill изменение цвета иконки -->
       </svg>
     </button>
-    <button class="nav__btn" @click="$router.push({ name: 'WishListPage' })">
+    <button
+      class="nav-app__btn"
+      @click="$router.push({ name: 'WishListPage' })"
+    >
       <svg
         width="25"
         height="22"
@@ -34,7 +37,7 @@
         />
       </svg>
     </button>
-    <button class="nav__btn" @click="$router.push({ name: 'CartPage' })">
+    <button class="nav-app__btn" @click="$router.push({ name: 'CartPage' })">
       <svg
         width="22"
         height="22"
@@ -50,8 +53,8 @@
         />
       </svg>
     </button>
-    <!-- <button class="nav__btn" @click="$router.push({ name: 'PersonalAreaPage' })"> -->
-    <button class="nav__btn" @click="exit">
+    <!-- <button class="nav-app__btn" @click="$router.push({ name: 'PersonalAreaPage' })"> -->
+    <button class="nav-app__btn" @click="exit">
       <svg
         width="22"
         height="22"
@@ -71,7 +74,7 @@
 </template>
 <script>
 export default {
-  name: "NavBar",
+  name: "AppNav",
   props: {},
   methods: {
     exit() {
@@ -83,16 +86,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav {
+.nav-app {
   align-items: center;
-  background-color: #ffffff;
+  background-color: $white;
   display: flex;
   height: 68px;
   justify-content: space-between;
 }
 
-.nav__btn {
-  background-color: #ffffff;
+.nav-app__btn {
+  background-color: $white;
   border: none;
   cursor: pointer;
   height: 100%;
@@ -100,13 +103,13 @@ export default {
   width: 25%;
 
   path {
-    transition: all 0.2s linear;
+    transition: $transition-base;
   }
-}
 
-.nav__btn:hover {
-  path {
-    fill: #4a5562;
+  &:hover {
+    path {
+      fill: #4a5562;
+    }
   }
 }
 </style>

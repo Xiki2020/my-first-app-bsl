@@ -6,7 +6,7 @@
         text="Sign Up"
         variant="white"
         @click="$router.push({ name: 'SignUpPage' })"
-        class="welcome-page__btn welcome-page__signup"
+        class="welcome-page__btn"
       />
       <AppButton
         text="Sign In"
@@ -39,32 +39,28 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  min-height: 400px;
   justify-content: center;
+  min-height: 400px;
+  user-select: none;
+}
+
+.welcome-page__btns {
+  margin-top: auto;
+  width: 100%;
 }
 
 .welcome-page__btn {
   transition: $transition-base;
 
   &:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
   }
 }
 
 .welcome-page__btn--signin {
   &:hover {
     transform: none;
-    opacity: .6;
+    opacity: 0.6;
   }
-}
-
-.welcome-page__btns {
-  margin-top: auto;
-  padding-bottom: 3.5rem;
-  width: 100%;
-}
-
-.btn-sign-in:hover {
-  opacity: 0.8;
 }
 </style>

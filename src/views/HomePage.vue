@@ -1,18 +1,17 @@
 <template>
-  <AppWrapper style="height: calc(100vh - 235px)">
+  <AppWrapper class="home-page">
     <PopularProductsCarousel
-      class="slider-popular-product"
+      class="swiper-popular-product"
       :products="popularProducts"
     />
-    <div class="wrapper-content">
-      <Categories class="wrapper-content__categories" />
-      <div class="wrapper-carousel-product">
-        <div class="wrapper-carousel__header">
-          <div class="wrapper-carousel__title">New Products</div>
+    <div class="home-page__body">
+      <Categories class="home-page__categories" />
+      <div class="home-page__wrapper-swiper">
+        <div class="home-page__header-swiper">
+          <div class="home-page__title-swiper">New Products</div>
           <AppButton
             text="View All"
             size="small"
-            class="wrapper-carousel__btn-view"
             @click="$router.push({ name: 'TempPage' })"
           />
         </div>
@@ -104,55 +103,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.slider-popular-product {
+.swiper-popular-product {
   left: 50%;
   top: 146px;
   position: absolute;
   transform: translateX(-50%);
+  width: calc(100% - 4.5rem);
 }
-
-.wrapper-content {
+.home-page {
+  padding-top: 5rem;
+}
+.home-page__body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
 }
-.wrapper-content__categories {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  min-height: 175px;
-  padding: 5rem 0 1rem;
+.home-page__categories {
+  height: 70px;
 }
 
-.wrapper-carousel-product {
+.home-page__wrapper-swiper {
   background-color: #e0e4e7;
   border-radius: 25px 25px 0 0;
-  min-height: 390px;
-  left: 0;
+  margin-top: 1.375rem;
+  min-height: 340px;
   overflow: hidden;
-  padding-bottom: 4.25rem;
+  padding-bottom: 1.5rem;
   width: calc(100% + 4.5rem);
 }
 
-.wrapper-carousel__header {
+.home-page__header-swiper {
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 1rem 2.25rem 1.25rem;
 }
 
-.wrapper-carousel__title {
+.home-page__title-swiper {
   color: $fc-gray;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.25;
   margin-right: 1rem;
   white-space: nowrap;
-}
-
-.wrapper-carousel__btn-view:hover {
-  transform: translateY(-3px);
 }
 </style>

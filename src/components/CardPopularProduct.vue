@@ -39,14 +39,13 @@ export default {
 
 <style lang="scss" scoped>
 .popular-product {
-  background-color: #ffffff;
-  color: #3e4958;
+  background-color: $white;
+  color: $fc-gray;
   display: flex;
   height: 100%;
   justify-content: space-between;
   width: 100%;
 }
-
 .popular-product__img {
   aspect-ratio: 164 / 94;
   border: 0.5px solid #d5dde0;
@@ -55,19 +54,16 @@ export default {
   object-fit: fill;
   width: 60%;
 }
-
 .popular-product__description {
   margin-left: 0.3125rem;
   width: 40%;
 }
-
 .popular-product__header {
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.25;
   margin-top: 0.5rem;
 }
-
 .popular-product__name {
   font-size: 0.875rem;
   font-weight: 700;
@@ -77,12 +73,7 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 .popular-product__btn {
   margin-top: 0.5rem;
-}
-
-.popular-product__btn:hover {
-  transform: translateY(-3px);
 }
 </style>
