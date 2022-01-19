@@ -1,6 +1,9 @@
 <template>
   <div class="card-product">
-    <img class="card-product__img" :src="require(`@/assets/${product.img}`)" />
+    <img
+      class="card-product__img"
+      :src="require(`@/assets/img-sneakers/${product.img}`)"
+    />
     <div class="card-product__name">{{ product.name }}</div>
     <div class="card-product__colors">{{ product.countColors }} Colors</div>
     <div class="card-product__bottom">

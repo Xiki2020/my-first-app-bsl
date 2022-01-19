@@ -1,7 +1,7 @@
 <template>
   <div class="popular-product">
     <img
-      :src="require(`@/assets/${product.img}`)"
+      :src="require(`@/assets/img-sneakers/${product.img}`)"
       class="popular-product__img"
     />
     <div class="popular-product__description">

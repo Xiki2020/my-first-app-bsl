@@ -2,7 +2,7 @@
   <AppWrapper class="home-page">
     <PopularProductsCarousel
       class="swiper-popular-product"
-      :products="popularProducts"
+      :products="getPopularProducts"
     />
     <div class="home-page__body">
       <Categories class="home-page__categories" />
@@ -15,7 +15,7 @@
             @click="$router.push({ name: 'TempPage' })"
           />
         </div>
-        <ProductsCarousel :products="products" />
+        <ProductsCarousel :products="getNewProducts" />
       </div>
     </div>
   </AppWrapper>
@@ -28,6 +28,8 @@ import Categories from "@/components/Categories.vue";
 import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "HomePage",
 
@@ -38,66 +40,10 @@ export default {
     PopularProductsCarousel,
     ProductsCarousel,
   },
-
-  data() {
-    return {
-      products: [],
-      popularProducts: [
-        {
-          name: "Air Max 2090",
-          img: "popular-sneaker.jpg",
-          price: "$200.00",
-          countColors: 6,
-        },
-        {
-          name: "Nike React Miler",
-          img: "product-temp.jpg",
-          price: "$170.00",
-          countColors: 5,
-        },
-        {
-          name: "Nike Air Max 270",
-          img: "sneaker2.jpg",
-          price: "$112.00",
-          countColors: 5,
-        },
-      ],
-    };
-  },
-
+  methods: mapActions(["fethProducts"]),
+  computed: mapGetters(["getNewProducts", "getPopularProducts"]),
   created() {
-    this.fetchProducts();
-  },
-
-  methods: {
-    fetchProducts() {
-      this.products = [
-        {
-          name: "Nike React Miler",
-          img: "product-temp.jpg",
-          price: "$170.00",
-          countColors: 5,
-        },
-        {
-          name: "Nike Air Max 270",
-          img: "sneaker2.jpg",
-          price: "$112.00",
-          countColors: 5,
-        },
-        {
-          name: "Air Max 2090",
-          img: "popular-sneaker.jpg",
-          price: "$200.00",
-          countColors: 6,
-        },
-        {
-          name: "Air Max 2090",
-          img: "popular-sneaker.jpg",
-          price: "$200.00",
-          countColors: 6,
-        },
-      ];
-    },
+    this.fethProducts();
   },
 };
 </script>

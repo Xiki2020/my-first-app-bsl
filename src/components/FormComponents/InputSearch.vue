@@ -7,7 +7,7 @@
       @keypress.enter="$router.push({ name: 'TempPage' })"
     />
     <label :for="uuid" class="search-bar__placeholder">
-      <img src="@/assets/icon_search_input.png" />
+      <img src="@/assets/icons/icon_search_input.png" />
       <div class="search-bar__text-placeholder">Search</div>
     </label>
   </div>
