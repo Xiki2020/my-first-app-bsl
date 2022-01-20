@@ -141,15 +141,12 @@ const router = createRouter({
 	history: createWebHashHistory(),
 	// history: createWebHistory(),
 	routes,
-	// role: "guest",
 	// mode: 'history',
 	// hashbang: false,
 	// hash: false,
 })
 
 router.beforeEach((to, from, next) => {
-	console.log(store.getters.getRole)
-
 	if (to.meta.roles.find((e) => e === store.getters.getRole)) {
 		next()
 	} else if (store.getters.getRole === "user") {

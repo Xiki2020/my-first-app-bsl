@@ -1,6 +1,6 @@
 export default {
 	actions: {
-		async changeRole(ctx, newRole) {
+		changeRole(ctx, newRole) {
 			const role = newRole;
 			ctx.commit('updateRole', role)
 		}
