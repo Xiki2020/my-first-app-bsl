@@ -1,12 +1,6 @@
 <template>
   <div class="search-bar">
-    <input
-      type="text"
-      class="search-bar__input"
-      :id="uuid"
-      v-model="valueSearch"
-      @input="isRoute"
-    />
+    <input type="text" class="search-bar__input" :id="uuid" autofocus />
     <label :for="uuid" class="search-bar__placeholder">
       <img src="@/assets/icons/icon_search_input.png" />
       <div class="search-bar__text-placeholder">Search</div>
@@ -17,18 +11,6 @@
 import { getUniqId } from "@/utils/common";
 export default {
   name: "SearchBar",
-  data() {
-    return {
-      valueSearch: "",
-    };
-  },
-  methods: {
-    isRoute() {
-      if (this.valueSearch.length >= 3) {
-        this.$router.push({ name: "SearchPage" });
-      }
-    },
-  },
   computed: {
     uuid() {
       return getUniqId();

@@ -1,7 +1,7 @@
 <template>
   <button class="btn-app" :class="`btn-app--${variant} btn-app--${size}`">
-    {{ text }}
     <slot></slot>
+    {{ text }}
   </button>
 </template>
 
