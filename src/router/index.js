@@ -42,6 +42,7 @@ const routes = [
 		component: HomePage,
 		meta: {
 			app_nav: true,
+			header_search: true,
 			roles: ["user",],
 		},
 	},
@@ -87,6 +88,7 @@ const routes = [
 		name: 'SearchPage',
 		component: SearchPage,
 		meta: {
+			header_search: true,
 			roles: ["user",],
 		},
 	},

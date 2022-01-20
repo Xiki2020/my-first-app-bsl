@@ -1,5 +1,6 @@
 <template>
   <AppWrapper class="home-page">
+    <div class="home-page__header"></div>
     <PopularProductsCarousel
       class="swiper-popular-product"
       :products="getPopularProducts"
@@ -50,19 +51,20 @@ export default {
 
 <style lang="scss" scoped>
 .swiper-popular-product {
-  left: 50%;
-  top: 146px;
-  position: absolute;
-  transform: translateX(-50%);
-  width: calc(100% - 4.5rem);
+  margin-top: -70px;
 }
-.home-page {
-  padding-top: 5rem;
+.home-page__header {
+  background-color: $primary;
+  border-radius: 0 0 38px 38px;
+  height: 231px;
+  margin-left: -2.25rem;
+  width: calc(100% + 4.5rem);
 }
 .home-page__body {
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin-top: 1.2rem;
 }
 .home-page__categories {
   height: 70px;

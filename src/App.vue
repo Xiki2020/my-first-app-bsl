@@ -1,7 +1,11 @@
 <template>
   <div class="app" v-cloak>
     <AppHeader />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <transition name="slide" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
     <AppNav v-if="$route.meta.app_nav" class="app__nav" />
   </div>
 </template>
@@ -37,4 +41,20 @@ export default {
   width: 100%;
   z-index: 10;
 }
+.slide-leave-active,
+.slide-enter-active {
+  transition: opacity 1s, transform 1s;
+}
+// .slide-leave-active {
+//     transition: opacity 2s, transform 2s;
+// }
+.slide-leave-to,
+.slide-enter-from {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+// .slide-leave-to {
+//   opacity: 0;
+//   transform: translateX(30%);
+// }
 </style>

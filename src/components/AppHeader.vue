@@ -1,7 +1,7 @@
 <template>
-  <AppWrapper v-if="$route.meta.title" class="header-app-var-1">
-    <div class="header-app-var-1__content">
-      <AppButton @click="$router.go(-1)" class="header-app-var-1__btn">
+  <AppWrapper class="header-app-v1" v-if="$route.meta.title">
+    <div class="header-app-v1__content">
+      <AppButton @click="$router.go(-1)" class="header-app-v1__btn">
         <svg
           width="19"
           height="18"
@@ -17,40 +17,34 @@
           />
         </svg>
       </AppButton>
-      <div class="header-app-var-1__title">
+      <div class="header-app-v1__title">
         {{ $route.meta.title }}
       </div>
     </div>
   </AppWrapper>
-  <div
-    class="header-app-var-2"
-    v-else-if="$route.name === 'HomePage' || $route.name === 'SearchPage'"
-    :class="$route.name === 'SearchPage' ? 'header-app-var-2__search' : ''"
-  >
-    <AppWrapper class="header-app-var-2__wrapper">
-      <AppButton
-        @click="$router.go(-1)"
-        class="header-app-var-1__btn"
-        v-if="$route.name === 'SearchPage'"
+  <AppWrapper v-else-if="$route.meta.header_search" class="header-app-v2">
+    <AppButton
+      @click="$router.go(-1)"
+      class="header-app-v2__btn"
+      v-if="$route.name === 'SearchPage'"
+    >
+      <svg
+        width="19"
+        height="18"
+        viewBox="0 0 19 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          width="19"
-          height="18"
-          viewBox="0 0 19 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M3.82828 8.29289L18.4141 8.29289L18.4141 10.2929L3.82828 10.2929L10.1212 16.5858L8.70696 18L-0.000149919 9.29289L8.70696 0.585786L10.1212 2L3.82828 8.29289Z"
-            fill="#3E4958"
-          />
-        </svg>
-      </AppButton>
-      <InputSearch class="header-app-var-2__input" />
-    </AppWrapper>
-  </div>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M3.82828 8.29289L18.4141 8.29289L18.4141 10.2929L3.82828 10.2929L10.1212 16.5858L8.70696 18L-0.000149919 9.29289L8.70696 0.585786L10.1212 2L3.82828 8.29289Z"
+          fill="#3E4958"
+        />
+      </svg>
+    </AppButton>
+    <InputSearch class="header-app-v2__search" />
+  </AppWrapper>
 </template>
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
@@ -69,17 +63,17 @@ export default {
 };
 </script>
 <style  lang="scss" scoped>
-.header-app-var-1 {
+.header-app-v1 {
   padding-bottom: 0;
   padding-top: 3.125rem;
 }
 
-.header-app-var-1__content {
+.header-app-v1__content {
   align-items: center;
   display: flex;
 }
 
-.header-app-var-1__btn {
+.header-app-v1__btn {
   background-color: transparent;
   display: inline-block;
   width: auto;
@@ -93,7 +87,7 @@ export default {
   }
 }
 
-.header-app-var-1__title {
+.header-app-v1__title {
   color: $fc-gray;
   display: inline-block;
   font-weight: 600;
@@ -104,27 +98,33 @@ export default {
   text-overflow: ellipsis;
 }
 
-.header-app-var-2 {
-  background-color: $primary;
-  border-radius: 0 0 38px 38px;
-  height: 231px;
+.header-app-v2 {
+  display: flex;
+  justify-content: space-between;
+  left: 0;
   padding-top: 3.3rem;
+  padding-bottom: 0;
+  position: absolute;
+  top: 0;
   width: 100%;
+  z-index: 10;
 }
-.header-app-var-2__search {
+
+.header-app-v2__btn {
   background-color: transparent;
+  display: inline-block;
+  width: auto;
   height: auto;
-  transition: $transition-base;
+  line-height: 1;
+  margin-right: 1rem;
+  padding: 0;
 
-  .header-app-var-2__wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 2.5rem;
+  &:hover {
+    opacity: 0.8;
+    transform: none;
   }
-
-  .header-app-var-2__input {
-    width: 87%;
-    margin-left: 0.5rem;
-  }
+}
+.header-app-v2__search {
+  width: 100%;
 }
 </style>>

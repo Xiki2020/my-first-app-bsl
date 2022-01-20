@@ -3,7 +3,7 @@
     <div class="search-page__nav">
       <div class="search-page__name-nav">Recent searches</div>
       <AppButton
-        class="search-page__btn"
+        class="search-page__btn-clear"
         text="Clear all"
         variant="gray"
         size="small"
@@ -42,13 +42,14 @@ export default {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding-top: 10rem;
 }
 .search-page__name-nav {
   color: $fc-gray;
   font-weight: bold;
   font-size: 1.125rem;
 }
-.search-page__btn {
+.search-page__btn-clear {
   background-color: #f7f8f9;
   border: 0.5px solid $secondary;
   color: $fc-gray;
