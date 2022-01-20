@@ -37,6 +37,8 @@ import CustomCheckbox from "@/components/FormComponents/CustomCheckbox.vue";
 import InputEmail from "@/components/FormComponents/InputEmail.vue";
 import InputPassword from "@/components/FormComponents/InputPassword.vue";
 
+import { mapActions } from "vuex";
+
 export default {
   name: "WelcomeBackPage",
   components: {
@@ -48,8 +50,9 @@ export default {
     InputPassword,
   },
   methods: {
+    ...mapActions(["changeRole"]),
     toCome() {
-      window.localStorage.setItem("logIn", "user");
+      this.changeRole("user");
       this.$router.push({ name: "HomePage" });
     },
   },
