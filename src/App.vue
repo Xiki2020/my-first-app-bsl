@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app" v-cloak>
     <AppHeader />
     <router-view />
     <AppNav v-if="$route.meta.app_nav" class="app__nav" />
@@ -18,6 +18,9 @@ export default {
 </script>
 
 <style  lang="scss" scoped>
+[v-cloak] {
+  display: none;
+}
 .app {
   background-color: $white;
   min-height: 100vh;

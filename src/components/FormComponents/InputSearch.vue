@@ -4,7 +4,8 @@
       type="text"
       class="search-bar__input"
       :id="uuid"
-      @keypress.enter="$router.push({ name: 'TempPage' })"
+      v-model="valueSearch"
+      @input="isTransition"
     />
     <label :for="uuid" class="search-bar__placeholder">
       <img src="@/assets/icons/icon_search_input.png" />
@@ -14,12 +15,36 @@
 </template>
 <script>
 import { getUniqId } from "@/utils/common";
+
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "SearchBar",
+  data() {
+    return {
+      valueSearch: "",
+    };
+  },
+  methods: {
+    ...mapActions(["changeValueSearch"]),
+    isTransition() {
+      if (this.valueSearch.length >= 3) {
+        this.$router.push({ name: "SearchPage" });
+      }
+      this.changeValueSearch(this.valueSearch);
+    },
+    created() {
+      this.valueSearch = this.getValueSearch;
+      console.log(document.querySelector("input"));
+    },
+  },
   computed: {
+    ...mapGetters(["getValueSearch"]),
     uuid() {
       return getUniqId();
     },
+  },
+  created() {
+    this.created();
   },
 };
 </script>
