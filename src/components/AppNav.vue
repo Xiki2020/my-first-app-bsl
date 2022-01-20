@@ -73,12 +73,14 @@
   </nav>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "AppNav",
   props: {},
   methods: {
+    ...mapActions(["changeRole"]),
     exit() {
-      window.localStorage.setItem("logIn", "guest");
+      this.changeRole("guest");
       this.$router.push({ name: "WelcomePage" });
     },
   },

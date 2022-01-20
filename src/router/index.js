@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import store from '../store'
 
 import CartPage from '@/views/CartPage.vue'
 import ForgotPasswordPage from '@/views/LoginPages/ForgotPasswordPage.vue'
@@ -147,11 +148,11 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	if (!window.localStorage.getItem("logIn")) window.localStorage.setItem("logIn", "guest");
+	console.log(store.getters.getRole)
 
-	if (to.meta.roles.find((e) => e === window.localStorage.getItem("logIn"))) {
+	if (to.meta.roles.find((e) => e === store.getters.getRole)) {
 		next()
-	} else if (window.localStorage.getItem("logIn") === "user") {
+	} else if (store.getters.getRole === "user") {
 		next({ name: from.name })
 	} else next({ name: "WelcomePage" });
 });
