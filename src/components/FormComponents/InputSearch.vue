@@ -5,7 +5,7 @@
       class="search-bar__input"
       :id="uuid"
       v-model="valueSearch"
-      @input="isTransition"
+      @input="isRoute"
     />
     <label :for="uuid" class="search-bar__placeholder">
       <img src="@/assets/icons/icon_search_input.png" />
@@ -15,8 +15,6 @@
 </template>
 <script>
 import { getUniqId } from "@/utils/common";
-
-import { mapActions, mapGetters } from "vuex";
 export default {
   name: "SearchBar",
   data() {
@@ -25,26 +23,16 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["changeValueSearch"]),
-    isTransition() {
+    isRoute() {
       if (this.valueSearch.length >= 3) {
         this.$router.push({ name: "SearchPage" });
       }
-      this.changeValueSearch(this.valueSearch);
-    },
-    created() {
-      this.valueSearch = this.getValueSearch;
-      console.log(document.querySelector("input"));
     },
   },
   computed: {
-    ...mapGetters(["getValueSearch"]),
     uuid() {
       return getUniqId();
     },
-  },
-  created() {
-    this.created();
   },
 };
 </script>
@@ -62,10 +50,9 @@ export default {
   border-radius: 14px;
   font-weight: 500;
   line-height: 1.25;
-  margin-right: 5px;
   height: 100%;
   outline: none;
-  padding-left: 18px;
+  padding-left: 1rem;
   width: 100%;
 
   &:focus ~ .search-bar__placeholder {
@@ -76,7 +63,7 @@ export default {
 .search-bar__placeholder {
   cursor: text;
   display: flex;
-  margin-left: 18px;
+  margin-left: 1rem;
   position: absolute;
 
   img {
@@ -88,6 +75,6 @@ export default {
   color: $secondary;
   font-weight: 500;
   line-height: 1.25;
-  margin-left: 6.2px;
+  margin-left: 0.5rem;
 }
 </style>
