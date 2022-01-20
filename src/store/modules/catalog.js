@@ -91,17 +91,42 @@ export default {
 				},
 			];
 			ctx.commit('updateProducts', products)
+		},
+		async fethCategories(ctx) {
+			const categories = [
+				{
+					category: "Men",
+					icon: "men.svg",
+				},
+				{
+					category: "Women",
+					icon: "women.svg",
+				},
+				{
+					category: "Kids",
+					icon: "kids.svg",
+				},
+				{
+					category: "Sale",
+					icon: "sale.svg",
+				},
+			];
+			ctx.commit('updateCategories', categories);
 		}
 	},
 	mutations: {
 		updateProducts(state, products) {
 			state.products = products;
-		}
+		},
+		updateCategories(state, categories) {
+			state.categories = categories;
+		},
 	},
 	state() {
 		return {
 			products: [],
-		}
+			categories: [],
+		};
 	},
 	getters: {
 		getNewProducts(state) {
@@ -110,5 +135,8 @@ export default {
 		getPopularProducts(state) {
 			return state.products.filter(product => product.category === "popular");
 		},
+		getCategories(state) {
+			return state.categories;
+		}
 	},
 };
