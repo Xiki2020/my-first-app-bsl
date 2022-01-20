@@ -21,7 +21,7 @@ const routes = [
 		name: 'CartPage',
 		component: CartPage,
 		meta: {
-			navBar: true,
+			app_nav: true,
 			roles: ["user",],
 			title: "My cart",
 		},
@@ -40,7 +40,7 @@ const routes = [
 		name: 'HomePage',
 		component: HomePage,
 		meta: {
-			navBar: true,
+			app_nav: true,
 			roles: ["user",],
 		},
 	},
@@ -67,7 +67,7 @@ const routes = [
 		name: 'PersonalAreaPage',
 		component: PersonalAreaPage,
 		meta: {
-			navBar: true,
+			app_nav: true,
 			roles: ["user",],
 			title: "My account",
 		},
@@ -113,7 +113,7 @@ const routes = [
 		name: 'WishListPage',
 		component: WishListPage,
 		meta: {
-			navBar: true,
+			app_nav: true,
 			roles: ["user",],
 			title: "My wishlist",
 		},

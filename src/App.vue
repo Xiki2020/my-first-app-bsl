@@ -2,7 +2,7 @@
   <div class="app">
     <AppHeader />
     <router-view />
-    <AppNav v-if="$route.meta.navBar" class="app__nav" />
+    <AppNav v-if="$route.meta.app_nav" class="app__nav" />
   </div>
 </template>
 
