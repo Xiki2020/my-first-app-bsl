@@ -1,10 +1,13 @@
 <template>
   <div class="search-bar">
-    <input type="text" class="search-bar__input" :id="uuid" autofocus />
-    <label :for="uuid" class="search-bar__placeholder">
-      <img src="@/assets/icons/icon_search_input.png" />
-      <div class="search-bar__text-placeholder">Search</div>
-    </label>
+    <input
+      type="text"
+      class="search-bar__input"
+      :id="uuid"
+      v-model="value"
+      @input="transition"
+      placeholder="Search"
+    />
   </div>
 </template>
 <script>
@@ -14,6 +17,18 @@ export default {
   computed: {
     uuid() {
       return getUniqId();
+    },
+  },
+  data() {
+    return {
+      value: "",
+    };
+  },
+  methods: {
+    transition() {
+      if (this.value.length >= 3) {
+        this.$router.push({ name: "SearchPage" });
+      }
     },
   },
 };
@@ -35,28 +50,15 @@ export default {
   height: 100%;
   outline: none;
   padding-left: 1rem;
+  transition: all 2s linear;
   width: 100%;
-
-  &:focus ~ .search-bar__placeholder {
-    display: none;
-  }
 }
 
-.search-bar__placeholder {
-  cursor: text;
-  display: flex;
-  margin-left: 1rem;
-  position: absolute;
-
-  img {
-    height: 20px;
-    width: 20px;
-  }
-}
-.search-bar__text-placeholder {
+.search-bar__input::placeholder {
   color: $secondary;
+  font-family: Montserrat;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.25;
-  margin-left: 0.5rem;
+  line-height: 1.2;
 }
 </style>
