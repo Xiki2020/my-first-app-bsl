@@ -22,7 +22,10 @@
       </div>
     </div>
   </AppWrapper>
-  <div class="header-home" v-else-if="$route.name === 'HomePage'">
+  <div
+    class="header-home"
+    v-else-if="$route.name === 'HomePage' || $route.name === 'SearchPage'"
+  >
     <AppWrapper>
       <InputSearch />
     </AppWrapper>

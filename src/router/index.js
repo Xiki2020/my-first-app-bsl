@@ -8,6 +8,7 @@ import NewPasswordPage from '@/views/LoginPages/NewPasswordPage.vue'
 import PasswordResetSubmitPage from '@/views/LoginPages/PasswordResetSubmitPage.vue'
 import PersonalAreaPage from '@/views/PersonalAreaPage.vue'
 import RecoveryCodePage from '@/views/LoginPages/RecoveryCodePage.vue'
+import SearchPage from '@/views/SearchPage.vue'
 import SignInPage from '@/views/LoginPages/SignInPage.vue'
 import SignUpPage from '@/views/LoginPages/SignUpPage.vue'
 import TempPage from '@/views/TempPage.vue'
@@ -79,6 +80,14 @@ const routes = [
 		meta: {
 			roles: ["guest",],
 			title: "Recovery code",
+		},
+	},
+	{
+		path: '/search',
+		name: 'SearchPage',
+		component: SearchPage,
+		meta: {
+			roles: ["user",],
 		},
 	},
 	{
