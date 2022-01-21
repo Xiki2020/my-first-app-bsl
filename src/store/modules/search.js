@@ -1,4 +1,5 @@
 export default {
+	namespaced: true,
 	actions: {
 		changeValueSearch(ctx, value) {
 			const value_search = value;
