@@ -1,12 +1,11 @@
 <template>
   <div class="app">
     <AppHeader v-if="$route.name !== 'home'" />
-    <transition
-        name="fade"
-        mode="out-in"
-      >
-      <router-view />
-    </transition>
+    <router-view v-slot="{ Component, route }">
+      <transition :name="route.meta.animation || 'slide'" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
     <AppNav v-if="$route.meta.app_nav" class="app__nav" />
   </div>
 </template>
