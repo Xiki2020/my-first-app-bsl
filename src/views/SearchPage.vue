@@ -9,13 +9,17 @@
         size="small"
       /> -->
     </div>
-    <div class="search-page__previous-results" v-if="foundProducts.length > 0">
+    <div class="search-page__results" v-if="foundProducts.length > 0">
       <div
-        class="search-page__previous-result"
+        class="search-page__result"
         v-for="product in foundProducts"
         :key="product.name"
       >
         {{ product.name }}
+        <img
+          :src="require(`@/assets/img-sneakers/${product.img}`)"
+          class="search-page__result-img"
+        />
       </div>
     </div>
     <h3 class="search-page__not-found" v-else>Not found</h3>
@@ -72,20 +76,30 @@ export default {
 //   border: 0.5px solid $secondary;
 //   color: $fc-gray;
 // }
-.search-page__previous-results {
+.search-page__results {
   color: $fc-gray;
   font-weight: 600;
   line-height: 60px;
   padding-top: 0.625rem;
 }
 
-.search-page__previous-result {
+.search-page__result {
+  align-items: center;
   border-top: 1px solid $secondary;
   border-bottom: 1px solid $secondary;
+  display: flex;
+  justify-content: space-between;
 
   & + & {
     border-top: none;
   }
+}
+.search-page__result-img {
+  border: 0.5px solid $secondary;
+  border-radius: 10px;
+  height: 50px;
+  object-fit: fill;
+  aspect-ratio: 125 / 135;
 }
 .search-page__not-found {
   color: $fc-gray;
