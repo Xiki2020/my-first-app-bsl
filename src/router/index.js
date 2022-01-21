@@ -90,7 +90,7 @@ const routes = [
 		meta: {
 			header_search: true,
 			roles: ["user",],
-			animation: "slide",
+			animation: "search",
 		},
 	},
 	{
