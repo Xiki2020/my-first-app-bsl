@@ -3,7 +3,7 @@
     <AppHeader v-if="$route.name !== 'home'" />
     <router-view v-slot="{ Component, route }">
       <transition :name="route.meta.animation || 'fade'" mode="out-in">
-        <component :is="Component" />
+        <component :is="Component" :key="route.path" />
       </transition>
     </router-view>
     <AppNav v-if="$route.meta.app_nav" class="app__nav" />

@@ -153,9 +153,9 @@ const router = createRouter({
 	history: createWebHashHistory(),
 	// history: createWebHistory(),
 	routes,
-	// mode: 'history',
-	// hashbang: false,
-	// hash: false,
+	scrollBehavior() {
+		return { top: 40 }
+	},
 })
 
 router.beforeEach((to, from, next) => {
