@@ -28,7 +28,7 @@ export default {
     AppWrapper,
     AppButton,
     Logo,
-  },
+  }
 };
 </script>
 

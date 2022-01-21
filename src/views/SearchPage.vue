@@ -38,7 +38,7 @@ export default {
     //  AppButton,
   },
   name: "SearchPage",
-  computed: mapGetters(["getFiltrProducts"]),
+  computed: mapGetters('catalog', ["getFilterProducts"]),
   data() {
     return {
       foundProducts: [],
@@ -47,9 +47,9 @@ export default {
   methods: {
     findProduct() {
       let inputSearch = document.querySelector("input");
-      this.foundProducts = this.getFiltrProducts(inputSearch.value);
+      this.foundProducts = this.getFilterProducts(inputSearch.value);
       inputSearch.addEventListener("input", () => {
-        this.foundProducts = this.getFiltrProducts(inputSearch.value);
+        this.foundProducts = this.getFilterProducts(inputSearch.value);
       });
     },
   },

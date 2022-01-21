@@ -4,7 +4,7 @@
       The recovery code was sent to your mobile. Code expiration time is 120s.
       Please enter the code:
     </div>
-    <CustomFormPin class="recovery-code-page__form">
+    <ConfirmationCode class="recovery-code-page__form">
       <AppButton
         text="Send again"
         @click="$router.push({ name: 'NewPasswordPage' })"
@@ -12,21 +12,21 @@
         name="component_form_pin"
         class="recovery-code-page__btn"
       />
-    </CustomFormPin>
+    </ConfirmationCode>
   </AppWrapper>
 </template>
 
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
 import AppButton from "@/components/AppButton.vue";
-import CustomFormPin from "@/components/CustomFormPin.vue";
+import ConfirmationCode from "@/components/ConfirmationCode.vue";
 
 export default {
   name: "RecoveryCodePage",
   components: {
     AppWrapper,
     AppButton,
-    CustomFormPin,
+    ConfirmationCode,
   },
 };
 </script>

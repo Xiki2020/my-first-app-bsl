@@ -21,13 +21,16 @@
 </template>
 
 <script>
+import {
+  mapGetters,
+  mapActions
+} from "vuex";
+
 import AppButton from "@/components/AppButton.vue";
 import AppWrapper from "@/components/AppWrapper.vue";
 import Categories from "@/components/Categories.vue";
 import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
-
-import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "HomePage",
@@ -39,10 +42,37 @@ export default {
     PopularProductsCarousel,
     ProductsCarousel,
   },
-  methods: mapActions(["fethProducts"]),
-  computed: mapGetters(["getNewProducts", "getPopularProducts"]),
+
+  data () {
+    return {
+      localValue: 'Привет, Мир!'
+    }
+  },
+
+  computed: {
+    ...mapGetters('catalog', [
+      'getNewProducts',
+      'getPopularProducts'
+    ])
+  },
+
+  methods: {
+    ...mapActions('catalog', [
+      'fetchProducts',
+      'setError'
+    ]),
+
+    ...mapActions('cart', [
+      'getCartproducts',
+      'setError'
+    ]),
+
+    localMethod () {
+      console.log('!!!');
+    }
+  },
   created() {
-    this.fethProducts();
+    this.fetchProducts();
   },
 };
 </script>

@@ -1,6 +1,10 @@
+import { getUniqId } from "@/utils/common";
+
 export default {
+	namespaced: true, // ВКЛЮЧАЙ ИХ ВСЕГДА!
+
 	actions: {
-		async fethProducts(ctx) {
+		async fetchProducts({ commit }) {
 			const products = [
 				{
 					name: "Nike React Miler",
@@ -90,58 +94,76 @@ export default {
 					category: "popular",
 				},
 			];
-			ctx.commit('updateProducts', products)
+			commit('setProducts', products)
 		},
-		async fethCategories(ctx) {
+		async fethCategories(context) {
 			const categories = [
 				{
+					id: getUniqId(),
 					category: "Men",
 					icon: "men.svg",
 				},
 				{
+					id: getUniqId(),
 					category: "Women",
 					icon: "women.svg",
 				},
 				{
+					id: getUniqId(),
 					category: "Kids",
 					icon: "kids.svg",
 				},
 				{
+					id: getUniqId(),
 					category: "Sale",
 					icon: "sale.svg",
 				},
 			];
-			ctx.commit('updateCategories', categories);
+			context.commit('setCategories', categories);
 		}
 	},
+
 	mutations: {
-		updateProducts(state, products) {
+		setProducts(state, products) {
 			state.products = products;
 		},
-		updateCategories(state, categories) {
+		setCategories(state, categories) {
 			state.categories = categories;
 		},
 	},
+
 	state() {
 		return {
+			cart: {
+				summaryCost: 0,
+				products: [
+					'239482934',
+					'sdfhsdkfhsghsdf'
+				]
+			},
 			products: [],
 			categories: [],
 		};
 	},
+
 	getters: {
 		getNewProducts(state) {
 			return state.products.filter(product => product.category === "new");
 		},
+
 		getPopularProducts(state) {
 			return state.products.filter(product => product.category === "popular");
 		},
-		getFiltrProducts: state => name => {
+
+		getFilterProducts: state => name => {
 			if (name.length < 1) return [];
+
 			return state.products.filter(product => {
 				return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
 			}).sort((a, b) => (a.name < b.name ? -1 : 1));
 		},
-		getCategories(state) {
+
+		getCategories (state) {
 			return state.categories;
 		}
 	},
