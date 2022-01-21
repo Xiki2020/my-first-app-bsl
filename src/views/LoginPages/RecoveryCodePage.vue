@@ -7,7 +7,7 @@
     <CustomFormPin class="recovery-code-page__form">
       <AppButton
         text="Send again"
-        @click="toCome"
+        @click="$router.push({ name: 'NewPasswordPage' })"
         type="button"
         name="component_form_pin"
         class="recovery-code-page__btn"
@@ -28,11 +28,6 @@ export default {
     AppButton,
     CustomFormPin,
   },
-  methods: {
-    toCome() {
-      this.$router.push({ name: "NewPasswordPage" });
-    },
-  },
 };
 </script>
 
@@ -45,7 +40,6 @@ export default {
   font-size: 0.8125rem;
   line-height: 1.85;
 }
-
 .recovery-code-page__form {
   display: flex;
   flex-direction: column;

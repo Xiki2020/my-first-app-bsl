@@ -9,9 +9,9 @@
         size="small"
       />
     </div>
-    <div class="search-page__results">
+    <div class="search-page__previous-results">
       <div
-        class="search-page__result"
+        class="search-page__previous-result"
         v-for="product in getNewProducts"
         :key="product.name"
       >
@@ -54,18 +54,19 @@ export default {
   border: 0.5px solid $secondary;
   color: $fc-gray;
 }
-.search-page__results {
+.search-page__previous-results {
   color: $fc-gray;
   font-weight: 600;
   line-height: 60px;
   padding-top: 0.625rem;
 }
 
-.search-page__result {
+.search-page__previous-result {
   border-top: 1px solid $secondary;
   border-bottom: 1px solid $secondary;
-}
-.search-page__result + .search-page__result {
-  border-top: none;
+
+  & + & {
+    border-top: none;
+  }
 }
 </style>

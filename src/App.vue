@@ -1,8 +1,8 @@
 <template>
   <div class="app" v-cloak>
     <AppHeader />
-    <router-view v-slot="{ Component }">
-      <transition name="slide" mode="out-in">
+    <router-view v-slot="{ Component, route }">
+      <transition :name="route.meta.animation" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
@@ -32,7 +32,6 @@ export default {
   max-width: $body-max-width;
   position: relative;
 }
-
 .app__nav {
   bottom: 0;
   position: fixed;
@@ -41,20 +40,14 @@ export default {
   width: 100%;
   z-index: 10;
 }
+
 .slide-leave-active,
 .slide-enter-active {
   transition: opacity 1s, transform 1s;
 }
-// .slide-leave-active {
-//     transition: opacity 2s, transform 2s;
-// }
 .slide-leave-to,
 .slide-enter-from {
   opacity: 0;
   transform: translateY(-50%);
 }
-// .slide-leave-to {
-//   opacity: 0;
-//   transform: translateX(30%);
-// }
 </style>

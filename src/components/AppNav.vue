@@ -95,7 +95,6 @@ export default {
   height: 68px;
   justify-content: space-between;
 }
-
 .nav-app__btn {
   background-color: $white;
   border: none;
