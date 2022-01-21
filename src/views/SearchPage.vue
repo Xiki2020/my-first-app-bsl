@@ -9,7 +9,7 @@
         size="small"
       /> -->
     </div>
-    <div class="search-page__previous-results">
+    <div class="search-page__previous-results" v-if="foundProducts.length > 0">
       <div
         class="search-page__previous-result"
         v-for="product in foundProducts"
@@ -18,6 +18,7 @@
         {{ product.name }}
       </div>
     </div>
+    <h3 class="search-page__not-found" v-else>Not found</h3>
   </AppWrapper>
 </template>
 
@@ -85,5 +86,10 @@ export default {
   & + & {
     border-top: none;
   }
+}
+.search-page__not-found {
+  color: $fc-gray;
+  margin-top: 2rem;
+  text-align: center;
 }
 </style>
