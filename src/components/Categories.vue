@@ -23,8 +23,8 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Categories",
   props: {},
-  methods: mapActions(["fethCategories"]),
-  computed: mapGetters(["getCategories"]),
+  methods: mapActions("catalog", ["fethCategories"]),
+  computed: mapGetters("catalog", ["getCategories"]),
   created() {
     this.fethCategories();
   },

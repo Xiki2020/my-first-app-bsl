@@ -21,10 +21,7 @@
 </template>
 
 <script>
-import {
-  mapGetters,
-  mapActions
-} from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import AppButton from "@/components/AppButton.vue";
 import AppWrapper from "@/components/AppWrapper.vue";
@@ -43,33 +40,12 @@ export default {
     ProductsCarousel,
   },
 
-  data () {
-    return {
-      localValue: 'Привет, Мир!'
-    }
-  },
-
   computed: {
-    ...mapGetters('catalog', [
-      'getNewProducts',
-      'getPopularProducts'
-    ])
+    ...mapGetters("catalog", ["getNewProducts", "getPopularProducts"]),
   },
 
   methods: {
-    ...mapActions('catalog', [
-      'fetchProducts',
-      'setError'
-    ]),
-
-    ...mapActions('cart', [
-      'getCartproducts',
-      'setError'
-    ]),
-
-    localMethod () {
-      console.log('!!!');
-    }
+    ...mapActions("catalog", ["fetchProducts"]),
   },
   created() {
     this.fetchProducts();

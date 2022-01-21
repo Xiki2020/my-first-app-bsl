@@ -2,7 +2,7 @@
   <div class="app">
     <AppHeader v-if="$route.name !== 'home'" />
     <router-view v-slot="{ Component, route }">
-      <transition :name="route.meta.animation || 'slide'" mode="out-in">
+      <transition :name="route.meta.animation || 'fade'" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
@@ -49,23 +49,13 @@ export default {
   opacity: 0;
 }
 
-// .search-leave-active,
-// .search-enter-active {
-//   transition: opacity 0.5s, transform 0.5s;
-// }
-// .search-leave-to,
-// .search-enter-from {
-//   opacity: 0;
-//   transform: translateY(-20%);
-// }
-
-// .slide-leave-active,
-// .slide-enter-active {
-//   transition: opacity 0.3s, transform 0.3s;
-// }
-// .slide-leave-to,
-// .slide-enter-from {
-//   opacity: 0;
-//   transform: translateX(-5%);
-// }
+.search-leave-active,
+.search-enter-active {
+  transition: opacity 0.5s, transform 0.5s;
+}
+.search-leave-to,
+.search-enter-from {
+  opacity: 0;
+  transform: translateY(-20%);
+}
 </style>

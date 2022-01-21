@@ -134,13 +134,6 @@ export default {
 
 	state() {
 		return {
-			cart: {
-				summaryCost: 0,
-				products: [
-					'239482934',
-					'sdfhsdkfhsghsdf'
-				]
-			},
 			products: [],
 			categories: [],
 		};
@@ -163,7 +156,7 @@ export default {
 			}).sort((a, b) => (a.name < b.name ? -1 : 1));
 		},
 
-		getCategories (state) {
+		getCategories(state) {
 			return state.categories;
 		}
 	},
