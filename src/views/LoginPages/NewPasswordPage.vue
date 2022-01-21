@@ -45,18 +45,15 @@ export default {
   word-wrap: break-word;
 }
 .new-password-page__form {
-  margin-top: 50px;
-  min-height: 325px;
+  display: flex;
+  flex-direction: column;
+  height: 565px;
+  margin-top: 3.25rem;
 }
 .new-password-page__input-passwrod {
   margin-top: 1.25rem;
 }
 .new-password-page__btn {
-  bottom: 3.125rem;
-  left: 50%;
-  margin: 0 auto;
-  position: absolute;
-  transform: translateX(-50%);
-  width: calc(100% - 4.5rem);
+  margin-top: auto;
 }
 </style>
