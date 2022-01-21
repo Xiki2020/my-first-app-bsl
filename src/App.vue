@@ -1,5 +1,5 @@
 <template>
-  <div class="app" v-cloak>
+  <div class="app">
     <AppHeader />
     <router-view v-slot="{ Component, route }">
       <transition :name="route.meta.animation" mode="out-in">
@@ -22,9 +22,6 @@ export default {
 </script>
 
 <style  lang="scss" scoped>
-[v-cloak] {
-  display: none;
-}
 .app {
   background-color: $white;
   min-height: 100vh;

@@ -1,18 +1,18 @@
 <template>
   <AppWrapper class="search-page">
     <div class="search-page__nav">
-      <div class="search-page__name-nav">Recent searches</div>
-      <AppButton
+      <div class="search-page__name-nav">Search results:</div>
+      <!-- <AppButton
         class="search-page__btn-clear"
         text="Clear all"
         variant="gray"
         size="small"
-      />
+      /> -->
     </div>
     <div class="search-page__previous-results">
       <div
         class="search-page__previous-result"
-        v-for="product in getNewProducts"
+        v-for="product in foundProducts"
         :key="product.name"
       >
         {{ product.name }}
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import AppButton from "@/components/AppButton.vue";
+// import AppButton from "@/components/AppButton.vue";
 import AppWrapper from "@/components/AppWrapper.vue";
 
 import { mapGetters } from "vuex";
@@ -30,10 +30,27 @@ import { mapGetters } from "vuex";
 export default {
   components: {
     AppWrapper,
-    AppButton,
+    //  AppButton,
   },
   name: "SearchPage",
-  computed: mapGetters(["getNewProducts"]),
+  computed: mapGetters(["getFiltrProducts"]),
+  data() {
+    return {
+      foundProducts: [],
+    };
+  },
+  methods: {
+    findProduct() {
+      let inputSearch = document.querySelector("input");
+      this.foundProducts = this.getFiltrProducts(inputSearch.value);
+      inputSearch.addEventListener("input", () => {
+        this.foundProducts = this.getFiltrProducts(inputSearch.value);
+      });
+    },
+  },
+  created() {
+    this.findProduct();
+  },
 };
 </script>
 
