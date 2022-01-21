@@ -2,7 +2,7 @@
   <div class="footer-login">
     <div class="footer-login__separator">
       <div class="footer-login__separator-title">
-        Or {{ $route.meta.title.toLowerCase() }} with
+        Or {{ $route.meta.header_title.toLowerCase() }} with
       </div>
     </div>
     <div class="footer-login__btns">

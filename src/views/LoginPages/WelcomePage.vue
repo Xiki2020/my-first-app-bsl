@@ -26,8 +26,8 @@ export default {
   name: "WelcomePage",
   components: {
     AppWrapper,
-    Logo,
     AppButton,
+    Logo,
   },
 };
 </script>
@@ -43,12 +43,10 @@ export default {
   min-height: 400px;
   user-select: none;
 }
-
 .welcome-page__btns {
   margin-top: auto;
   width: 100%;
 }
-
 .welcome-page__btn {
   transition: $transition-base;
 
@@ -56,7 +54,6 @@ export default {
     transform: translateY(-5px);
   }
 }
-
 .welcome-page__btn--signin {
   &:hover {
     transform: none;

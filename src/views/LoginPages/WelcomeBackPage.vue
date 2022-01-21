@@ -74,13 +74,11 @@ export default {
 .welcome-back-page__input-password {
   margin-top: 1.25rem;
 }
-
 .welcome-back-page__actions {
   display: flex;
   align-items: center;
   margin-top: 1rem;
 }
-
 .welcome-back-page__link-forgot {
   color: $fc-gray;
   font-weight: 500;

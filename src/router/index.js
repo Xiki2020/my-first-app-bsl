@@ -24,7 +24,7 @@ const routes = [
 		meta: {
 			app_nav: true,
 			roles: ["user",],
-			title: "My cart",
+			header_title: "My cart",
 		},
 	},
 	{
@@ -33,7 +33,7 @@ const routes = [
 		component: ForgotPasswordPage,
 		meta: {
 			roles: ["guest",],
-			title: "Forgot password",
+			header_title: "Forgot password",
 		},
 	},
 	{
@@ -61,7 +61,7 @@ const routes = [
 		component: NewPasswordPage,
 		meta: {
 			roles: ["guest",],
-			title: "New password",
+			header_title: "New password",
 		},
 	},
 	{
@@ -71,7 +71,7 @@ const routes = [
 		meta: {
 			app_nav: true,
 			roles: ["user",],
-			title: "My account",
+			header_title: "My account",
 		},
 	},
 	{
@@ -80,7 +80,7 @@ const routes = [
 		component: RecoveryCodePage,
 		meta: {
 			roles: ["guest",],
-			title: "Recovery code",
+			header_title: "Recovery code",
 		},
 	},
 	{
@@ -90,6 +90,7 @@ const routes = [
 		meta: {
 			header_search: true,
 			roles: ["user",],
+			animation: "slide",
 		},
 	},
 	{
@@ -98,7 +99,7 @@ const routes = [
 		component: SignInPage,
 		meta: {
 			roles: ["guest",],
-			title: "Sign In",
+			header_title: "Sign In",
 		},
 	},
 	{
@@ -107,7 +108,7 @@ const routes = [
 		component: SignUpPage,
 		meta: {
 			roles: ["guest",],
-			title: "Sign Up",
+			header_title: "Sign Up",
 		},
 	},
 	{
@@ -116,7 +117,7 @@ const routes = [
 		component: TempPage,
 		meta: {
 			roles: ["user",],
-			title: "Заглушка",
+			header_title: "Заглушка",
 		},
 	},
 	{
@@ -126,7 +127,7 @@ const routes = [
 		meta: {
 			app_nav: true,
 			roles: ["user",],
-			title: "My wishlist",
+			header_title: "My wishlist",
 		},
 	},
 	{
@@ -143,7 +144,7 @@ const routes = [
 		component: WelcomeBackPage,
 		meta: {
 			roles: ["guest",],
-			title: "Welcome back",
+			header_title: "Welcome back",
 		},
 	},
 ]

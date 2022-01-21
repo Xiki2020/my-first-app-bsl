@@ -70,17 +70,14 @@ export default {
   color: $fc-gray;
   padding-top: 0.95rem;
 }
-
 .forgot-password-page__description {
   font-size: 0.8125rem;
   line-height: 1.85;
   word-wrap: break-word;
 }
-
 .forgot-password-page__btns {
   margin-top: 4.375rem;
 }
-
 .forgot-password-page__btn {
   border: 0.5px solid $secondary;
   border-radius: 14px;
@@ -100,7 +97,6 @@ export default {
     }
   }
 }
-
 .forgot-password-page__icon {
   align-items: center;
   border: 0.5px solid $secondary;
@@ -111,7 +107,6 @@ export default {
   transition: all 0.2s linear;
   width: 32%;
 }
-
 .forgot-password-page__description-btn {
   align-items: left;
   display: flex;

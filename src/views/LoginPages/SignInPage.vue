@@ -74,13 +74,11 @@ export default {
 .sign-in-page__input-password {
   margin-top: 1.25rem;
 }
-
 .sign-in-page__actions {
   display: flex;
   align-items: center;
   margin-top: 1rem;
 }
-
 .sign-in-page__link-forgot {
   color: $fc-gray;
   font-weight: 500;

@@ -2,22 +2,20 @@
   <AppWrapper class="home-page">
     <div class="home-page__header"></div>
     <PopularProductsCarousel
-      class="swiper-popular-product"
+      class="home-page__swiper-popular-product"
       :products="getPopularProducts"
     />
-    <div class="home-page__body">
-      <Categories class="home-page__categories" />
-      <div class="home-page__wrapper-swiper">
-        <div class="home-page__header-swiper">
-          <div class="home-page__title-swiper">New Products</div>
-          <AppButton
-            text="View All"
-            size="small"
-            @click="$router.push({ name: 'TempPage' })"
-          />
-        </div>
-        <ProductsCarousel :products="getNewProducts" />
+    <Categories class="home-page__categories" />
+    <div class="home-page__wrapper-swiper">
+      <div class="home-page__header-swiper">
+        <div class="home-page__title-swiper">New Products</div>
+        <AppButton
+          text="View All"
+          size="small"
+          @click="$router.push({ name: 'TempPage' })"
+        />
       </div>
+      <ProductsCarousel :products="getNewProducts" />
     </div>
   </AppWrapper>
 </template>
@@ -50,9 +48,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.swiper-popular-product {
-  margin-top: -70px;
-}
 .home-page__header {
   background-color: $primary;
   border-radius: 0 0 38px 38px;
@@ -60,33 +55,29 @@ export default {
   margin-left: -2.25rem;
   width: calc(100% + 4.5rem);
 }
-.home-page__body {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-top: 1.2rem;
+.home-page__swiper-popular-product {
+  margin-top: -70px;
 }
 .home-page__categories {
   height: 70px;
+  margin-top: 1.2rem;
 }
-
 .home-page__wrapper-swiper {
   background-color: #e0e4e7;
   border-radius: 25px 25px 0 0;
+  margin-left: -2.25rem;
   margin-top: 1.375rem;
   min-height: 340px;
   overflow: hidden;
   padding-bottom: 1.5rem;
   width: calc(100% + 4.5rem);
 }
-
 .home-page__header-swiper {
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 1rem 2.25rem 1.25rem;
 }
-
 .home-page__title-swiper {
   color: $fc-gray;
   font-size: 1.125rem;

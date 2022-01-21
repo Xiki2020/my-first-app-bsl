@@ -1,31 +1,30 @@
 <template>
-  <AppWrapper class="header-app-v1" v-if="$route.meta.title">
-    <div class="header-app-v1__content">
-      <AppButton @click="$router.go(-1)" class="header-app-v1__btn">
-        <svg
-          width="19"
-          height="18"
-          viewBox="0 0 19 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M3.82828 8.29289L18.4141 8.29289L18.4141 10.2929L3.82828 10.2929L10.1212 16.5858L8.70696 18L-0.000149919 9.29289L8.70696 0.585786L10.1212 2L3.82828 8.29289Z"
-            fill="#3E4958"
-          />
-        </svg>
-      </AppButton>
-      <div class="header-app-v1__title">
-        {{ $route.meta.title }}
-      </div>
+  <AppWrapper class="header-app-title" v-if="$route.meta.header_title">
+    <AppButton @click="$router.go(-1)" class="header-app-title__btn">
+      <svg
+        width="19"
+        height="18"
+        viewBox="0 0 19 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M3.82828 8.29289L18.4141 8.29289L18.4141 10.2929L3.82828 10.2929L10.1212 16.5858L8.70696 18L-0.000149919 9.29289L8.70696 0.585786L10.1212 2L3.82828 8.29289Z"
+          fill="#3E4958"
+        />
+      </svg>
+    </AppButton>
+    <div class="header-app-title__title">
+      {{ $route.meta.header_title }}
     </div>
   </AppWrapper>
-  <AppWrapper v-else-if="$route.meta.header_search" class="header-app-v2">
+
+  <AppWrapper v-else-if="$route.meta.header_search" class="header-app-search">
     <AppButton
-      @click="$router.go(-1)"
-      class="header-app-v2__btn"
+      @click="transition"
+      class="header-app-search__btn"
       v-if="$route.name === 'SearchPage'"
     >
       <svg
@@ -43,7 +42,7 @@
         />
       </svg>
     </AppButton>
-    <InputSearch class="header-app-v2__search" />
+    <InputSearch class="header-app-search__search" />
   </AppWrapper>
 </template>
 <script>
@@ -56,24 +55,24 @@ export default {
     AppWrapper,
     InputSearch,
   },
-
-  props: {},
-
   name: "AppHeader",
+  methods: {
+    transition() {
+      document.querySelector("input").value = "";
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 <style  lang="scss" scoped>
-.header-app-v1 {
+//! Header с заголовком и кнопкой назад
+.header-app-title {
+  align-items: center;
+  display: flex;
   padding-bottom: 0;
   padding-top: 3.125rem;
 }
-
-.header-app-v1__content {
-  align-items: center;
-  display: flex;
-}
-
-.header-app-v1__btn {
+.header-app-title__btn {
   background-color: transparent;
   display: inline-block;
   width: auto;
@@ -86,8 +85,7 @@ export default {
     transform: none;
   }
 }
-
-.header-app-v1__title {
+.header-app-title__title {
   color: $fc-gray;
   display: inline-block;
   font-weight: 600;
@@ -98,7 +96,8 @@ export default {
   text-overflow: ellipsis;
 }
 
-.header-app-v2 {
+//! Header с инпутом поиском, и на странице поиска добавляется кнопка назад
+.header-app-search {
   display: flex;
   justify-content: space-between;
   left: 0;
@@ -109,8 +108,7 @@ export default {
   width: 100%;
   z-index: 10;
 }
-
-.header-app-v2__btn {
+.header-app-search__btn {
   background-color: transparent;
   display: inline-block;
   width: auto;
@@ -124,7 +122,7 @@ export default {
     transform: none;
   }
 }
-.header-app-v2__search {
+.header-app-search__search {
   width: 100%;
 }
 </style>>
