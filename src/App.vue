@@ -40,11 +40,11 @@ export default {
 
 .slide-leave-active,
 .slide-enter-active {
-  transition: opacity 1s, transform 1s;
+  transition: opacity 0.5s, transform 0.5s;
 }
 .slide-leave-to,
 .slide-enter-from {
   opacity: 0;
-  transform: translateY(-50%);
+  transform: translateY(-20%);
 }
 </style>
