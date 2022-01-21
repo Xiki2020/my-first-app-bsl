@@ -136,7 +136,9 @@ export default {
 			return state.products.filter(product => product.category === "popular");
 		},
 		getFiltrProducts: state => name => {
-			return state.products.filter(product => product.name.substring(0, name.length) === name).sort((a, b) => (a.name < b.name ? -1 : 1));
+			return state.products.filter(product => {
+				return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
+			}).sort((a, b) => (a.name < b.name ? -1 : 1));
 		},
 		getCategories(state) {
 			return state.categories;

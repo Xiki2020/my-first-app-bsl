@@ -57,9 +57,9 @@ export default {
 
 <style lang="scss" scoped>
 .search-page__nav {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+  //   align-items: center;
+  //   display: flex;
+  //   justify-content: space-between;
   padding-top: 10rem;
 }
 .search-page__name-nav {
@@ -67,11 +67,11 @@ export default {
   font-weight: bold;
   font-size: 1.125rem;
 }
-.search-page__btn-clear {
-  background-color: #f7f8f9;
-  border: 0.5px solid $secondary;
-  color: $fc-gray;
-}
+// .search-page__btn-clear {
+//   background-color: #f7f8f9;
+//   border: 0.5px solid $secondary;
+//   color: $fc-gray;
+// }
 .search-page__previous-results {
   color: $fc-gray;
   font-weight: 600;
