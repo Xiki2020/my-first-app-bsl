@@ -5,6 +5,8 @@
       class="search-bar__input"
       :id="uuid"
       placeholder="Search"
+      v-model="value"
+      @input="isLengthThree"
     />
   </div>
 </template>
@@ -15,6 +17,20 @@ export default {
   computed: {
     uuid() {
       return getUniqId();
+    },
+  },
+
+  data() {
+    return {
+      value: "",
+    };
+  },
+
+  methods: {
+    isLengthThree() {
+      if (this.value.length >= 3) {
+        this.$emit("isLengthThree", this.value);
+      }
     },
   },
 };

@@ -2,7 +2,23 @@
   <AppWrapper class="home-page">
     <PageSearch class="home-page__page-search" />
     <div class="home-page__header">
-      <InputSearch class="home-page__search" />
+      <AppButton @click="HidenSearch" class="home-page__btn">
+        <svg
+          width="19"
+          height="18"
+          viewBox="0 0 19 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M3.82828 8.29289L18.4141 8.29289L18.4141 10.2929L3.82828 10.2929L10.1212 16.5858L8.70696 18L-0.000149919 9.29289L8.70696 0.585786L10.1212 2L3.82828 8.29289Z"
+            fill="#3E4958"
+          />
+        </svg>
+      </AppButton>
+      <InputSearch class="home-page__search" @isLengthThree="ShowSearch" />
     </div>
     <PopularProductsCarousel
       class="home-page__swiper-popular-product"
@@ -53,6 +69,23 @@ export default {
 
   methods: {
     ...mapActions("catalog", ["fetchProducts"]),
+    ShowSearch(value) {
+      console.log(value);
+      document
+        .querySelector(".home-page__page-search")
+        .classList.add("home-page__page-search--activ");
+      document
+        .querySelector(".home-page__btn")
+        .classList.add("home-page__btn--activ");
+    },
+    HidenSearch() {
+      document
+        .querySelector(".home-page__page-search")
+        .classList.remove("home-page__page-search--activ");
+      document
+        .querySelector(".home-page__btn")
+        .classList.remove("home-page__btn--activ");
+    },
   },
   created() {
     this.fetchProducts();
@@ -63,27 +96,51 @@ export default {
 <style lang="scss" scoped>
 .home-page__page-search {
   background-color: $white;
-  left: 0;
+  margin-left: -2.25rem;
+  max-width: $body-max-width;
+  min-width: $body-min-width;
   position: fixed;
   top: -100vh;
-  transition: $transition-base;
+  transition: all 0.3s linear;
   z-index: 20;
 }
-.home-page__page-search--active {
+.home-page__page-search--activ {
   top: 0;
 }
 .home-page__header {
   background-color: $primary;
   border-radius: 0 0 38px 38px;
+  display: flex;
   height: 231px;
+  justify-content: space-between;
   margin-left: -2.25rem;
   padding: 3.3rem 2.25rem 0;
   width: calc(100% + 4.5rem);
 }
+
+.home-page__btn {
+  background-color: transparent;
+  padding: 0;
+  position: relative;
+  transition: all 0.3s linear;
+  width: 0;
+  z-index: 30;
+
+  &:hover {
+    opacity: 0.8;
+    transform: none;
+  }
+}
+.home-page__btn--activ {
+  padding: 0 0.5rem;
+  width: auto;
+}
 .home-page__search {
   position: relative;
+  width: 100%;
   z-index: 30;
 }
+
 .home-page__swiper-popular-product {
   margin-top: -70px;
 }

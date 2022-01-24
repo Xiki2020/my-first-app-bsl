@@ -27,6 +27,7 @@ export default {
   min-height: 100vh;
   margin: 0 auto;
   max-width: $body-max-width;
+  min-width: $body-min-width;
   position: relative;
 }
 

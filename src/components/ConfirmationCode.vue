@@ -21,16 +21,16 @@
 export default {
   name: "ConfirmationCode",
 
-  data () {
+  data() {
     return {
       inputs: ["", "", "", ""],
     };
   },
 
   methods: {
-    changeFocus (index) {
-      let input = this.inputs[index]
-      const inputEl = this.$refs.form.component_form_pin[index + 1]
+    changeFocus(index) {
+      let input = this.inputs[index];
+      const inputEl = this.$refs.form.component_form_pin[index + 1];
 
       if (!/[0-9]$/.exec(input)) {
         input = "";
@@ -40,9 +40,9 @@ export default {
       }
     },
 
-    handleDelete (index) {
-      const inputEl = this.$refs.form.component_form_pin[index + 1]
-      if (index === 0) return
+    handleDelete(index) {
+      const inputEl = this.$refs.form.component_form_pin[index - 1];
+      if (index === 0) return;
       if (inputEl) inputEl.focus();
     },
   },
