@@ -117,10 +117,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-page {
-  max-height: 100vh;
-}
 .home-page--activ {
+  max-height: 100vh;
   overflow: hidden;
 }
 .home-page__page-search {
