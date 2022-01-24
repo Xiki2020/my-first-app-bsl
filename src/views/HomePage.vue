@@ -22,7 +22,7 @@
     </div>
     <PopularProductsCarousel
       class="home-page__swiper-popular-product"
-      :products="getPopularProducts"
+      :products="getProductsCategory('popular')"
     />
     <Categories class="home-page__categories" />
     <div class="home-page__wrapper-swiper">
@@ -31,10 +31,15 @@
         <AppButton
           text="View All"
           size="small"
-          @click="$router.push({ name: 'TempPage' })"
+          @click="
+            $router.push({
+              name: 'ProductListPage',
+              params: { category: 'new' },
+            })
+          "
         />
       </div>
-      <ProductsCarousel :products="getNewProducts" />
+      <ProductsCarousel :products="getProductsCategory('new')" />
     </div>
   </AppWrapper>
 </template>
@@ -70,11 +75,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters("catalog", [
-      "getNewProducts",
-      "getPopularProducts",
-      "getFilterProducts",
-    ]),
+    ...mapGetters("catalog", ["getProductsCategory", "getFilterProducts"]),
   },
 
   methods: {

@@ -7,7 +7,12 @@
     >
       <button
         class="categories__btn"
-        @click="$router.push({ name: 'TempPage' })"
+        @click="
+          $router.push({
+            name: 'ProductListPage',
+            params: { category: category.category },
+          })
+        "
       >
         <img
           :src="require(`@/assets/icons/${category.icon}`)"
