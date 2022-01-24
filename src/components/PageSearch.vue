@@ -2,14 +2,8 @@
   <AppWrapper class="search-page">
     <div class="search-page__nav">
       <div class="search-page__name-nav">Search results:</div>
-      <!-- <AppButton
-        class="search-page__btn-clear"
-        text="Clear all"
-        variant="gray"
-        size="small"
-      /> -->
     </div>
-    <div class="search-page__results" v-if="foundProducts.length > 0">
+    <!-- <div class="search-page__results" v-if="foundProducts.length > 0">
       <div
         class="search-page__result"
         v-for="product in foundProducts"
@@ -22,48 +16,27 @@
         />
       </div>
     </div>
-    <h3 class="search-page__not-found" v-else>Not found</h3>
+    <h3 class="search-page__not-found" v-else>Not found</h3> -->
   </AppWrapper>
 </template>
 
 <script>
-// import AppButton from "@/components/AppButton.vue";
 import AppWrapper from "@/components/AppWrapper.vue";
-
-import { mapGetters } from "vuex";
 
 export default {
   components: {
     AppWrapper,
-    //  AppButton,
   },
-  name: "SearchPage",
-  computed: mapGetters('catalog', ["getFilterProducts"]),
-  data() {
-    return {
-      foundProducts: [],
-    };
-  },
-  methods: {
-    findProduct() {
-      let inputSearch = document.querySelector("input");
-      this.foundProducts = this.getFilterProducts(inputSearch.value);
-      inputSearch.addEventListener("input", () => {
-        this.foundProducts = this.getFilterProducts(inputSearch.value);
-      });
-    },
-  },
-  created() {
-    this.findProduct();
-  },
+  name: "PageSearch",
 };
 </script>
 
 <style lang="scss" scoped>
+.search-page {
+  height: 100vh;
+  width: 100vw;
+}
 .search-page__nav {
-  //   align-items: center;
-  //   display: flex;
-  //   justify-content: space-between;
   padding-top: 10rem;
 }
 .search-page__name-nav {
@@ -71,11 +44,6 @@ export default {
   font-weight: bold;
   font-size: 1.125rem;
 }
-// .search-page__btn-clear {
-//   background-color: #f7f8f9;
-//   border: 0.5px solid $secondary;
-//   color: $fc-gray;
-// }
 .search-page__results {
   color: $fc-gray;
   font-weight: 600;

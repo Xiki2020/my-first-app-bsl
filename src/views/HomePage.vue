@@ -1,6 +1,9 @@
 <template>
   <AppWrapper class="home-page">
-    <div class="home-page__header"></div>
+    <PageSearch class="home-page__page-search" />
+    <div class="home-page__header">
+      <InputSearch class="home-page__search" />
+    </div>
     <PopularProductsCarousel
       class="home-page__swiper-popular-product"
       :products="getPopularProducts"
@@ -26,6 +29,8 @@ import { mapGetters, mapActions } from "vuex";
 import AppButton from "@/components/AppButton.vue";
 import AppWrapper from "@/components/AppWrapper.vue";
 import Categories from "@/components/Categories.vue";
+import InputSearch from "@/components/FormComponents/InputSearch.vue";
+import PageSearch from "@/components/PageSearch.vue";
 import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 
@@ -36,6 +41,8 @@ export default {
     AppButton,
     AppWrapper,
     Categories,
+    InputSearch,
+    PageSearch,
     PopularProductsCarousel,
     ProductsCarousel,
   },
@@ -54,12 +61,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home-page__page-search {
+  background-color: $white;
+  left: 0;
+  position: fixed;
+  top: -100vh;
+  transition: $transition-base;
+  z-index: 20;
+}
+.home-page__page-search--active {
+  top: 0;
+}
 .home-page__header {
   background-color: $primary;
   border-radius: 0 0 38px 38px;
   height: 231px;
   margin-left: -2.25rem;
+  padding: 3.3rem 2.25rem 0;
   width: calc(100% + 4.5rem);
+}
+.home-page__search {
+  position: relative;
+  z-index: 30;
 }
 .home-page__swiper-popular-product {
   margin-top: -70px;
