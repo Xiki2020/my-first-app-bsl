@@ -17,7 +17,7 @@
       </svg>
     </AppButton>
     <div class="header-app__title">
-      {{ $route.meta.header_title }}
+      {{ $route.meta.headerTitle }}
     </div>
   </AppWrapper>
 </template>

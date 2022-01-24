@@ -1,5 +1,8 @@
 <template>
-  <div class="card-product">
+  <div
+    class="card-product"
+    @click="$router.push({ name: 'ProductPage', params: { id: product.id } })"
+  >
     <img
       class="card-product__img"
       :src="require(`@/assets/img-sneakers/${product.img}`)"
@@ -32,6 +35,7 @@
 <script>
 export default {
   name: "CardProduct",
+
   props: {
     product: {
       type: Object,
@@ -44,6 +48,7 @@ export default {
 .card-product {
   background-color: #fefefe;
   border-radius: 16px;
+  cursor: grab;
   padding: 0.625rem 0.5rem;
 }
 .card-product__img {
