@@ -4,9 +4,9 @@
       type="text"
       class="search-bar__input"
       :id="uuid"
-      v-model="value"
-      @input="transition"
       placeholder="Search"
+      v-model="value"
+      @input="handValue"
     />
   </div>
 </template>
@@ -19,16 +19,16 @@ export default {
       return getUniqId();
     },
   },
+
   data() {
     return {
       value: "",
     };
   },
+
   methods: {
-    transition() {
-      if (this.value.length >= 3) {
-        this.$router.push({ name: "SearchPage" });
-      }
+    handValue() {
+      this.$emit("handValue", this.value);
     },
   },
 };

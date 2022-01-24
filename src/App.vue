@@ -1,12 +1,12 @@
 <template>
   <div class="app">
-    <AppHeader v-if="$route.name !== 'home'" />
     <router-view v-slot="{ Component, route }">
-      <transition :name="route.meta.animation || 'fade'" mode="out-in">
-        <component :is="Component" :key="route.path" />
+      <AppHeader v-if="route.meta.header_title" />
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
       </transition>
+      <AppNav v-if="route.meta.app_nav" class="app__nav" />
     </router-view>
-    <AppNav v-if="$route.meta.app_nav" class="app__nav" />
   </div>
 </template>
 
@@ -27,6 +27,7 @@ export default {
   min-height: 100vh;
   margin: 0 auto;
   max-width: $body-max-width;
+  min-width: $body-min-width;
   position: relative;
 }
 
@@ -47,15 +48,5 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-}
-
-.search-leave-active,
-.search-enter-active {
-  transition: opacity 0.5s, transform 0.5s;
-}
-.search-leave-to,
-.search-enter-from {
-  opacity: 0;
-  transform: translateY(-20%);
 }
 </style>
