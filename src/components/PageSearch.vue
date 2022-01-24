@@ -3,10 +3,10 @@
     <div class="search-page__nav">
       <div class="search-page__name-nav">Search results:</div>
     </div>
-    <!-- <div class="search-page__results" v-if="foundProducts.length > 0">
+    <div class="search-page__results" v-if="products.length > 0">
       <div
         class="search-page__result"
-        v-for="product in foundProducts"
+        v-for="product in products"
         :key="product.name"
       >
         {{ product.name }}
@@ -16,7 +16,7 @@
         />
       </div>
     </div>
-    <h3 class="search-page__not-found" v-else>Not found</h3> -->
+    <h3 class="search-page__not-found" v-else>Not found</h3>
   </AppWrapper>
 </template>
 
@@ -28,12 +28,20 @@ export default {
     AppWrapper,
   },
   name: "PageSearch",
+
+  props: {
+    products: {
+      type: Array,
+      reqired: true,
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .search-page {
   height: 100vh;
+  overflow-y: scroll;
   width: 100vw;
 }
 .search-page__nav {

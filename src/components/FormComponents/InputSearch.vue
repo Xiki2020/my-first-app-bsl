@@ -6,7 +6,7 @@
       :id="uuid"
       placeholder="Search"
       v-model="value"
-      @input="isLengthThree"
+      @input="handValue"
     />
   </div>
 </template>
@@ -27,10 +27,8 @@ export default {
   },
 
   methods: {
-    isLengthThree() {
-      if (this.value.length >= 3) {
-        this.$emit("isLengthThree", this.value);
-      }
+    handValue() {
+      this.$emit("handValue", this.value);
     },
   },
 };

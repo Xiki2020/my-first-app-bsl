@@ -1,6 +1,6 @@
 <template>
   <AppWrapper class="home-page">
-    <PageSearch class="home-page__page-search" />
+    <PageSearch class="home-page__page-search" :products="foundProducts" />
     <div class="home-page__header">
       <AppButton @click="HidenSearch" class="home-page__btn">
         <svg
@@ -18,7 +18,7 @@
           />
         </svg>
       </AppButton>
-      <InputSearch class="home-page__search" @isLengthThree="ShowSearch" />
+      <InputSearch class="home-page__search" @handValue="ShowSearch" />
     </div>
     <PopularProductsCarousel
       class="home-page__swiper-popular-product"
@@ -63,20 +63,32 @@ export default {
     ProductsCarousel,
   },
 
+  data() {
+    return {
+      foundProducts: [],
+    };
+  },
+
   computed: {
-    ...mapGetters("catalog", ["getNewProducts", "getPopularProducts"]),
+    ...mapGetters("catalog", [
+      "getNewProducts",
+      "getPopularProducts",
+      "getFilterProducts",
+    ]),
   },
 
   methods: {
     ...mapActions("catalog", ["fetchProducts"]),
     ShowSearch(value) {
-      console.log(value);
-      document
-        .querySelector(".home-page__page-search")
-        .classList.add("home-page__page-search--activ");
-      document
-        .querySelector(".home-page__btn")
-        .classList.add("home-page__btn--activ");
+      this.findProduct(value);
+      if (value.length >= 3) {
+        document
+          .querySelector(".home-page__page-search")
+          .classList.add("home-page__page-search--activ");
+        document
+          .querySelector(".home-page__btn")
+          .classList.add("home-page__btn--activ");
+      }
     },
     HidenSearch() {
       document
@@ -85,8 +97,13 @@ export default {
       document
         .querySelector(".home-page__btn")
         .classList.remove("home-page__btn--activ");
+      document.querySelector(".search-bar__input").value = "";
+    },
+    findProduct(value) {
+      this.foundProducts = this.getFilterProducts(value);
     },
   },
+
   created() {
     this.fetchProducts();
   },
@@ -102,10 +119,11 @@ export default {
   position: fixed;
   top: -100vh;
   transition: all 0.3s linear;
-  z-index: 20;
+  z-index: -10;
 }
 .home-page__page-search--activ {
   top: 0;
+  z-index: 20;
 }
 .home-page__header {
   background-color: $primary;
