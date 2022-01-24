@@ -82,6 +82,7 @@ export default {
     ShowSearch(value) {
       this.findProduct(value);
       if (value.length >= 3) {
+        document.querySelector(".home-page").classList.add("home-page--activ");
         document
           .querySelector(".home-page__page-search")
           .classList.add("home-page__page-search--activ");
@@ -91,6 +92,7 @@ export default {
       }
     },
     HidenSearch() {
+      document.querySelector(".home-page").classList.remove("home-page--activ");
       document
         .querySelector(".home-page__page-search")
         .classList.remove("home-page__page-search--activ");
@@ -111,6 +113,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home-page {
+  max-height: 100vh;
+}
+.home-page--activ {
+  overflow: hidden;
+}
 .home-page__page-search {
   background-color: $white;
   margin-left: -2.25rem;
