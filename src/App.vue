@@ -1,11 +1,11 @@
 <template>
   <div class="app">
     <router-view v-slot="{ Component, route }">
-      <AppHeader v-if="route.meta.header_title" />
+      <AppHeader v-if="route.meta.headerTitle" />
       <transition name="fade" mode="out-in">
         <component :is="Component" />
       </transition>
-      <AppNav v-if="route.meta.app_nav" class="app__nav" />
+      <AppNav v-if="route.meta.appNav" class="app__nav" />
     </router-view>
   </div>
 </template>

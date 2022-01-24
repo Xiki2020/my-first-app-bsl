@@ -79,8 +79,10 @@ export default {
 
   methods: {
     ...mapActions("catalog", ["fetchProducts"]),
+
     ShowSearch(value) {
       this.findProduct(value);
+
       if (value.length >= 3) {
         document.querySelector(".home-page").classList.add("home-page--activ");
         document
@@ -91,6 +93,7 @@ export default {
           .classList.add("home-page__btn--activ");
       }
     },
+
     HidenSearch() {
       document.querySelector(".home-page").classList.remove("home-page--activ");
       document
@@ -101,6 +104,7 @@ export default {
         .classList.remove("home-page__btn--activ");
       document.querySelector(".search-bar__input").value = "";
     },
+
     findProduct(value) {
       this.foundProducts = this.getFilterProducts(value);
     },
