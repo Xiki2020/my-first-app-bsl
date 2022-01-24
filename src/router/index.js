@@ -8,6 +8,7 @@ import NewPasswordPage from '@/views/LoginPages/NewPasswordPage.vue'
 import PasswordResetSubmitPage from '@/views/LoginPages/PasswordResetSubmitPage.vue'
 import PersonalAreaPage from '@/views/PersonalAreaPage.vue'
 import ProductPage from '@/views/ProductPage.vue'
+import ProductListPage from '@/views/ProductListPage.vue'
 import RecoveryCodePage from '@/views/LoginPages/RecoveryCodePage.vue'
 import SignInPage from '@/views/LoginPages/SignInPage.vue'
 import SignUpPage from '@/views/LoginPages/SignUpPage.vue'
@@ -23,8 +24,8 @@ const routes = [
 		component: CartPage,
 		meta: {
 			appNav: true,
-			roles: ["user",],
 			headerTitle: "My cart",
+			roles: ["user",],
 		},
 	},
 	{
@@ -32,8 +33,8 @@ const routes = [
 		name: 'ForgotPasswordPage',
 		component: ForgotPasswordPage,
 		meta: {
-			roles: ["guest",],
 			headerTitle: "Forgot password",
+			roles: ["guest",],
 		},
 	},
 	{
@@ -47,6 +48,16 @@ const routes = [
 		},
 	},
 	{
+		path: '/new-password',
+		alias: '/new-password',
+		name: 'NewPasswordPage',
+		component: NewPasswordPage,
+		meta: {
+			headerTitle: "New password",
+			roles: ["guest",],
+		},
+	},
+	{
 		path: '/password-reset-submit',
 		name: 'PasswordResetSubmitPage',
 		component: PasswordResetSubmitPage,
@@ -55,23 +66,23 @@ const routes = [
 		},
 	},
 	{
-		path: '/new-password',
-		alias: '/new-password',
-		name: 'NewPasswordPage',
-		component: NewPasswordPage,
-		meta: {
-			roles: ["guest",],
-			headerTitle: "New password",
-		},
-	},
-	{
 		path: '/lk',
 		name: 'PersonalAreaPage',
 		component: PersonalAreaPage,
 		meta: {
 			appNav: true,
-			roles: ["user",],
 			headerTitle: "My account",
+			roles: ["user",],
+		},
+	},
+
+	{
+		path: '/product-list',
+		name: 'ProductListPage',
+		component: ProductListPage,
+		meta: {
+			headerTitle: "Product list",
+			roles: ["user",],
 		},
 	},
 	{
@@ -87,8 +98,8 @@ const routes = [
 		name: 'RecoveryCodePage',
 		component: RecoveryCodePage,
 		meta: {
-			roles: ["guest",],
 			headerTitle: "Recovery code",
+			roles: ["guest",],
 		},
 	},
 	{
@@ -96,8 +107,8 @@ const routes = [
 		name: 'SignInPage',
 		component: SignInPage,
 		meta: {
-			roles: ["guest",],
 			headerTitle: "Sign In",
+			roles: ["guest",],
 		},
 	},
 	{
@@ -105,8 +116,8 @@ const routes = [
 		name: 'SignUpPage',
 		component: SignUpPage,
 		meta: {
-			roles: ["guest",],
 			headerTitle: "Sign Up",
+			roles: ["guest",],
 		},
 	},
 	{
@@ -114,8 +125,8 @@ const routes = [
 		name: 'TempPage',
 		component: TempPage,
 		meta: {
-			roles: ["user",],
 			headerTitle: "Заглушка",
+			roles: ["user",],
 		},
 	},
 	{
@@ -124,8 +135,8 @@ const routes = [
 		component: WishListPage,
 		meta: {
 			appNav: true,
-			roles: ["user",],
 			headerTitle: "My wishlist",
+			roles: ["user",],
 		},
 	},
 	{
@@ -141,8 +152,8 @@ const routes = [
 		name: 'WelcomeBackPage',
 		component: WelcomeBackPage,
 		meta: {
-			roles: ["guest",],
 			headerTitle: "Welcome back",
+			roles: ["guest",],
 		},
 	},
 ]

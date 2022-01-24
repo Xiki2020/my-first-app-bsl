@@ -27,6 +27,7 @@ export default {
 					img: "Nike Air Force 1.jpg",
 					price: "$200.00",
 					countColors: 6,
+					category: "men",
 					id: getUniqId(),
 				},
 				{
@@ -42,6 +43,7 @@ export default {
 					img: "Nike Free Metcon 4.jpg",
 					price: "$180.00",
 					countColors: 4,
+					category: "men",
 					id: getUniqId(),
 				},
 				{
@@ -57,6 +59,7 @@ export default {
 					img: "sneaker1.jpg",
 					price: "$181.00",
 					countColors: 1,
+					category: "men",
 					id: getUniqId(),
 				},
 				{
@@ -72,6 +75,7 @@ export default {
 					img: "sneaker3.jpg",
 					price: "$183.00",
 					countColors: 3,
+					category: "men",
 					id: getUniqId(),
 				},
 				{
@@ -128,7 +132,7 @@ export default {
 				},
 				{
 					id: getUniqId(),
-					category: "Sale",
+					category: "New",
 					icon: "sale.svg",
 				},
 			];
@@ -153,12 +157,8 @@ export default {
 	},
 
 	getters: {
-		getNewProducts(state) {
-			return state.products.filter(product => product.category === "new");
-		},
-
-		getPopularProducts(state) {
-			return state.products.filter(product => product.category === "popular");
+		getProductsCategory: state => category => {
+			return state.products.filter(product => product.category.toLowerCase() === category.toLowerCase());
 		},
 
 		getProductId: state => id => {

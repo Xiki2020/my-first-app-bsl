@@ -44,7 +44,7 @@ export default {
     AppButton,
     AppWrapper,
   },
-  name: "CardProduct",
+  name: "ProductPage",
 
   data() {
     return {
