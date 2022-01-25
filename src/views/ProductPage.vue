@@ -108,7 +108,7 @@ export default {
   font-weight: 600;
   font-size: 1.625rem;
   line-height: 1.25;
-  margin: 0 1rem;
+  margin-left: 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }

@@ -10,7 +10,7 @@
         @click="
           $router.push({
             name: 'ProductListPage',
-            params: { category: category.category },
+            params: { category: category.category.toLowerCase() },
           })
         "
       >
