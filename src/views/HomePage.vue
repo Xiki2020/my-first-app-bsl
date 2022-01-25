@@ -141,12 +141,14 @@ export default {
   margin-left: -2.25rem;
   max-width: $body-max-width;
   min-width: $body-min-width;
+  opacity: 0.7;
   position: fixed;
   top: -100vh;
-  transition: all 0.3s linear;
+  transition: all 0.6s linear;
   z-index: -10;
 }
 .home-page__page-search--activ {
+  opacity: 1;
   top: 0;
   z-index: 20;
 }
