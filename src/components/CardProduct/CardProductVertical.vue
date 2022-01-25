@@ -11,28 +11,30 @@
     <div class="card-product__colors">{{ product.countColors }} Colors</div>
     <div class="card-product__bottom">
       <div class="card-product__price">${{ product.price }}</div>
-      <svg
-        class="card-product__btn"
-        width="12"
-        height="12"
-        viewBox="0 0 12 12"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        @click="$router.push({ name: 'TempPage' })"
-      >
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M6.5 5.5H11V6.5H6.5V11H5.5V6.5H1V5.5H5.5V1H6.5V5.5Z"
-          fill="#3E4958"
-          stroke="#3E4958"
-          stroke-width="0.5"
-        />
-      </svg>
+      <div class="card-product__btn" @click.stop="addProduct(product)">
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6.5 5.5H11V6.5H6.5V11H5.5V6.5H1V5.5H5.5V1H6.5V5.5Z"
+            fill="#3E4958"
+            stroke="#3E4958"
+            stroke-width="0.5"
+          />
+        </svg>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "CardProductVertical",
 
@@ -42,6 +44,8 @@ export default {
       reqired: true,
     },
   },
+
+  methods: mapActions("cart", ["addProduct"]),
 };
 </script>
 <style  lang="scss" scoped>
@@ -92,8 +96,13 @@ export default {
   line-height: 1.25;
 }
 .card-product__btn {
+  align-items: center;
   cursor: pointer;
+  display: flex;
+  height: 1rem;
+  justify-content: flex-end;
   transition: $transition-base;
+  width: 20px;
 
   &:hover {
     transform: scale(1.3);
