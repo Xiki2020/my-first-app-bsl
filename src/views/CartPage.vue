@@ -1,10 +1,10 @@
 <template>
   <AppWrapper class="cart">
     <div class="cart__title">Add more products to your cart!</div>
-    <InputSearch class="cart__input" />
+    <InputSearch class="cart__input" @handValue="addValue" />
     <div class="cart__products">
       <CardProductHorizontal
-        v-for="product in getCart"
+        v-for="product in getFilterProducts(value)"
         :key="product.name"
         :product="product"
         class="cart__product"
@@ -50,8 +50,20 @@ export default {
     InputSearch,
   },
 
+  data() {
+    return {
+      value: "",
+    };
+  },
+
   computed: {
-    ...mapGetters("cart", ["getCart", "getPriceCart"]),
+    ...mapGetters("cart", ["getCart", "getPriceCart", "getFilterProducts"]),
+  },
+
+  methods: {
+    addValue(value) {
+      this.value = value;
+    },
   },
 };
 </script>
