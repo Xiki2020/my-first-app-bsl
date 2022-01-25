@@ -43,15 +43,20 @@ export default {
 
 .search-bar__input {
   background-color: #f7f8f9;
-  border: none;
+  border: 0.5px solid $secondary;
   border-radius: 14px;
   font-weight: 500;
   line-height: 1.25;
   height: 100%;
   outline: none;
   padding-left: 1rem;
-  transition: all 2s linear;
+  transition: $transition-base;
   width: 100%;
+
+  &:hover,
+  &:focus {
+    border-color: black;
+  }
 }
 
 .search-bar__input::placeholder {
