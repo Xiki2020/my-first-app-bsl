@@ -10,7 +10,7 @@
     <div class="card-product__name">{{ product.name }}</div>
     <div class="card-product__colors">{{ product.countColors }} Colors</div>
     <div class="card-product__bottom">
-      <div class="card-product__price">{{ product.price }}</div>
+      <div class="card-product__price">${{ product.price }}</div>
       <svg
         class="card-product__btn"
         width="12"
@@ -34,7 +34,7 @@
 </template>
 <script>
 export default {
-  name: "CardProduct",
+  name: "CardProductVertical",
 
   props: {
     product: {

@@ -1,6 +1,6 @@
 <template>
   <AppWrapper class="new-password-page">
-    <div class="new-password-page__description">
+    <div class="new-password-page__title">
       Your new password must be different from previously used passwords.
     </div>
     <form class="new-password-page__form">
@@ -38,7 +38,7 @@ export default {
 .new-password-page {
   padding-top: 15px;
 }
-.new-password-page__description {
+.new-password-page__title {
   color: $fc-gray;
   font-size: 0.8125rem;
   line-height: 1.8;

@@ -1,6 +1,6 @@
 <template>
   <AppWrapper class="sign-in-page">
-    <div class="sign-in-page__description">
+    <div class="sign-in-page__title">
       Please fill E-mail & password to login your Shopy application account.
     </div>
     <form class="sign-in-page__form">
@@ -63,7 +63,7 @@ export default {
 .sign-in-page {
   padding-top: 1.3rem;
 }
-.sign-in-page__description {
+.sign-in-page__title {
   color: $fc-gray;
   font-size: 0.8125rem;
   line-height: 1.85;

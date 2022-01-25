@@ -28,9 +28,13 @@
           :src="require(`@/assets/img-sneakers/${product.img}`)"
         />
         <div class="product-page__colors">{{ product.countColors }} Colors</div>
-        <div class="product-page__price">{{ product.price }}</div>
+        <div class="product-page__price">${{ product.price }}</div>
       </div>
-      <AppButton text="Add to Cart" class="product-page__btn-add"></AppButton>
+      <AppButton
+        text="Add to Cart"
+        class="product-page__btn-add"
+        @click="addProduct(product)"
+      ></AppButton>
     </div>
   </AppWrapper>
 </template>
@@ -38,7 +42,7 @@
 import AppButton from "@/components/AppButton.vue";
 import AppWrapper from "@/components/AppWrapper.vue";
 
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   components: {
     AppButton,
@@ -57,6 +61,8 @@ export default {
   },
 
   methods: {
+    ...mapActions("cart", ["addProduct"]),
+
     getProduct() {
       this.product = this.getProductId(this.$route.params.id);
     },

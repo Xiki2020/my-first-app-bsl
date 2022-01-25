@@ -27,7 +27,7 @@ export default {
   components: {
     AppButton,
   },
-  name: "CardPopularProduct",
+  name: "CardProductPopular",
   props: {
     product: {
       type: Object,

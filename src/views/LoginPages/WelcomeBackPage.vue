@@ -1,6 +1,6 @@
 <template>
   <AppWrapper class="welcome-back-page">
-    <div class="welcome-back-page__description">
+    <div class="welcome-back-page__title">
       Please fill E-mail & password to login your Shopy application account.
     </div>
     <form class="welcome-back-page__form">
@@ -63,7 +63,7 @@ export default {
 .welcome-back-page {
   padding-top: 1.3rem;
 }
-.welcome-back-page__description {
+.welcome-back-page__title {
   color: $fc-gray;
   font-size: 0.8125rem;
   line-height: 1.85;

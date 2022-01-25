@@ -38,6 +38,9 @@
       </svg>
     </button>
     <button class="nav-app__btn" @click="$router.push({ name: 'CartPage' })">
+      <div class="nav-app__count-products" v-if="getCountProducts">
+        {{ getCountProducts }}
+      </div>
       <svg
         width="22"
         height="22"
@@ -73,7 +76,7 @@
   </nav>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "AppNav",
   props: {},
@@ -83,6 +86,9 @@ export default {
       this.changeRole("guest");
       this.$router.push({ name: "WelcomePage" });
     },
+  },
+  computed: {
+    ...mapGetters("cart", ["getCountProducts"]),
   },
 };
 </script>
@@ -101,6 +107,7 @@ export default {
   cursor: pointer;
   height: 100%;
   outline: none;
+  position: relative;
   width: 25%;
 
   path {
@@ -112,5 +119,16 @@ export default {
       fill: #4a5562;
     }
   }
+}
+
+.nav-app__count-products {
+  background-color: rgb(246, 58, 58);
+  border-radius: 50%;
+  color: $white;
+  font-size: 0.6rem;
+  right: 50%;
+  line-height: 1rem;
+  position: absolute;
+  width: 1rem;
 }
 </style>

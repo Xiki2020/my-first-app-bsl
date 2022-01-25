@@ -6,14 +6,14 @@
     class="slider-popular-product"
   >
     <SwiperSlide v-for="(product, index) in products" :key="index">
-      <CardPopularProduct :product="product" />
+      <CardProductPopular :product="product" />
     </SwiperSlide>
   </Swiper>
 </template>
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
-import CardPopularProduct from "@/components/CardPopularProduct.vue";
+import CardProductPopular from "@/components/CardProduct/CardProductPopular.vue";
 import SwiperCore, { Pagination } from "swiper";
 
 SwiperCore.use([Pagination]);
@@ -24,9 +24,9 @@ import "swiper/modules/pagination/pagination.scss";
 
 export default {
   components: {
+    CardProductPopular,
     Swiper,
     SwiperSlide,
-    CardPopularProduct,
   },
 
   name: "PopularProductsCarousel",
@@ -56,32 +56,4 @@ export default {
   box-shadow: -5px 15px 35px rgba(35, 35, 35, 0.1);
   padding: 0.8125rem 0.8125rem 1rem;
 }
-// .swiper-pagination-bullet {
-//   $--swiper-pagination-bullet-size: 5px;
-//   width: $--swiper-pagination-bullet-size;
-// }
-
-// ::v-deep {
-//   .swiper-pagination {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   }
-
-//   .custom-bullet {
-//     display: block;
-//     background-color: #97adb6;
-//     width: 5px;
-//     height: 5px;
-//     border-radius: 50%;
-
-//     &:not(:last-child) {
-//       margin-right: 5px;
-//     }
-//   }
-
-//   .custom-bullet--active {
-//     background-color: #3e4958;
-//   }
-// }
 </style>
