@@ -105,7 +105,7 @@ export default {
   width: 20px;
 
   &:hover {
-    transform: scale(1.3);
+    opacity: 0.8;
   }
 }
 </style>>

@@ -1,5 +1,7 @@
 # my-first-app-bsl
-
+```
+https://bsl-first-project.netlify.app
+```
 ## Project setup
 ```
 npm install

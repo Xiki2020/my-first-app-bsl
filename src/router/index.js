@@ -75,9 +75,8 @@ const routes = [
 			roles: ["user",],
 		},
 	},
-
 	{
-		path: '/product-list',
+		path: '/product-list/:category',
 		name: 'ProductListPage',
 		component: ProductListPage,
 		meta: {
@@ -86,11 +85,11 @@ const routes = [
 		},
 	},
 	{
-		path: '/product',
+		path: '/product-list/product/:id',
 		name: 'ProductPage',
 		component: ProductPage,
 		meta: {
-			roles: ["user",],
+			roles: ["user", "guest"],
 		},
 	},
 	{
