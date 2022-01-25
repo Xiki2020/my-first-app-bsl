@@ -9,14 +9,14 @@
       <div class="card-product__price">${{ product.price }}</div>
       <div class="card-product__count-block">
         <div
-          class="card-product__count-nav"
+          class="card-product__nav"
           @click="changeCountProduct({ id: product.id })"
         >
           -
         </div>
         <div class="card-product__count">{{ product.count }}</div>
         <div
-          class="card-product__count-nav"
+          class="card-product__nav-add card-product__nav"
           @click="changeCountProduct({ id: product.id, action: 'add' })"
         >
           +
@@ -95,8 +95,12 @@ export default {
   text-align: center;
   width: 23px;
 }
-
-.card-product__count-nav {
+.card-product__nav {
   cursor: pointer;
+  line-height: 23px;
+  width: 23px;
+}
+.card-product__nav-add {
+  text-align: right;
 }
 </style>
