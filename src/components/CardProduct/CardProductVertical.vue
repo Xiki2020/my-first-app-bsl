@@ -1,16 +1,14 @@
 <template>
-  <div
-    class="card"
-    @click="
-      $router.push({
-        name: 'ProductPage',
-        params: { id: product.id },
-      })
-    "
-  >
+  <div class="card">
     <img
       class="card__img"
       :src="require(`@/assets/img-sneakers/${product.img}`)"
+      @click="
+        $router.push({
+          name: 'ProductPage',
+          params: { id: product.id },
+        })
+      "
     />
     <div class="card__name">{{ product.name }}</div>
     <div class="card__colors">{{ product.countColors }} Colors</div>
@@ -57,20 +55,20 @@ export default {
 .card {
   background-color: #fefefe;
   border-radius: 16px;
-  cursor: pointer;
   padding: 0.625rem 0.5rem;
-
-  &:hover .card__img {
-    border-color: $gray;
-  }
 }
 .card__img {
   aspect-ratio: 125 / 135;
   border: 0.5px solid $secondary;
   border-radius: 10px;
+  cursor: pointer;
   object-fit: fill;
   transition: $transition-base;
   width: 100%;
+
+  &:hover {
+    border-color: $gray;
+  }
 }
 .card__name {
   color: $fc-gray;
