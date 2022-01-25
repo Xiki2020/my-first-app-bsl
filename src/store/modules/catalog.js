@@ -9,7 +9,7 @@ export default {
 					img: "Nike React Miler.jpg",
 					price: "170.00",
 					countColors: 5,
-					category: "new",
+					category: ["new"],
 					id: 'baa1635d-1d49-47e9-bfc8-ac449ec93c9f',
 				},
 				{
@@ -17,7 +17,7 @@ export default {
 					img: "Nike Air Max 270.jpg",
 					price: "112.00",
 					countColors: 5,
-					category: "new",
+					category: ["new"],
 					id: '6301e2ad-12a8-4bff-980d-2aae284f2696'
 				},
 				{
@@ -25,7 +25,7 @@ export default {
 					img: "Nike Air Force 1.jpg",
 					price: "200.00",
 					countColors: 6,
-					category: "men",
+					category: ["new", "men"],
 					id: 'c933fd08-318a-411d-ae80-ca66623215f5',
 				},
 				{
@@ -33,7 +33,7 @@ export default {
 					img: "Nike Free Metcon 3.jpg",
 					price: "190.00",
 					countColors: 5,
-					category: "new",
+					category: ["new", "popular"],
 					id: '89709f4e-2180-441f-9225-aac1a64d73fc',
 				},
 				{
@@ -41,7 +41,7 @@ export default {
 					img: "Nike Free Metcon 4.jpg",
 					price: "180.00",
 					countColors: 4,
-					category: "men",
+					category: ["new", "men"],
 					id: 'c194891b-250a-436b-9f07-b1eddeefdb7a',
 				},
 				{
@@ -49,7 +49,7 @@ export default {
 					img: "Nike Free Metcon 5.jpg",
 					price: "180.00",
 					countColors: 4,
-					category: "new",
+					category: ["new"],
 					id: 'd270e739-7b5e-4b41-be05-225968c67453',
 				},
 				{
@@ -57,7 +57,7 @@ export default {
 					img: "sneaker1.jpg",
 					price: "181.00",
 					countColors: 1,
-					category: "men",
+					category: ["new", "men"],
 					id: 'cb91a74e-e885-49fc-b423-7bdda677a819',
 				},
 				{
@@ -65,7 +65,7 @@ export default {
 					img: "sneaker2.jpg",
 					price: "182.00",
 					countColors: 2,
-					category: "new",
+					category: ["new"],
 					id: '175a5629-716d-4910-9df7-1ab384d3e90e',
 				},
 				{
@@ -73,7 +73,7 @@ export default {
 					img: "sneaker3.jpg",
 					price: "183.00",
 					countColors: 3,
-					category: "men",
+					category: ["new", "men", "popular"],
 					id: 'd9b7aa64-9407-494a-85db-05b7485ccf89',
 				},
 				{
@@ -81,7 +81,7 @@ export default {
 					img: "sneaker4.jpg",
 					price: "184.00",
 					countColors: 4,
-					category: "new",
+					category: ["new"],
 					id: 'bf2eb41f-f792-4dc8-85f1-9ea0b9b7b436',
 				},
 				{
@@ -89,24 +89,8 @@ export default {
 					img: "popular-sneaker.jpg",
 					price: "184.00",
 					countColors: 4,
-					category: "popular",
+					category: ["men", "new", "popular"],
 					id: 'c66fbd6f-21ca-4453-8923-808f820ab0e0',
-				},
-				{
-					name: "Air Max 2090",
-					img: "popular-sneaker.jpg",
-					price: "184.00",
-					countColors: 4,
-					category: "popular",
-					id: '5790a544-abc4-45d4-91e1-37e67aa7a9e3',
-				},
-				{
-					name: "Air Max 2090",
-					img: "popular-sneaker.jpg",
-					price: "184.00",
-					countColors: 4,
-					category: "popular",
-					id: '2e322760-3452-4975-8538-d0098f4af042',
 				},
 			];
 			commit('setProducts', products);
@@ -156,7 +140,9 @@ export default {
 
 	getters: {
 		getProductsCategory: state => category => {
-			return state.products.filter(product => product.category.toLowerCase() === category.toLowerCase());
+			return state.products.filter(product => {
+				return product.category.find(el => el.toLowerCase() === category.toLowerCase());
+			}).sort((a, b) => (a.name < b.name ? -1 : 1));
 		},
 
 		getProductId: state => id => {

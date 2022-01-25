@@ -1,24 +1,15 @@
 <template>
-  <div class="search-bar">
-    <input
-      type="text"
-      class="search-bar__input"
-      :id="uuid"
-      placeholder="Search"
-      v-model="value"
-      @input="handValue"
-    />
-  </div>
+  <input
+    type="text"
+    class="input-search"
+    placeholder="Search"
+    v-model="value"
+    @input="handInput"
+  />
 </template>
 <script>
-import { getUniqId } from "@/utils/common";
 export default {
   name: "SearchBar",
-  computed: {
-    uuid() {
-      return getUniqId();
-    },
-  },
 
   data() {
     return {
@@ -27,27 +18,21 @@ export default {
   },
 
   methods: {
-    handValue() {
-      this.$emit("handValue", this.value);
+    handInput() {
+      this.$emit("handInput", this.value);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.search-bar {
-  align-items: center;
-  display: flex;
-  height: 60px;
-}
-
-.search-bar__input {
+.input-search {
   background-color: #f7f8f9;
   border: 0.5px solid $secondary;
   border-radius: 14px;
   font-weight: 500;
   line-height: 1.25;
-  height: 100%;
+  height: 60px;
   outline: none;
   padding-left: 1rem;
   transition: $transition-base;
@@ -59,7 +44,7 @@ export default {
   }
 }
 
-.search-bar__input::placeholder {
+.input-search::placeholder {
   color: $secondary;
   font-family: Montserrat;
   font-size: 14px;

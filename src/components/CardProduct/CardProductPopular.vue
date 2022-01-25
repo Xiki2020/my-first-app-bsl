@@ -1,20 +1,28 @@
 <template>
-  <div class="popular-product">
+  <div
+    class="card"
+    @click="
+      $router.push({
+        name: 'ProductPage',
+        params: { id: product.id },
+      })
+    "
+  >
     <img
       :src="require(`@/assets/img-sneakers/${product.img}`)"
-      class="popular-product__img"
+      class="card__img"
     />
-    <div class="popular-product__description">
-      <div class="popular-product__header">Popular</div>
-      <div class="popular-product__name" :title="product.name">
+    <div class="card__descr">
+      <div class="card__category">Popular</div>
+      <div class="card__title" :title="product.name">
         {{ product.name }}
       </div>
       <AppButton
-        class="popular-product__btn"
+        class="card__btn"
         text="Buy now"
         variant="gray"
         size="small"
-        @click="$router.push({ name: 'TempPage' })"
+        @click.stop="addProduct(product)"
       />
     </div>
   </div>
@@ -23,22 +31,28 @@
 <script>
 import AppButton from "@/components/AppButton.vue";
 
+import { mapActions } from "vuex";
+
 export default {
   components: {
     AppButton,
   },
+
   name: "CardProductPopular",
+
   props: {
     product: {
       type: Object,
       reqired: true,
     },
   },
+
+  methods: mapActions("cart", ["addProduct"]),
 };
 </script>
 
 <style lang="scss" scoped>
-.popular-product {
+.card {
   background-color: $white;
   color: $fc-gray;
   display: flex;
@@ -46,25 +60,25 @@ export default {
   justify-content: space-between;
   width: 100%;
 }
-.popular-product__img {
+.card__img {
   aspect-ratio: 164 / 94;
-  border: 0.5px solid #d5dde0;
+  border: 0.5px solid $secondary;
   border-radius: 10px;
   height: 94px;
   object-fit: fill;
   width: 60%;
 }
-.popular-product__description {
+.card__descr {
   margin-left: 0.3125rem;
   width: 40%;
 }
-.popular-product__header {
+.card__category {
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.25;
   margin-top: 0.5rem;
 }
-.popular-product__name {
+.card__title {
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.25;
@@ -73,7 +87,7 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.popular-product__btn {
+.card__btn {
   margin-top: 0.5rem;
 }
 </style>

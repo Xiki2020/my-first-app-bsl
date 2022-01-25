@@ -1,23 +1,31 @@
 <template>
-  <div class="card-product">
+  <div
+    class="card"
+    @click="
+      $router.push({
+        name: 'ProductPage',
+        params: { id: product.id },
+      })
+    "
+  >
     <img
-      class="card-product__img"
+      class="card__img"
       :src="require(`@/assets/img-sneakers/${product.img}`)"
     />
-    <div class="card-product__content">
-      <div class="card-product__name">{{ product.name }}</div>
-      <div class="card-product__price">${{ product.price }}</div>
-      <div class="card-product__count-block">
+    <div class="card__content">
+      <div class="card__title">{{ product.name }}</div>
+      <div class="card__price">${{ product.price }}</div>
+      <div class="card__nav-block">
         <div
-          class="card-product__nav"
-          @click="changeCountProduct({ id: product.id })"
+          class="card__nav"
+          @click.stop="changeCountProduct({ id: product.id })"
         >
           -
         </div>
-        <div class="card-product__count">{{ product.count }}</div>
+        <div class="card__count">{{ product.count }}</div>
         <div
-          class="card-product__nav-add card-product__nav"
-          @click="changeCountProduct({ id: product.id, action: 'add' })"
+          class="card__nav-add card__nav"
+          @click.stop="changeCountProduct({ id: product.id, action: 'add' })"
         >
           +
         </div>
@@ -44,25 +52,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card-product {
+.card {
   background-color: #fefefe;
   border: 0.5px solid $secondary;
   border-radius: 14px;
+  cursor: pointer;
   display: flex;
   height: 112px;
   padding: 0.375rem;
+  transition: $transition-base;
+
+  &:hover {
+    border-color: $gray;
+  }
 }
-.card-product__img {
+.card__img {
+  aspect-ratio: 125 / 135;
   border: 0.5px solid $secondary;
   border-radius: 10px;
   height: 100px;
   object-fit: fill;
-  aspect-ratio: 125 / 135;
 }
-.card-product__content {
+.card__content {
   padding: 0.75rem;
 }
-.card-product__name {
+.card__title {
   color: $fc-gray;
   font-size: 0.875rem;
   font-weight: 600;
@@ -72,13 +86,13 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.card-product__price {
+.card__price {
   color: $fc-gray;
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 23px;
 }
-.card-product__count-block {
+.card__nav-block {
   align-items: center;
   color: $fc-gray;
   display: flex;
@@ -86,21 +100,26 @@ export default {
   justify-content: space-between;
   margin-top: 0.75rem;
   width: 65px;
+
+  &:hover .card__count {
+    border-color: $gray;
+  }
 }
-.card-product__count {
+.card__count {
   border: 1px solid $secondary;
   border-radius: 4px;
   height: 23px;
   line-height: 23px;
   text-align: center;
+  transition: $transition-base;
   width: 23px;
 }
-.card-product__nav {
+.card__nav {
   cursor: pointer;
   line-height: 23px;
   width: 23px;
 }
-.card-product__nav-add {
+.card__nav-add {
   text-align: right;
 }
 </style>

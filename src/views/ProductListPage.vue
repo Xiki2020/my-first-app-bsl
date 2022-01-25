@@ -1,10 +1,10 @@
 <template>
-  <AppWrapper class="product-list">
+  <AppWrapper class="products-list">
     <CardProductVertical
       v-for="product in getProductsCategory($route.params.category)"
       :product="product"
       :key="product.name"
-      class="product-list__product"
+      class="products-list__item"
     />
   </AppWrapper>
 </template>
@@ -37,15 +37,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.product-list {
+.products-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 2rem;
 }
-.product-list__product {
+.products-list__item {
   border: 0.5px solid $secondary;
   margin-bottom: 1rem;
+  transition: $transition-base;
   width: calc(50% - 0.5rem);
+
+  &:hover {
+    border-color: $gray;
+  }
 }
 </style>
