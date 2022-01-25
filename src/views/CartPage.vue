@@ -109,7 +109,8 @@ export default {
   padding: 20px 17px;
   width: 65%;
 
-  &:hover {
+  &:hover,
+  &:focus {
     border-color: black;
   }
 

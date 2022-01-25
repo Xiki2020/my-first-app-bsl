@@ -56,8 +56,10 @@
         />
       </svg>
     </button>
-    <!-- <button class="nav-app__btn" @click="$router.push({ name: 'PersonalAreaPage' })"> -->
-    <button class="nav-app__btn" @click="exit">
+    <button
+      class="nav-app__btn"
+      @click="$router.push({ name: 'PersonalAreaPage' })"
+    >
       <svg
         width="22"
         height="22"
@@ -76,17 +78,10 @@
   </nav>
 </template>
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "AppNav",
-  props: {},
-  methods: {
-    ...mapActions(["changeRole"]),
-    exit() {
-      this.changeRole("guest");
-      this.$router.push({ name: "WelcomePage" });
-    },
-  },
+
   computed: {
     ...mapGetters("cart", ["getCountProducts"]),
   },
