@@ -1,13 +1,13 @@
 <template>
   <Swiper :slides-per-view="3" :space-between="10" class="products-carousel">
     <SwiperSlide v-for="(product, index) in products" :key="index">
-      <CardProduct :product="product" />
+      <CardProductVertical :product="product" />
     </SwiperSlide>
     <SwiperSlide />
   </Swiper>
 </template>
 <script>
-import CardProduct from "@/components/CardProduct.vue";
+import CardProductVertical from "@/components/CardProduct/CardProductVertical.vue";
 import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
 
 import "swiper/swiper.scss";
@@ -16,7 +16,7 @@ import "swiper/modules/pagination/pagination.scss";
 
 export default {
   components: {
-    CardProduct,
+    CardProductVertical,
     Swiper,
     SwiperSlide,
   },

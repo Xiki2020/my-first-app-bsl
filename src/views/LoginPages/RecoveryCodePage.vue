@@ -1,6 +1,6 @@
 <template>
   <AppWrapper class="recovery-code-page">
-    <div class="recovery-code-page__description">
+    <div class="recovery-code-page__title">
       The recovery code was sent to your mobile. Code expiration time is 120s.
       Please enter the code:
     </div>
@@ -35,7 +35,7 @@ export default {
 .recovery-code-page {
   padding-top: 0.95rem;
 }
-.recovery-code-page__description {
+.recovery-code-page__title {
   color: $fc-gray;
   font-size: 0.8125rem;
   line-height: 1.85;

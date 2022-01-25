@@ -2,11 +2,11 @@ export default {
 	actions: {
 		changeRole(ctx, newRole) {
 			const role = newRole;
-			ctx.commit('updateRole', role)
+			ctx.commit('setRole', role)
 		}
 	},
 	mutations: {
-		updateRole(state, role) {
+		setRole(state, role) {
 			state.role = role;
 		}
 	},

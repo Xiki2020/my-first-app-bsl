@@ -1,6 +1,6 @@
 <template>
   <AppWrapper class="forgot-password-page">
-    <div class="forgot-password-page__description">
+    <div class="forgot-password-page__title">
       Select which contact details should we use to reset your password:
     </div>
     <div class="forgot-password-page__btns">
@@ -11,9 +11,9 @@
         @click="$router.push({ name: 'RecoveryCodePage' })"
       >
         <div class="forgot-password-page__icon">
-          <img :src="btn.icon">
+          <img :src="btn.icon" />
         </div>
-        <div class="forgot-password-page__description-btn">
+        <div class="forgot-password-page__descr-btn">
           <div>{{ btn.title }}</div>
           <div>{{ btn.value }}</div>
         </div>
@@ -30,22 +30,22 @@ export default {
     AppWrapper,
   },
 
-  data () {
+  data() {
     return {
       buttons: [
         {
-          title: 'с помощью СМС',
-          value: '+7 (910) ***-**-61',
-          icon: require('@/assets/icons/phone.svg')
+          title: "с помощью СМС",
+          value: "+7 (910) ***-**-61",
+          icon: require("@/assets/icons/phone.svg"),
         },
         {
-          title: 'с помощью почты',
-          value: '******so@mail.ru',
-          icon: require('@/assets/icons/email.svg')
-        }
-      ]
-    }
-  }
+          title: "с помощью почты",
+          value: "******so@mail.ru",
+          icon: require("@/assets/icons/email.svg"),
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -54,7 +54,7 @@ export default {
   color: $fc-gray;
   padding-top: 0.95rem;
 }
-.forgot-password-page__description {
+.forgot-password-page__title {
   font-size: 0.8125rem;
   line-height: 1.85;
   word-wrap: break-word;
@@ -91,7 +91,7 @@ export default {
   transition: all 0.2s linear;
   width: 32%;
 }
-.forgot-password-page__description-btn {
+.forgot-password-page__descr-btn {
   align-items: left;
   display: flex;
   flex-direction: column;

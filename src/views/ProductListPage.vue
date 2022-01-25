@@ -1,6 +1,6 @@
 <template>
   <AppWrapper class="product-list">
-    <CardProduct
+    <CardProductVertical
       v-for="product in getProductsCategory($route.params.category)"
       :product="product"
       :key="product.name"
@@ -10,7 +10,7 @@
 </template>
 <script>
 import AppWrapper from "@/components/AppWrapper.vue";
-import CardProduct from "@/components/CardProduct.vue";
+import CardProductVertical from "@/components/CardProduct/CardProductVertical.vue";
 
 import { mapGetters, mapActions } from "vuex";
 
@@ -19,7 +19,7 @@ export default {
 
   components: {
     AppWrapper,
-    CardProduct,
+    CardProductVertical,
   },
 
   computed: {
