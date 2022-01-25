@@ -1,13 +1,5 @@
 <template>
-  <div
-    class="card"
-    @click="
-      $router.push({
-        name: 'ProductPage',
-        params: { id: product.id },
-      })
-    "
-  >
+  <div class="card">
     <img
       :src="require(`@/assets/img-sneakers/${product.img}`)"
       class="card__img"
@@ -22,7 +14,12 @@
         text="Buy now"
         variant="gray"
         size="small"
-        @click.stop="addProduct(product)"
+        @click="
+          $router.push({
+            name: 'ProductPage',
+            params: { id: product.id },
+          })
+        "
       />
     </div>
   </div>
