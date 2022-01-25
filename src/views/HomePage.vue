@@ -1,8 +1,16 @@
 <template>
-  <AppWrapper class="home-page">
-    <PageSearch class="home-page__page-search" :products="foundProducts" />
+  <AppWrapper class="home-page" data-activ="home-page--activ">
+    <PageSearch
+      class="home-page__page-search"
+      :products="products"
+      data-activ="home-page__page-search--activ"
+    />
     <div class="home-page__header">
-      <AppButton @click="HidenSearch" class="home-page__btn">
+      <AppButton
+        @click="hiddenSearch"
+        class="home-page__btn"
+        data-activ="home-page__btn--activ"
+      >
         <svg
           width="19"
           height="18"
@@ -18,7 +26,7 @@
           />
         </svg>
       </AppButton>
-      <InputSearch class="home-page__search" @handValue="ShowSearch" />
+      <InputSearch class="home-page__search" @handInput="showSearch" />
     </div>
     <PopularProductsCarousel
       class="home-page__swiper-popular-product"
@@ -70,7 +78,7 @@ export default {
 
   data() {
     return {
-      foundProducts: [],
+      products: [],
     };
   },
 
@@ -81,33 +89,39 @@ export default {
   methods: {
     ...mapActions("catalog", ["fetchProducts"]),
 
-    ShowSearch(value) {
-      this.findProduct(value);
+    showSearch(value) {
+      this.findProducts(value);
 
       if (value.length >= 3) {
-        document.querySelector(".home-page").classList.add("home-page--activ");
-        document
-          .querySelector(".home-page__page-search")
-          .classList.add("home-page__page-search--activ");
-        document
-          .querySelector(".home-page__btn")
-          .classList.add("home-page__btn--activ");
+        document.querySelectorAll("[data-activ]").forEach((el) => {
+          el.classList.add(el.getAttribute("data-activ"));
+        });
+        //   document.querySelector(".home-page").classList.add("home-page--activ");
+        //   document
+        //     .querySelector(".home-page__page-search")
+        //     .classList.add("home-page__page-search--activ");
+        //   document
+        //     .querySelector(".home-page__btn")
+        //     .classList.add("home-page__btn--activ");
       }
     },
 
-    HidenSearch() {
-      document.querySelector(".home-page").classList.remove("home-page--activ");
-      document
-        .querySelector(".home-page__page-search")
-        .classList.remove("home-page__page-search--activ");
-      document
-        .querySelector(".home-page__btn")
-        .classList.remove("home-page__btn--activ");
-      document.querySelector(".search-bar__input").value = "";
+    hiddenSearch() {
+      // document.querySelector(".home-page").classList.remove("home-page--activ");
+      // document
+      //   .querySelector(".home-page__page-search")
+      //   .classList.remove("home-page__page-search--activ");
+      // document
+      //   .querySelector(".home-page__btn")
+      //   .classList.remove("home-page__btn--activ");
+      document.querySelectorAll("[data-activ]").forEach((el) => {
+        el.classList.remove(el.getAttribute("data-activ"));
+      });
+      document.querySelector(".home-page__search").value = "";
     },
 
-    findProduct(value) {
-      this.foundProducts = this.getFilterProducts(value);
+    findProducts(value) {
+      this.products = this.getFilterProducts(value);
     },
   },
 

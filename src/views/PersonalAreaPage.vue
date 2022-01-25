@@ -42,8 +42,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.account-page {
-}
 .account-page__info-user {
   align-items: center;
   display: flex;

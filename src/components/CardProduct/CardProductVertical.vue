@@ -1,17 +1,22 @@
 <template>
   <div
-    class="card-product"
-    @click="$router.push({ name: 'ProductPage', params: { id: product.id } })"
+    class="card"
+    @click="
+      $router.push({
+        name: 'ProductPage',
+        params: { id: product.id },
+      })
+    "
   >
     <img
-      class="card-product__img"
+      class="card__img"
       :src="require(`@/assets/img-sneakers/${product.img}`)"
     />
-    <div class="card-product__name">{{ product.name }}</div>
-    <div class="card-product__colors">{{ product.countColors }} Colors</div>
-    <div class="card-product__bottom">
-      <div class="card-product__price">${{ product.price }}</div>
-      <div class="card-product__btn" @click.stop="addProduct(product)">
+    <div class="card__name">{{ product.name }}</div>
+    <div class="card__colors">{{ product.countColors }} Colors</div>
+    <div class="card__bottom">
+      <div class="card__price">${{ product.price }}</div>
+      <div class="card__btn" @click.stop="addProduct(product)">
         <svg
           width="12"
           height="12"
@@ -49,20 +54,25 @@ export default {
 };
 </script>
 <style  lang="scss" scoped>
-.card-product {
+.card {
   background-color: #fefefe;
   border-radius: 16px;
-  cursor: grab;
+  cursor: pointer;
   padding: 0.625rem 0.5rem;
+
+  &:hover .card__img {
+    border-color: $gray;
+  }
 }
-.card-product__img {
+.card__img {
+  aspect-ratio: 125 / 135;
   border: 0.5px solid $secondary;
   border-radius: 10px;
   object-fit: fill;
-  aspect-ratio: 125 / 135;
+  transition: $transition-base;
   width: 100%;
 }
-.card-product__name {
+.card__name {
   color: $fc-gray;
   font-size: 0.875rem;
   font-weight: 600;
@@ -72,7 +82,7 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.card-product__colors {
+.card__colors {
   background-color: #9ea8ac;
   border-radius: 4px;
   color: $white;
@@ -83,19 +93,19 @@ export default {
   text-align: center;
   width: 54px;
 }
-.card-product__bottom {
+.card__bottom {
   align-items: center;
   display: flex;
   justify-content: space-between;
   margin-top: 0.625rem;
 }
-.card-product__price {
+.card__price {
   color: $fc-gray;
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.25;
 }
-.card-product__btn {
+.card__btn {
   align-items: center;
   cursor: pointer;
   display: flex;

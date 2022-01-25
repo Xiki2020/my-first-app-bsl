@@ -8,6 +8,12 @@
         class="search-page__result"
         v-for="product in products"
         :key="product.name"
+        @click="
+          $router.push({
+            name: 'ProductPage',
+            params: { id: product.id },
+          })
+        "
       >
         {{ product.name }}
         <img
@@ -65,17 +71,23 @@ export default {
   border-bottom: 1px solid $secondary;
   display: flex;
   justify-content: space-between;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: $secondary;
+    border-radius: 10px;
+  }
 
   & + & {
     border-top: none;
   }
 }
 .search-page__result-img {
+  aspect-ratio: 125 / 135;
   border: 0.5px solid $secondary;
   border-radius: 10px;
   height: 50px;
   object-fit: fill;
-  aspect-ratio: 125 / 135;
 }
 .search-page__not-found {
   color: $fc-gray;

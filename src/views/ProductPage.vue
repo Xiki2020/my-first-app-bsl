@@ -1,7 +1,7 @@
 <template>
-  <AppWrapper class="product-page">
-    <div class="product-page__header">
-      <AppButton @click="$router.go(-1)" class="product-page__btn">
+  <AppWrapper class="product">
+    <div class="product__header">
+      <AppButton @click="$router.go(-1)" class="product__btn">
         <svg
           width="19"
           height="18"
@@ -17,22 +17,22 @@
           />
         </svg>
       </AppButton>
-      <div class="product-page__title">
+      <div class="product__title">
         {{ product.name }}
       </div>
     </div>
-    <div class="product-page__body">
-      <div class="product-page__content">
+    <div class="product__body">
+      <div class="product__content">
         <img
-          class="product-page__img"
+          class="product__img"
           :src="require(`@/assets/img-sneakers/${product.img}`)"
         />
-        <div class="product-page__colors">{{ product.countColors }} Colors</div>
-        <div class="product-page__price">${{ product.price }}</div>
+        <div class="product__colors">{{ product.countColors }} Colors</div>
+        <div class="product__price">${{ product.price }}</div>
       </div>
       <AppButton
         text="Add to Cart"
-        class="product-page__btn-add"
+        class="product__btn-add"
         @click="addProduct(product)"
       ></AppButton>
     </div>
@@ -74,7 +74,7 @@ export default {
 };
 </script>
 <style  lang="scss" scoped>
-.product-page {
+.product {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -82,14 +82,14 @@ export default {
   min-height: 568px;
   justify-content: center;
 }
-.product-page__header {
+.product__header {
   align-items: center;
   display: flex;
   margin-top: auto;
   padding-top: 3.125rem;
   width: 100%;
 }
-.product-page__btn {
+.product__btn {
   background-color: transparent;
   display: inline-block;
   width: auto;
@@ -102,7 +102,7 @@ export default {
     transform: none;
   }
 }
-.product-page__title {
+.product__title {
   color: $fc-gray;
   display: inline-block;
   font-weight: 600;
@@ -112,19 +112,19 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.product-page__body {
+.product__body {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: center;
 }
-.product-page__content {
+.product__content {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: center;
 }
-.product-page__img {
+.product__img {
   aspect-ratio: 125 / 135;
   border: 0.5px solid $secondary;
   border-radius: 20px;
@@ -132,7 +132,7 @@ export default {
   margin-top: 1rem;
   width: 100%;
 }
-.product-page__colors {
+.product__colors {
   background-color: #9ea8ac;
   border-radius: 7px;
   color: $white;
@@ -142,7 +142,7 @@ export default {
   margin-top: 1rem;
   text-align: center;
 }
-.product-page__price {
+.product__price {
   color: $fc-gray;
   font-size: 1.8rem;
   font-weight: 700;
@@ -150,7 +150,7 @@ export default {
   margin-top: 1rem;
   text-align: center;
 }
-.product-page__btn-add {
+.product__btn-add {
   cursor: pointer;
   margin-top: auto;
 }
