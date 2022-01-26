@@ -29,7 +29,7 @@ export default {
     SwiperSlide,
   },
 
-  name: "PopularProductsCarousel",
+  name: 'ProductsSlider',
 
   props: {
     products: {

@@ -1,5 +1,11 @@
 <template>
-  <div class="card">
+  <router-link
+    :to="{
+      name: 'ProductPage',
+      params: { id: product.id },
+    }"
+    class="card"
+  >
     <div class="card__btn-wish">
       <svg
         width="25"
@@ -19,12 +25,6 @@
     <img
       class="card__img"
       :src="require(`@/assets/img-sneakers/${product.img}`)"
-      @click="
-        $router.push({
-          name: 'ProductPage',
-          params: { id: product.id },
-        })
-      "
     />
     <div class="card__name">{{ product.name }}</div>
     <div class="card__colors">{{ product.countColors }} Colors</div>
@@ -50,13 +50,13 @@
       </div> -->
       <AppButton
         class="card__btn"
-        @click="addProduct(product)"
+        @click.prevent="addProduct(product)"
         variant="seconadry"
         text="Add"
         size="small"
       />
     </div>
-  </div>
+  </router-link>
 </template>
 <script>
 import { mapActions } from "vuex";
@@ -78,11 +78,19 @@ export default {
 </script>
 <style  lang="scss" scoped>
 .card {
+  display: block;
+  border: 1px solid transparent;
   background-color: #fefefe;
   border-radius: 16px;
   padding: 0.625rem 0.5rem;
+  transition: $transition-base;
   position: relative;
+
+  &:hover {
+    border-color: $gray;
+  }
 }
+
 .card__btn-wish {
   cursor: pointer;
   position: absolute;
@@ -93,17 +101,13 @@ export default {
     fill: #4a5562;
   }
 }
+
 .card__img {
   aspect-ratio: 125 / 135;
   border: 0.5px solid $secondary;
   border-radius: 10px;
   cursor: pointer;
-  transition: $transition-base;
   width: 100%;
-
-  &:hover {
-    border-color: $gray;
-  }
 }
 .card__name {
   color: $fc-gray;

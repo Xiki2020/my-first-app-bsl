@@ -6,6 +6,7 @@
 * {
 	box-sizing: border-box;
 }
+
 body {
 	background-color: #f4f4f4;
 	font-size: $font-size-base;
@@ -15,7 +16,12 @@ body {
 	min-width: $body-min-width;
 	margin: 0;
 }
+
 button {
 	font-family: $font-family;
 	font-style: normal;
+}
+
+a {
+	text-decoration: none;
 }

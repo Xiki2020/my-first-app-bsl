@@ -28,7 +28,7 @@
       </AppButton>
       <InputSearch class="home-page__search" @handInput="showSearch" />
     </div>
-    <PopularProductsCarousel
+    <ProductsSlider
       class="home-page__swiper-popular-product"
       :products="getProductsCategory('popular')"
     />
@@ -60,7 +60,7 @@ import AppWrapper from "@/components/AppWrapper.vue";
 import Categories from "@/components/Categories.vue";
 import InputSearch from "@/components/FormComponents/InputSearch.vue";
 import PageSearch from "@/components/PageSearch.vue";
-import PopularProductsCarousel from "@/components/PopularProductsCarousel/index.vue";
+import ProductsSlider from "@/components/ProductsSlider/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 
 export default {
@@ -72,7 +72,7 @@ export default {
     Categories,
     InputSearch,
     PageSearch,
-    PopularProductsCarousel,
+    ProductsSlider,
     ProductsCarousel,
   },
 
@@ -141,16 +141,17 @@ export default {
   margin-left: -$padding-side;
   max-width: $body-max-width;
   min-width: $body-min-width;
-  opacity: 0.7;
+  opacity: 0;
+  visibility: hidden;
   position: fixed;
-  top: -100vh;
-  transition: all 0.6s linear;
-  z-index: -10;
+  top: -20px;
+  transition: .15s ease-in-out;
+  z-index: 20;
 }
 .home-page__page-search--activ {
   opacity: 1;
+  visibility: visible;
   top: 0;
-  z-index: 20;
 }
 .home-page__header {
   background-color: $primary;
