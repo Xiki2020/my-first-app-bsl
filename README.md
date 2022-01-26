@@ -66,7 +66,7 @@ git p
 реализовать добавление продуктов в корзину, должны сохраняться в localstorage, отображаться лейбл кол-ва в навигационном баре
 сверстать страницу корзины https://www.figma.com/file/q6CWoYKBTLpaU51lmGWO2r/Shopy---Free-UI-Kit-(Community)?node-id=104%3A1 с возможностью фильтрации продуктов
 сверстать страницу профиля https://www.figma.com/file/q6CWoYKBTLpaU51lmGWO2r/Shopy---Free-UI-Kit-(Community)?node-id=309%3A1.
-
+init
 
 26.01
 клик на всю область карточки, hover-состояние на всю область карточки
