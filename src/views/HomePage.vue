@@ -1,14 +1,8 @@
 <template>
   <AppWrapper class="home-page">
-    <PageSearch
-      class="home-page__page-search"
-      :products="products"
-    />
+    <SearchPanel class="home-page__page-search" :products="products" />
     <div class="home-page__header">
-      <AppButton
-        @click="hideSearch"
-        class="home-page__btn"
-      >
+      <AppButton @click="hideSearch" class="home-page__btn">
         <svg
           width="19"
           height="18"
@@ -55,19 +49,15 @@
 </template>
 
 <script>
-import {
-  mapGetters,
-  mapActions,
-  mapMutations
-} from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 import AppButton from "@/components/AppButton.vue";
 import AppWrapper from "@/components/AppWrapper.vue";
 import Categories from "@/components/Categories.vue";
 import InputSearch from "@/components/FormComponents/InputSearch.vue";
-import PageSearch from "@/components/PageSearch.vue";
 import ProductsSlider from "@/components/ProductsSlider/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
+import SearchPanel from "@/components/SearchPanel.vue";
 
 export default {
   name: "HomePage",
@@ -77,63 +67,42 @@ export default {
     AppWrapper,
     Categories,
     InputSearch,
-    PageSearch,
     ProductsSlider,
     ProductsCarousel,
+    SearchPanel,
   },
 
   data() {
     return {
       products: [],
-      searchValue: ''
+      searchValue: "",
     };
   },
 
   computed: {
-    ...mapGetters('catalog', [
-      'getProductsCategory',
-      'getFilterProducts'
-    ])
+    ...mapGetters("catalog", ["getProductsCategory", "getFilterProducts"]),
   },
 
   methods: {
     ...mapActions("catalog", ["fetchProducts"]),
-    ...mapMutations("common", [
-      "setSearchVisible"
-    ]),
+    ...mapMutations("common", ["setSearchVisible"]),
 
     showSearch(value) {
-      this.findProducts(value);
+      this.searchValue = value;
+      this.findProducts();
 
-      if (value.length < 3) return
+      if (value.length < 3) return;
 
-      // document.querySelector.body.classList.add('is-search-opened')
-
-      this.setSearchVisible(true)
-
-      // document.querySelectorAll("[data-activ]").forEach((el) => {
-      //   el.classList.add(el.getAttribute("data-activ"));
-      // });
+      this.setSearchVisible(true);
     },
 
-    hideSearch () {
-      this.setSearchVisible(false)
-
-      // document.querySelector(".home-page").classList.remove("home-page--activ");
-      // document
-      //   .querySelector(".home-page__page-search")
-      //   .classList.remove("home-page__page-search--activ");
-      // document
-      //   .querySelector(".home-page__btn")
-      //   .classList.remove("home-page__btn--activ");
-      // document.querySelectorAll("[data-activ]").forEach((el) => {
-      //   el.classList.remove(el.getAttribute("data-activ"));
-      // });
-      // document.querySelector(".home-page__search").value = "";
+    hideSearch() {
+      this.setSearchVisible(false);
+      this.searchValue = "";
     },
 
-    findProducts(value) {
-      this.products = this.getFilterProducts(value);
+    findProducts() {
+      this.products = this.getFilterProducts(this.searchValue);
     },
   },
 
