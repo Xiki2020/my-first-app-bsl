@@ -86,8 +86,8 @@ export default {
 .card__btn-wish {
   cursor: pointer;
   position: absolute;
-  right: 1.25rem;
-  top: 1.25rem;
+  right: 10%;
+  top: 7%;
 
   &:hover path {
     fill: #4a5562;
