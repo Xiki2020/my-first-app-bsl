@@ -1,10 +1,10 @@
 // Colors
 
 $gray: #555;
+$light-gray: #f7f8f9;
 $primary: #1152fd;
 $secondary: #d5dde0;
 $white: #fff;
-
 
 // Typography
 
@@ -13,14 +13,13 @@ $font-size-base: 0.875rem;
 $fz-small: 0.75rem;
 $fc-gray: #3e4958;
 
-
 // Components
 
-$transition-base: .15s ease-in-out;
-
+$transition-base: 0.15s ease-in-out;
 
 // Body
 
 $body-bg: $white;
 $body-min-width: 320px;
 $body-max-width: 450px;
+$padding-side: 2.25rem;

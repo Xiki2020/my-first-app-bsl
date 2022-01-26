@@ -1,13 +1,15 @@
 <template>
   <div class="card">
-    <img
-      :src="require(`@/assets/img-sneakers/${product.img}`)"
-      class="card__img"
-    />
+    <div class="card__container-img">
+      <img
+        :src="require(`@/assets/img-sneakers/${product.img}`)"
+        class="card__img"
+      />
+    </div>
     <div class="card__descr">
       <div class="card__category">Popular</div>
       <div class="card__title" :title="product.name">
-        {{ product.name }}
+        {{ product.name.split(" ").slice(1).join(" ") }}
       </div>
       <AppButton
         class="card__btn"
@@ -57,13 +59,19 @@ export default {
   justify-content: space-between;
   width: 100%;
 }
-.card__img {
-  aspect-ratio: 164 / 94;
+.card__container-img {
+  align-items: center;
+  background-color: $light-gray;
   border: 0.5px solid $secondary;
   border-radius: 10px;
+  display: flex;
   height: 94px;
-  object-fit: fill;
+  justify-content: center;
+  overflow: hidden;
   width: 60%;
+}
+.card__img {
+  height: 150%;
 }
 .card__descr {
   margin-left: 0.3125rem;

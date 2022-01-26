@@ -138,7 +138,7 @@ export default {
 }
 .home-page__page-search {
   background-color: $white;
-  margin-left: -2.25rem;
+  margin-left: -$padding-side;
   max-width: $body-max-width;
   min-width: $body-min-width;
   opacity: 0.7;
@@ -158,9 +158,9 @@ export default {
   display: flex;
   height: 231px;
   justify-content: space-between;
-  margin-left: -2.25rem;
-  padding: 3.3rem 2.25rem 0;
-  width: calc(100% + 4.5rem);
+  margin-left: -$padding-side;
+  padding: 3.3rem $padding-side 0;
+  width: calc(100% + $padding-side * 2);
 }
 
 .home-page__btn {
@@ -196,18 +196,18 @@ export default {
 .home-page__wrapper-swiper {
   background-color: #e0e4e7;
   border-radius: 25px 25px 0 0;
-  margin-left: -2.25rem;
+  margin-left: -$padding-side;
   margin-top: 1.375rem;
   min-height: 340px;
   overflow: hidden;
   padding-bottom: 1.5rem;
-  width: calc(100% + 4.5rem);
+  width: calc(100% + $padding-side * 2);
 }
 .home-page__header-swiper {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2.25rem 1.25rem;
+  padding: 1rem $padding-side 1.25rem;
 }
 .home-page__title-swiper {
   color: $fc-gray;
