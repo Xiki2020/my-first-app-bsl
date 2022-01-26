@@ -1,7 +1,7 @@
 <template>
   <AppWrapper class="cart">
     <div class="cart__title">Add more products to your cart!</div>
-    <InputSearch class="cart__search" @handInput="addValue" />
+    <InputSearch class="cart__search" @input="addValue" />
     <div class="cart__products">
       <CardProductHorizontal
         v-for="product in getFilterProducts(value)"
