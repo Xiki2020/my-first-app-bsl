@@ -11,18 +11,18 @@ export default {
 	},
 	mutations: {
 		setProduct(state, product) {
-			let findProduct = state.cart.find(el => el.id === product.id);
+			let findProduct = state.products.find(el => el.id === product.id);
 			if (findProduct) {
 				findProduct.count += 1;
 				return;
 			}
 			product.count = 1;
-			state.cart.push(product);
+			state.products.push(product);
 		},
 
 		setCountProduct(state, obj) {
 			let index;
-			let product = state.cart.find((el, i) => {
+			let product = state.products.find((el, i) => {
 				if (el.id === obj.id) {
 					index = i;
 					return el;
@@ -31,7 +31,7 @@ export default {
 			if (obj.action === 'add') {
 				product.count += 1;
 			} else if (product.count <= 1) {
-				state.cart.splice(index, 1);
+				state.products.splice(index, 1);
 			} else {
 				product.count -= 1;
 			}
@@ -39,17 +39,17 @@ export default {
 	},
 	state() {
 		return {
-			cart: [],
+			products: [],
 		}
 	},
 	getters: {
 		getCart(state) {
-			return state.cart;
+			return state.products;
 		},
 
 		getCountProducts(state) {
 			let count = 0;
-			state.cart.forEach(product => {
+			state.products.forEach(product => {
 				count += product.count;
 			});
 			return count;
@@ -57,14 +57,14 @@ export default {
 
 		getPriceCart(state) {
 			let price = 0;
-			state.cart.forEach(product => {
+			state.products.forEach(product => {
 				price += product.count * product.price;
 			});
 			return price;
 		},
 
 		getFilterProducts: state => name => {
-			return state.cart.filter(product => {
+			return state.products.filter(product => {
 				return product.name.split(" ").find(el => {
 					return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
 				});

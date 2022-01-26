@@ -38,8 +38,8 @@
       </svg>
     </button>
     <button class="nav-app__btn" @click="$router.push({ name: 'CartPage' })">
-      <div class="nav-app__count-products" v-if="getCountProducts">
-        {{ getCountProducts }}
+      <div class="nav-app__count-products" v-if="getCart.length">
+        {{ getCart.length }}
       </div>
       <svg
         width="22"
@@ -83,7 +83,7 @@ export default {
   name: "AppNav",
 
   computed: {
-    ...mapGetters("cart", ["getCountProducts"]),
+    ...mapGetters("cart", ["getCart"]),
   },
 };
 </script>

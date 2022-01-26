@@ -143,9 +143,9 @@ export default {
   min-width: $body-min-width;
   opacity: 0;
   visibility: hidden;
-  position: fixed;
-  top: -20px;
-  transition: .15s ease-in-out;
+  position: absolute;
+  top: -10vh;
+  transition: $transition-base;
   z-index: 20;
 }
 .home-page__page-search--activ {

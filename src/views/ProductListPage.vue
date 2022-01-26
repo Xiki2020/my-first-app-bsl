@@ -42,6 +42,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 2rem;
+  padding-bottom: 3.6rem;
 }
 .products-list__item {
   border: 0.5px solid $secondary;

@@ -77,10 +77,10 @@ export default {
 .product {
   align-items: center;
   display: flex;
+  flex: 1 0 0;
   flex-direction: column;
-  height: 100vh;
-  min-height: 568px;
   justify-content: center;
+  padding-bottom: 5rem;
 }
 .product__header {
   align-items: center;

@@ -80,6 +80,7 @@ const routes = [
 		name: 'ProductListPage',
 		component: ProductListPage,
 		meta: {
+			appNav: true,
 			headerTitle: "Product list",
 			roles: ["user",],
 		},
@@ -89,6 +90,7 @@ const routes = [
 		name: 'ProductPage',
 		component: ProductPage,
 		meta: {
+			appNav: true,
 			roles: ["user", "guest"],
 		},
 	},
