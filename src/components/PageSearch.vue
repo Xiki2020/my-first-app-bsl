@@ -72,6 +72,7 @@ export default {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  padding: 0 0.5rem;
   transition: $transition-base;
 
   &:hover {
