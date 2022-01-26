@@ -65,7 +65,11 @@ export default {
 
 		getFilterProducts: state => name => {
 			return state.cart.filter(product => {
-				return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
+				return product.name.split(" ").find(el => {
+					return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
+				});
+				// 	return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
+				// }).sort((a, b) => (a.name < b.name ? -1 : 1));
 			}).sort((a, b) => (a.name < b.name ? -1 : 1));
 		},
 	},

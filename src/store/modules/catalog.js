@@ -9,7 +9,7 @@ export default {
 					img: "Nike React Miler.jpg",
 					price: "170.00",
 					countColors: 5,
-					category: ["new"],
+					category: ["new", "women"],
 					id: 'baa1635d-1d49-47e9-bfc8-ac449ec93c9f',
 				},
 				{
@@ -17,7 +17,7 @@ export default {
 					img: "Nike Air Max 270.jpg",
 					price: "112.00",
 					countColors: 5,
-					category: ["new"],
+					category: ["new", "men"],
 					id: '6301e2ad-12a8-4bff-980d-2aae284f2696'
 				},
 				{
@@ -33,7 +33,7 @@ export default {
 					img: "Nike Free Metcon 3.jpg",
 					price: "190.00",
 					countColors: 5,
-					category: ["new", "popular"],
+					category: ["new", "popular", "women"],
 					id: '89709f4e-2180-441f-9225-aac1a64d73fc',
 				},
 				{
@@ -49,7 +49,7 @@ export default {
 					img: "Nike Free Metcon 5.jpg",
 					price: "180.00",
 					countColors: 4,
-					category: ["new"],
+					category: ["new", "women"],
 					id: 'd270e739-7b5e-4b41-be05-225968c67453',
 				},
 				{
@@ -65,7 +65,7 @@ export default {
 					img: "Nike Squash-Type.jpg",
 					price: "182.00",
 					countColors: 2,
-					category: ["new"],
+					category: ["new", "men"],
 					id: '175a5629-716d-4910-9df7-1ab384d3e90e',
 				},
 				{
@@ -73,7 +73,7 @@ export default {
 					img: "Nike Metcon 7 Flyease.jpg",
 					price: "184.00",
 					countColors: 4,
-					category: ["new", "popular"],
+					category: ["new", "popular", "men"],
 					id: 'bf2eb41f-f792-4dc8-85f1-9ea0b9b7b436',
 				},
 				{
@@ -81,7 +81,7 @@ export default {
 					img: "Nike Air Max 2090.jpg",
 					price: "184.00",
 					countColors: 4,
-					category: ["men", "new", "popular"],
+					category: ["women", "new", "popular"],
 					id: 'c66fbd6f-21ca-4453-8923-808f820ab0e0',
 				},
 			];
@@ -145,7 +145,11 @@ export default {
 			if (name.length < 1) return [];
 
 			return state.products.filter(product => {
-				return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
+				return product.name.split(" ").find(el => {
+					return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
+				});
+				// 	return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
+				// }).sort((a, b) => (a.name < b.name ? -1 : 1));
 			}).sort((a, b) => (a.name < b.name ? -1 : 1));
 		},
 
