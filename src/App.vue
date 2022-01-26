@@ -1,5 +1,7 @@
 <template>
-  <div class="app">
+  <div
+    :class="['app', { 'app--search-opened': searchVisible }]"
+  >
     <router-view v-slot="{ Component, route }">
       <AppHeader v-if="route.meta.headerTitle" />
       <transition name="fade" mode="out-in">
@@ -11,12 +13,21 @@
 </template>
 
 <script>
+import {
+  mapState
+} from "vuex";
 import AppNav from "@/components/AppNav.vue";
 import AppHeader from "@/components/AppHeader.vue";
 export default {
   components: {
     AppNav,
     AppHeader,
+  },
+
+  computed: {
+    ...mapState('common', [
+      'searchVisible'
+    ])
   },
 };
 </script>

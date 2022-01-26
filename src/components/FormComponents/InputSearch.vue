@@ -3,7 +3,7 @@
     type="text"
     class="input-search"
     placeholder="Search"
-    v-model="value"
+    v-model="localValue"
     @input="handInput"
   />
 </template>
@@ -11,15 +11,21 @@
 export default {
   name: "SearchBar",
 
+  props: {
+    value: {
+      type: String
+    }
+  },
+
   data() {
     return {
-      value: "",
+      localValue: this.value,
     };
   },
 
   methods: {
     handInput() {
-      this.$emit("handInput", this.value);
+      this.$emit("handInput", this.localValue);
     },
   },
 };

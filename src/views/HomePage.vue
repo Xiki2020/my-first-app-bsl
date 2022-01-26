@@ -1,15 +1,13 @@
 <template>
-  <AppWrapper class="home-page" data-activ="home-page--activ">
+  <AppWrapper class="home-page">
     <PageSearch
       class="home-page__page-search"
       :products="products"
-      data-activ="home-page__page-search--activ"
     />
     <div class="home-page__header">
       <AppButton
-        @click="hiddenSearch"
+        @click="hideSearch"
         class="home-page__btn"
-        data-activ="home-page__btn--activ"
       >
         <svg
           width="19"
@@ -26,7 +24,11 @@
           />
         </svg>
       </AppButton>
-      <InputSearch class="home-page__search" @handInput="showSearch" />
+      <InputSearch
+        class="home-page__search"
+        @handInput="showSearch"
+        :value="searchValue"
+      />
     </div>
     <ProductsSlider
       class="home-page__swiper-popular-product"
@@ -53,7 +55,11 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import {
+  mapGetters,
+  mapActions,
+  mapMutations
+} from "vuex";
 
 import AppButton from "@/components/AppButton.vue";
 import AppWrapper from "@/components/AppWrapper.vue";
@@ -79,34 +85,40 @@ export default {
   data() {
     return {
       products: [],
+      searchValue: ''
     };
   },
 
   computed: {
-    ...mapGetters("catalog", ["getProductsCategory", "getFilterProducts"]),
+    ...mapGetters('catalog', [
+      'getProductsCategory',
+      'getFilterProducts'
+    ])
   },
 
   methods: {
     ...mapActions("catalog", ["fetchProducts"]),
+    ...mapMutations("common", [
+      "setSearchVisible"
+    ]),
 
     showSearch(value) {
       this.findProducts(value);
 
-      if (value.length >= 3) {
-        document.querySelectorAll("[data-activ]").forEach((el) => {
-          el.classList.add(el.getAttribute("data-activ"));
-        });
-        //   document.querySelector(".home-page").classList.add("home-page--activ");
-        //   document
-        //     .querySelector(".home-page__page-search")
-        //     .classList.add("home-page__page-search--activ");
-        //   document
-        //     .querySelector(".home-page__btn")
-        //     .classList.add("home-page__btn--activ");
-      }
+      if (value.length < 3) return
+
+      // document.querySelector.body.classList.add('is-search-opened')
+
+      this.setSearchVisible(true)
+
+      // document.querySelectorAll("[data-activ]").forEach((el) => {
+      //   el.classList.add(el.getAttribute("data-activ"));
+      // });
     },
 
-    hiddenSearch() {
+    hideSearch () {
+      this.setSearchVisible(false)
+
       // document.querySelector(".home-page").classList.remove("home-page--activ");
       // document
       //   .querySelector(".home-page__page-search")
@@ -114,10 +126,10 @@ export default {
       // document
       //   .querySelector(".home-page__btn")
       //   .classList.remove("home-page__btn--activ");
-      document.querySelectorAll("[data-activ]").forEach((el) => {
-        el.classList.remove(el.getAttribute("data-activ"));
-      });
-      document.querySelector(".home-page__search").value = "";
+      // document.querySelectorAll("[data-activ]").forEach((el) => {
+      //   el.classList.remove(el.getAttribute("data-activ"));
+      // });
+      // document.querySelector(".home-page__search").value = "";
     },
 
     findProducts(value) {
@@ -132,10 +144,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-page--activ {
-  max-height: 100vh;
-  overflow: hidden;
+.home-page {
+  .app--search-opened & {
+    max-height: 100vh;
+    overflow: hidden;
+  }
 }
+
 .home-page__page-search {
   background-color: $white;
   margin-left: -$padding-side;
@@ -147,12 +162,14 @@ export default {
   top: -10vh;
   transition: $transition-base;
   z-index: 20;
+
+  .app--search-opened & {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
 }
-.home-page__page-search--activ {
-  opacity: 1;
-  visibility: visible;
-  top: 0;
-}
+
 .home-page__header {
   background-color: $primary;
   border-radius: 0 0 38px 38px;
@@ -176,11 +193,13 @@ export default {
     opacity: 0.8;
     transform: none;
   }
+
+  .app--search-opened & {
+    padding: 0 0.5rem;
+    width: auto;
+  }
 }
-.home-page__btn--activ {
-  padding: 0 0.5rem;
-  width: auto;
-}
+
 .home-page__search {
   position: relative;
   width: 100%;
