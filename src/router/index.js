@@ -33,6 +33,7 @@ const routes = [
 		name: 'ForgotPasswordPage',
 		component: ForgotPasswordPage,
 		meta: {
+			layout: 'auth',
 			headerTitle: "Forgot password",
 			roles: ["guest",],
 		},
@@ -53,6 +54,7 @@ const routes = [
 		name: 'NewPasswordPage',
 		component: NewPasswordPage,
 		meta: {
+			layout: 'auth',
 			headerTitle: "New password",
 			roles: ["guest",],
 		},
@@ -62,6 +64,7 @@ const routes = [
 		name: 'PasswordResetSubmitPage',
 		component: PasswordResetSubmitPage,
 		meta: {
+			layout: 'auth',
 			roles: ["guest",],
 		},
 	},
@@ -99,6 +102,7 @@ const routes = [
 		name: 'RecoveryCodePage',
 		component: RecoveryCodePage,
 		meta: {
+			layout: 'auth',
 			headerTitle: "Recovery code",
 			roles: ["guest",],
 		},
@@ -108,6 +112,7 @@ const routes = [
 		name: 'SignInPage',
 		component: SignInPage,
 		meta: {
+			layout: 'auth',
 			headerTitle: "Sign In",
 			roles: ["guest",],
 		},
@@ -117,6 +122,7 @@ const routes = [
 		name: 'SignUpPage',
 		component: SignUpPage,
 		meta: {
+			layout: 'auth',
 			headerTitle: "Sign Up",
 			roles: ["guest",],
 		},
@@ -145,6 +151,7 @@ const routes = [
 		name: 'WelcomePage',
 		component: WelcomePage,
 		meta: {
+			layout: 'auth',
 			roles: ["guest",],
 		},
 	},
@@ -153,6 +160,7 @@ const routes = [
 		name: 'WelcomeBackPage',
 		component: WelcomeBackPage,
 		meta: {
+			layout: 'auth',
 			headerTitle: "Welcome back",
 			roles: ["guest",],
 		},

@@ -1,5 +1,5 @@
 <template>
-  <AppWrapper class="header-app">
+  <div class="header-app">
     <AppButton @click="$router.go(-1)" class="header-app__btn">
       <svg
         width="19"
@@ -19,16 +19,14 @@
     <div class="header-app__title">
       {{ $route.meta.headerTitle }}
     </div>
-  </AppWrapper>
+  </div>
 </template>
 <script>
-import AppWrapper from "@/components/AppWrapper.vue";
 import AppButton from "@/components/AppButton.vue";
 
 export default {
   components: {
     AppButton,
-    AppWrapper,
   },
   name: "AppHeader",
   methods: {
@@ -43,9 +41,9 @@ export default {
 .header-app {
   align-items: center;
   display: flex;
-  padding-bottom: 0;
-  padding-top: 3.125rem;
+  margin-bottom: 1rem;
 }
+
 .header-app__btn {
   background-color: transparent;
   display: inline-block;

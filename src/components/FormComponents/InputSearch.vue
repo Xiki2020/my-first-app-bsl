@@ -14,7 +14,15 @@ export default {
   props: {
     value: {
       type: String,
+      required: true,
+      default: () => ''
     },
+  },
+
+  watch: {
+    value (val) {
+      this.notificate(val)
+    }
   },
 
   data() {

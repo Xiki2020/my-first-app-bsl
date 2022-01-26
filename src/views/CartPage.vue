@@ -1,7 +1,7 @@
 <template>
-  <AppWrapper class="cart">
+  <div class="cart">
     <div class="cart__title">Add more products to your cart!</div>
-    <InputSearch class="cart__search" @input="addValue" />
+    <InputSearch class="cart__search" @handInput="addValue" />
     <div class="cart__products">
       <CardProductHorizontal
         v-for="product in getFilterProducts(value)"
@@ -15,11 +15,13 @@
         <input
           type="text"
           class="cart__promocode-input"
+          v-model="promocode"
           placeholder="Enter code voucher"
         />
         <AppButton
+          :disabled="!promocode"
           text="Apply"
-          variant="secondary"
+          :variant="promocode ? 'primary' : 'secondary'"
           class="cart__promocode-btn"
         />
       </form>
@@ -29,12 +31,11 @@
       </div>
       <AppButton text="Checkout" class="cart__btn" />
     </div>
-  </AppWrapper>
+  </div>
 </template>
 
 <script>
 import AppButton from "@/components/AppButton.vue";
-import AppWrapper from "@/components/AppWrapper.vue";
 import CardProductHorizontal from "@/components/CardProduct/CardProductHorizontal.vue";
 import InputSearch from "@/components/FormComponents/InputSearch.vue";
 
@@ -45,7 +46,6 @@ export default {
 
   components: {
     AppButton,
-    AppWrapper,
     CardProductHorizontal,
     InputSearch,
   },
@@ -53,6 +53,7 @@ export default {
   data() {
     return {
       value: "",
+      promocode: ''
     };
   },
 
@@ -71,10 +72,9 @@ export default {
 .cart {
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
   min-height: calc(100vh - 130px);
-  padding-bottom: 4.25rem;
 }
+
 .cart__title {
   color: $fc-gray;
   font-size: 0.8125rem;

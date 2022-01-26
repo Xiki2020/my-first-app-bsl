@@ -1,33 +1,23 @@
 <template>
-  <div
-    :class="['app', { 'app--search-opened': searchVisible }]"
-  >
-    <router-view v-slot="{ Component, route }">
-      <AppHeader v-if="route.meta.headerTitle" />
-      <transition name="fade" mode="out-in">
-        <component :is="Component" />
-      </transition>
-      <AppNav v-if="route.meta.appNav" class="app__nav" />
-    </router-view>
+  <div>
+    <component :is="layout" />
   </div>
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex";
-import AppNav from "@/components/AppNav.vue";
-import AppHeader from "@/components/AppHeader.vue";
+import MainLayout from '@/layouts/MainLayout.vue'
+import AuthLayout from '@/layouts/AuthLayout.vue'
+
 export default {
   components: {
-    AppNav,
-    AppHeader,
+    MainLayout,
+    AuthLayout
   },
 
   computed: {
-    ...mapState('common', [
-      'searchVisible'
-    ])
+    layout () {
+      return this.$route.meta.layout || 'auth-layout'
+    }
   },
 };
 </script>
@@ -38,10 +28,15 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding: 3.125rem $padding-side 4rem;
   margin: 0 auto;
   max-width: $body-max-width;
   min-width: $body-min-width;
   position: relative;
+}
+
+.app__header {
+  margin-bottom: 1rem;
 }
 
 .app__nav {
