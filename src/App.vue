@@ -24,6 +24,8 @@ export default {
 <style  lang="scss" scoped>
 .app {
   background-color: $white;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   margin: 0 auto;
   max-width: $body-max-width;
