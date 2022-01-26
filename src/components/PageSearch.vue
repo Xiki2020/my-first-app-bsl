@@ -69,12 +69,13 @@ export default {
   align-items: center;
   border-top: 1px solid $secondary;
   border-bottom: 1px solid $secondary;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   transition: $transition-base;
 
   &:hover {
-    background-color: $secondary;
+    background-color: $light-gray;
     border-radius: 10px;
   }
 

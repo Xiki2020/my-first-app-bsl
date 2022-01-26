@@ -13,6 +13,6 @@ export default {
 
 <style  lang="scss" scoped>
 .app-wrapper {
-  padding: 0 2.25rem 3.125rem;
+  padding: 0 $padding-side 3.125rem;
 }
 </style>
