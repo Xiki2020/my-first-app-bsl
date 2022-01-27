@@ -105,12 +105,13 @@ export default {
   background-color: #9ea8ac;
   border-radius: 4px;
   color: $white;
+  display: inline-block;
   font-size: 0.5rem;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 2;
   margin-top: 3px;
+  padding: 0 1rem;
   text-align: center;
-  width: 54px;
 }
 .card__bottom {
   align-items: center;

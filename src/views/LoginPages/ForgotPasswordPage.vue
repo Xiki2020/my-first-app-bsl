@@ -60,7 +60,6 @@ export default {
   border-radius: 14px;
   cursor: pointer;
   display: flex;
-  height: 113px;
   justify-content: space-between;
   margin-top: 0.625rem;
   padding: 0.375rem;
@@ -79,7 +78,7 @@ export default {
   border: 0.5px solid $secondary;
   border-radius: 7px;
   display: flex;
-  height: 100%;
+  height: 100px;
   justify-content: center;
   transition: all 0.2s linear;
   width: 32%;

@@ -35,7 +35,12 @@ export default {
 
 <style lang="scss" scoped>
 .sign-up-page {
-  padding-top: 1.95rem;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+}
+.sign-up-page__form {
+  margin-top: auto;
 }
 .sign-up-page__input-mail {
   margin-top: 1.25rem;

@@ -29,7 +29,7 @@ export default {
     SwiperSlide,
   },
 
-  name: 'ProductsSlider',
+  name: "ProductsSlider",
 
   props: {
     products: {
@@ -50,10 +50,9 @@ export default {
 
 <style lang="scss" scoped>
 .slider-popular-product {
-  height: 145px;
   background-color: $white;
   border-radius: 19px;
   box-shadow: -5px 15px 35px rgba(35, 35, 35, 0.1);
-  padding: 0.8125rem 0.8125rem 1rem;
+  padding: 0.8125rem 0.8125rem 2.4rem;
 }
 </style>

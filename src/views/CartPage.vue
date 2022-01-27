@@ -1,7 +1,7 @@
 <template>
   <div class="cart">
     <TitleHeader> Add more products to your cart! </TitleHeader>
-    <InputSearch class="cart__search" @handInput="addValue" />
+    <InputSearch class="cart__search" @handInput="addValue" value="" />
     <div class="cart__products">
       <CardProductHorizontal
         v-for="product in getFilterProducts(value)"
@@ -31,6 +31,7 @@
       </div>
       <Button text="Checkout" class="cart__btn" />
     </div>
+    <div class="cart__not-found" v-else-if="getCart.length">Not found.</div>
     <div class="cart__not-found" v-else>Nothing added to cart.</div>
   </div>
 </template>
@@ -61,7 +62,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters("cart", ["getPriceCart", "getFilterProducts"]),
+    ...mapGetters("cart", ["getCart", "getPriceCart", "getFilterProducts"]),
   },
 
   methods: {
