@@ -77,13 +77,12 @@ export default {
   background-color: #f7f8f9;
   border: 0.5px solid $secondary;
   border-radius: 14px;
-  height: 60px;
-  margin-top: 10px;
+  margin-top: 0.625rem;
   outline: none;
-  padding: 20px 17px;
+  padding: 1.25rem 1rem;
 
   &:hover {
-    border-color: black;
+    border-color: $fc-gray;
   }
 
   &::placeholder {

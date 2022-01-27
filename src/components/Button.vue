@@ -38,10 +38,9 @@ export default {
   display: flex;
   font-size: 1rem;
   font-weight: 700;
-  height: 3.75rem;
   justify-content: center;
-  line-height: 3.75;
   overflow: hidden;
+  padding: 1.2rem 0;
   text-overflow: ellipsis;
   transition: $transition-base;
   user-select: none;
@@ -57,13 +56,12 @@ export default {
   border-radius: 7px;
   font-size: 0.75rem;
   font-weight: 600;
-  height: 2.25rem;
-  line-height: 2.25rem;
+  padding: 0.65rem 0;
   width: 4.625rem;
 }
 
 .btn--gray {
-  background-color: $gray;
+  background-color: $fc-gray;
 }
 
 .btn--primary {

@@ -59,8 +59,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sign-in-page {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+}
 .sign-in-page__form {
-  margin-top: 3.125rem;
+  margin-top: auto;
 }
 .sign-in-page__input-password {
   margin-top: 1.25rem;
@@ -69,8 +74,9 @@ export default {
   margin-top: 1rem;
 }
 .actions {
-  display: flex;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 .actions__link-forgot {
   color: $fc-gray;

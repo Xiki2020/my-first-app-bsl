@@ -15,29 +15,19 @@
     <div class="card__content">
       <div class="card__title">{{ product.name }}</div>
       <div class="card__price">${{ product.price }}</div>
-      <div class="card__nav-block">
-        <div
-          class="card__nav"
-          @click.stop="changeCountProduct({ id: product.id })"
-        >
-          -
-        </div>
-        <div class="card__count">{{ product.count }}</div>
-        <div
-          class="card__nav"
-          @click.stop="changeCountProduct({ id: product.id, action: 'add' })"
-        >
-          +
-        </div>
-      </div>
+      <NavAmount :product="product" class="card__nav" />
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import NavAmount from "@/components/NavAmount.vue";
 
 export default {
+  components: {
+    NavAmount,
+  },
+
   name: "CardProductHorizontal",
 
   props: {
@@ -46,8 +36,6 @@ export default {
       reqired: true,
     },
   },
-
-  methods: mapActions("cart", ["changeCountProduct"]),
 };
 </script>
 
@@ -58,7 +46,6 @@ export default {
   border-radius: 14px;
   cursor: pointer;
   display: flex;
-  height: 112px;
   padding: 0.375rem;
   transition: $transition-base;
 
@@ -94,36 +81,7 @@ export default {
   font-weight: 700;
   line-height: 1.5rem;
 }
-.card__nav-block {
-  align-items: center;
-  color: $fc-gray;
-  display: flex;
-  font-weight: bold;
-  justify-content: space-between;
-  margin-top: auto;
-  width: 80%;
-}
-.card__count {
-  border: 1px solid $secondary;
-  border-radius: 4px;
-  line-height: 2rem;
-  text-align: center;
-  transition: $transition-base;
-  width: calc(100% / 3);
-}
 .card__nav {
-  border-radius: 7px;
-  color: $fc-gray;
-  cursor: pointer;
-  font-size: 1.1rem;
-  height: 100%;
-  line-height: 2rem;
-  text-align: center;
-  transition: $transition-base;
-  width: calc(100% / 3);
-
-  &:hover {
-    background-color: $light-gray;
-  }
+  margin-top: auto;
 }
 </style>

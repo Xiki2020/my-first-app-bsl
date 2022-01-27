@@ -85,7 +85,7 @@ export default {
   aspect-ratio: 125 / 135;
   border: 0.5px solid $secondary;
   border-radius: 10px;
-  height: 50px;
+  height: 3.5rem;
   object-fit: fill;
 }
 .search-panel__not-found {

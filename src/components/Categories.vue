@@ -52,8 +52,8 @@ export default {
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  height: 55px;
   outline: none;
+  padding: 0.75rem 0;
   transition: $transition-base;
   width: 100%;
 

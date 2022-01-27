@@ -55,7 +55,7 @@ export default {
   justify-content: space-between;
 }
 .confirmation-code__input {
-  background: #f7f8f9;
+  background: $light-gray;
   border: 0.5px solid $secondary;
   border-radius: 14px;
   color: $fc-gray;

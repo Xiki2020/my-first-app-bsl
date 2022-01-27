@@ -59,8 +59,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.welcome-back-page {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+}
 .welcome-back-page__form {
-  margin-top: 3.125rem;
+  margin-top: auto;
 }
 .welcome-back-page__input-password {
   margin-top: 1.25rem;
@@ -71,8 +76,9 @@ export default {
 .actions {
   align-items: center;
   display: flex;
+  justify-content: space-between;
 }
-.actions {
+.actions__link-forgot {
   color: $fc-gray;
   font-weight: 500;
   margin-left: auto;
