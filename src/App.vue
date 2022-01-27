@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import MainLayout from "@/layouts/MainLayout.vue";
-import AuthLayout from "@/layouts/AuthLayout.vue";
+import MainLayout from "./layouts/MainLayout.vue";
+import AuthLayout from "./layouts/AuthLayout.vue";
 
 export default {
   components: {
