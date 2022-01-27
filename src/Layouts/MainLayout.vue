@@ -3,7 +3,7 @@
     <Header class="app__header" v-if="$route.meta.headerTitle">
       {{ $route.meta.headerTitle }}
     </Header>
-    <router-view class="app__content" />
+    <slot></slot>
     <NavBar class="app__nav" />
   </div>
 </template>
