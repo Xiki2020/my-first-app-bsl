@@ -1,6 +1,6 @@
 <template>
-  <nav class="nav-app">
-    <button class="nav-app__btn" @click="$router.push({ name: 'HomePage' })">
+  <nav class="nav-bar">
+    <button class="nav-bar__btn" @click="$router.push({ name: 'HomePage' })">
       <svg
         width="25"
         height="23"
@@ -19,7 +19,7 @@
       </svg>
     </button>
     <button
-      class="nav-app__btn"
+      class="nav-bar__btn"
       @click="$router.push({ name: 'WishListPage' })"
     >
       <svg
@@ -37,8 +37,8 @@
         />
       </svg>
     </button>
-    <button class="nav-app__btn" @click="$router.push({ name: 'CartPage' })">
-      <div class="nav-app__count-products" v-if="getCart.length">
+    <button class="nav-bar__btn" @click="$router.push({ name: 'CartPage' })">
+      <div class="nav-bar__count-products" v-if="getCart.length">
         {{ getCart.length }}
       </div>
       <svg
@@ -57,7 +57,7 @@
       </svg>
     </button>
     <button
-      class="nav-app__btn"
+      class="nav-bar__btn"
       @click="$router.push({ name: 'PersonalAreaPage' })"
     >
       <svg
@@ -89,14 +89,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-app {
+.nav-bar {
   align-items: center;
   background-color: $white;
   display: flex;
-  height: 68px;
+  height: 4.25rem;
   justify-content: space-between;
 }
-.nav-app__btn {
+.nav-bar__btn {
   background-color: $white;
   border: none;
   cursor: pointer;
@@ -116,7 +116,7 @@ export default {
   }
 }
 
-.nav-app__count-products {
+.nav-bar__count-products {
   background-color: rgb(246, 58, 58);
   border-radius: 50%;
   color: $white;

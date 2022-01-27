@@ -1,6 +1,6 @@
 <template>
   <div class="cart">
-    <div class="cart__title">Add more products to your cart!</div>
+    <TitleHeader> Add more products to your cart! </TitleHeader>
     <InputSearch class="cart__search" @handInput="addValue" />
     <div class="cart__products">
       <CardProductHorizontal
@@ -10,7 +10,7 @@
         class="cart__product"
       />
     </div>
-    <div class="cart__bottom">
+    <div class="cart__bottom" v-if="getFilterProducts(value).length">
       <form class="cart__promocode-form">
         <input
           type="text"
@@ -18,7 +18,7 @@
           v-model="promocode"
           placeholder="Enter code voucher"
         />
-        <AppButton
+        <Button
           :disabled="!promocode"
           text="Apply"
           :variant="promocode ? 'primary' : 'secondary'"
@@ -29,15 +29,17 @@
         <div class="cart__price-title">In total</div>
         <div class="cart__price">${{ getPriceCart }}</div>
       </div>
-      <AppButton text="Checkout" class="cart__btn" />
+      <Button text="Checkout" class="cart__btn" />
     </div>
+    <div class="cart__not-found" v-else>Nothing added to cart.</div>
   </div>
 </template>
 
 <script>
-import AppButton from "@/components/AppButton.vue";
+import Button from "@/components/Button.vue";
 import CardProductHorizontal from "@/components/CardProduct/CardProductHorizontal.vue";
 import InputSearch from "@/components/FormComponents/InputSearch.vue";
+import TitleHeader from "@/components/TitleHeader.vue";
 
 import { mapGetters } from "vuex";
 
@@ -45,20 +47,21 @@ export default {
   name: "CartPage",
 
   components: {
-    AppButton,
+    Button,
     CardProductHorizontal,
     InputSearch,
+    TitleHeader,
   },
 
   data() {
     return {
       value: "",
-      promocode: ''
+      promocode: "",
     };
   },
 
   computed: {
-    ...mapGetters("cart", ["getCart", "getPriceCart", "getFilterProducts"]),
+    ...mapGetters("cart", ["getPriceCart", "getFilterProducts"]),
   },
 
   methods: {
@@ -71,14 +74,8 @@ export default {
 <style lang="scss" scoped>
 .cart {
   display: flex;
+  flex: 1 0 0;
   flex-direction: column;
-  min-height: calc(100vh - 130px);
-}
-
-.cart__title {
-  color: $fc-gray;
-  font-size: 0.8125rem;
-  line-height: 1.85;
 }
 .cart__search {
   margin-top: 1.3125rem;
@@ -100,13 +97,12 @@ export default {
   justify-content: space-between;
 }
 .cart__promocode-input {
-  background-color: #f7f8f9;
+  background-color: $light-gray;
   border: 0.5px solid $secondary;
   border-radius: 14px;
-  height: 60px;
   margin-right: 1.2rem;
   outline: none;
-  padding: 20px 17px;
+  padding: 1.25rem 1rem;
   width: 65%;
 
   &:hover,
@@ -132,5 +128,11 @@ export default {
 }
 .cart__btn {
   margin-top: 1.625rem;
+}
+
+.cart__not-found {
+  color: $fc-gray;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 </style>

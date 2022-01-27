@@ -1,5 +1,5 @@
 <template>
-  <AppWrapper class="account-page">
+  <div class="account-page">
     <div class="account-page__info-user">
       <img src="" alt="Photo user" class="account-page__photo-user" />
       <div>
@@ -17,19 +17,13 @@
       <div class="account-page__menu-section">Privacy settings</div>
       <div class="account-page__menu-section" @click="logout">Logout</div>
     </div>
-  </AppWrapper>
+  </div>
 </template>
 
 <script>
-import AppWrapper from "@/components/AppWrapper.vue";
-
 import { mapActions } from "vuex";
 export default {
   name: "PersonalAreaPage",
-
-  components: {
-    AppWrapper,
-  },
 
   methods: {
     ...mapActions(["changeRole"]),

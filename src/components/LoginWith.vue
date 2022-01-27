@@ -1,12 +1,12 @@
 <template>
-  <div class="footer-login">
-    <div class="footer-login__separator">
-      <div class="footer-login__separator-title">
+  <div class="login-with">
+    <div class="login-with__separator">
+      <div class="login-with__separator-title">
         Or {{ $route.meta.headerTitle.toLowerCase() }} with
       </div>
     </div>
-    <div class="footer-login__btns">
-      <AppButton variant="secondary" class="footer-login__btn">
+    <div class="login-with__btns">
+      <Button variant="secondary" class="login-with__btn">
         <svg
           width="15"
           height="28"
@@ -19,8 +19,8 @@
             fill="white"
           />
         </svg>
-      </AppButton>
-      <AppButton variant="secondary" class="footer-login__btn">
+      </Button>
+      <Button variant="secondary" class="login-with__btn">
         <svg
           width="29"
           height="29"
@@ -33,11 +33,11 @@
             fill="white"
           />
         </svg>
-      </AppButton>
+      </Button>
     </div>
-    <div class="footer-login__description-link">
+    <div class="login-with__descr-link">
       Already have an account?
-      <router-link :to="{ name: toRouteName }" class="footer-login__link"
+      <router-link :to="{ name: toRouteName }" class="login-with__link"
         >{{ title }}
       </router-link>
     </div>
@@ -45,11 +45,11 @@
 </template>
 
 <script>
-import AppButton from "@/components/AppButton.vue";
+import Button from "@/components/Button.vue";
 export default {
-  name: "FooterLogin",
+  name: "LoginWith",
   components: {
-    AppButton,
+    Button,
   },
   props: {
     title: {
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer-login__separator {
+.login-with__separator {
   position: relative;
   text-align: center;
 
@@ -79,7 +79,7 @@ export default {
     top: 50%;
   }
 }
-.footer-login__separator-title {
+.login-with__separator-title {
   background-color: $body-bg;
   display: inline-block;
   font-weight: 600;
@@ -88,24 +88,24 @@ export default {
   z-index: 2;
 }
 //
-.footer-login__btns {
+.login-with__btns {
   display: flex;
   justify-content: space-between;
   margin-top: 1.75rem;
 
-  .footer-login__btn {
+  .login-with__btn {
     width: 47%;
   }
 }
 
-.footer-login__description-link {
+.login-with__descr-link {
   font-weight: 500;
   margin-top: 3.125rem;
   text-align: center;
 }
 
-.footer-login__link {
-  color: #3e4958;
+.login-with__link {
+  color: $fc-gray;
   font-weight: 600;
   text-decoration: none;
   transition: $transition-base;

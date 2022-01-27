@@ -1,5 +1,5 @@
 <template>
-  <button class="btn-app" :class="`btn-app--${variant} btn-app--${size}`">
+  <button class="btn" :class="`btn--${variant} btn--${size}`">
     <slot></slot>
     {{ text }}
   </button>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "AppButton",
+  name: "Button",
   props: {
     text: {
       type: String,
@@ -29,21 +29,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn-app {
+.btn {
   align-items: center;
   border: none;
   border-radius: 14px;
-  color: #ffffff;
+  color: $white;
   cursor: pointer;
   display: flex;
   font-size: 1rem;
   font-weight: 700;
-  height: 60px;
+  height: 3.75rem;
   justify-content: center;
-  line-height: 60px;
+  line-height: 3.75;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: $transition-base;
+  user-select: none;
   white-space: nowrap;
   width: 100%;
 
@@ -52,28 +53,32 @@ export default {
   }
 }
 
-.btn-app--small {
+.btn--small {
   border-radius: 7px;
   font-size: 0.75rem;
   font-weight: 600;
-  height: 36px;
-  line-height: 36px;
-  width: 73px;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  width: 4.625rem;
 }
 
-.btn-app--gray {
+.btn--gray {
   background-color: $gray;
 }
 
-.btn-app--primary {
+.btn--primary {
   background-color: $primary;
 }
 
-.btn-app--secondary {
+.btn--secondary {
   background-color: $secondary;
+
+  &:hover {
+    transform: none;
+  }
 }
 
-.btn-app--white {
+.btn--white {
   background-color: $white;
   color: $primary;
 }
