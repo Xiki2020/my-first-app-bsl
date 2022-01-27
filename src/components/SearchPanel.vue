@@ -1,5 +1,5 @@
 <template>
-  <Wrapper class="search-panel">
+  <div class="search-panel">
     <div class="search-panel__title">Search results:</div>
     <div class="search-panel__results" v-if="products.length > 0">
       <div
@@ -21,17 +21,12 @@
       </div>
     </div>
     <div class="search-panel__not-found" v-else>Not found</div>
-  </Wrapper>
+  </div>
 </template>
 
 <script>
-import Wrapper from "@/components/Wrapper.vue";
 export default {
   name: "SearchPanel",
-
-  components: {
-    Wrapper,
-  },
 
   props: {
     products: {
@@ -48,6 +43,7 @@ export default {
   color: $fc-gray;
   height: 100vh;
   overflow-y: auto;
+  padding: 0 $padding-side 3.125rem;
   transition: $transition-base;
   width: 100%;
 }
