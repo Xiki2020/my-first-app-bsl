@@ -1,16 +1,20 @@
 <template>
-  <AppWrapper class="products-list">
+  <div class="products-list">
+    <Header>{{
+      $route.params.category.slice(0, 1).toUpperCase() +
+      $route.params.category.slice(1)
+    }}</Header>
     <CardProductVertical
       v-for="product in getProductsCategory($route.params.category)"
       :product="product"
       :key="product.name"
       class="products-list__item"
     />
-  </AppWrapper>
+  </div>
 </template>
 <script>
-import AppWrapper from "@/components/AppWrapper.vue";
 import CardProductVertical from "@/components/CardProduct/CardProductVertical.vue";
+import Header from "@/components/Header.vue";
 
 import { mapGetters, mapActions } from "vuex";
 
@@ -18,8 +22,8 @@ export default {
   name: "ProductListPage",
 
   components: {
-    AppWrapper,
     CardProductVertical,
+    Header,
   },
 
   computed: {
@@ -41,8 +45,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 2rem;
-  padding-bottom: 3.6rem;
 }
 .products-list__item {
   border: 0.5px solid $secondary;

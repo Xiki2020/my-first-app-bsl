@@ -1,6 +1,6 @@
 <template>
-  <div class="header-app">
-    <AppButton @click="$router.go(-1)" class="header-app__btn">
+  <div class="header">
+    <Button @click="$router.go(-1)" class="header__btn">
       <svg
         width="19"
         height="18"
@@ -15,36 +15,31 @@
           fill="#3E4958"
         />
       </svg>
-    </AppButton>
-    <div class="header-app__title">
-      {{ $route.meta.headerTitle }}
+    </Button>
+    <div class="header__title">
+      <slot></slot>
     </div>
   </div>
 </template>
 <script>
-import AppButton from "@/components/AppButton.vue";
+import Button from "@/components/Button.vue";
 
 export default {
   components: {
-    AppButton,
+    Button,
   },
-  name: "AppHeader",
-  methods: {
-    transition() {
-      document.querySelector("input").value = "";
-      this.$router.go(-1);
-    },
-  },
+  name: "Header",
 };
 </script>
 <style  lang="scss" scoped>
-.header-app {
+.header {
   align-items: center;
   display: flex;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
-.header-app__btn {
+.header__btn {
   background-color: transparent;
   display: inline-block;
   width: auto;
@@ -57,7 +52,7 @@ export default {
     transform: none;
   }
 }
-.header-app__title {
+.header__title {
   color: $fc-gray;
   display: inline-block;
   font-weight: 600;

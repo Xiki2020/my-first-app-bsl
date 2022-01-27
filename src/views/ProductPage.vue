@@ -1,26 +1,8 @@
 <template>
-  <AppWrapper class="product">
-    <div class="product__header">
-      <AppButton @click="$router.go(-1)" class="product__btn">
-        <svg
-          width="19"
-          height="18"
-          viewBox="0 0 19 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M3.82828 8.29289L18.4141 8.29289L18.4141 10.2929L3.82828 10.2929L10.1212 16.5858L8.70696 18L-0.000149919 9.29289L8.70696 0.585786L10.1212 2L3.82828 8.29289Z"
-            fill="#3E4958"
-          />
-        </svg>
-      </AppButton>
-      <div class="product__title">
-        {{ product.name }}
-      </div>
-    </div>
+  <div class="product">
+    <Header>
+      {{ product.name }}
+    </Header>
     <div class="product__body">
       <div class="product__content">
         <img
@@ -30,23 +12,24 @@
         <div class="product__colors">{{ product.countColors }} Colors</div>
         <div class="product__price">${{ product.price }}</div>
       </div>
-      <AppButton
-        text="Add to Cart"
+      <Button
+        text="Add"
         class="product__btn-add"
         @click="addProduct(product)"
-      ></AppButton>
+      ></Button>
     </div>
-  </AppWrapper>
+  </div>
 </template>
 <script>
-import AppButton from "@/components/AppButton.vue";
-import AppWrapper from "@/components/AppWrapper.vue";
+import Button from "@/components/Button.vue";
+import Header from "@/components/Header.vue";
 
 import { mapGetters, mapActions } from "vuex";
+
 export default {
   components: {
-    AppButton,
-    AppWrapper,
+    Button,
+    Header,
   },
   name: "ProductPage",
 
@@ -80,13 +63,11 @@ export default {
   flex: 1 0 0;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 5rem;
+  padding-bottom: 1rem;
 }
 .product__header {
   align-items: center;
   display: flex;
-  margin-top: auto;
-  padding-top: 3.125rem;
   width: 100%;
 }
 .product__btn {

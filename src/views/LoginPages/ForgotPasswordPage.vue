@@ -1,8 +1,8 @@
 <template>
-  <AppWrapper class="forgot-password-page">
-    <div class="forgot-password-page__title">
+  <div class="forgot-password-page">
+    <TitleHeader>
       Select which contact details should we use to reset your password:
-    </div>
+    </TitleHeader>
     <div class="forgot-password-page__btns">
       <div
         class="forgot-password-page__btn"
@@ -19,15 +19,16 @@
         </div>
       </div>
     </div>
-  </AppWrapper>
+  </div>
 </template>
 
 <script>
-import AppWrapper from "@/components/AppWrapper.vue";
+import TitleHeader from "@/components/TitleHeader.vue";
 export default {
   name: "ForgotPasswordPage",
+
   components: {
-    AppWrapper,
+    TitleHeader,
   },
 
   data() {
@@ -50,16 +51,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.forgot-password-page {
-  color: $fc-gray;
-  padding-top: 0.95rem;
-}
-.forgot-password-page__title {
-  font-size: 0.8125rem;
-  line-height: 1.85;
-  word-wrap: break-word;
-}
 .forgot-password-page__btns {
+  color: $fc-gray;
   margin-top: 4.375rem;
 }
 .forgot-password-page__btn {

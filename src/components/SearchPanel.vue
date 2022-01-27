@@ -1,8 +1,6 @@
 <template>
-  <AppWrapper class="search-panel">
-    <div class="search-panel__nav">
-      <div class="search-panel__name-nav">Search results:</div>
-    </div>
+  <Wrapper class="search-panel">
+    <div class="search-panel__title">Search results:</div>
     <div class="search-panel__results" v-if="products.length > 0">
       <div
         class="search-panel__result"
@@ -22,18 +20,18 @@
         />
       </div>
     </div>
-    <h3 class="search-panel__not-found" v-else>Not found</h3>
-  </AppWrapper>
+    <div class="search-panel__not-found" v-else>Not found</div>
+  </Wrapper>
 </template>
 
 <script>
-import AppWrapper from "@/components/AppWrapper.vue";
-
+import Wrapper from "@/components/Wrapper.vue";
 export default {
-  components: {
-    AppWrapper,
-  },
   name: "SearchPanel",
+
+  components: {
+    Wrapper,
+  },
 
   props: {
     products: {
@@ -46,22 +44,21 @@ export default {
 
 <style lang="scss" scoped>
 .search-panel {
-  height: 100vh;
-  overflow-y: scroll;
-  width: 100vw;
-}
-.search-panel__nav {
-  padding-top: 10rem;
-}
-.search-panel__name-nav {
+  background-color: $white;
   color: $fc-gray;
+  height: 100vh;
+  overflow-y: auto;
+  transition: $transition-base;
+  width: 100%;
+}
+.search-panel__title {
   font-weight: bold;
   font-size: 1.125rem;
+  padding-top: 10rem;
 }
 .search-panel__results {
-  color: $fc-gray;
   font-weight: 600;
-  line-height: 60px;
+  line-height: 3.75rem;
   padding-top: 0.625rem;
 }
 
@@ -93,6 +90,7 @@ export default {
 }
 .search-panel__not-found {
   color: $fc-gray;
+  font-size: 1rem;
   margin-top: 2rem;
   text-align: center;
 }

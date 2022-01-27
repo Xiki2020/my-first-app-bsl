@@ -24,7 +24,7 @@
         </div>
         <div class="card__count">{{ product.count }}</div>
         <div
-          class="card__nav-add card__nav"
+          class="card__nav"
           @click.stop="changeCountProduct({ id: product.id, action: 'add' })"
         >
           +
@@ -74,7 +74,9 @@ export default {
   object-fit: fill;
 }
 .card__content {
-  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.75rem;
 }
 .card__title {
   color: $fc-gray;
@@ -90,7 +92,7 @@ export default {
   color: $fc-gray;
   font-size: 0.875rem;
   font-weight: 700;
-  line-height: 23px;
+  line-height: 1.5rem;
 }
 .card__nav-block {
   align-items: center;
@@ -98,28 +100,30 @@ export default {
   display: flex;
   font-weight: bold;
   justify-content: space-between;
-  margin-top: 0.75rem;
-  width: 65px;
-
-  &:hover .card__count {
-    border-color: $gray;
-  }
+  margin-top: auto;
+  width: 80%;
 }
 .card__count {
   border: 1px solid $secondary;
   border-radius: 4px;
-  height: 23px;
-  line-height: 23px;
+  line-height: 2rem;
   text-align: center;
   transition: $transition-base;
-  width: 23px;
+  width: calc(100% / 3);
 }
 .card__nav {
+  border-radius: 7px;
+  color: $fc-gray;
   cursor: pointer;
-  line-height: 23px;
-  width: 23px;
-}
-.card__nav-add {
-  text-align: right;
+  font-size: 1.1rem;
+  height: 100%;
+  line-height: 2rem;
+  text-align: center;
+  transition: $transition-base;
+  width: calc(100% / 3);
+
+  &:hover {
+    background-color: $light-gray;
+  }
 }
 </style>

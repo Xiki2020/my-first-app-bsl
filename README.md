@@ -25,26 +25,47 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+Пометки:
+//
+:root {
+  --swiper-pagination-bullet-inactive-color: #{$primary};
+} нативное изменение объявление переменной
+
+//
+::v-deep
+
+//
+<!-- <router-view v-slot="{ Component }">
+<transition name="fade" mode="out-in">
+<component :is="Component" />
+</transition>
+</router-view> -->
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: $transition-base;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+- CSS-property select-user for learning
+
 
 12.01.22
 Подключить variables.scss глобально чтобы использовать в компонент.
 в компонентах
-
 Задать переменные для кастомизации плагина
-
 Изучить тему слотов и реализовать Header и HeaderHome в одном компоненте
 
-//::v-deep
-
 17.01.22
-
 добавить hover состояния для кнопок (исправить)
 проверить адаптив (сделано)
 vuex
 
-
 18.01
-
 + Что исправить: убрать все инлайн стили, сделать через селекторы по БЭМу.
 + юрлы в роутах сделать в нижнем регистре @
 + переделать страницу ввода кода подтверждения !!!
@@ -52,13 +73,6 @@ vuex
 +/- тема vuex: подключить к проекту vuex, разбить модули с namespace'ами, объявить модули "catalog" (включает products, categories), "user", "cart". И начинаешь применять vuex в компонентах @!
 + реализовать поиск: при вводе от трех символов в поисковой строке появляется перекрывающе контент окно с результатами поиска. Появление окна результатов поиск сделать с красивой анимацией !!!
 + выпилить кнопку поиску по фото везде @
-git p
-- CSS-property select-user for learning
-
-
-:root {
-  --swiper-pagination-bullet-inactive-color: #{$primary};
-} нативное изменение объявление переменной
 
 21.01
 +- сверстать простую страницу просмотра товара, должна выглядеть примерно вот так (скрин 1), как карточка в списке, только в крупном размере с возможностью вернуться обратно в список продуктов. Страница продукта должна быть доступна по отдельной ссылке.

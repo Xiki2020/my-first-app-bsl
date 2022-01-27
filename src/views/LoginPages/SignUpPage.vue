@@ -1,43 +1,41 @@
 <template>
-  <AppWrapper class="sign-up-page">
+  <div class="sign-up-page">
     <form class="sign-up-page__form">
       <InputName />
       <InputEmail class="sign-up-page__input-mail" />
       <InputPassword class="sign-up-page__input-password" />
-      <AppButton class="sign-up-page__btn" text="Sign Up" type="button" />
+      <Button class="sign-up-page__btn" text="Sign Up" type="button" />
     </form>
-    <FooterLogin
+    <LoginWith
       class="sign-up-page__footer"
       title="Sign In"
       toRouteName="SignInPage"
     />
-  </AppWrapper>
+  </div>
 </template>
 
 <script>
-import AppWrapper from "@/components/AppWrapper.vue";
-import AppButton from "@/components/AppButton.vue";
-import FooterLogin from "@/components/FooterLogin.vue";
+import Button from "@/components/Button.vue";
 import InputEmail from "@/components/FormComponents/InputEmail.vue";
 import InputName from "@/components/FormComponents/InputName.vue";
 import InputPassword from "@/components/FormComponents/InputPassword.vue";
+import LoginWith from "@/components/LoginWith.vue";
 
 export default {
   name: "SignUpPage",
   components: {
-    AppWrapper,
-    AppButton,
-    FooterLogin,
+    Button,
     InputEmail,
     InputName,
     InputPassword,
+    LoginWith,
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .sign-up-page {
-  padding-top: 3.25rem;
+  padding-top: 1.95rem;
 }
 .sign-up-page__input-mail {
   margin-top: 1.25rem;

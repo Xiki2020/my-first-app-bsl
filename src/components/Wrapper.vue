@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper">
+  <div class="wrapper">
     <slot></slot>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style  lang="scss" scoped>
-.app-wrapper {
+.wrapper {
   padding: 0 $padding-side 3.125rem;
 }
 </style>

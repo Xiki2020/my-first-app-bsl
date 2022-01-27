@@ -23,7 +23,7 @@ const routes = [
 		name: 'CartPage',
 		component: CartPage,
 		meta: {
-			appNav: true,
+			layout: 'main-layout',
 			headerTitle: "My cart",
 			roles: ["user",],
 		},
@@ -33,7 +33,7 @@ const routes = [
 		name: 'ForgotPasswordPage',
 		component: ForgotPasswordPage,
 		meta: {
-			layout: 'auth',
+			layout: 'auth-layout',
 			headerTitle: "Forgot password",
 			roles: ["guest",],
 		},
@@ -43,7 +43,7 @@ const routes = [
 		name: 'HomePage',
 		component: HomePage,
 		meta: {
-			appNav: true,
+			layout: 'main-layout',
 			header_search: true,
 			roles: ["user",],
 		},
@@ -54,7 +54,7 @@ const routes = [
 		name: 'NewPasswordPage',
 		component: NewPasswordPage,
 		meta: {
-			layout: 'auth',
+			layout: 'auth-layout',
 			headerTitle: "New password",
 			roles: ["guest",],
 		},
@@ -64,7 +64,7 @@ const routes = [
 		name: 'PasswordResetSubmitPage',
 		component: PasswordResetSubmitPage,
 		meta: {
-			layout: 'auth',
+			layout: 'auth-layout',
 			roles: ["guest",],
 		},
 	},
@@ -73,7 +73,7 @@ const routes = [
 		name: 'PersonalAreaPage',
 		component: PersonalAreaPage,
 		meta: {
-			appNav: true,
+			layout: 'main-layout',
 			headerTitle: "My account",
 			roles: ["user",],
 		},
@@ -83,8 +83,7 @@ const routes = [
 		name: 'ProductListPage',
 		component: ProductListPage,
 		meta: {
-			appNav: true,
-			headerTitle: "Product list",
+			layout: 'main-layout',
 			roles: ["user",],
 		},
 	},
@@ -93,7 +92,7 @@ const routes = [
 		name: 'ProductPage',
 		component: ProductPage,
 		meta: {
-			appNav: true,
+			layout: 'main-layout',
 			roles: ["user", "guest"],
 		},
 	},
@@ -102,7 +101,7 @@ const routes = [
 		name: 'RecoveryCodePage',
 		component: RecoveryCodePage,
 		meta: {
-			layout: 'auth',
+			layout: 'auth-layout',
 			headerTitle: "Recovery code",
 			roles: ["guest",],
 		},
@@ -112,7 +111,7 @@ const routes = [
 		name: 'SignInPage',
 		component: SignInPage,
 		meta: {
-			layout: 'auth',
+			layout: 'auth-layout',
 			headerTitle: "Sign In",
 			roles: ["guest",],
 		},
@@ -122,7 +121,7 @@ const routes = [
 		name: 'SignUpPage',
 		component: SignUpPage,
 		meta: {
-			layout: 'auth',
+			layout: 'auth-layout',
 			headerTitle: "Sign Up",
 			roles: ["guest",],
 		},
@@ -132,6 +131,7 @@ const routes = [
 		name: 'TempPage',
 		component: TempPage,
 		meta: {
+			layout: 'main-layout',
 			headerTitle: "Заглушка",
 			roles: ["user",],
 		},
@@ -141,7 +141,7 @@ const routes = [
 		name: 'WishListPage',
 		component: WishListPage,
 		meta: {
-			appNav: true,
+			layout: 'main-layout',
 			headerTitle: "My wishlist",
 			roles: ["user",],
 		},
@@ -151,7 +151,7 @@ const routes = [
 		name: 'WelcomePage',
 		component: WelcomePage,
 		meta: {
-			layout: 'auth',
+			layout: 'auth-layout',
 			roles: ["guest",],
 		},
 	},
@@ -160,7 +160,7 @@ const routes = [
 		name: 'WelcomeBackPage',
 		component: WelcomeBackPage,
 		meta: {
-			layout: 'auth',
+			layout: 'auth-layout',
 			headerTitle: "Welcome back",
 			roles: ["guest",],
 		},

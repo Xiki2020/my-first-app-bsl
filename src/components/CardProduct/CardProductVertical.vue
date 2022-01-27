@@ -30,28 +30,10 @@
     <div class="card__colors">{{ product.countColors }} Colors</div>
     <div class="card__bottom">
       <div class="card__price">${{ product.price }}</div>
-      <!-- <div class="card__btn" @click.stop="addProduct(product)">
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 12 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M6.5 5.5H11V6.5H6.5V11H5.5V6.5H1V5.5H5.5V1H6.5V5.5Z"
-            fill="#3E4958"
-            stroke="#3E4958"
-            stroke-width="0.5"
-          />
-        </svg>
-      </div> -->
-      <AppButton
+      <Button
         class="card__btn"
         @click.prevent="addProduct(product)"
-        variant="seconadry"
+        variant="secondary"
         text="Add"
         size="small"
       />
@@ -60,10 +42,10 @@
 </template>
 <script>
 import { mapActions } from "vuex";
-import AppButton from "../AppButton.vue";
+import Button from "@/components/Button.vue";
 
 export default {
-  components: { AppButton },
+  components: { Button },
   name: "CardProductVertical",
 
   props: {
@@ -143,10 +125,14 @@ export default {
   line-height: 1.25;
 }
 .card__btn {
-  color: $fc-gray;
   cursor: pointer;
   font-size: 0.65rem;
   height: 1rem;
   width: 30%;
+
+  &:hover {
+    color: $fc-gray;
+    font-weight: 600;
+  }
 }
 </style>>

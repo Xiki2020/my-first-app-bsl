@@ -11,7 +11,7 @@
       <div class="card__title" :title="product.name">
         {{ product.name.split(" ").slice(1).join(" ") }}
       </div>
-      <AppButton
+      <Button
         class="card__btn"
         text="Buy now"
         variant="gray"
@@ -28,13 +28,13 @@
 </template>
 
 <script>
-import AppButton from "@/components/AppButton.vue";
+import Button from "@/components/Button.vue";
 
 import { mapActions } from "vuex";
 
 export default {
   components: {
-    AppButton,
+    Button,
   },
 
   name: "CardProductPopular",

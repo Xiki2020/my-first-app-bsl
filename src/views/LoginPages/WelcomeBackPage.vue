@@ -1,53 +1,52 @@
 <template>
-  <AppWrapper class="welcome-back-page">
-    <div class="welcome-back-page__title">
-      Please fill E-mail & password to login your Shopy application account.
-    </div>
+  <div class="welcome-back-page">
+    <TitleHeader
+      >Please fill E-mail & password to login your Shopy application account.
+    </TitleHeader>
     <form class="welcome-back-page__form">
       <InputEmail />
       <InputPassword class="welcome-back-page__input-password" />
-      <div class="welcome-back-page__actions">
+      <div class="welcome-back-page__actions actions">
         <CustomCheckbox title="Запомнить меня" />
         <router-link
-          class="welcome-back-page__link-forgot"
+          class="actions__link-forgot"
           :to="{ name: 'ForgotPasswordPage' }"
           >Forgot password?</router-link
         >
       </div>
-      <AppButton
+      <Button
         text="Sign In"
         class="welcome-back-page__btn"
-        @click="toCome"
-        type="button"
+        @click.prevent="toCome"
       />
     </form>
-    <FooterLogin
+    <LoginWith
       class="welcome-back-page__footer"
       title="Sign Up"
       toRouteName="SignUpPage"
     />
-  </AppWrapper>
+  </div>
 </template>
 
 <script>
-import AppWrapper from "@/components/AppWrapper.vue";
-import AppButton from "@/components/AppButton.vue";
-import FooterLogin from "@/components/FooterLogin.vue";
+import Button from "@/components/Button.vue";
 import CustomCheckbox from "@/components/FormComponents/CustomCheckbox.vue";
 import InputEmail from "@/components/FormComponents/InputEmail.vue";
 import InputPassword from "@/components/FormComponents/InputPassword.vue";
+import LoginWith from "@/components/LoginWith.vue";
+import TitleHeader from "@/components/TitleHeader.vue";
 
 import { mapActions } from "vuex";
 
 export default {
   name: "WelcomeBackPage",
   components: {
-    AppWrapper,
-    AppButton,
-    FooterLogin,
+    Button,
     CustomCheckbox,
     InputEmail,
     InputPassword,
+    LoginWith,
+    TitleHeader,
   },
   methods: {
     ...mapActions(["changeRole"]),
@@ -60,14 +59,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.welcome-back-page {
-  padding-top: 1.3rem;
-}
-.welcome-back-page__title {
-  color: $fc-gray;
-  font-size: 0.8125rem;
-  line-height: 1.85;
-}
 .welcome-back-page__form {
   margin-top: 3.125rem;
 }
@@ -75,11 +66,13 @@ export default {
   margin-top: 1.25rem;
 }
 .welcome-back-page__actions {
-  display: flex;
-  align-items: center;
   margin-top: 1rem;
 }
-.welcome-back-page__link-forgot {
+.actions {
+  align-items: center;
+  display: flex;
+}
+.actions {
   color: $fc-gray;
   font-weight: 500;
   margin-left: auto;
