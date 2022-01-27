@@ -1,15 +1,17 @@
 <template>
-  <component :is="layout" />
+  <component :is="layout">
+    <router-view class="app__content" />
+  </component>
 </template>
 
 <script>
-import MainLayout from "./layouts/MainLayout.vue";
 import AuthLayout from "./layouts/AuthLayout.vue";
+import MainLayout from "./layouts/MainLayout.vue";
 
 export default {
   components: {
-    MainLayout,
     AuthLayout,
+    MainLayout,
   },
 
   computed: {
