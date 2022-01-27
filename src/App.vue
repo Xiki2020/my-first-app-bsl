@@ -1,25 +1,20 @@
 <template>
-  <div :class="['app', routeClass]">
-    <Header class="app__header" v-if="$route.meta.headerTitle">
-      {{ $route.meta.headerTitle }}
-    </Header>
-    <router-view class="app__content" />
-  </div>
+  <component :is="layout" />
 </template>
 
 <script>
-import { mapState } from "vuex";
-import Header from "@/components/Header.vue";
+import MainLayout from "@/layouts/MainLayout.vue";
+import AuthLayout from "@/layouts/AuthLayout.vue";
+
 export default {
   components: {
-    Header,
+    MainLayout,
+    AuthLayout,
   },
 
   computed: {
-    ...mapState("common", ["searchVisible"]),
-
-    routeClass() {
-      return `app--route-${this.$route.name.toLowerCase()}`;
+    layout() {
+      return this.$route.meta.layout;
     },
   },
 };
