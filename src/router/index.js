@@ -23,8 +23,9 @@ const routes = [
 		name: 'CartPage',
 		component: CartPage,
 		meta: {
-			layout: 'main-layout',
 			headerTitle: "My cart",
+			layout: 'main-layout',
+			navBar: true,
 			roles: ["user",],
 		},
 	},
@@ -33,8 +34,8 @@ const routes = [
 		name: 'ForgotPasswordPage',
 		component: ForgotPasswordPage,
 		meta: {
-			layout: 'auth-layout',
 			headerTitle: "Forgot password",
+			layout: 'auth-layout',
 			roles: ["guest",],
 		},
 	},
@@ -43,8 +44,9 @@ const routes = [
 		name: 'HomePage',
 		component: HomePage,
 		meta: {
-			layout: 'main-layout',
 			header_search: true,
+			layout: 'main-layout',
+			navBar: true,
 			roles: ["user",],
 		},
 	},
@@ -54,8 +56,8 @@ const routes = [
 		name: 'NewPasswordPage',
 		component: NewPasswordPage,
 		meta: {
-			layout: 'auth-layout',
 			headerTitle: "New password",
+			layout: 'auth-layout',
 			roles: ["guest",],
 		},
 	},
@@ -73,8 +75,9 @@ const routes = [
 		name: 'PersonalAreaPage',
 		component: PersonalAreaPage,
 		meta: {
-			layout: 'main-layout',
 			headerTitle: "My account",
+			layout: 'main-layout',
+			navBar: true,
 			roles: ["user",],
 		},
 	},
@@ -84,6 +87,7 @@ const routes = [
 		component: ProductListPage,
 		meta: {
 			layout: 'main-layout',
+			navBar: true,
 			roles: ["user",],
 		},
 	},
@@ -93,6 +97,7 @@ const routes = [
 		component: ProductPage,
 		meta: {
 			layout: 'main-layout',
+			navBar: true,
 			roles: ["user", "guest"],
 		},
 	},
@@ -101,8 +106,8 @@ const routes = [
 		name: 'RecoveryCodePage',
 		component: RecoveryCodePage,
 		meta: {
-			layout: 'auth-layout',
 			headerTitle: "Recovery code",
+			layout: 'auth-layout',
 			roles: ["guest",],
 		},
 	},
@@ -111,8 +116,8 @@ const routes = [
 		name: 'SignInPage',
 		component: SignInPage,
 		meta: {
-			layout: 'auth-layout',
 			headerTitle: "Sign In",
+			layout: 'auth-layout',
 			roles: ["guest",],
 		},
 	},
@@ -121,8 +126,8 @@ const routes = [
 		name: 'SignUpPage',
 		component: SignUpPage,
 		meta: {
-			layout: 'auth-layout',
 			headerTitle: "Sign Up",
+			layout: 'auth-layout',
 			roles: ["guest",],
 		},
 	},
@@ -131,8 +136,9 @@ const routes = [
 		name: 'TempPage',
 		component: TempPage,
 		meta: {
-			layout: 'main-layout',
 			headerTitle: "Заглушка",
+			layout: 'main-layout',
+			navBar: true,
 			roles: ["user",],
 		},
 	},
@@ -141,8 +147,9 @@ const routes = [
 		name: 'WishListPage',
 		component: WishListPage,
 		meta: {
-			layout: 'main-layout',
 			headerTitle: "My wishlist",
+			layout: 'main-layout',
+			navBar: true,
 			roles: ["user",],
 		},
 	},
@@ -160,8 +167,8 @@ const routes = [
 		name: 'WelcomeBackPage',
 		component: WelcomeBackPage,
 		meta: {
-			layout: 'auth-layout',
 			headerTitle: "Welcome back",
+			layout: 'auth-layout',
 			roles: ["guest",],
 		},
 	},
