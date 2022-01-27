@@ -11,6 +11,8 @@
 import { mapState } from "vuex";
 import Header from "@/components/Header.vue";
 export default {
+  name: "AuthLayout",
+
   components: {
     Header,
   },
