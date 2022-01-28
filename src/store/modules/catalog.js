@@ -13,11 +13,13 @@ export default {
 				.then(json => commit('setCategors', json))
 		},
 		async fetchCatalogCategory({ commit }, category) {
+			commit('setCatalogCategory', '');
 			fetch(`https://fakestoreapi.com/products/category/${category}`)
 				.then(res => res.json())
 				.then(json => commit('setCatalogCategory', json))
 		},
 		async fetchProduct({ commit }, id) {
+			commit('setProduct', '');
 			fetch(`https://fakestoreapi.com/products/${id}`)
 				.then(res => res.json())
 				.then(json => commit('setProduct', json))
