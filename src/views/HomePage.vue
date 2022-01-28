@@ -25,7 +25,7 @@
       :products="getProductsCategory('popular')"
     />
     <Categories class="home-page__categories" />
-    <div class="home-page__carousel carousel">
+    <div class="home-page__carousel carousel" :hidden="!getCatalog.length">
       <div class="carousel__header">
         <div class="carousel__title">New Products</div>
         <Button
@@ -118,7 +118,7 @@ export default {
   display: flex;
   flex: 1 0 0;
   flex-direction: column;
-  justify-content: space-between;
+
   .app--search-opened & {
     max-height: 100vh;
     overflow: hidden;
@@ -180,13 +180,13 @@ export default {
   width: 100%;
 }
 .home-page__categories {
-  margin-top: 1.2rem;
+  margin: 3rem 0 1.2rem;
 }
 .home-page__carousel {
   background-color: #e0e4e7;
   border-radius: 25px 25px 0 0;
   margin-left: -$padding-side;
-  margin-top: 1.2rem;
+  margin-top: auto;
   overflow: hidden;
   padding-bottom: 1.5rem;
   width: calc(100% + $padding-side * 2);
