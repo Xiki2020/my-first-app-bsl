@@ -2,25 +2,23 @@
   <div class="home-page">
     <SearchPanel class="home-page__search-panel" :products="products" />
     <div class="home-page__header">
-      <div class="home-page__search search">
-        <Button @click="hideSearch" class="search__btn">
-          <svg
-            width="19"
-            height="18"
-            viewBox="0 0 19 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M3.82828 8.29289L18.4141 8.29289L18.4141 10.2929L3.82828 10.2929L10.1212 16.5858L8.70696 18L-0.000149919 9.29289L8.70696 0.585786L10.1212 2L3.82828 8.29289Z"
-              fill="#3E4958"
-            />
-          </svg>
-        </Button>
-        <InputSearch @handInput="showSearch" :value="searchValue" />
-      </div>
+      <Button @click="hideSearch" class="search__btn">
+        <svg
+          width="19"
+          height="18"
+          viewBox="0 0 19 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M3.82828 8.29289L18.4141 8.29289L18.4141 10.2929L3.82828 10.2929L10.1212 16.5858L8.70696 18L-0.000149919 9.29289L8.70696 0.585786L10.1212 2L3.82828 8.29289Z"
+            fill="#3E4958"
+          />
+        </svg>
+      </Button>
+      <InputSearch @handInput="showSearch" :value="searchValue" />
     </div>
     <ProductsSlider
       class="home-page__slider"
@@ -123,9 +121,19 @@ export default {
 .home-page__header {
   background-color: $primary;
   border-radius: 0 0 38px 38px;
+  display: flex;
+  justify-content: space-between;
   margin-left: -$padding-side;
   padding: 3.3rem $padding-side 7.4rem;
+  position: relative;
   width: calc(100% + $padding-side * 2);
+
+  .app--search-opened & {
+    background-color: $white;
+    border: 1px solid $gray;
+    padding-bottom: 0.5rem;
+    z-index: 30;
+  }
 }
 
 //Search Panel
@@ -141,19 +149,6 @@ export default {
     opacity: 1;
     visibility: visible;
     top: 0;
-  }
-}
-.search {
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  transition: $transition-base;
-
-  .app--search-opened & {
-    background-color: $white;
-    padding: 1rem 0.5rem;
-    z-index: 30;
   }
 }
 .search__btn {

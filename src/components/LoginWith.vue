@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="login-with__btns">
-      <Button variant="secondary" class="login-with__btn">
+      <Button variant="gray" class="login-with__btn">
         <svg
           width="15"
           height="28"
@@ -20,7 +20,7 @@
           />
         </svg>
       </Button>
-      <Button variant="secondary" class="login-with__btn">
+      <Button variant="gray" class="login-with__btn">
         <svg
           width="29"
           height="29"
@@ -92,12 +92,11 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 1.75rem;
-
-  .login-with__btn {
-    width: 47%;
-  }
 }
-
+.login-with__btn {
+  padding: 0.9rem 0;
+  width: 47%;
+}
 .login-with__descr-link {
   font-weight: 500;
   margin-top: 3.125rem;

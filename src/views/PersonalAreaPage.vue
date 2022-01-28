@@ -65,8 +65,8 @@ export default {
   cursor: pointer;
   font-weight: 600;
   font-size: 0.75rem;
-  height: 36px;
   margin-top: 0.5rem;
+  padding: 0.65rem 0;
   transition: $transition-base;
   width: 100px;
 
