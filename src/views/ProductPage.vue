@@ -1,22 +1,20 @@
 <template>
-  <div class="product">
+  <div class="product" v-if="getProduct.id">
     <Header>
       {{ getProduct.title }}
     </Header>
-    <div class="product__body">
-      <div class="product__content">
-        <img class="product__img" :src="getProduct.image" />
-        <!-- <div class="product__colors">{{ product.countColors }} Colors</div> -->
-        <div class="product__price">${{ getProduct.price }}</div>
-      </div>
-      <Button
-        text="Add"
-        class="product__btn-add"
-        @click="addProduct(getProduct)"
-        :variant="getRole === 'user' ? 'primary' : 'secondary'"
-        :disabled="!(getRole === 'user')"
-      />
+    <div class="product__content">
+      <img class="product__img" :src="getProduct.image" />
+      <!-- <div class="product__colors">{{ product.countColors }} Colors</div> -->
+      <div class="product__price">${{ getProduct.price }}</div>
     </div>
+    <Button
+      text="Add"
+      class="product__btn-add"
+      @click="addProduct(getProduct)"
+      :variant="getRole === 'user' ? 'primary' : 'secondary'"
+      :disabled="!(getRole === 'user')"
+    />
   </div>
 </template>
 <script>
@@ -67,6 +65,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   padding-bottom: 1rem;
+  width: 100%;
 }
 .product__header {
   align-items: center;
@@ -95,12 +94,6 @@ export default {
   margin-left: 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.product__body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
 }
 .product__content {
   display: flex;
