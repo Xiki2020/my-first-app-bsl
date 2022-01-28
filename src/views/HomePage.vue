@@ -151,7 +151,7 @@ export default {
   transition: $transition-base;
 
   .app--search-opened & {
-    background-color: $secondary;
+    background-color: $white;
     padding: 1rem 0.5rem;
     z-index: 30;
   }
