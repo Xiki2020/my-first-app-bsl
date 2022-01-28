@@ -164,7 +164,7 @@ export default {
 			products: [],
 			categories: [],
 			catalog: [],
-			categors: ['electronics', 'jewelery', "men's clothing", "women's clothing"],
+			categors: [],
 			catalogCategory: [],
 			product: {},
 		};

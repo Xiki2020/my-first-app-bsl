@@ -35,7 +35,6 @@ export default {
 <style lang="scss" scoped>
 .products-carousel {
   margin-right: -25%;
-  min-height: 185px;
   padding-left: 2.25rem;
   user-select: none;
 }
