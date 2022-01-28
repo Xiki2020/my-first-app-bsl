@@ -1,24 +1,19 @@
 <template>
   <div class="categories">
-    <div
-      class="categories__wrapper-btn"
+    <Button
+      class="categories__btn"
       v-for="category in getCategors"
       :key="category"
+      @click="
+        $router.push({
+          name: 'ProductListPage',
+          params: { category: category },
+        })
+      "
+      size="small"
     >
-      <button
-        class="categories__btn"
-        @click="
-          $router.push({
-            name: 'ProductListPage',
-            params: { category: category },
-          })
-        "
-      >
-        <div class="categories__name-btn">
-          {{ category.slice(0, 1).toUpperCase() + category.slice(1) }}
-        </div>
-      </button>
-    </div>
+      {{ category.slice(0, 1).toUpperCase() + category.slice(1) }}
+    </Button>
   </div>
 
   <!-- <div class="categories">
@@ -46,12 +41,20 @@
   </div> -->
 </template>
 <script>
+import Button from "@/components/Button.vue";
+
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Categories",
-  props: {},
+
+  components: {
+    Button,
+  },
+
   methods: mapActions("catalog", ["fetchCategories", "fetchCategors"]),
+
   computed: mapGetters("catalog", ["getCategories", "getCategors"]),
+
   created() {
     this.fetchCategors();
     this.fetchCategories();
@@ -71,21 +74,31 @@ export default {
   height: 100%;
   width: 20%;
 }
-.categories__btn {
-  background-color: rgba(17, 81, 251, 0.2);
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  height: 100%;
-  outline: none;
-  padding: 0.75rem 0;
-  transition: $transition-base;
-  width: 100%;
 
-  &:hover {
-    transform: translateY(-3px);
-  }
+.categories__btn {
+  font-size: 0.6rem;
+  height: 100%;
+  overflow: hidden;
+  padding: 0.6rem 0.1rem;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
+// .categories__btn {
+//   background-color: rgba(17, 81, 251, 0.2);
+//   border-radius: 12px;
+//   border: none;
+//   cursor: pointer;
+//   height: 100%;
+//   outline: none;
+//   padding: 0.75rem 0;
+//   transition: $transition-base;
+//   width: 100%;
+
+//   &:hover {
+//     transform: translateY(-3px);
+//   }
+// }
 
 .categories__name-btn {
   color: $fc-gray;
