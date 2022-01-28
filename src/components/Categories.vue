@@ -66,6 +66,7 @@ export default {
 .categories {
   align-items: center;
   display: flex;
+  height: 55px;
   justify-content: space-between;
   text-align: center;
   width: 100%;
@@ -76,6 +77,8 @@ export default {
 }
 
 .categories__btn {
+  border-left: 0.5px solid $white;
+  border-right: 0.5px solid $white;
   font-size: 0.6rem;
   height: 100%;
   overflow: hidden;
