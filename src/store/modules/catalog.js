@@ -174,6 +174,15 @@ export default {
 		getCatalog(state) {
 			return state.catalog;
 		},
+		getFilterCatalog: state => name => {
+			if (name.length < 1) return [];
+
+			return state.catalog.filter(product => {
+				return product.title.split(" ").find(el => {
+					return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
+				});
+			}).sort((a, b) => (a.title < b.title ? -1 : 1));
+		},
 		getCategors(state) {
 			return state.categors;
 		},
