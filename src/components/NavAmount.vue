@@ -6,7 +6,7 @@
     >
       -
     </div>
-    <div class="amount__result">{{ product.count }}</div>
+    <div class="amount__result" @click.stop>{{ product.count }}</div>
     <div
       class="amount__nav"
       @click.stop="changeCountProduct({ id: product.id, action: 'add' })"

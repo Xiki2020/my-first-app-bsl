@@ -52,7 +52,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 }
 
 - CSS-property select-user for learning
-
+--modern
+Path Intellisense
 <!-- <template>
   <component :is="layout" />
 </template>
