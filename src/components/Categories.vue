@@ -81,7 +81,7 @@ export default {
   border-right: 0.5px solid $white;
   font-size: 0.6rem;
   height: 100%;
-  overflow: hidden;
+  overflow: visible;
   padding: 0.6rem 0.1rem;
   text-overflow: ellipsis;
   white-space: pre-wrap;
