@@ -15,17 +15,17 @@
     <div class="card__content">
       <div class="card__title">{{ product.name }}</div>
       <div class="card__price">${{ product.price }}</div>
-      <NavAmount :product="product" class="card__nav" />
+      <Amount :product="product" class="card__btns" />
     </div>
   </div>
 </template>
 
 <script>
-import NavAmount from "@/components/NavAmount.vue";
+import Amount from "@/components/Amount.vue";
 
 export default {
   components: {
-    NavAmount,
+    Amount,
   },
 
   name: "CardProductHorizontal",
@@ -81,7 +81,7 @@ export default {
   font-weight: 700;
   line-height: 1.5rem;
 }
-.card__nav {
+.card__btns {
   margin-top: auto;
 }
 </style>

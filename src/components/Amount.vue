@@ -1,14 +1,14 @@
 <template>
   <div class="amount">
     <div
-      class="amount__nav"
+      class="amount__btn"
       @click.stop="changeCountProduct({ id: product.id })"
     >
       -
     </div>
-    <div class="amount__result" @click.stop>{{ product.count }}</div>
+    <div class="amount__count" @click.stop>{{ product.count }}</div>
     <div
-      class="amount__nav"
+      class="amount__btn"
       @click.stop="changeCountProduct({ id: product.id, action: 'add' })"
     >
       +
@@ -20,7 +20,7 @@
 import { mapActions } from "vuex";
 
 export default {
-  name: "NavAmount",
+  name: "Amount",
 
   props: {
     product: {
@@ -43,15 +43,14 @@ export default {
   user-select: none;
   width: 100%;
 }
-.amount__result {
-  border: 1px solid $secondary;
+.amount__count {
   border-radius: 4px;
   line-height: 2rem;
   text-align: center;
   transition: $transition-base;
   width: calc(100% / 3);
 }
-.amount__nav {
+.amount__btn {
   border-radius: 7px;
   color: $fc-gray;
   cursor: pointer;

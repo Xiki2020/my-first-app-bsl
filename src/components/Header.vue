@@ -17,7 +17,7 @@
       </svg>
     </Button>
     <div class="header__title">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>

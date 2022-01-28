@@ -1,5 +1,5 @@
 <template>
-  <div class="product">
+  <div class="product" v-if="product.id">
     <Header>
       {{ product.name }}
     </Header>
@@ -16,9 +16,12 @@
         text="Add"
         class="product__btn-add"
         @click="addProduct(product)"
-      ></Button>
+        :variant="getRole === 'user' ? 'primary' : 'secondary'"
+        :disabled="!(getRole === 'user')"
+      />
     </div>
   </div>
+  <div class="err" v-else>Page not found</div>
 </template>
 <script>
 import Button from "@/components/Button.vue";
@@ -41,10 +44,12 @@ export default {
 
   computed: {
     ...mapGetters("catalog", ["getProductId"]),
+    ...mapGetters(["getRole"]),
   },
 
   methods: {
     ...mapActions("cart", ["addProduct"]),
+    ...mapActions("catalog", ["fetchProducts"]),
 
     getProduct() {
       this.product = this.getProductId(this.$route.params.id);
@@ -52,6 +57,7 @@ export default {
   },
 
   created() {
+    this.fetchProducts();
     this.getProduct();
   },
 };
@@ -104,6 +110,7 @@ export default {
   flex-direction: column;
   height: 100%;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 .product__img {
   aspect-ratio: 125 / 135;
