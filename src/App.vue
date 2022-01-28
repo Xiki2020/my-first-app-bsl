@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <component :is="layout" />
+    <Layout />
   </div>
 </template>
 
 <script>
+import Layout from "./layouts/index.vue";
+
 export default {
   name: "App",
 
-  computed: {
-    layout() {
-      return this.$route.meta.layout;
-    },
+  components: {
+    Layout,
   },
 };
 </script>
