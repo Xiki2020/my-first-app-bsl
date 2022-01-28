@@ -1,20 +1,26 @@
 <template>
-  <div class="products-list">
+  <div class="products">
     <Header>{{
       $route.params.category.slice(0, 1).toUpperCase() +
       $route.params.category.slice(1)
     }}</Header>
-    <CardProductVertical
-      v-for="product in getCatalogCategory"
-      :product="product"
-      :key="product.title"
-      class="products-list__item"
-    />
+    <div class="products__list" v-if="getCatalogCategory">
+      <CardProductVertical
+        v-for="product in getCatalogCategory"
+        :product="product"
+        :key="product.title"
+        class="products__item"
+      />
+    </div>
+    <div class="loader" v-else>
+      <Loader />
+    </div>
   </div>
 </template>
 <script>
 import CardProductVertical from "@/components/CardProduct/CardProductVertical.vue";
 import Header from "@/components/Header.vue";
+import Loader from "@/components/Loader.vue";
 
 import { mapGetters, mapActions } from "vuex";
 
@@ -24,6 +30,7 @@ export default {
   components: {
     CardProductVertical,
     Header,
+    Loader,
   },
 
   computed: {
@@ -42,12 +49,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.products-list {
+.products {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+}
+.products__list {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.products-list__item {
+.products__item {
   border: 0.5px solid $secondary;
   margin-bottom: 1rem;
   transition: $transition-base;
@@ -56,5 +69,12 @@ export default {
   &:hover {
     border-color: $gray;
   }
+}
+
+.loader {
+  align-items: center;
+  display: flex;
+  flex: 1 0 0;
+  justify-content: center;
 }
 </style>

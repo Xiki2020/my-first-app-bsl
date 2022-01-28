@@ -16,10 +16,14 @@
       :disabled="!(getRole === 'user')"
     />
   </div>
+  <div class="loader" v-else>
+    <Loader />
+  </div>
 </template>
 <script>
 import Button from "@/components/Button.vue";
 import Header from "@/components/Header.vue";
+import Loader from "@/components/Loader.vue";
 
 import { mapGetters, mapActions } from "vuex";
 
@@ -27,6 +31,7 @@ export default {
   components: {
     Button,
     Header,
+    Loader,
   },
   name: "ProductPage",
 
@@ -131,5 +136,12 @@ export default {
 .product__btn-add {
   cursor: pointer;
   margin-top: auto;
+}
+
+.loader {
+  align-items: center;
+  display: flex;
+  flex: 1 0 0;
+  justify-content: center;
 }
 </style>>

@@ -12,6 +12,7 @@
         {{ product.name.split(" ").slice(1).join(" ") }}
       </div>
       <Button
+        disabled
         class="card__btn"
         text="Buy now"
         variant="gray"
