@@ -8,12 +8,9 @@
       })
     "
   >
-    <img
-      class="card__img"
-      :src="require(`@/assets/img-sneakers/${product.img}`)"
-    />
+    <img class="card__img" :src="product.image" />
     <div class="card__content">
-      <div class="card__title">{{ product.name }}</div>
+      <div class="card__title">{{ product.title }}</div>
       <div class="card__price">${{ product.price }}</div>
       <Amount :product="product" class="card__btns" />
     </div>
@@ -64,6 +61,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 0 0.75rem;
+  width: 80%;
 }
 .card__title {
   color: $fc-gray;
@@ -73,7 +71,7 @@ export default {
   margin-top: 0.625rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: break-spaces;
 }
 .card__price {
   color: $fc-gray;

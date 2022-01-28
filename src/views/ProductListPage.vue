@@ -5,9 +5,9 @@
       $route.params.category.slice(1)
     }}</Header>
     <CardProductVertical
-      v-for="product in getProductsCategory($route.params.category)"
+      v-for="product in getCatalogCategory"
       :product="product"
-      :key="product.name"
+      :key="product.title"
       class="products-list__item"
     />
   </div>
@@ -27,15 +27,16 @@ export default {
   },
 
   computed: {
-    ...mapGetters("catalog", ["getProductsCategory"]),
+    ...mapGetters("catalog", ["getProductsCategory", "getCatalogCategory"]),
   },
 
   methods: {
-    ...mapActions("catalog", ["fetchProducts"]),
+    ...mapActions("catalog", ["fetchProducts", "fetchCatalogCategory"]),
   },
 
   created() {
     this.fetchProducts();
+    this.fetchCatalogCategory(this.$route.params.category);
   },
 };
 </script>

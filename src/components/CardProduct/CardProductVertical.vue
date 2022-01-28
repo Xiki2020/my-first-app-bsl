@@ -22,12 +22,14 @@
         />
       </svg>
     </div>
-    <img
+    <!-- <img
       class="card__img"
       :src="require(`@/assets/img-sneakers/${product.img}`)"
-    />
-    <div class="card__name">{{ product.name }}</div>
-    <div class="card__colors">{{ product.countColors }} Colors</div>
+    /> -->
+    <img class="card__img" :src="product.image" />
+    <!-- <div class="card__name">{{ product.name }}</div> -->
+    <div class="card__name">{{ product.title }}</div>
+    <!-- <div class="card__colors">{{ product.countColors }} Colors</div> -->
     <div class="card__bottom">
       <div class="card__price">${{ product.price }}</div>
       <Button

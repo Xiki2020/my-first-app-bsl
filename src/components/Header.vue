@@ -45,6 +45,7 @@ export default {
   width: auto;
   height: auto;
   line-height: 1;
+  margin-right: 1rem;
   padding: 0;
 
   &:hover {
@@ -58,8 +59,8 @@ export default {
   font-weight: 600;
   font-size: 1.625rem;
   line-height: 1.25;
-  margin: 0 1rem;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 80%;
 }
 </style>>

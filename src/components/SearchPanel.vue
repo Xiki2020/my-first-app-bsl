@@ -5,7 +5,7 @@
       <div
         class="search-panel__result"
         v-for="product in products"
-        :key="product.name"
+        :key="product.title"
         @click="
           $router.push({
             name: 'ProductPage',
@@ -13,11 +13,12 @@
           })
         "
       >
-        {{ product.name }}
-        <img
+        {{ product.title }}
+        <!-- <img
           :src="require(`@/assets/img-sneakers/${product.img}`)"
           class="search-panel__result-img"
-        />
+        /> -->
+        <img :src="product.image" class="search-panel__result-img" />
       </div>
     </div>
     <div class="search-panel__not-found" v-else>Not found</div>
