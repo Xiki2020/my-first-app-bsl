@@ -120,3 +120,51 @@ user-select: none для активно кликаемых элементах, �
 - если нет продуктов в корзине, то выводить сообщение и не показывать всё что сейчас есть +
 - устранить все фиксированные высоты/длины, сделать значения максимально относительными +
 - добавить в поиск состояние когда ничего не найдено +
+
+
+<!-- <template>
+  <div class="layout">
+    <component :is="layout" />
+  </div>
+</template>
+
+<script>
+import AuthLayout from "./AuthLayout.vue";
+import MainLayout from "./MainLayout.vue";
+
+export default {
+  name: "Layout",
+
+  components: {
+    AuthLayout,
+    MainLayout,
+  },
+
+  computed: {
+    layout() {
+      return this.$route.meta.layout;
+    },
+  },
+};
+</script>
+
+<style>
+</style> -->
+
+<!-- <template>
+  <div id="app">
+    <Layout />
+  </div>
+</template>
+
+<script>
+import Layout from "./layout/index.vue";
+
+export default {
+  name: "App",
+
+  components: {
+    Layout,
+  },
+};
+</script> -->

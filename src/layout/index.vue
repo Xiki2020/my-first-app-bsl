@@ -1,7 +1,5 @@
 <template>
-  <div class="layout">
-    <component :is="layout" />
-  </div>
+  <div class="layout"></div>
 </template>
 
 <script>
@@ -14,12 +12,6 @@ export default {
   components: {
     AuthLayout,
     MainLayout,
-  },
-
-  computed: {
-    layout() {
-      return this.$route.meta.layout;
-    },
   },
 };
 </script>
