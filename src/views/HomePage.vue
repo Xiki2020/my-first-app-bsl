@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <SearchPanel class="home-page__search-panel" :products="products" />
+    <SearchPanel class="home-page__search-panel" :products="getCatalog" />
     <div class="home-page__header">
       <Button @click="hideSearch" class="search__btn">
         <svg
@@ -39,7 +39,8 @@
           "
         />
       </div>
-      <ProductsCarousel :products="getProductsCategory('new')" />
+      <ProductsCarousel :products="getCatalog" />
+      <!-- <ProductsCarousel :products="getProductsCategory('new')" v-else /> -->
     </div>
   </div>
 </template>
@@ -80,11 +81,15 @@ export default {
   },
 
   computed: {
-    ...mapGetters("catalog", ["getProductsCategory", "getFilterProducts"]),
+    ...mapGetters("catalog", [
+      "getProductsCategory",
+      "getFilterProducts",
+      "getCatalog",
+    ]),
   },
 
   methods: {
-    ...mapActions("catalog", ["fetchProducts"]),
+    ...mapActions("catalog", ["fetchProducts", "fetchCatalog"]),
     ...mapMutations("common", ["setSearchVisible"]),
 
     showSearch(value) {
@@ -102,6 +107,7 @@ export default {
   },
 
   created() {
+    this.fetchCatalog();
     this.fetchProducts();
   },
 };
@@ -130,7 +136,7 @@ export default {
 
   .app--search-opened & {
     background-color: $white;
-    border: 1px solid $gray;
+    border-bottom: 1px solid $gray;
     padding-bottom: 0.5rem;
     z-index: 30;
   }

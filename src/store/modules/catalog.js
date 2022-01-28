@@ -2,6 +2,27 @@ export default {
 	namespaced: true, // ВКЛЮЧАЙ ИХ ВСЕГДА!
 
 	actions: {
+		async fetchCatalog({ commit }) {
+			fetch('https://fakestoreapi.com/products')
+				.then(res => res.json())
+				.then(json => commit('setCatalog', json))
+		},
+		async fetchCategors({ commit }) {
+			fetch('https://fakestoreapi.com/products/categories')
+				.then(res => res.json())
+				.then(json => commit('setCategors', json))
+		},
+		async fetchCatalogCategory({ commit }, category) {
+			fetch(`https://fakestoreapi.com/products/category/${category}`)
+				.then(res => res.json())
+				.then(json => commit('setCatalogCategory', json))
+		},
+		async fetchProduct({ commit }, id) {
+			fetch(`https://fakestoreapi.com/products/${id}`)
+				.then(res => res.json())
+				.then(json => commit('setProduct', json))
+		},
+
 		async fetchProducts({ commit }) {
 			const products = [
 				{
@@ -87,7 +108,7 @@ export default {
 			];
 			commit('setProducts', products);
 		},
-		async fethCategories(context) {
+		async fetchCategories(context) {
 			const categories = [
 				{
 					id: '0035114a-b6ed-4dd0-b8bc-04ecbd864b3f',
@@ -115,11 +136,24 @@ export default {
 	},
 
 	mutations: {
-		setProducts(state, products) {
-			state.products = products;
+		setCatalog(state, catalog) {
+			state.catalog = catalog;
 		},
+		setCategors(state, categors) {
+			state.categors = categors;
+		},
+		setCatalogCategory(state, catalog) {
+			state.catalogCategory = catalog;
+		},
+		setProduct(state, product) {
+			state.product = product;
+		},
+
 		setCategories(state, categories) {
 			state.categories = categories;
+		},
+		setProducts(state, products) {
+			state.products = products;
 		},
 	},
 
@@ -127,20 +161,35 @@ export default {
 		return {
 			products: [],
 			categories: [],
+			catalog: [],
+			categors: ['electronics', 'jewelery', "men's clothing", "women's clothing"],
+			catalogCategory: [],
+			product: {},
 		};
 	},
 
 	getters: {
+		getCatalog(state) {
+			return state.catalog;
+		},
+		getCategors(state) {
+			return state.categors;
+		},
+		getCatalogCategory(state) {
+			return state.catalogCategory;
+		},
+		getProduct(state) {
+			return state.product;
+		},
+
 		getProductsCategory: state => category => {
 			return state.products.filter(product => {
 				return product.category.find(el => el.toLowerCase() === category.toLowerCase());
 			}).sort((a, b) => (a.name < b.name ? -1 : 1));
 		},
-
 		getProductId: state => id => {
 			return state.products.find(product => product.id === id)
 		},
-
 		getFilterProducts: state => name => {
 			if (name.length < 1) return [];
 
@@ -148,11 +197,8 @@ export default {
 				return product.name.split(" ").find(el => {
 					return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
 				});
-				// 	return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
-				// }).sort((a, b) => (a.name < b.name ? -1 : 1));
 			}).sort((a, b) => (a.name < b.name ? -1 : 1));
 		},
-
 		getCategories(state) {
 			return state.categories;
 		},

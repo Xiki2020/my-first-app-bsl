@@ -1,21 +1,18 @@
 <template>
-  <div class="product" v-if="product.id">
+  <div class="product" v-if="getProduct.id">
     <Header>
-      {{ product.name }}
+      {{ getProduct.title }}
     </Header>
     <div class="product__body">
       <div class="product__content">
-        <img
-          class="product__img"
-          :src="require(`@/assets/img-sneakers/${product.img}`)"
-        />
-        <div class="product__colors">{{ product.countColors }} Colors</div>
-        <div class="product__price">${{ product.price }}</div>
+        <img class="product__img" :src="getProduct.image" />
+        <!-- <div class="product__colors">{{ product.countColors }} Colors</div> -->
+        <div class="product__price">${{ getProduct.price }}</div>
       </div>
       <Button
         text="Add"
         class="product__btn-add"
-        @click="addProduct(product)"
+        @click="addProduct(getProduct)"
         :variant="getRole === 'user' ? 'primary' : 'secondary'"
         :disabled="!(getRole === 'user')"
       />
@@ -43,22 +40,23 @@ export default {
   },
 
   computed: {
-    ...mapGetters("catalog", ["getProductId"]),
+    ...mapGetters("catalog", ["getProductId", "getProduct"]),
     ...mapGetters(["getRole"]),
   },
 
   methods: {
     ...mapActions("cart", ["addProduct"]),
-    ...mapActions("catalog", ["fetchProducts"]),
+    ...mapActions("catalog", ["fetchProducts", "fetchProduct"]),
 
-    getProduct() {
-      this.product = this.getProductId(this.$route.params.id);
-    },
+    //  getProduct() {
+    //    this.product = this.getProductId(this.$route.params.id);
+    //  },
   },
 
   created() {
-    this.fetchProducts();
-    this.getProduct();
+    this.fetchProduct(this.$route.params.id);
+    //  this.fetchProducts();
+    //  this.getProduct();
   },
 };
 </script>
