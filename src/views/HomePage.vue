@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <SearchPanel class="home-page__search-panel" :products="getCatalog" />
+    <SearchPanel class="home-page__search-panel" :products="products" />
     <div class="home-page__header">
       <Button @click="hideSearch" class="search__btn">
         <svg
@@ -76,7 +76,7 @@ export default {
 
   watch: {
     searchValue(value) {
-      this.products = this.getFilterProducts(value);
+      this.products = this.getFilterCatalog(value);
     },
   },
 
@@ -85,6 +85,7 @@ export default {
       "getProductsCategory",
       "getFilterProducts",
       "getCatalog",
+      "getFilterCatalog",
     ]),
   },
 
