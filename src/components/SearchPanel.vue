@@ -55,7 +55,6 @@ export default {
 }
 .search-panel__results {
   font-weight: 600;
-  line-height: 3.75rem;
   padding-top: 0.625rem;
 }
 
@@ -66,7 +65,8 @@ export default {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: 0 0.5rem;
+  line-height: 1.5;
+  padding: 1rem 0.5rem;
   transition: $transition-base;
 
   &:hover {
