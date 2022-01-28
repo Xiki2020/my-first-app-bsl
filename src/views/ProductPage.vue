@@ -1,5 +1,5 @@
 <template>
-  <div class="product" v-if="getProduct.id">
+  <div class="product">
     <Header>
       {{ getProduct.title }}
     </Header>
@@ -18,7 +18,6 @@
       />
     </div>
   </div>
-  <div class="err" v-else>Page not found</div>
 </template>
 <script>
 import Button from "@/components/Button.vue";
