@@ -1,17 +1,23 @@
 <template>
-  <div id="app">
-    <Layout />
-  </div>
+  <component :is="layout" />
 </template>
 
 <script>
-import Layout from "./layout/index.vue";
+import AuthLayout from "./layout/AuthLayout.vue";
+import MainLayout from "./layout/MainLayout.vue";
 
 export default {
   name: "App",
 
   components: {
-    Layout,
+    AuthLayout,
+    MainLayout,
+  },
+
+  computed: {
+    layout() {
+      return this.$route.meta.layout;
+    },
   },
 };
 </script>
