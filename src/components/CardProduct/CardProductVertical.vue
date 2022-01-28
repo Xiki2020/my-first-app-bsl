@@ -5,6 +5,7 @@
       params: { id: product.id },
     }"
     class="card"
+    :title="product.title"
   >
     <div class="card__btn-wish">
       <svg

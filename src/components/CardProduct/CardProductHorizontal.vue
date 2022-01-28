@@ -81,5 +81,6 @@ export default {
 }
 .card__btns {
   margin-top: auto;
+  width: 40%;
 }
 </style>
