@@ -2,14 +2,14 @@
   <div class="amount">
     <div
       class="amount__btn"
-      @click.stop="changeCountProduct({ id: product.id })"
+      @click.prevent="changeCountProduct({ id: product.id })"
     >
       -
     </div>
-    <div class="amount__count" @click.stop>{{ product.count }}</div>
+    <div class="amount__count" @click.prevent>{{ product.count }}</div>
     <div
       class="amount__btn"
-      @click.stop="changeCountProduct({ id: product.id, action: 'add' })"
+      @click.prevent="changeCountProduct({ id: product.id, action: 'add' })"
     >
       +
     </div>

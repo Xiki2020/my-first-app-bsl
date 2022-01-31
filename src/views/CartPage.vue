@@ -3,10 +3,11 @@
     <TitleHeader> Add more products to your cart! </TitleHeader>
     <InputSearch class="cart__search" @handInput="addValue" value="" />
     <div class="cart__products">
-      <CardProductHorizontal
+      <CardProduct
         v-for="product in getFilterProducts(value)"
         :key="product.name"
         :product="product"
+        variant="horizontal"
         class="cart__product"
       />
     </div>
@@ -38,7 +39,7 @@
 
 <script>
 import Button from "@/components/Button.vue";
-import CardProductHorizontal from "@/components/CardProduct/CardProductHorizontal.vue";
+import CardProduct from "@/components/CardProduct/CardProduct.vue";
 import InputSearch from "@/components/FormComponents/InputSearch.vue";
 import TitleHeader from "@/components/TitleHeader.vue";
 
@@ -49,7 +50,7 @@ export default {
 
   components: {
     Button,
-    CardProductHorizontal,
+    CardProduct,
     InputSearch,
     TitleHeader,
   },
