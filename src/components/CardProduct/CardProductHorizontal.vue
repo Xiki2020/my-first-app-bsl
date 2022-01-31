@@ -8,32 +8,43 @@
       })
     "
   >
-    <img class="card__img" :src="product.image" />
+    <img
+      class="card__img"
+      :src="product.image"
+    >
     <div class="card__content">
-      <div class="card__title">{{ product.title }}</div>
-      <div class="card__price">${{ product.price }}</div>
-      <Amount :product="product" class="card__btns" />
+      <div class="card__title">
+        {{ product.title }}
+      </div>
+      <div class="card__price">
+        ${{ product.price }}
+      </div>
+      <Amount
+        :product="product"
+        class="card__btns"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Amount from "@/components/Amount.vue";
+import Amount from "@/components/Amount.vue"
 
 export default {
+
+  name: "CardProductHorizontal",
   components: {
     Amount,
   },
-
-  name: "CardProductHorizontal",
 
   props: {
     product: {
       type: Object,
       reqired: true,
+		default: () => {},
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

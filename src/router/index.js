@@ -188,7 +188,7 @@ router.beforeEach((to, from, next) => {
 		next()
 	} else if (store.getters.getRole === "user") {
 		next({ name: from.name })
-	} else next({ name: "WelcomePage" });
-});
+	} else next({ name: "WelcomePage" })
+})
 
 export default router

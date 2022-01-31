@@ -1,6 +1,9 @@
 <template>
   <div class="header">
-    <Button @click="$router.go(-1)" class="header__btn">
+    <Button
+      class="header__btn"
+      @click="$router.go(-1)"
+    >
       <svg
         width="19"
         height="18"
@@ -22,14 +25,14 @@
   </div>
 </template>
 <script>
-import Button from "@/components/Button.vue";
+import Button from "@/components/Button.vue"
 
 export default {
+  name: "Header",
   components: {
     Button,
   },
-  name: "Header",
-};
+}
 </script>
 <style  lang="scss" scoped>
 .header {

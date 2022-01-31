@@ -1,7 +1,11 @@
 <template>
   <div class="cart">
     <TitleHeader> Add more products to your cart! </TitleHeader>
-    <InputSearch class="cart__search" @handInput="addValue" value="" />
+    <InputSearch
+      class="cart__search"
+      value=""
+      @handInput="addValue"
+    />
     <div class="cart__products">
       <CardProduct
         v-for="product in getFilterProducts(value)"
@@ -11,14 +15,17 @@
         class="cart__product"
       />
     </div>
-    <div class="cart__bottom" v-if="getFilterProducts(value).length">
+    <div
+      v-if="getFilterProducts(value).length"
+      class="cart__bottom"
+    >
       <form class="cart__promocode-form">
         <input
+          v-model="promocode"
           type="text"
           class="cart__promocode-input"
-          v-model="promocode"
           placeholder="Enter code voucher"
-        />
+        >
         <Button
           :disabled="!promocode"
           text="Apply"
@@ -27,23 +34,40 @@
         />
       </form>
       <div class="cart__price-block">
-        <div class="cart__price-title">In total</div>
-        <div class="cart__price">${{ getPriceCart }}</div>
+        <div class="cart__price-title">
+          In total
+        </div>
+        <div class="cart__price">
+          ${{ getPriceCart }}
+        </div>
       </div>
-      <Button text="Checkout" class="cart__btn" />
+      <Button
+        text="Checkout"
+        class="cart__btn"
+      />
     </div>
-    <div class="cart__not-found" v-else-if="getCart.length">Not found.</div>
-    <div class="cart__not-found" v-else>Nothing added to cart.</div>
+    <div
+      v-else-if="getCart.length"
+      class="cart__not-found"
+    >
+      Not found.
+    </div>
+    <div
+      v-else
+      class="cart__not-found"
+    >
+      Nothing added to cart.
+    </div>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
-import CardProduct from "@/components/CardProduct/CardProduct.vue";
-import InputSearch from "@/components/FormComponents/InputSearch.vue";
-import TitleHeader from "@/components/TitleHeader.vue";
+import Button from "@/components/Button.vue"
+import CardProduct from "@/components/CardProduct/CardProduct.vue"
+import InputSearch from "@/components/FormComponents/InputSearch.vue"
+import TitleHeader from "@/components/TitleHeader.vue"
 
-import { mapGetters } from "vuex";
+import { mapGetters } from "vuex"
 
 export default {
   name: "CartPage",
@@ -59,7 +83,7 @@ export default {
     return {
       value: "",
       promocode: "",
-    };
+    }
   },
 
   computed: {
@@ -68,10 +92,10 @@ export default {
 
   methods: {
     addValue(value) {
-      this.value = value;
+      this.value = value
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 .cart {

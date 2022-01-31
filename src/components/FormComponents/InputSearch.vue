@@ -1,10 +1,10 @@
 <template>
   <input
+    v-model="localValue"
     type="text"
     class="input-search"
     placeholder="Search"
-    v-model="localValue"
-  />
+  >
 </template>
 <script>
 export default {
@@ -18,21 +18,23 @@ export default {
     },
   },
 
-  watch: {
-    value(val) {
-      this.localValue = val;
-    },
-    localValue(val) {
-      this.$emit("handInput", val);
-    },
-  },
+  emits: ['handInput'],
 
   data() {
     return {
       localValue: this.value,
-    };
+    }
   },
-};
+
+  watch: {
+    value(val) {
+      this.localValue = val
+    },
+    localValue(val) {
+      this.$emit("handInput", val)
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>

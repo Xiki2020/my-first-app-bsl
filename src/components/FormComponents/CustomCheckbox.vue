@@ -1,29 +1,39 @@
 <template>
   <div class="custom-checkbox">
-    <input class="custom-checkbox__input" type="checkbox" :id="uuid" />
-    <label class="custom-checkbox__label" :for="uuid">
+    <input
+      :id="uuid"
+      class="custom-checkbox__input"
+      type="checkbox"
+    >
+    <label
+      class="custom-checkbox__label"
+      :for="uuid"
+    >
       <div class="custom-checkbox__text">{{ title }}</div>
     </label>
   </div>
 </template>
 
 <script>
-import { getUniqId } from "@/utils/common";
+import { getUniqId } from "@/utils/common"
+
 export default {
   name: "CustomCheckbox",
+
   props: {
     title: {
-      title: String,
-      required: () => true,
+      type: String,
+      reqired: true,
+		default: () => "",
     },
   },
 
   computed: {
     uuid() {
-      return getUniqId();
+      return getUniqId()
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

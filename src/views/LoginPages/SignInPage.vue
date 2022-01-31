@@ -1,7 +1,7 @@
 <template>
   <div class="sign-in-page">
-    <TitleHeader
-      >Please fill E-mail & password to login your Shopy application account.
+    <TitleHeader>
+      Please fill E-mail & password to login your Shopy application account.
     </TitleHeader>
     <form class="sign-in-page__form">
       <InputEmail />
@@ -11,8 +11,9 @@
         <router-link
           class="actions__link-forgot"
           :to="{ name: 'ForgotPasswordPage' }"
-          >Forgot password?</router-link
         >
+          Forgot password?
+        </router-link>
       </div>
       <Button
         text="Sign In"
@@ -23,20 +24,20 @@
     <LoginWith
       class="sign-in-page__footer"
       title="Sign Up"
-      toRouteName="SignUpPage"
+      to-route-name="SignUpPage"
     />
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
-import CustomCheckbox from "@/components/FormComponents/CustomCheckbox.vue";
-import InputEmail from "@/components/FormComponents/InputEmail.vue";
-import InputPassword from "@/components/FormComponents/InputPassword.vue";
-import LoginWith from "@/components/LoginWith.vue";
-import TitleHeader from "@/components/TitleHeader.vue";
+import Button from "@/components/Button.vue"
+import CustomCheckbox from "@/components/FormComponents/CustomCheckbox.vue"
+import InputEmail from "@/components/FormComponents/InputEmail.vue"
+import InputPassword from "@/components/FormComponents/InputPassword.vue"
+import LoginWith from "@/components/LoginWith.vue"
+import TitleHeader from "@/components/TitleHeader.vue"
 
-import { mapActions } from "vuex";
+import { mapActions } from "vuex"
 
 export default {
   name: "SignInPage",
@@ -51,11 +52,11 @@ export default {
   methods: {
     ...mapActions(["changeRole"]),
     toCome() {
-      this.changeRole("user");
-      this.$router.push({ name: "HomePage" });
+      this.changeRole("user")
+      this.$router.push({ name: "HomePage" })
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

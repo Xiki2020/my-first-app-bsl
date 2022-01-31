@@ -1,11 +1,16 @@
 <template>
   <div class="search-panel">
-    <div class="search-panel__title">Search results:</div>
-    <div class="search-panel__results" v-if="products.length > 0">
+    <div class="search-panel__title">
+      Search results:
+    </div>
+    <div
+      v-if="products.length > 0"
+      class="search-panel__results"
+    >
       <div
-        class="search-panel__result"
         v-for="product in products"
         :key="product.title"
+        class="search-panel__result"
         @click="
           $router.push({
             name: 'ProductPage',
@@ -14,14 +19,18 @@
         "
       >
         {{ product.title }}
-        <!-- <img
-          :src="require(`@/assets/img-sneakers/${product.img}`)"
+        <img
+          :src="product.image"
           class="search-panel__result-img"
-        /> -->
-        <img :src="product.image" class="search-panel__result-img" />
+        >
       </div>
     </div>
-    <div class="search-panel__not-found" v-else>Not found</div>
+    <div
+      v-else
+      class="search-panel__not-found"
+    >
+      Not found
+    </div>
   </div>
 </template>
 
@@ -33,9 +42,10 @@ export default {
     products: {
       type: Array,
       reqired: true,
+		default: () => [],
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

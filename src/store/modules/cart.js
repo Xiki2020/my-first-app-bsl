@@ -3,38 +3,38 @@ export default {
 
 	actions: {
 		addProduct({ commit }, product) {
-			commit('setProduct', product);
+			commit('setProduct', product)
 		},
 
 		changeCountProduct({ commit }, obj) {
-			commit('setCountProduct', obj);
+			commit('setCountProduct', obj)
 		},
 	},
 
 	mutations: {
 		setProduct(state, product) {
-			let foundedProduct = state.products.find(el => el.id === product.id);
+			let foundedProduct = state.products.find(el => el.id === product.id)
 
 			if (foundedProduct) {
-				foundedProduct.count += 1;
-				return;
+				foundedProduct.count += 1
+				return
 			}
 
-			product.count = 1;
-			state.products.push(product);
+			product.count = 1
+			state.products.push(product)
 		},
 
 		// obj object
 		// obj.id {string} - id продукта
 		// obj.action {string} - тип действия
 		setCountProduct (state, obj) {
-			let index;
+			let index
 			let product = state.products.find((el, i) => {
 				if (el.id === obj.id) {
-					index = i;
-					return el;
+					index = i
+					return el
 				}
-			});
+			})
 
 			// если уменьшаем и кол-во = 1, то удаляем
 			if (product.count === 1 && obj.action === 'remove') {
@@ -63,23 +63,23 @@ export default {
 
 	getters: {
 		getCart (state) {
-			return state.products;
+			return state.products
 		},
 
 		getCountProducts(state) {
-			let count = 0;
+			let count = 0
 			state.products.forEach(product => {
-				count += product.count;
-			});
-			return count;
+				count += product.count
+			})
+			return count
 		},
 
 		getPriceCart(state) {
-			let price = 0;
+			let price = 0
 			state.products.forEach(product => {
-				price += product.count * product.price;
-			});
-			return price.toFixed(2);
+				price += product.count * product.price
+			})
+			return price.toFixed(2)
 		},
 
 		// getFilterProducts: state => name => {
@@ -100,7 +100,7 @@ export default {
 				// });
 				// 	return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
 				// }).sort((a, b) => (a.name < b.name ? -1 : 1));
-			}).sort((a, b) => (a.title < b.title ? -1 : 1));
+			}).sort((a, b) => (a.title < b.title ? -1 : 1))
 		},
 	},
-};
+}

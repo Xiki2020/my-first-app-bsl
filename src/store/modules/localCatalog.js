@@ -84,8 +84,8 @@ export default {
 					category: ["women", "new", "popular"],
 					id: 'c66fbd6f-21ca-4453-8923-808f820ab0e0',
 				},
-			];
-			commit('setProducts', products);
+			]
+			commit('setProducts', products)
 		},
 		async fetchCategories(context) {
 			const categories = [
@@ -109,17 +109,17 @@ export default {
 					category: "New",
 					icon: "sale.svg",
 				},
-			];
-			context.commit('setCategories', categories);
+			]
+			context.commit('setCategories', categories)
 		}
 	},
 
 	mutations: {
 		setCategories(state, categories) {
-			state.categories = categories;
+			state.categories = categories
 		},
 		setProducts(state, products) {
-			state.products = products;
+			state.products = products
 		},
 	},
 
@@ -127,31 +127,31 @@ export default {
 		return {
 			products: [],
 			categories: [],
-		};
+		}
 	},
 
 	getters: {
 		getProductsCategory: state => category => {
 			return state.products.filter(product => {
-				return product.category.find(el => el.toLowerCase() === category.toLowerCase());
-			}).sort((a, b) => (a.name < b.name ? -1 : 1));
+				return product.category.find(el => el.toLowerCase() === category.toLowerCase())
+			}).sort((a, b) => (a.name < b.name ? -1 : 1))
 		},
 		getProductId: state => id => {
 			return state.products.find(product => product.id === id)
 		},
 		getFilterProducts: state => name => {
-			if (name.length < 1) return [];
+			if (name.length < 1) return []
 
 			return state.products.filter(product => {
 				return product.name.split(" ").find(el => {
 					return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
-				});
-			}).sort((a, b) => (a.name < b.name ? -1 : 1));
+				})
+			}).sort((a, b) => (a.name < b.name ? -1 : 1))
 		},
 		getCategories(state) {
-			return state.categories;
+			return state.categories
 		},
 
 
 	},
-};
+}

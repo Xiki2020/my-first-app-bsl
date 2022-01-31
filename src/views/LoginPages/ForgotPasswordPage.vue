@@ -5,13 +5,13 @@
     </TitleHeader>
     <div class="forgot-password-page__btns">
       <div
-        class="forgot-password-page__btn"
         v-for="(btn, index) in buttons"
         :key="index"
+        class="forgot-password-page__btn"
         @click="$router.push({ name: 'RecoveryCodePage' })"
       >
         <div class="forgot-password-page__icon">
-          <img :src="btn.icon" />
+          <img :src="btn.icon">
         </div>
         <div class="forgot-password-page__descr-btn">
           <div>{{ btn.title }}</div>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import TitleHeader from "@/components/TitleHeader.vue";
+import TitleHeader from "@/components/TitleHeader.vue"
 export default {
   name: "ForgotPasswordPage",
 
@@ -45,9 +45,9 @@ export default {
           icon: require("@/assets/icons/email.svg"),
         },
       ],
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
