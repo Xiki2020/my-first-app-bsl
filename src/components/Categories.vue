@@ -2,7 +2,7 @@
   <div class="categories">
     <Button
       class="categories__btn"
-      v-for="category in getCategors"
+      v-for="category in getСategories"
       :key="category"
       @click="
         $router.push({
@@ -51,13 +51,12 @@ export default {
     Button,
   },
 
-  methods: mapActions("catalog", ["fetchCategories", "fetchCategors"]),
+  methods: mapActions("catalog", ["fetchСategories"]),
 
-  computed: mapGetters("catalog", ["getCategories", "getCategors"]),
+  computed: mapGetters("catalog", ["getСategories"]),
 
   created() {
-    this.fetchCategors();
-    this.fetchCategories();
+    this.fetchСategories();
   },
 };
 </script>

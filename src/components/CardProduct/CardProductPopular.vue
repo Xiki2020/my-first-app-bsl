@@ -1,18 +1,14 @@
 <template>
   <div class="card">
     <div class="card__container-img">
-      <img
-        :src="require(`@/assets/img-sneakers/${product.img}`)"
-        class="card__img"
-      />
+      <img :src="product.image" class="card__img" />
     </div>
     <div class="card__descr">
       <div class="card__category">Popular</div>
-      <div class="card__title" :title="product.name">
-        {{ product.name.split(" ").slice(1).join(" ") }}
+      <div class="card__title" :title="product.title">
+        {{ product.title }}
       </div>
       <Button
-        disabled
         class="card__btn"
         text="Buy now"
         variant="gray"
@@ -72,7 +68,7 @@ export default {
   width: 60%;
 }
 .card__img {
-  height: 150%;
+  height: 90%;
 }
 .card__descr {
   margin-left: 0.3125rem;
