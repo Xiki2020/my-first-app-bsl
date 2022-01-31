@@ -33,8 +33,9 @@ export default {
 
   props: {
     products: {
-      type: Object,
+      type: Array,
       reqired: true,
+      default: () => [],
     },
   },
 

@@ -60,7 +60,7 @@ export default {
 			state.products.forEach(product => {
 				price += product.count * product.price;
 			});
-			return price;
+			return price.toFixed(2);
 		},
 
 		// getFilterProducts: state => name => {

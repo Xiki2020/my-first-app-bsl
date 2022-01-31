@@ -22,10 +22,11 @@
     </div>
     <ProductsSlider
       class="home-page__slider"
-      :products="getProductsCategory('popular')"
+      :products="getCategory"
+      v-if="getCategory.length"
     />
     <Categories class="home-page__categories" />
-    <div class="home-page__carousel carousel" :hidden="!getCatalog.length">
+    <div class="home-page__carousel carousel" v-if="getCatalog.length">
       <div class="carousel__header">
         <div class="carousel__title">New Products</div>
         <Button
@@ -40,7 +41,6 @@
         />
       </div>
       <ProductsCarousel :products="getCatalog" />
-      <!-- <ProductsCarousel :products="getProductsCategory('new')" v-else /> -->
     </div>
   </div>
 </template>
@@ -81,16 +81,12 @@ export default {
   },
 
   computed: {
-    ...mapGetters("catalog", [
-      "getProductsCategory",
-      "getFilterProducts",
-      "getCatalog",
-      "getFilterCatalog",
-    ]),
+    ...mapGetters("catalog", ["getCatalog", "getFilterCatalog", "getCategory"]),
   },
 
   methods: {
-    ...mapActions("catalog", ["fetchProducts", "fetchCatalog"]),
+    ...mapActions("catalog", ["fetchCatalog", "fetchCategory"]),
+
     ...mapMutations("common", ["setSearchVisible"]),
 
     showSearch(value) {
@@ -108,8 +104,8 @@ export default {
   },
 
   created() {
+    this.fetchCategory("electronics");
     this.fetchCatalog();
-    this.fetchProducts();
   },
 };
 </script>
