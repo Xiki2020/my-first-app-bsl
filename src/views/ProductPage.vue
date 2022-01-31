@@ -42,13 +42,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters("catalog", ["getProductId", "getProduct"]),
+    ...mapGetters("catalog", ["getProduct"]),
     ...mapGetters(["getRole"]),
   },
 
   methods: {
     ...mapActions("cart", ["addProduct"]),
-    ...mapActions("catalog", ["fetchProducts", "fetchProduct"]),
+    ...mapActions("catalog", ["fetchProduct"]),
 
     //  getProduct() {
     //    this.product = this.getProductId(this.$route.params.id);
