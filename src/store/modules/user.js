@@ -1,13 +1,13 @@
 export default {
 	actions: {
 		changeRole(ctx, newRole) {
-			const role = newRole;
+			const role = newRole
 			ctx.commit('setRole', role)
 		}
 	},
 	mutations: {
 		setRole(state, role) {
-			state.role = role;
+			state.role = role
 		}
 	},
 	state() {
@@ -17,7 +17,7 @@ export default {
 	},
 	getters: {
 		getRole(state) {
-			return state.role;
+			return state.role
 		},
 	},
-};
+}

@@ -1,54 +1,58 @@
 <template>
-  <div>
-    <div class="product">
-      <Loader v-if="!getProduct.id" />
-      <template v-else>
-        <Header>
-          {{ getProduct.title }}
-        </Header>
-        <div class="product__content">
-          <img class="product__img" :src="getProduct.image" />
-          <!-- <div class="product__colors">{{ product.countColors }} Colors</div> -->
-          <div class="product__price">${{ getProduct.price }}</div>
-        </div>
-        <Button
-          text="Add"
-          class="product__btn-add"
-          @click="addProduct(getProduct)"
-          :variant="getRole === 'user' ? 'primary' : 'secondary'"
-          :disabled="!(getRole === 'user')"
-        />
-      </template>
-      <div class="additional-products">
-        <Loader v-if="isAdditionalProductsLoading" />
-        ...
+  <div
+    v-if="getProduct.id"
+    class="product"
+  >
+    <Header>
+      {{ getProduct.title }}
+    </Header>
+    <div class="product__content">
+      <img
+        class="product__img"
+        :src="getProduct.image"
+      >
+      <div class="product__price">
+        ${{ getProduct.price }}
       </div>
     </div>
+    <Button
+      text="Add"
+      class="product__btn-add"
+      :variant="getRole === 'user' ? 'primary' : 'secondary'"
+      :disabled="!(getRole === 'user')"
+      @click="addProduct(getProduct)"
+    />
+  </div>
+  <div
+    v-else
+    class="loader"
+  >
+    <Loader />
   </div>
 </template>
 <script>
-import Button from "@/components/Button.vue";
-import Header from "@/components/Header.vue";
-import Loader from "@/components/Loader.vue";
+import Button from "@/components/Button.vue"
+import Header from "@/components/Header.vue"
+import Loader from "@/components/Loader.vue"
 
 import {
   mapGetters,
   mapActions
-} from "vuex";
+} from "vuex"
 
 export default {
+  name: "ProductPage",
   components: {
     Button,
     Header,
     Loader,
   },
-  name: "ProductPage",
 
   data() {
     return {
       product: {},
       isAdditionalProductsLoading: false,
-    };
+    }
   },
 
   computed: {
@@ -56,23 +60,23 @@ export default {
     ...mapGetters(["getRole"]),
   },
 
-  methods: {
-    ...mapActions("cart", ["addProduct"]),
-    ...mapActions("catalog", ["fetchProduct", 'resetProduct']),
-
-     fetchProduct() {
-       this.product = this.getProductId(this.$route.params.id)
-     },
-  },
-
-  async created () {
-    this.fetchProduct()
+  async created() {
+    this.fetchProductId()
   },
 
   beforeUnmount () {
     this.resetProduct()
-  }
-};
+  },
+
+  methods: {
+    ...mapActions("cart", ["addProduct"]),
+    ...mapActions("catalog", ["fetchProduct", 'resetProduct']),
+
+     fetchProductId() {
+       this.product = this.fetchProduct(this.$route.params.id)
+     },
+  },
+}
 </script>
 <style  lang="scss" scoped>
 .product {

@@ -23,7 +23,7 @@ export default {
 		},
 
 		async fetchCategory({ commit }, category) {
-			commit('setCategory', '');
+			commit('setCategory', '')
 			fetch(`https://fakestoreapi.com/products/category/${category}`)
 				.then(res => res.json())
 				.then(json => commit('setCategory', json))
@@ -36,25 +36,25 @@ export default {
 		},
 
 		async resetProduct({ commit }) {
-			commit('resetProduct');
+			commit('resetProduct')
 		},
 	},
 
 	mutations: {
 		setCatalog(state, catalog) {
-			state.catalog = catalog;
+			state.catalog = catalog
 		},
 		setСategories(state, categories) {
-			state.categories = categories;
+			state.categories = categories
 		},
 		setCategory(state, category) {
-			state.category = category;
+			state.category = category
 		},
 		setProduct(state, product) {
-			state.product = product;
+			state.product = product
 		},
 		resetProduct(state) {
-			state.product = {};
+			state.product = {}
 		},
 	},
 
@@ -64,28 +64,28 @@ export default {
 			categories: [],
 			category: [],
 			product: {},
-		};
+		}
 	},
 
 	getters: {
 		getCatalog(state) {
-			return state.catalog;
+			return state.catalog
 		},
 		getFilterCatalog: state => name => {
-			if (name.length < 1) return [];
+			if (name.length < 1) return []
 
 			return state.catalog.filter(product => {
-				return product.title.substring(0, name.length).toLowerCase() === name.toLowerCase();
-			}).sort((a, b) => (a.title < b.title ? -1 : 1));
+				return product.title.substring(0, name.length).toLowerCase() === name.toLowerCase()
+			}).sort((a, b) => (a.title < b.title ? -1 : 1))
 		},
 		getСategories(state) {
-			return state.categories;
+			return state.categories
 		},
 		getCategory(state) {
-			return state.category;
+			return state.category
 		},
 		getProduct(state) {
-			return state.product;
+			return state.product
 		},
 	},
-};
+}

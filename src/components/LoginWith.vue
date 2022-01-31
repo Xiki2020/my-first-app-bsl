@@ -6,7 +6,10 @@
       </div>
     </div>
     <div class="login-with__btns">
-      <Button variant="gray" class="login-with__btn">
+      <Button
+        variant="gray"
+        class="login-with__btn"
+      >
         <svg
           width="15"
           height="28"
@@ -20,7 +23,10 @@
           />
         </svg>
       </Button>
-      <Button variant="gray" class="login-with__btn">
+      <Button
+        variant="gray"
+        class="login-with__btn"
+      >
         <svg
           width="29"
           height="29"
@@ -37,15 +43,18 @@
     </div>
     <div class="login-with__descr-link">
       Already have an account?
-      <router-link :to="{ name: toRouteName }" class="login-with__link"
-        >{{ title }}
+      <router-link
+        :to="{ name: toRouteName }"
+        class="login-with__link"
+      >
+        {{ title }}
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
+import Button from "@/components/Button.vue"
 export default {
   name: "LoginWith",
   components: {
@@ -55,13 +64,15 @@ export default {
     title: {
       type: String,
       reqired: true,
+		default: () => "",
     },
     toRouteName: {
       type: String,
       reqired: true,
+		default: () => "",
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

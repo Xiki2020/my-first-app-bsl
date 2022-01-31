@@ -1,25 +1,28 @@
 <template>
   <div class="input-email">
-    <label :for="uuid" class="input-email__label">E-mail</label>
+    <label
+      :for="uuid"
+      class="input-email__label"
+    >E-mail</label>
     <input
-      type="email"
       :id="uuid"
+      type="email"
       placeholder="example@gmail.com"
       class="input-email__input"
-    />
+    >
   </div>
 </template>
 
 <script>
-import { getUniqId } from "@/utils/common";
+import { getUniqId } from "@/utils/common"
 export default {
   name: "InputEmail",
   computed: {
     uuid() {
-      return getUniqId();
+      return getUniqId()
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

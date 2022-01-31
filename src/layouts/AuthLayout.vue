@@ -1,6 +1,9 @@
 <template>
   <div :class="['app', routeClass]">
-    <Header class="app__header" v-if="$route.meta.headerTitle">
+    <Header
+      v-if="$route.meta.headerTitle"
+      class="app__header"
+    >
       {{ $route.meta.headerTitle }}
     </Header>
     <router-view class="app__content" />
@@ -8,8 +11,8 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import Header from "@/components/Header.vue";
+import { mapState } from "vuex"
+import Header from "@/components/Header.vue"
 export default {
   name: "AuthLayout",
 
@@ -21,10 +24,10 @@ export default {
     ...mapState("common", ["searchVisible"]),
 
     routeClass() {
-      return `app--route-${this.$route.name.toLowerCase()}`;
+      return `app--route-${this.$route.name.toLowerCase()}`
     },
   },
-};
+}
 </script>
 
 <style  lang="scss" scoped>

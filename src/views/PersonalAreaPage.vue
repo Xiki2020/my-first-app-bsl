@@ -1,38 +1,65 @@
 <template>
   <div class="account-page">
     <div class="account-page__info-user">
-      <img src="" alt="Photo user" class="account-page__photo-user" />
+      <img
+        src=""
+        alt="Photo user"
+        class="account-page__photo-user"
+      >
       <div>
-        <div class="account-page__name-user">Yauheni Chekan</div>
-        <button class="account-page__btn">Edit account</button>
+        <div class="account-page__name-user">
+          Yauheni Chekan
+        </div>
+        <button class="account-page__btn">
+          Edit account
+        </button>
       </div>
     </div>
     <div class="account-page__menu">
-      <div class="account-page__menu-section">Account details</div>
-      <div class="account-page__menu-section">Card & offers</div>
-      <div class="account-page__menu-section">Notifications</div>
-      <div class="account-page__menu-section">Delivery information</div>
-      <div class="account-page__menu-section">Payment information</div>
-      <div class="account-page__menu-section">Language</div>
-      <div class="account-page__menu-section">Privacy settings</div>
-      <div class="account-page__menu-section" @click="logout">Logout</div>
+      <div class="account-page__menu-section">
+        Account details
+      </div>
+      <div class="account-page__menu-section">
+        Card & offers
+      </div>
+      <div class="account-page__menu-section">
+        Notifications
+      </div>
+      <div class="account-page__menu-section">
+        Delivery information
+      </div>
+      <div class="account-page__menu-section">
+        Payment information
+      </div>
+      <div class="account-page__menu-section">
+        Language
+      </div>
+      <div class="account-page__menu-section">
+        Privacy settings
+      </div>
+      <div
+        class="account-page__menu-section"
+        @click="logout"
+      >
+        Logout
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from "vuex"
 export default {
   name: "PersonalAreaPage",
 
   methods: {
     ...mapActions(["changeRole"]),
     logout() {
-      this.changeRole("guest");
-      this.$router.push({ name: "WelcomePage" });
+      this.changeRole("guest")
+      this.$router.push({ name: "WelcomePage" })
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

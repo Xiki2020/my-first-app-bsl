@@ -5,31 +5,34 @@
     :pagination="paginationOptions"
     class="slider-popular-product"
   >
-    <SwiperSlide v-for="(product, index) in products" :key="index">
+    <SwiperSlide
+      v-for="(product, index) in products"
+      :key="index"
+    >
       <CardProductPopular :product="product" />
     </SwiperSlide>
   </Swiper>
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
-import CardProductPopular from "@/components/CardProduct/CardProductPopular.vue";
-import SwiperCore, { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js"
+import CardProductPopular from "@/components/CardProduct/CardProductPopular.vue"
+import SwiperCore, { Pagination } from "swiper"
 
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination])
 
-import "swiper/swiper.scss";
-import "swiper/modules/navigation/navigation.scss";
-import "swiper/modules/pagination/pagination.scss";
+import "swiper/swiper.scss"
+import "swiper/modules/navigation/navigation.scss"
+import "swiper/modules/pagination/pagination.scss"
 
 export default {
+
+  name: "ProductsSlider",
   components: {
     CardProductPopular,
     Swiper,
     SwiperSlide,
   },
-
-  name: "ProductsSlider",
 
   props: {
     products: {
@@ -44,9 +47,9 @@ export default {
       paginationOptions: {
         clickable: true,
       },
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

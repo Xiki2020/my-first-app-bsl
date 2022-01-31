@@ -5,21 +5,21 @@
       <Button
         text="Sign Up"
         variant="white"
-        @click="$router.push({ name: 'SignUpPage' })"
         class="welcome-page__btn"
+        @click="$router.push({ name: 'SignUpPage' })"
       />
       <Button
         text="Sign In"
-        @click="$router.push({ name: 'SignInPage' })"
         class="welcome-page__btn welcome-page__btn--signin"
+        @click="$router.push({ name: 'SignInPage' })"
       />
     </div>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
-import Logo from "@/components/Logo.vue";
+import Button from "@/components/Button.vue"
+import Logo from "@/components/Logo.vue"
 
 export default {
   name: "WelcomePage",
@@ -27,7 +27,7 @@ export default {
     Button,
     Logo,
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,28 +1,36 @@
 <template>
   <div class="products">
-    <Header>{{
-      $route.params.category.slice(0, 1).toUpperCase() +
-      $route.params.category.slice(1)
-    }}</Header>
-    <div class="products__list" v-if="getCategory">
+    <Header>
+      {{
+        $route.params.category.slice(0, 1).toUpperCase() +
+          $route.params.category.slice(1)
+      }}
+    </Header>
+    <div
+      v-if="getCategory"
+      class="products__list"
+    >
       <CardProductVertical
         v-for="product in getCategory"
-        :product="product"
         :key="product.title"
+        :product="product"
         class="products__item"
       />
     </div>
-    <div class="loader" v-else>
+    <div
+      v-else
+      class="loader"
+    >
       <Loader />
     </div>
   </div>
 </template>
 <script>
-import CardProductVertical from "@/components/CardProduct/CardProductVertical.vue";
-import Header from "@/components/Header.vue";
-import Loader from "@/components/Loader.vue";
+import CardProductVertical from "@/components/CardProduct/CardProductVertical.vue"
+import Header from "@/components/Header.vue"
+import Loader from "@/components/Loader.vue"
 
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex"
 
 export default {
   name: "ProductListPage",
@@ -37,14 +45,14 @@ export default {
     ...mapGetters("catalog", ["getCategory"]),
   },
 
+  created() {
+    this.fetchCategory(this.$route.params.category)
+  },
+
   methods: {
     ...mapActions("catalog", ["fetchCategory"]),
   },
-
-  created() {
-    this.fetchCategory(this.$route.params.category);
-  },
-};
+}
 </script>
 
 <style lang="scss" scoped>

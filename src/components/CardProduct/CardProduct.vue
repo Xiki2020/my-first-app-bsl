@@ -8,7 +8,10 @@
     :class="`card--${variant}`"
     :title="product.title"
   >
-    <div class="card__btn-wish" v-if="variant === 'vertical'">
+    <div
+      v-if="variant === 'vertical'"
+      class="card__btn-wish"
+    >
       <svg
         width="25"
         height="22"
@@ -24,46 +27,54 @@
         />
       </svg>
     </div>
-    <img class="card__img" :src="product.image" />
+    <img
+      class="card__img"
+      :src="product.image"
+    >
     <div class="card__content">
-      <div class="card__title">{{ product.title }}</div>
+      <div class="card__title">
+        {{ product.title }}
+      </div>
       <div class="card__price-btn">
-        <div class="card__price">${{ product.price }}</div>
+        <div class="card__price">
+          ${{ product.price }}
+        </div>
         <Button
+          v-if="variant === 'vertical'"
           class="card__btn"
-          @click.prevent="addProduct(product)"
           variant="secondary"
           text="Add"
           size="small"
-          v-if="variant === 'vertical'"
+          @click.prevent="addProduct(product)"
         />
       </div>
       <Amount
+        v-if="variant === 'horizontal'"
         :product="product"
         class="card__btns"
-        v-if="variant === 'horizontal'"
       />
     </div>
   </router-link>
 </template>
 <script>
-import Amount from "@/components/Amount.vue";
-import Button from "@/components/Button.vue";
+import Amount from "@/components/Amount.vue"
+import Button from "@/components/Button.vue"
 
-import { mapActions } from "vuex";
+import { mapActions } from "vuex"
 
 export default {
+
+  name: "CardProduct",
   components: {
     Button,
     Amount,
   },
 
-  name: "CardProduct",
-
   props: {
     product: {
       type: Object,
       reqired: true,
+		default: () => {},
     },
     variant: {
       type: String,
@@ -73,7 +84,7 @@ export default {
   },
 
   methods: mapActions("cart", ["addProduct"]),
-};
+}
 </script>
 <style  lang="scss" scoped>
 .card {

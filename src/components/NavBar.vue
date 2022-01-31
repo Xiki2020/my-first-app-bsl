@@ -1,6 +1,9 @@
 <template>
   <nav class="nav-bar">
-    <button class="nav-bar__btn" @click="$router.push({ name: 'HomePage' })">
+    <button
+      class="nav-bar__btn"
+      @click="$router.push({ name: 'HomePage' })"
+    >
       <svg
         width="25"
         height="23"
@@ -37,8 +40,14 @@
         />
       </svg>
     </button>
-    <button class="nav-bar__btn" @click="$router.push({ name: 'CartPage' })">
-      <div class="nav-bar__count-products" v-if="getCart.length">
+    <button
+      class="nav-bar__btn"
+      @click="$router.push({ name: 'CartPage' })"
+    >
+      <div
+        v-if="getCart.length"
+        class="nav-bar__count-products"
+      >
         {{ getCart.length }}
       </div>
       <svg
@@ -78,14 +87,14 @@
   </nav>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from "vuex"
 export default {
   name: "AppNav",
 
   computed: {
     ...mapGetters("cart", ["getCart"]),
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

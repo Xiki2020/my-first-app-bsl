@@ -1,49 +1,25 @@
 <template>
   <div class="categories">
     <Button
-      class="categories__btn"
       v-for="category in getСategories"
       :key="category"
+      class="categories__btn"
+      size="small"
       @click="
         $router.push({
           name: 'ProductListPage',
           params: { category: category },
         })
       "
-      size="small"
     >
       {{ category.slice(0, 1).toUpperCase() + category.slice(1) }}
     </Button>
   </div>
-
-  <!-- <div class="categories">
-    <div
-      class="categories__wrapper-btn"
-      v-for="category in getCategories"
-      :key="category.category"
-    >
-      <button
-        class="categories__btn"
-        @click="
-          $router.push({
-            name: 'ProductListPage',
-            params: { category: category },
-          })
-        "
-      >
-        <img
-          :src="require(`@/assets/icons/${category.icon}`)"
-          :alt="category"
-        />
-      </button>
-      <div class="categories__name-btn">{{ category.category }}</div>
-    </div>
-  </div> -->
 </template>
 <script>
-import Button from "@/components/Button.vue";
+import Button from "@/components/Button.vue"
 
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex"
 export default {
   name: "Categories",
 
@@ -51,14 +27,14 @@ export default {
     Button,
   },
 
-  methods: mapActions("catalog", ["fetchСategories"]),
-
   computed: mapGetters("catalog", ["getСategories"]),
 
   created() {
-    this.fetchСategories();
+    this.fetchСategories()
   },
-};
+
+  methods: mapActions("catalog", ["fetchСategories"]),
+}
 </script>
 
 <style lang="scss" scoped>

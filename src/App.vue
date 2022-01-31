@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import AuthLayout from "./layouts/AuthLayout.vue";
-import MainLayout from "./layouts/MainLayout.vue";
+import AuthLayout from "./layouts/AuthLayout.vue"
+import MainLayout from "./layouts/MainLayout.vue"
 
 export default {
   name: "App",
@@ -16,8 +16,8 @@ export default {
 
   computed: {
     layout() {
-      return this.$route.meta.layout;
+      return this.$route.meta.layout
     },
   },
-};
+}
 </script>

@@ -27,39 +27,47 @@
       class="card__img"
       :src="require(`@/assets/img-sneakers/${product.img}`)"
     /> -->
-    <img class="card__img" :src="product.image" />
+    <img
+      class="card__img"
+      :src="product.image"
+    >
     <!-- <div class="card__name">{{ product.name }}</div> -->
-    <div class="card__name">{{ product.title }}</div>
+    <div class="card__name">
+      {{ product.title }}
+    </div>
     <!-- <div class="card__colors">{{ product.countColors }} Colors</div> -->
     <div class="card__bottom">
-      <div class="card__price">${{ product.price }}</div>
+      <div class="card__price">
+        ${{ product.price }}
+      </div>
       <Button
         class="card__btn"
-        @click.prevent="addProduct(product)"
         variant="secondary"
         text="Add"
         size="small"
+        @click.prevent="addProduct(product)"
       />
     </div>
   </router-link>
 </template>
 <script>
-import { mapActions } from "vuex";
-import Button from "@/components/Button.vue";
+import { mapActions } from "vuex"
+import Button from "@/components/Button.vue"
 
 export default {
-  components: { Button },
   name: "CardProductVertical",
+  components: { Button },
 
   props: {
     product: {
       type: Object,
       reqired: true,
+		default: () => {},
     },
   },
 
   methods: mapActions("cart", ["addProduct"]),
-};
+}
 </script>
 <style  lang="scss" scoped>
 .card {

@@ -1,8 +1,14 @@
 <template>
   <div class="home-page">
-    <SearchPanel class="home-page__search-panel" :products="products" />
+    <SearchPanel
+      class="home-page__search-panel"
+      :products="products"
+    />
     <div class="home-page__header">
-      <Button @click="hideSearch" class="search__btn">
+      <Button
+        class="search__btn"
+        @click="hideSearch"
+      >
         <svg
           width="19"
           height="18"
@@ -18,20 +24,31 @@
           />
         </svg>
       </Button>
-      <InputSearch @handInput="showSearch" :value="searchValue" />
+      <InputSearch
+        :value="searchValue"
+        @handInput="showSearch"
+      />
     </div>
     <ProductsSlider
+      v-if="getCategory.length"
       class="home-page__slider"
       :products="getCategory"
-      v-if="getCategory.length"
     />
-    <div class="loader" v-else>
+    <div
+      v-else
+      class="loader"
+    >
       <Loader />
     </div>
     <Categories class="home-page__categories" />
-    <div class="home-page__carousel carousel" v-if="getCatalog.length">
+    <div
+      v-if="getCatalog.length"
+      class="home-page__carousel carousel"
+    >
       <div class="carousel__header">
-        <div class="carousel__title">New Products</div>
+        <div class="carousel__title">
+          New Products
+        </div>
         <Button
           text="View All"
           size="small"
@@ -49,15 +66,15 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex"
 
-import Button from "@/components/Button.vue";
-import Categories from "@/components/Categories.vue";
-import InputSearch from "@/components/FormComponents/InputSearch.vue";
-import Loader from "@/components/Loader.vue";
-import ProductsSlider from "@/components/ProductsSlider/index.vue";
-import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
-import SearchPanel from "@/components/SearchPanel.vue";
+import Button from "@/components/Button.vue"
+import Categories from "@/components/Categories.vue"
+import InputSearch from "@/components/FormComponents/InputSearch.vue"
+import Loader from "@/components/Loader.vue"
+import ProductsSlider from "@/components/ProductsSlider/index.vue"
+import ProductsCarousel from "@/components/ProductsCarousel/index.vue"
+import SearchPanel from "@/components/SearchPanel.vue"
 
 export default {
   name: "HomePage",
@@ -76,17 +93,22 @@ export default {
     return {
       products: [],
       searchValue: "",
-    };
-  },
-
-  watch: {
-    searchValue(value) {
-      this.products = this.getFilterCatalog(value);
-    },
+    }
   },
 
   computed: {
     ...mapGetters("catalog", ["getCatalog", "getFilterCatalog", "getCategory"]),
+  },
+
+  watch: {
+    searchValue(value) {
+      this.products = this.getFilterCatalog(value)
+    },
+  },
+
+  created() {
+    this.fetchCategory("electronics")
+    this.fetchCatalog()
   },
 
   methods: {
@@ -95,24 +117,19 @@ export default {
     ...mapMutations("common", ["setSearchVisible"]),
 
     showSearch(value) {
-      this.searchValue = value;
+      this.searchValue = value
 
-      if (value.length < 3) return;
+      if (value.length < 3) return
 
-      this.setSearchVisible(true);
+      this.setSearchVisible(true)
     },
 
     hideSearch() {
-      this.setSearchVisible(false);
-      this.searchValue = "";
+      this.setSearchVisible(false)
+      this.searchValue = ""
     },
   },
-
-  created() {
-    this.fetchCategory("electronics");
-    this.fetchCatalog();
-  },
-};
+}
 </script>
 
 <style lang="scss" scoped>

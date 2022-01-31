@@ -1,13 +1,13 @@
 <template>
   <div class="title">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
   name: "TitleHeader",
-};
+}
 </script>
 
 <style lang="scss" scoped>

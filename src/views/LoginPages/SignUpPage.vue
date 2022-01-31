@@ -4,22 +4,26 @@
       <InputName />
       <InputEmail class="sign-up-page__input-mail" />
       <InputPassword class="sign-up-page__input-password" />
-      <Button class="sign-up-page__btn" text="Sign Up" type="button" />
+      <Button
+        class="sign-up-page__btn"
+        text="Sign Up"
+        type="button"
+      />
     </form>
     <LoginWith
       class="sign-up-page__footer"
       title="Sign In"
-      toRouteName="SignInPage"
+      to-route-name="SignInPage"
     />
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
-import InputEmail from "@/components/FormComponents/InputEmail.vue";
-import InputName from "@/components/FormComponents/InputName.vue";
-import InputPassword from "@/components/FormComponents/InputPassword.vue";
-import LoginWith from "@/components/LoginWith.vue";
+import Button from "@/components/Button.vue"
+import InputEmail from "@/components/FormComponents/InputEmail.vue"
+import InputName from "@/components/FormComponents/InputName.vue"
+import InputPassword from "@/components/FormComponents/InputPassword.vue"
+import LoginWith from "@/components/LoginWith.vue"
 
 export default {
   name: "SignUpPage",
@@ -30,7 +34,7 @@ export default {
     InputPassword,
     LoginWith,
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

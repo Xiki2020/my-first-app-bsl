@@ -1,12 +1,15 @@
 <template>
   <div class="input-password">
-    <label :for="uuid" class="input-password__label">{{ text }}</label>
+    <label
+      :for="uuid"
+      class="input-password__label"
+    >{{ text }}</label>
     <input
-      :type="type"
       :id="uuid"
+      :type="type"
       placeholder="**********"
       class="input-password__input"
-    />
+    >
     <svg
       width="17"
       height="17"
@@ -27,14 +30,9 @@
 </template>
 
 <script>
-import { getUniqId } from "@/utils/common";
+import { getUniqId } from "@/utils/common"
 export default {
   name: "InputPassword",
-  computed: {
-    uuid() {
-      return getUniqId();
-    },
-  },
   props: {
     text: {
       type: String,
@@ -45,16 +43,21 @@ export default {
   data() {
     return {
       type: "password",
-    };
+    }
+  },
+  computed: {
+    uuid() {
+      return getUniqId()
+    },
   },
   methods: {
     showPassword() {
       this.type === "password"
         ? (this.type = "text")
-        : (this.type = "password");
+        : (this.type = "password")
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

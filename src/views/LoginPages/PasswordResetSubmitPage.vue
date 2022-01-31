@@ -8,15 +8,33 @@
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect x="40" y="8" width="110" height="110" rx="55" fill="#00D455" />
+        <rect
+          x="40"
+          y="8"
+          width="110"
+          height="110"
+          rx="55"
+          fill="#00D455"
+        />
         <path
           fill-rule="evenodd"
           clip-rule="evenodd"
           d="M86.8783 73.5608L118.815 41.8461L123.675 46.6725L86.8783 83.2137L67.2649 63.7365L72.1251 58.9101L86.8783 73.5608Z"
           fill="white"
         />
-        <circle cx="49" cy="5" r="4" stroke="#00D455" stroke-width="2" />
-        <circle cx="47" cy="117" r="2" fill="#00D455" />
+        <circle
+          cx="49"
+          cy="5"
+          r="4"
+          stroke="#00D455"
+          stroke-width="2"
+        />
+        <circle
+          cx="47"
+          cy="117"
+          r="2"
+          fill="#00D455"
+        />
         <path
           fill-rule="evenodd"
           clip-rule="evenodd"
@@ -41,18 +59,21 @@
         when logging in
       </div>
     </div>
-    <Button text="Login" @click="$router.push({ name: 'WelcomeBackPage' })" />
+    <Button
+      text="Login"
+      @click="$router.push({ name: 'WelcomeBackPage' })"
+    />
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
+import Button from "@/components/Button.vue"
 export default {
   name: "NewPasswordPage",
   components: {
     Button,
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

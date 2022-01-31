@@ -1,25 +1,28 @@
 <template>
   <div class="input-name">
-    <label :for="uuid" class="input-name__label">Name</label>
+    <label
+      :for="uuid"
+      class="input-name__label"
+    >Name</label>
     <input
-      type="name"
       :id="uuid"
+      type="name"
       placeholder="John Doe"
       class="input-name__input"
-    />
+    >
   </div>
 </template>
 
 <script>
-import { getUniqId } from "@/utils/common";
+import { getUniqId } from "@/utils/common"
 export default {
   name: "InputName",
   computed: {
     uuid() {
-      return getUniqId();
+      return getUniqId()
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

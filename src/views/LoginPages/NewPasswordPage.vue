@@ -11,17 +11,17 @@
       />
       <Button
         text="Update"
-        @click.prevent="$router.push({ name: 'PasswordResetSubmitPage' })"
         class="new-password-page__btn"
+        @click.prevent="$router.push({ name: 'PasswordResetSubmitPage' })"
       />
     </form>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
-import InputPassword from "@/components/FormComponents/InputPassword.vue";
-import TitleHeader from "@/components/TitleHeader.vue";
+import Button from "@/components/Button.vue"
+import InputPassword from "@/components/FormComponents/InputPassword.vue"
+import TitleHeader from "@/components/TitleHeader.vue"
 export default {
   name: "NewPasswordPage",
   components: {
@@ -29,7 +29,7 @@ export default {
     InputPassword,
     TitleHeader,
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,11 +1,19 @@
 <template>
   <div class="card">
     <div class="card__container-img">
-      <img :src="product.image" class="card__img" />
+      <img
+        :src="product.image"
+        class="card__img"
+      >
     </div>
     <div class="card__descr">
-      <div class="card__category">Popular</div>
-      <div class="card__title" :title="product.title">
+      <div class="card__category">
+        Popular
+      </div>
+      <div
+        class="card__title"
+        :title="product.title"
+      >
         {{ product.title }}
       </div>
       <Button
@@ -25,26 +33,27 @@
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
+import Button from "@/components/Button.vue"
 
-import { mapActions } from "vuex";
+import { mapActions } from "vuex"
 
 export default {
+
+  name: "CardProductPopular",
   components: {
     Button,
   },
-
-  name: "CardProductPopular",
 
   props: {
     product: {
       type: Object,
       reqired: true,
+		default: () => {},
     },
   },
 
   methods: mapActions("cart", ["addProduct"]),
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,5 +1,8 @@
 <template>
-  <button class="btn" :class="`btn--${variant} btn--${size}`">
+  <button 
+    class="btn" 
+    :class="`btn--${variant} btn--${size}`"
+  >
     <slot />
     {{ text }}
   </button>
@@ -12,6 +15,7 @@ export default {
     text: {
       type: String,
       reqired: true,
+		default: () => "",
     },
 
     variant: {
@@ -25,7 +29,7 @@ export default {
       reqired: true,
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
