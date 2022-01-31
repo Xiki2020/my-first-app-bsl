@@ -25,6 +25,9 @@
       :products="getCategory"
       v-if="getCategory.length"
     />
+    <div class="loader" v-else>
+      <Loader />
+    </div>
     <Categories class="home-page__categories" />
     <div class="home-page__carousel carousel" v-if="getCatalog.length">
       <div class="carousel__header">
@@ -51,6 +54,7 @@ import { mapGetters, mapActions, mapMutations } from "vuex";
 import Button from "@/components/Button.vue";
 import Categories from "@/components/Categories.vue";
 import InputSearch from "@/components/FormComponents/InputSearch.vue";
+import Loader from "@/components/Loader.vue";
 import ProductsSlider from "@/components/ProductsSlider/index.vue";
 import ProductsCarousel from "@/components/ProductsCarousel/index.vue";
 import SearchPanel from "@/components/SearchPanel.vue";
@@ -62,6 +66,7 @@ export default {
     Button,
     Categories,
     InputSearch,
+    Loader,
     ProductsSlider,
     ProductsCarousel,
     SearchPanel,
@@ -112,9 +117,11 @@ export default {
 
 <style lang="scss" scoped>
 .home-page {
+  align-items: center;
   display: flex;
   flex: 1 0 0;
   flex-direction: column;
+  justify-content: space-between;
 
   .app--search-opened & {
     max-height: 100vh;
@@ -126,7 +133,6 @@ export default {
   border-radius: 0 0 38px 38px;
   display: flex;
   justify-content: space-between;
-  margin-left: -$padding-side;
   padding: 3.3rem $padding-side 7.4rem;
   position: relative;
   width: calc(100% + $padding-side * 2);
@@ -141,7 +147,6 @@ export default {
 
 //Search Panel
 .home-page__search-panel {
-  margin-left: -$padding-side;
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -176,14 +181,19 @@ export default {
   margin-top: -4.5rem;
   width: 100%;
 }
+
+.loader {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 .home-page__categories {
   margin: 3rem 0 1.2rem;
 }
 .home-page__carousel {
   background-color: #e0e4e7;
   border-radius: 25px 25px 0 0;
-  margin-left: -$padding-side;
-  margin-top: auto;
+  //   margin-top: auto;
   overflow: hidden;
   padding-bottom: 1.5rem;
   width: calc(100% + $padding-side * 2);
