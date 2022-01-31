@@ -1,23 +1,29 @@
 <template>
-  <div class="product" v-if="getProduct.id">
-    <Header>
-      {{ getProduct.title }}
-    </Header>
-    <div class="product__content">
-      <img class="product__img" :src="getProduct.image" />
-      <!-- <div class="product__colors">{{ product.countColors }} Colors</div> -->
-      <div class="product__price">${{ getProduct.price }}</div>
+  <div>
+    <div class="product">
+      <Loader v-if="!getProduct.id" />
+      <template v-else>
+        <Header>
+          {{ getProduct.title }}
+        </Header>
+        <div class="product__content">
+          <img class="product__img" :src="getProduct.image" />
+          <!-- <div class="product__colors">{{ product.countColors }} Colors</div> -->
+          <div class="product__price">${{ getProduct.price }}</div>
+        </div>
+        <Button
+          text="Add"
+          class="product__btn-add"
+          @click="addProduct(getProduct)"
+          :variant="getRole === 'user' ? 'primary' : 'secondary'"
+          :disabled="!(getRole === 'user')"
+        />
+      </template>
+      <div class="additional-products">
+        <Loader v-if="isAdditionalProductsLoading" />
+        ...
+      </div>
     </div>
-    <Button
-      text="Add"
-      class="product__btn-add"
-      @click="addProduct(getProduct)"
-      :variant="getRole === 'user' ? 'primary' : 'secondary'"
-      :disabled="!(getRole === 'user')"
-    />
-  </div>
-  <div class="loader" v-else>
-    <Loader />
   </div>
 </template>
 <script>
@@ -25,7 +31,10 @@ import Button from "@/components/Button.vue";
 import Header from "@/components/Header.vue";
 import Loader from "@/components/Loader.vue";
 
-import { mapGetters, mapActions } from "vuex";
+import {
+  mapGetters,
+  mapActions
+} from "vuex";
 
 export default {
   components: {
@@ -38,6 +47,7 @@ export default {
   data() {
     return {
       product: {},
+      isAdditionalProductsLoading: false,
     };
   },
 
@@ -48,18 +58,20 @@ export default {
 
   methods: {
     ...mapActions("cart", ["addProduct"]),
-    ...mapActions("catalog", ["fetchProduct"]),
+    ...mapActions("catalog", ["fetchProduct", 'resetProduct']),
 
-    //  getProduct() {
-    //    this.product = this.getProductId(this.$route.params.id);
-    //  },
+     fetchProduct() {
+       this.product = this.getProductId(this.$route.params.id)
+     },
   },
 
-  created() {
-    this.fetchProduct(this.$route.params.id);
-    //  this.fetchProducts();
-    //  this.getProduct();
+  async created () {
+    this.fetchProduct()
   },
+
+  beforeUnmount () {
+    this.resetProduct()
+  }
 };
 </script>
 <style  lang="scss" scoped>
