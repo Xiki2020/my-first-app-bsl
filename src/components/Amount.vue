@@ -2,11 +2,16 @@
   <div class="amount">
     <div
       class="amount__btn"
-      @click.prevent="changeCountProduct({ id: product.id })"
+      @click.prevent="changeCountProduct({ id: product.id, action: 'remove' })"
     >
       -
     </div>
-    <div class="amount__count" @click.prevent>{{ product.count }}</div>
+    <div
+      class="amount__count"
+      @click.prevent
+    >
+      {{ product.count }}
+    </div>
     <div
       class="amount__btn"
       @click.prevent="changeCountProduct({ id: product.id, action: 'add' })"
@@ -17,7 +22,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from "vuex"
 
 export default {
   name: "Amount",
@@ -25,12 +30,15 @@ export default {
   props: {
     product: {
       type: Object,
+      default: () => {
+        id: null
+      },
       reqired: true,
     },
   },
 
   methods: mapActions("cart", ["changeCountProduct"]),
-};
+}
 </script>
 
 <style lang="scss" scoped>

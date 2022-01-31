@@ -129,3 +129,10 @@ image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
 price: 109.95
 rating: {rate: 3.9, count: 120}
 title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
+
+
+31.01
+добавить библиотеку axios и использовать её
+поставить и настроить eslint в VSCode и в проекте (keywords for searching: 'eslint vscode vue', 'eslint'), проверить ошибки
+реализовать вход
+поставить библиотеку toast/notification чтобы показывать различные уведомления

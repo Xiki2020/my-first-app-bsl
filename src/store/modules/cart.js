@@ -1,5 +1,6 @@
 export default {
 	namespaced: true,
+
 	actions: {
 		addProduct({ commit }, product) {
 			commit('setProduct', product);
@@ -9,18 +10,24 @@ export default {
 			commit('setCountProduct', obj);
 		},
 	},
+
 	mutations: {
 		setProduct(state, product) {
-			let findProduct = state.products.find(el => el.id === product.id);
-			if (findProduct) {
-				findProduct.count += 1;
+			let foundedProduct = state.products.find(el => el.id === product.id);
+
+			if (foundedProduct) {
+				foundedProduct.count += 1;
 				return;
 			}
+
 			product.count = 1;
 			state.products.push(product);
 		},
 
-		setCountProduct(state, obj) {
+		// obj object
+		// obj.id {string} - id продукта
+		// obj.action {string} - тип действия
+		setCountProduct (state, obj) {
 			let index;
 			let product = state.products.find((el, i) => {
 				if (el.id === obj.id) {
@@ -28,22 +35,34 @@ export default {
 					return el;
 				}
 			});
-			if (obj.action === 'add') {
-				product.count += 1;
-			} else if (product.count <= 1) {
-				state.products.splice(index, 1);
-			} else {
-				product.count -= 1;
+
+			// если уменьшаем и кол-во = 1, то удаляем
+			if (product.count === 1 && obj.action === 'remove') {
+				state.products.splice(index, 1)
+				return
+			}
+
+			switch (obj.action) {
+				case 'add':
+					product.count += 1
+					break
+				case 'remove':
+					product.count -= 1
+					break
+				default:
+					break
 			}
 		},
 	},
+
 	state() {
 		return {
 			products: [],
 		}
 	},
+
 	getters: {
-		getCart(state) {
+		getCart (state) {
 			return state.products;
 		},
 
@@ -72,11 +91,13 @@ export default {
 		// 		// }).sort((a, b) => (a.name < b.name ? -1 : 1));
 		// 	}).sort((a, b) => (a.name < b.name ? -1 : 1));
 		// },
-		getFilterProducts: state => name => {
+
+		getFilterProducts: state => searchVal => {
 			return state.products.filter(product => {
-				return product.title.split(" ").find(el => {
-					return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
-				});
+				return product.title.toLowerCase().includes(searchVal.toLowerCase())
+				// return product.title.split(" ").find(el => {
+				// 	return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
+				// });
 				// 	return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
 				// }).sort((a, b) => (a.name < b.name ? -1 : 1));
 			}).sort((a, b) => (a.title < b.title ? -1 : 1));

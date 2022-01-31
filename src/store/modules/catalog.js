@@ -7,22 +7,36 @@ export default {
 				.then(res => res.json())
 				.then(json => commit('setCatalog', json))
 		},
+
 		async fetchСategories({ commit }) {
+			// try {
+			// 	await this.fetchProduct(this.$route.params.id);
+			// } catch (error) {
+			// 	commit('setError', error)
+			// } finally {
+			// 	console.log('!!!')
+			// }
+
 			fetch('https://fakestoreapi.com/products/categories')
 				.then(res => res.json())
 				.then(json => commit('setСategories', json))
 		},
+
 		async fetchCategory({ commit }, category) {
 			commit('setCategory', '');
 			fetch(`https://fakestoreapi.com/products/category/${category}`)
 				.then(res => res.json())
 				.then(json => commit('setCategory', json))
 		},
+
 		async fetchProduct({ commit }, id) {
-			commit('setProduct', '');
 			fetch(`https://fakestoreapi.com/products/${id}`)
 				.then(res => res.json())
 				.then(json => commit('setProduct', json))
+		},
+
+		async resetProduct({ commit }) {
+			commit('resetProduct');
 		},
 	},
 
@@ -38,6 +52,9 @@ export default {
 		},
 		setProduct(state, product) {
 			state.product = product;
+		},
+		resetProduct(state) {
+			state.product = {};
 		},
 	},
 
