@@ -1,11 +1,21 @@
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 export default {
 	namespaced: true, // ВКЛЮЧАЙ ИХ ВСЕГДА!
 
 	actions: {
 		async fetchCatalog({ commit }) {
-			fetch('https://fakestoreapi.com/products')
-				.then(res => res.json())
-				.then(json => commit('setCatalog', json))
+			// fetch('https://fakestoreapi.com/products')
+			// 	.then(res => res.json())
+			// 	.then(json => {
+			// 		commit('setCatalog', json)
+			// 	})
+			axios.get('https://fakestoreapi.com/products')
+				.then((response) => {
+					console.log(response)
+					commit('setCatalog', response.data)
+			 })
 		},
 
 		async fetchСategories({ commit }) {
@@ -17,26 +27,29 @@ export default {
 			// 	console.log('!!!')
 			// }
 
-			fetch('https://fakestoreapi.com/products/categories')
-				.then(res => res.json())
-				.then(json => commit('setСategories', json))
+			axios
+				.get('https://fakestoreapi.com/products/categories')
+				.then(response => commit('setСategories', response.data))	
 		},
 
 		async fetchCategory({ commit }, category) {
-			commit('setCategory', '')
-			fetch(`https://fakestoreapi.com/products/category/${category}`)
-				.then(res => res.json())
-				.then(json => commit('setCategory', json))
+			axios
+				.get(`https://fakestoreapi.com/products/category/${category}`)
+				.then(response => commit('setCategory', response.data))	
 		},
 
 		async fetchProduct({ commit }, id) {
-			fetch(`https://fakestoreapi.com/products/${id}`)
-				.then(res => res.json())
-				.then(json => commit('setProduct', json))
+			axios
+				.get(`https://fakestoreapi.com/products/${id}`)
+				.then(response => commit('setProduct', response.data))
 		},
 
 		async resetProduct({ commit }) {
 			commit('resetProduct')
+		},
+
+		async resetCategory({ commit }) {
+			commit('resetCategory')
 		},
 	},
 
@@ -56,6 +69,9 @@ export default {
 		resetProduct(state) {
 			state.product = {}
 		},
+		resetCategory(state) {
+			state.category = []
+		}
 	},
 
 	state() {
