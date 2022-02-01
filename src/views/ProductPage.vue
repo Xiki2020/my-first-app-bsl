@@ -20,7 +20,7 @@
       class="product__btn-add"
       :variant="getRole === 'user' ? 'primary' : 'secondary'"
       :disabled="!(getRole === 'user')"
-      @click="addProduct(getProduct)"
+      @click="addProduct(getProduct), showNotification()"
     />
   </div>
   <div
@@ -75,6 +75,11 @@ export default {
      fetchProductId() {
        this.product = this.fetchProduct(this.$route.params.id)
      },
+
+	  showNotification() {
+		this.$toast.clear()
+		this.$toast.success("Added to cart", {position: 'top'})
+	},
   },
 }
 </script>

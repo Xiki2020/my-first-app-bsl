@@ -40,7 +40,7 @@ export default {
   methods:{
 	  test() {
 		  this.$toast.clear()
-		  this.$toast.error("Invalid email address and/or password", {position: 'top-right'})
+		  this.$toast.default("Invalid email address and/or password", {position: 'bottom'})
 	  },
   }
 }
