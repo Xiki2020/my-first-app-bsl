@@ -7,8 +7,10 @@
     <input
       :id="uuid"
       type="name"
-      placeholder="John Doe"
+      placeholder="johnd"
       class="input-name__input"
+      name="name"
+      required
     >
   </div>
 </template>

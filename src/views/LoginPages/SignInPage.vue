@@ -1,11 +1,19 @@
 <template>
-  <div class="sign-in-page">
+  <div
+    class="sign-in-page"
+  >
     <TitleHeader>
       Please fill E-mail & password to login your Shopy application account.
     </TitleHeader>
-    <form class="sign-in-page__form">
-      <InputEmail />
-      <InputPassword class="sign-in-page__input-password" />
+    <form
+      class="sign-in-page__form"
+      name="signIn"
+      @submit.prevent="sendValueLogin"
+    >
+      <InputName />
+      <InputPassword
+        class="sign-in-page__input-password"
+      />
       <div class="sign-in-page__actions actions">
         <CustomCheckbox title="Запомнить меня" />
         <router-link
@@ -18,7 +26,9 @@
       <Button
         text="Sign In"
         class="sign-in-page__btn"
-        @click.prevent="toCome"
+        type="submit"
+        :disabled="isDisable"
+        :variant="isDisable? 'secondary':'primary'"
       />
     </form>
     <LoginWith
@@ -32,30 +42,47 @@
 <script>
 import Button from "@/components/Button.vue"
 import CustomCheckbox from "@/components/FormComponents/CustomCheckbox.vue"
-import InputEmail from "@/components/FormComponents/InputEmail.vue"
+import InputName from "@/components/FormComponents/InputName.vue"
 import InputPassword from "@/components/FormComponents/InputPassword.vue"
 import LoginWith from "@/components/LoginWith.vue"
 import TitleHeader from "@/components/TitleHeader.vue"
 
-import { mapActions } from "vuex"
-
 export default {
-  name: "SignInPage",
-  components: {
-    Button,
-    CustomCheckbox,
-    InputEmail,
-    InputPassword,
-    LoginWith,
-    TitleHeader,
-  },
-  methods: {
-    ...mapActions(["changeRole"]),
-    toCome() {
-      this.changeRole("user")
-      this.$router.push({ name: "HomePage" })
-    },
-  },
+	name: "SignInPage",
+
+	components: {
+		Button,
+		CustomCheckbox,
+		InputName,
+		InputPassword,
+		LoginWith,
+		TitleHeader,
+	},
+
+	data(){
+		return{
+			isDisable: false
+		}
+	},
+
+	methods: {
+		sendValueLogin(e) {
+			this.isDisable = true
+			this.axios
+				.post('https://fakestoreapi.com/auth/login', {
+					username: e.srcElement.name.value,
+					password: e.srcElement.password.value,
+				})
+				.then((response) => {
+					localStorage.setItem("token", response.data.token)
+					this.$router.push({ name: "HomePage" })
+				})
+				.catch(() => {
+					this.$toast.error("Invalid email address and/or password", {position: 'top-right'})
+				})
+				.finally(() => this.isDisable = false)
+		},
+	},
 }
 </script>
 

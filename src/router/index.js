@@ -184,6 +184,13 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+	if(localStorage.getItem("token")) {
+		store.state.user.role = "user"
+	} else {
+		store.state.user.role = "guest"
+	}
+
+
 	if (to.meta.roles.find((e) => e === store.getters.getRole)) {
 		next()
 	} else if (store.getters.getRole === "user") {

@@ -9,6 +9,8 @@
       type="email"
       placeholder="example@gmail.com"
       class="input-email__input"
+      name="email"
+      required
     >
   </div>
 </template>
