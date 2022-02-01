@@ -1,6 +1,7 @@
 <template>
   <div
     class="sign-in-page"
+    :class="isDisable? 'sign-in-page--disabled': ''"
   >
     <TitleHeader>
       Please fill E-mail & password to login your Shopy application account.
@@ -78,7 +79,8 @@ export default {
 					this.$router.push({ name: "HomePage" })
 				})
 				.catch(() => {
-					this.$toast.error("Invalid email address and/or password", {position: 'top-right'})
+					this.$toast.clear()
+					this.$toast.error("Invalid email address and/or password", {position: 'bottom'})
 				})
 				.finally(() => this.isDisable = false)
 		},
@@ -91,6 +93,9 @@ export default {
   display: flex;
   flex: 1 0 0;
   flex-direction: column;
+}
+.sign-in-page--disabled{
+	pointer-events: none;
 }
 .sign-in-page__form {
   margin-top: auto;

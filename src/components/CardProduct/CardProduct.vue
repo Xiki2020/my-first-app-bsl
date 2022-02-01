@@ -45,7 +45,7 @@
           variant="secondary"
           text="Add"
           size="small"
-          @click.prevent="addProduct(product)"
+          @click.prevent="addProduct(product), showNotification()"
         />
       </div>
       <Amount
@@ -83,7 +83,14 @@ export default {
     },
   },
 
-  methods: mapActions("cart", ["addProduct"]),
+  methods: {
+	...mapActions("cart", ["addProduct"]),
+
+	showNotification() {
+		this.$toast.clear()
+		this.$toast.success("Added to cart", {position: 'top'})
+	},
+  },
 }
 </script>
 <style  lang="scss" scoped>
