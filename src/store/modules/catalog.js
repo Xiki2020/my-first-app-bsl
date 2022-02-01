@@ -11,7 +11,11 @@ export default {
 			// 	.then(json => {
 			// 		commit('setCatalog', json)
 			// 	})
-			axios.get('https://fakestoreapi.com/products')
+			axios.get('https://fakestoreapi.com/products', {
+				headers: {
+					'token': localStorage.getItem("token")
+				}
+			})
 				.then((response) => {
 					console.log(response)
 					commit('setCatalog', response.data)

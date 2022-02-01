@@ -7,8 +7,10 @@
     <input
       :id="uuid"
       :type="type"
-      placeholder="**********"
+      placeholder="m38rmF$"
       class="input-password__input"
+      name="password"
+      required
     >
     <svg
       width="17"

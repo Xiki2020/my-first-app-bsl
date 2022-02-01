@@ -136,3 +136,13 @@ title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
 поставить и настроить eslint в VSCode и в проекте (keywords for searching: 'eslint vscode vue', 'eslint'), проверить ошибки
 реализовать вход
 поставить библиотеку toast/notification чтобы показывать различные уведомления
+
+
+username:'johnd'
+password:'m38rmF$'
+
+username: "mor_2314",
+password: "83r5^_"
+
+
+логин и пароль для входа

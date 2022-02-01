@@ -8,6 +8,7 @@
         class="sign-up-page__btn"
         text="Sign Up"
         type="button"
+        @click="test"
       />
     </form>
     <LoginWith
@@ -27,6 +28,7 @@ import LoginWith from "@/components/LoginWith.vue"
 
 export default {
   name: "SignUpPage",
+
   components: {
     Button,
     InputEmail,
@@ -34,6 +36,13 @@ export default {
     InputPassword,
     LoginWith,
   },
+
+  methods:{
+	  test() {
+		  this.$toast.clear()
+		  this.$toast.error("Invalid email address and/or password", {position: 'top-right'})
+	  },
+  }
 }
 </script>
 
