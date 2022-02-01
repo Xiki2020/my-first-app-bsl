@@ -7,7 +7,7 @@
       }}
     </Header>
     <div
-      v-if="getCategory"
+      v-if="getCategory.length"
       class="products__list"
     >
       <CardProductVertical
@@ -33,55 +33,59 @@ import Loader from "@/components/Loader.vue"
 import { mapGetters, mapActions } from "vuex"
 
 export default {
-  name: "ProductListPage",
+	name: "ProductListPage",
 
-  components: {
-    CardProductVertical,
-    Header,
-    Loader,
-  },
+	components: {
+		CardProductVertical,
+		Header,
+		Loader,
+	},
 
-  computed: {
-    ...mapGetters("catalog", ["getCategory"]),
-  },
+	computed: {
+		...mapGetters("catalog", ["getCategory"]),
+	},
 
-  created() {
-    this.fetchCategory(this.$route.params.category)
-  },
+	created() {
+		this.fetchCategory(this.$route.params.category)
+	},
 
-  methods: {
-    ...mapActions("catalog", ["fetchCategory"]),
-  },
+	beforeUnmount () {
+		this.resetCategory()
+	},
+
+	methods: {
+		...mapActions("catalog", ["fetchCategory", "resetCategory"]),
+	},
 }
 </script>
 
 <style lang="scss" scoped>
 .products {
-  display: flex;
-  flex: 1 0 0;
-  flex-direction: column;
+	display: flex;
+	flex: 1 0 0;
+	flex-direction: column;
 }
 .products__list {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 .products__item {
-  border: 0.5px solid $secondary;
-  margin-bottom: 1rem;
-  transition: $transition-base;
-  width: calc(50% - 0.5rem);
+	border: 0.5px solid $secondary;
+	margin-bottom: 1rem;
+	transition: $transition-base;
+	width: calc(50% - 0.5rem);
 
-  &:hover {
-    border-color: $gray;
-  }
+	&:hover {
+		border-color: $gray;
+	}
 }
 
 .loader {
-  align-items: center;
-  display: flex;
-  flex: 1 0 0;
-  justify-content: center;
+	align-items: center;
+	display: flex;
+	flex: 1 0 0;
+	justify-content: center;
 }
 </style>

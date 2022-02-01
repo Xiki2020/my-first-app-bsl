@@ -111,14 +111,19 @@ export default {
     this.fetchCatalog()
   },
 
+  beforeUnmount () {
+    this.resetCategory()
+  },
+
   methods: {
-    ...mapActions("catalog", ["fetchCatalog", "fetchCategory"]),
+    ...mapActions("catalog", ["fetchCatalog", "fetchCategory", "resetCategory"]),
 
     ...mapMutations("common", ["setSearchVisible"]),
 
     showSearch(value) {
       this.searchValue = value
-
+		console.log(this.axios)
+		console.log(this.$http)
       if (value.length < 3) return
 
       this.setSearchVisible(true)
