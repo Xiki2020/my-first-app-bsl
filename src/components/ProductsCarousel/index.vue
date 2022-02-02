@@ -15,19 +15,12 @@
 </template>
 <script>
 import CardProduct from "@/components/CardProduct/CardProduct.vue"
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js"
-
-import "swiper/swiper.scss"
-import "swiper/modules/navigation/navigation.scss"
-import "swiper/modules/pagination/pagination.scss"
 
 export default {
 
   name: "ProductsCarousel",
   components: {
     CardProduct,
-    Swiper,
-    SwiperSlide,
   },
 
   props: {
