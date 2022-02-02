@@ -147,8 +147,20 @@ password: "83r5^_"
 
 логин и пароль для входа
 
-
-
-01.02
-
-Почитать про https://vee-validate.logaretm.com/v4/ и поробовать добавить на форму авторизации валидации на 2 поля
+		async onSubmit(e) {
+			this.isLoading = true
+			try {
+				const response = await this.axios.post('https://fakestoreapi.com/auth/login', {
+					username: e.srcElement.name.value,
+					password: e.srcElement.password.value,
+				})
+				localStorage.setItem("token", response.data.token)
+				this.$router.push({ name: "HomePage" })
+			} catch(error) {
+				console.log(error)
+				this.$toast.clear()
+				this.$toast.error("Invalid email address and/or password", {position: 'top'})
+			} finally {
+				this.isLoading = false
+			}
+		},

@@ -24,9 +24,10 @@ export default {
 			state.products.push(product)
 		},
 
-		// obj object
-		// obj.id {string} - id продукта
-		// obj.action {string} - тип действия
+//?  obj object
+//?  obj.id {string} - id продукта
+//?  obj.action {string} - тип действия
+
 		setCountProduct (state, obj) {
 			let index
 			let product = state.products.find((el, i) => {
@@ -36,7 +37,8 @@ export default {
 				}
 			})
 
-			// если уменьшаем и кол-во = 1, то удаляем
+//? если уменьшаем и кол-во = 1, то удаляем
+
 			if (product.count === 1 && obj.action === 'remove') {
 				state.products.splice(index, 1)
 				return
@@ -82,24 +84,9 @@ export default {
 			return price.toFixed(2)
 		},
 
-		// getFilterProducts: state => name => {
-		// 	return state.products.filter(product => {
-		// 		return product.name.split(" ").find(el => {
-		// 			return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
-		// 		});
-		// 		// 	return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
-		// 		// }).sort((a, b) => (a.name < b.name ? -1 : 1));
-		// 	}).sort((a, b) => (a.name < b.name ? -1 : 1));
-		// },
-
-		getFilterProducts: state => searchVal => {
+		getFoundProducts: state => searchVal => {
 			return state.products.filter(product => {
 				return product.title.toLowerCase().includes(searchVal.toLowerCase())
-				// return product.title.split(" ").find(el => {
-				// 	return el.substring(0, name.length).toLowerCase() === name.toLowerCase()
-				// });
-				// 	return product.name.substring(0, name.length).toLowerCase() === name.toLowerCase()
-				// }).sort((a, b) => (a.name < b.name ? -1 : 1));
 			}).sort((a, b) => (a.title < b.title ? -1 : 1))
 		},
 	},

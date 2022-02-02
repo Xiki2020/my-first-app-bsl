@@ -56,7 +56,7 @@ export default {
     ...mapActions(["changeRole"]),
     logout() {
       this.changeRole("guest")
-		localStorage.removeItem("token")
+		localStorage.removeItem("token-bsl")
       this.$router.push({ name: "WelcomePage" })
     },
   },

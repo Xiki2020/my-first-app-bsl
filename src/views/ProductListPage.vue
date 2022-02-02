@@ -7,11 +7,11 @@
       }}
     </Header>
     <div
-      v-if="getCategory.length"
+      v-if="getProductsCategory.length"
       class="products__list"
     >
-      <CardProductVertical
-        v-for="product in getCategory"
+      <CardProduct
+        v-for="product in getProductsCategory"
         :key="product.title"
         :product="product"
         class="products__item"
@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import CardProductVertical from "@/components/CardProduct/CardProductVertical.vue"
+import CardProduct from "@/components/CardProduct/CardProduct.vue"
 import Header from "@/components/Header.vue"
 import Loader from "@/components/Loader.vue"
 
@@ -36,13 +36,13 @@ export default {
 	name: "ProductListPage",
 
 	components: {
-		CardProductVertical,
+		CardProduct,
 		Header,
 		Loader,
 	},
 
 	computed: {
-		...mapGetters("catalog", ["getCategory"]),
+		...mapGetters("catalog", ["getProductsCategory"]),
 	},
 
 	created() {
@@ -50,11 +50,11 @@ export default {
 	},
 
 	beforeUnmount () {
-		this.resetCategory()
+		this.resetProductsCategory()
 	},
 
 	methods: {
-		...mapActions("catalog", ["fetchCategory", "resetCategory"]),
+		...mapActions("catalog", ["fetchCategory", "resetProductsCategory"]),
 	},
 }
 </script>

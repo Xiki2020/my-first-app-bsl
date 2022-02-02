@@ -1,7 +1,7 @@
 <template>
   <div
     class="sign-in-page"
-    :class="isDisable? 'sign-in-page--disabled': ''"
+    :class="isLoading? 'sign-in-page--disabled': ''"
   >
     <TitleHeader>
       Please fill E-mail & password to login your Shopy application account.
@@ -9,7 +9,7 @@
     <form
       class="sign-in-page__form"
       name="signIn"
-      @submit.prevent="sendValueLogin"
+      @submit.prevent="onSubmit"
     >
       <InputName />
       <InputPassword
@@ -28,8 +28,8 @@
         text="Sign In"
         class="sign-in-page__btn"
         type="submit"
-        :disabled="isDisable"
-        :variant="isDisable? 'secondary':'primary'"
+        :disabled="isLoading"
+        :variant="isLoading? 'secondary':'primary'"
       />
     </form>
     <LoginWith
@@ -48,6 +48,10 @@ import InputPassword from "@/components/FormComponents/InputPassword.vue"
 import LoginWith from "@/components/LoginWith.vue"
 import TitleHeader from "@/components/TitleHeader.vue"
 
+import fakeApiService from '@/services/FakeApiService.js'
+import useVuelidate from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
+
 export default {
 	name: "SignInPage",
 
@@ -60,29 +64,41 @@ export default {
 		TitleHeader,
 	},
 
+	setup () {
+		return { v$: useVuelidate() }
+	},
+
 	data(){
 		return{
-			isDisable: false
+			isLoading: false,
+			email: ''
+		}
+	},
+
+	validations () {
+		return {
+			contact: {
+      	email: { required, email } // Matches this.contact.email
+			}
 		}
 	},
 
 	methods: {
-		sendValueLogin(e) {
-			this.isDisable = true
-			this.axios
-				.post('https://fakestoreapi.com/auth/login', {
-					username: e.srcElement.name.value,
-					password: e.srcElement.password.value,
-				})
-				.then((response) => {
-					localStorage.setItem("token", response.data.token)
-					this.$router.push({ name: "HomePage" })
-				})
-				.catch(() => {
+		onSubmit(event) {
+			this.isLoading = true
+
+			fakeApiService.authLogin({
+				username: event.srcElement.name.value,
+				password: event.srcElement.password.value,
+			})
+				.catch((error) => {
+					console.log(error)
 					this.$toast.clear()
-					this.$toast.error("Invalid email address and/or password", {position: 'bottom'})
+					this.$toast.error(error, {position: 'top'})
 				})
-				.finally(() => this.isDisable = false)
+				.finally(() => {
+					this.isLoading = false
+				}) 
 		},
 	},
 }
