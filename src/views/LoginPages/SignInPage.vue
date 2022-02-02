@@ -49,6 +49,8 @@ import LoginWith from "@/components/LoginWith.vue"
 import TitleHeader from "@/components/TitleHeader.vue"
 
 import fakeApiService from '@/services/FakeApiService.js'
+import useVuelidate from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
 
 export default {
 	name: "SignInPage",
@@ -62,9 +64,22 @@ export default {
 		TitleHeader,
 	},
 
+	setup () {
+		return { v$: useVuelidate() }
+	},
+
 	data(){
 		return{
-			isLoading: false
+			isLoading: false,
+			email: ''
+		}
+	},
+
+	validations () {
+		return {
+			contact: {
+      	email: { required, email } // Matches this.contact.email
+			}
 		}
 	},
 
