@@ -45,5 +45,6 @@ export default {
 
 .app--route-welcomepage {
   background-color: $primary;
+  overflow: hidden;
 }
 </style>
