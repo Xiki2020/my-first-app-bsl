@@ -8,7 +8,7 @@
     />
     <div class="cart__products">
       <CardProduct
-        v-for="product in getFilterProducts(value)"
+        v-for="product in getFoundProducts(value)"
         :key="product.name"
         :product="product"
         variant="horizontal"
@@ -16,7 +16,7 @@
       />
     </div>
     <div
-      v-if="getFilterProducts(value).length"
+      v-if="getFoundProducts(value).length"
       class="cart__bottom"
     >
       <form class="cart__promocode-form">
@@ -87,7 +87,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters("cart", ["getCart", "getPriceCart", "getFilterProducts"]),
+    ...mapGetters("cart", ["getCart", "getPriceCart", "getFoundProducts"]),
   },
 
   methods: {

@@ -26,6 +26,8 @@ import InputName from "@/components/FormComponents/InputName.vue"
 import InputPassword from "@/components/FormComponents/InputPassword.vue"
 import LoginWith from "@/components/LoginWith.vue"
 
+import fakeApiService from '@/services/FakeApiService.js'
+
 export default {
   name: "SignUpPage",
 
@@ -37,10 +39,17 @@ export default {
     LoginWith,
   },
 
-  methods:{
-	  test() {
-		  this.$toast.clear()
-		  this.$toast.default("Invalid email address and/or password", {position: 'bottom'})
+	methods:{
+		test() {
+			fakeApiService.getProducts()
+				.then(response => {
+					console.log(response.data)
+					this.$toast.success("Invalid email address and/or password", {position: 'bottom'})
+				})
+				.catch(error => {
+					this.$toast.warning(error, {position: 'bottom'})
+				.finally(this.$toast.clear())
+		  })
 	  },
   }
 }

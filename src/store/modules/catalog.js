@@ -1,59 +1,35 @@
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+import fakeApiService from '@/services/FakeApiService.js'
 
 export default {
-	namespaced: true, // ВКЛЮЧАЙ ИХ ВСЕГДА!
+	namespaced: true, 
 
 	actions: {
-		async fetchCatalog({ commit }) {
-			// fetch('https://fakestoreapi.com/products')
-			// 	.then(res => res.json())
-			// 	.then(json => {
-			// 		commit('setCatalog', json)
-			// 	})
-			axios.get('https://fakestoreapi.com/products', {
-				headers: {
-					'token': localStorage.getItem("token")
-				}
-			})
-				.then((response) => {
-					console.log(response)
-					commit('setCatalog', response.data)
-			 })
+		accioCatalog({ commit }) {
+			fakeApiService.getProducts()
+				.then(response => commit('setCatalog', response.data))
 		},
 
-		async fetchСategories({ commit }) {
-			// try {
-			// 	await this.fetchProduct(this.$route.params.id);
-			// } catch (error) {
-			// 	commit('setError', error)
-			// } finally {
-			// 	console.log('!!!')
-			// }
-
-			axios
-				.get('https://fakestoreapi.com/products/categories')
+		accioСategories({ commit }) {
+			fakeApiService.getСategories()
 				.then(response => commit('setСategories', response.data))	
 		},
 
-		async fetchCategory({ commit }, category) {
-			axios
-				.get(`https://fakestoreapi.com/products/category/${category}`)
-				.then(response => commit('setCategory', response.data))	
+		accioProductsCategory({ commit }, category) {
+			fakeApiService.getProductsCategory(category)
+				.then(response => commit('setProductsCategory', response.data))	
 		},
 
-		async fetchProduct({ commit }, id) {
-			axios
-				.get(`https://fakestoreapi.com/products/${id}`)
+		accioProduct({ commit }, id) {
+			fakeApiService.getProduct(id)
 				.then(response => commit('setProduct', response.data))
 		},
 
-		async resetProduct({ commit }) {
+		resetProduct({ commit }) {
 			commit('resetProduct')
 		},
 
-		async resetCategory({ commit }) {
-			commit('resetCategory')
+		resetProductsCategory({ commit }) {
+			commit('resetProductsCategory')
 		},
 	},
 
@@ -64,8 +40,8 @@ export default {
 		setСategories(state, categories) {
 			state.categories = categories
 		},
-		setCategory(state, category) {
-			state.category = category
+		setProductsCategory(state, products) {
+			state.productsCategory = products
 		},
 		setProduct(state, product) {
 			state.product = product
@@ -73,7 +49,7 @@ export default {
 		resetProduct(state) {
 			state.product = {}
 		},
-		resetCategory(state) {
+		resetProductsCategory(state) {
 			state.category = []
 		}
 	},
@@ -82,7 +58,7 @@ export default {
 		return {
 			catalog: [],
 			categories: [],
-			category: [],
+			productsCategory: [],
 			product: {},
 		}
 	},
@@ -91,18 +67,18 @@ export default {
 		getCatalog(state) {
 			return state.catalog
 		},
-		getFilterCatalog: state => name => {
-			if (name.length < 1) return []
+		getFoundProducts: state => searchVal => {
+			if (searchVal.length < 1) return []
 
 			return state.catalog.filter(product => {
-				return product.title.substring(0, name.length).toLowerCase() === name.toLowerCase()
+				return product.title.toLowerCase().includes(searchVal.toLowerCase())
 			}).sort((a, b) => (a.title < b.title ? -1 : 1))
 		},
 		getСategories(state) {
 			return state.categories
 		},
-		getCategory(state) {
-			return state.category
+		getProductsCategory(state) {
+			return state.productsCategory
 		},
 		getProduct(state) {
 			return state.product
