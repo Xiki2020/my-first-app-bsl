@@ -15,23 +15,16 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js"
 import CardProductPopular from "@/components/CardProduct/CardProductPopular.vue"
 import SwiperCore, { Pagination } from "swiper"
 
 SwiperCore.use([Pagination])
-
-import "swiper/swiper.scss"
-import "swiper/modules/navigation/navigation.scss"
-import "swiper/modules/pagination/pagination.scss"
 
 export default {
 
   name: "ProductsSlider",
   components: {
     CardProductPopular,
-    Swiper,
-    SwiperSlide,
   },
 
   props: {
