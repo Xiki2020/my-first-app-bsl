@@ -79,7 +79,7 @@ export default {
 			} catch(error) {
 				console.log(error)
 				this.$toast.clear()
-				this.$toast.error("Invalid email address and/or password", {position: 'bottom'})
+				this.$toast.error("Invalid email address and/or password", {position: 'top'})
 			} finally {
 				this.isLoading = false
 			}

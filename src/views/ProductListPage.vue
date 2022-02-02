@@ -10,7 +10,7 @@
       v-if="getCategory.length"
       class="products__list"
     >
-      <CardProductVertical
+      <CardProduct
         v-for="product in getCategory"
         :key="product.title"
         :product="product"
@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import CardProductVertical from "@/components/CardProduct/CardProductVertical.vue"
+import CardProduct from "@/components/CardProduct/CardProduct.vue"
 import Header from "@/components/Header.vue"
 import Loader from "@/components/Loader.vue"
 
@@ -36,7 +36,7 @@ export default {
 	name: "ProductListPage",
 
 	components: {
-		CardProductVertical,
+		CardProduct,
 		Header,
 		Loader,
 	},
