@@ -48,6 +48,8 @@ import InputPassword from "@/components/FormComponents/InputPassword.vue"
 import LoginWith from "@/components/LoginWith.vue"
 import TitleHeader from "@/components/TitleHeader.vue"
 
+import fakeApiService from '@/services/FakeApiService.js'
+
 export default {
 	name: "SignInPage",
 
@@ -67,22 +69,21 @@ export default {
 	},
 
 	methods: {
-		async onSubmit(e) {
+		onSubmit(event) {
 			this.isLoading = true
-			try {
-				const response = await this.axios.post('https://fakestoreapi.com/auth/login', {
-					username: e.srcElement.name.value,
-					password: e.srcElement.password.value,
+
+			fakeApiService.authLogin({
+				username: event.srcElement.name.value,
+				password: event.srcElement.password.value,
+			})
+				.catch((error) => {
+					console.log(error)
+					this.$toast.clear()
+					this.$toast.error(error, {position: 'top'})
 				})
-				localStorage.setItem("token", response.data.token)
-				this.$router.push({ name: "HomePage" })
-			} catch(error) {
-				console.log(error)
-				this.$toast.clear()
-				this.$toast.error("Invalid email address and/or password", {position: 'top'})
-			} finally {
-				this.isLoading = false
-			}
+				.finally(() => {
+					this.isLoading = false
+				}) 
 		},
 	},
 }

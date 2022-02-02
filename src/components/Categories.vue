@@ -30,10 +30,10 @@ export default {
   computed: mapGetters("catalog", ["getСategories"]),
 
   created() {
-    this.fetchСategories()
+    this.accioСategories()
   },
 
-  methods: mapActions("catalog", ["fetchСategories"]),
+  methods: mapActions("catalog", ["accioСategories"]),
 }
 </script>
 

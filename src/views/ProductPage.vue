@@ -50,7 +50,6 @@ export default {
 
   data() {
     return {
-      product: {},
       isAdditionalProductsLoading: false,
     }
   },
@@ -60,8 +59,8 @@ export default {
     ...mapGetters(["getRole"]),
   },
 
-  async created() {
-    this.fetchProductId()
+  created() {
+    this.accioProduct(this.$route.params.id)
   },
 
   beforeUnmount () {
@@ -70,11 +69,7 @@ export default {
 
   methods: {
     ...mapActions("cart", ["addProduct"]),
-    ...mapActions("catalog", ["fetchProduct", 'resetProduct']),
-
-     fetchProductId() {
-       this.product = this.fetchProduct(this.$route.params.id)
-     },
+    ...mapActions("catalog", ["accioProduct", 'resetProduct']),
 
 	  showNotification() {
 		this.$toast.clear()

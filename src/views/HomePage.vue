@@ -30,9 +30,9 @@
       />
     </div>
     <ProductsSlider
-      v-if="getCategory.length"
+      v-if="getProductsCategory.length"
       class="home-page__slider"
-      :products="getCategory"
+      :products="getProductsCategory"
     />
     <div
       v-else
@@ -97,33 +97,32 @@ export default {
   },
 
   computed: {
-    ...mapGetters("catalog", ["getCatalog", "getFilterCatalog", "getCategory"]),
+    ...mapGetters("catalog", ["getCatalog", "getFoundProducts", "getProductsCategory"]),
   },
 
   watch: {
     searchValue(value) {
-      this.products = this.getFilterCatalog(value)
+      this.products = this.getFoundProducts(value)
     },
   },
 
   created() {
-    this.fetchCategory("electronics")
-    this.fetchCatalog()
+    this.accioProductsCategory("electronics")
+    this.accioCatalog()
   },
 
   beforeUnmount () {
-    this.resetCategory()
+    this.resetProductsCategory()
   },
 
   methods: {
-    ...mapActions("catalog", ["fetchCatalog", "fetchCategory", "resetCategory"]),
+    ...mapActions("catalog", ["accioCatalog", "accioProductsCategory", "resetProductsCategory"]),
 
     ...mapMutations("common", ["setSearchVisible"]),
 
     showSearch(value) {
       this.searchValue = value
-		console.log(this.axios)
-		console.log(this.$http)
+		
       if (value.length < 3) return
 
       this.setSearchVisible(true)

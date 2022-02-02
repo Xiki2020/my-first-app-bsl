@@ -7,11 +7,11 @@
       }}
     </Header>
     <div
-      v-if="getCategory.length"
+      v-if="getProductsCategory.length"
       class="products__list"
     >
       <CardProduct
-        v-for="product in getCategory"
+        v-for="product in getProductsCategory"
         :key="product.title"
         :product="product"
         class="products__item"
@@ -42,7 +42,7 @@ export default {
 	},
 
 	computed: {
-		...mapGetters("catalog", ["getCategory"]),
+		...mapGetters("catalog", ["getProductsCategory"]),
 	},
 
 	created() {
@@ -50,11 +50,11 @@ export default {
 	},
 
 	beforeUnmount () {
-		this.resetCategory()
+		this.resetProductsCategory()
 	},
 
 	methods: {
-		...mapActions("catalog", ["fetchCategory", "resetCategory"]),
+		...mapActions("catalog", ["fetchCategory", "resetProductsCategory"]),
 	},
 }
 </script>

@@ -16,13 +16,15 @@ import "swiper/modules/pagination/pagination.scss"
 // import MainLayout from "./layouts/MainLayout.vue"
 
 const app = createApp(App)
+
 app.use(router)
 app.use(store)
 app.use(VueAxios, axios)
 app.use(VueToast)
+
 app.component('Swiper', Swiper)
 app.component('SwiperSlide', SwiperSlide)
-// app.use(Swiper, SwiperSlide)
+
 app.mount('body')
 
 

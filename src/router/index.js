@@ -184,7 +184,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	if(localStorage.getItem("token")) {
+	if(localStorage.getItem("token-bsl")) {
 		store.state.user.role = "user"
 	} else {
 		store.state.user.role = "guest"
