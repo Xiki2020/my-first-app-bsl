@@ -11,12 +11,18 @@
       name="signIn"
       @submit.prevent="onSubmit"
     >
-      <InputName
+      <Input
         v-model="userName"
       />
-      <InputPassword
+      <Input
         v-model="password"
         class="sign-in-page__input-password"
+        :model-input="{
+          placeholder: 'm38rmF$',
+          required: true,
+          text: 'Password',
+          type: 'password',
+        }"
       />
       <div class="sign-in-page__actions actions">
         <CustomCheckbox title="Запомнить меня" />
@@ -46,8 +52,7 @@
 <script>
 import Button from "@/components/Button.vue"
 import CustomCheckbox from "@/components/FormComponents/CustomCheckbox.vue"
-import InputName from "@/components/FormComponents/InputName.vue"
-import InputPassword from "@/components/FormComponents/InputPassword.vue"
+import Input from "@/components/FormComponents/Input.vue"
 import LoginWith from "@/components/LoginWith.vue"
 import TitleHeader from "@/components/TitleHeader.vue"
 
@@ -59,8 +64,7 @@ export default {
 	components: {
 		Button,
 		CustomCheckbox,
-		InputName,
-		InputPassword,
+		Input,
 		LoginWith,
 		TitleHeader,
 	},

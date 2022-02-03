@@ -4,8 +4,17 @@
       Please fill E-mail & password to login your Shopy application account.
     </TitleHeader>
     <form class="welcome-back-page__form">
-      <InputEmail />
-      <InputPassword class="welcome-back-page__input-password" />
+      <Input v-model="name" />
+      <Input
+        v-model="password"
+        class="welcome-back-page__input-password"
+        :model-input="{
+          placeholder: 'm38rmF$',
+          required: true,
+          text: 'Password',
+          type: 'password',
+        }"
+      />
       <div class="welcome-back-page__actions actions">
         <CustomCheckbox title="Запомнить меня" />
         <router-link
@@ -32,8 +41,7 @@
 <script>
 import Button from "@/components/Button.vue"
 import CustomCheckbox from "@/components/FormComponents/CustomCheckbox.vue"
-import InputEmail from "@/components/FormComponents/InputEmail.vue"
-import InputPassword from "@/components/FormComponents/InputPassword.vue"
+import Input from "@/components/FormComponents/Input.vue"
 import LoginWith from "@/components/LoginWith.vue"
 import TitleHeader from "@/components/TitleHeader.vue"
 
@@ -44,11 +52,18 @@ export default {
   components: {
     Button,
     CustomCheckbox,
-    InputEmail,
-    InputPassword,
+    Input,
     LoginWith,
     TitleHeader,
   },
+
+  data() {
+	  return {
+		  name: '',
+		  password: ''
+	  }
+  },
+
   methods: {
     ...mapActions(["changeRole"]),
     toCome() {

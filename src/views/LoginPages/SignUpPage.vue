@@ -2,8 +2,25 @@
   <div class="sign-up-page">
     <form class="sign-up-page__form">
       <Input />
-      <InputEmail class="sign-up-page__input-mail" />
-      <InputPassword class="sign-up-page__input-password" />
+      <Input
+        class="sign-up-page__input-mail"
+        :model-input="{
+          placeholder: 'example@gmail.com',
+          required: true,
+          text: 'E-mail',
+          type: 'email',
+        }"
+      />
+      <Input
+        v-model="password"
+        class="sign-up-page__input-password"
+        :model-input="{
+          placeholder: 'm38rmF$',
+          required: true,
+          text: 'Password',
+          type: 'password',
+        }"
+      />
       <Button
         class="sign-up-page__btn"
         text="Sign Up"
@@ -21,9 +38,7 @@
 
 <script>
 import Button from "@/components/Button.vue"
-import InputEmail from "@/components/FormComponents/InputEmail.vue"
 import Input from "@/components/FormComponents/Input.vue"
-import InputPassword from "@/components/FormComponents/InputPassword.vue"
 import LoginWith from "@/components/LoginWith.vue"
 
 
@@ -32,10 +47,14 @@ export default {
 
   components: {
     Button,
-    InputEmail,
     Input,
-    InputPassword,
     LoginWith,
+  },
+
+  data() {
+	  return {
+		  password: ''
+	  }
   },
 }
 </script>
