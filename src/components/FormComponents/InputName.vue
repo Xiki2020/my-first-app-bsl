@@ -11,6 +11,8 @@
       class="input-name__input"
       name="name"
       required
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
     >
   </div>
 </template>
@@ -19,6 +21,17 @@
 import { getUniqId } from "@/utils/common"
 export default {
   name: "InputName",
+
+  props: {
+	  modelValue: {
+		  type: String,
+		  reqired: true,
+		  default: () => "",
+	  }
+  },
+
+  emits: ['update:modelValue'],
+
   computed: {
     uuid() {
       return getUniqId()
