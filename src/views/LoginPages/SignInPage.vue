@@ -11,8 +11,11 @@
       name="signIn"
       @submit.prevent="onSubmit"
     >
-      <InputName />
+      <InputName
+        v-model="userName"
+      />
       <InputPassword
+        v-model="password"
         class="sign-in-page__input-password"
       />
       <div class="sign-in-page__actions actions">
@@ -49,8 +52,6 @@ import LoginWith from "@/components/LoginWith.vue"
 import TitleHeader from "@/components/TitleHeader.vue"
 
 import fakeApiService from '@/services/FakeApiService.js'
-import useVuelidate from '@vuelidate/core'
-import { required, email } from '@vuelidate/validators'
 
 export default {
 	name: "SignInPage",
@@ -64,32 +65,31 @@ export default {
 		TitleHeader,
 	},
 
-	setup () {
-		return { v$: useVuelidate() }
-	},
-
 	data(){
 		return{
 			isLoading: false,
-			email: ''
+			userName: "",
+			password: "",
 		}
 	},
 
-	validations () {
-		return {
-			contact: {
-      	email: { required, email } // Matches this.contact.email
-			}
+	watch: {
+		userName(val){
+			console.log(val)
+		},
+		password(val){
+			console.log(val)
 		}
 	},
+
 
 	methods: {
-		onSubmit(event) {
+		onSubmit() {
 			this.isLoading = true
 
 			fakeApiService.authLogin({
-				username: event.srcElement.name.value,
-				password: event.srcElement.password.value,
+				username: this.userName,
+				password: this.password,
 			})
 				.catch((error) => {
 					console.log(error)

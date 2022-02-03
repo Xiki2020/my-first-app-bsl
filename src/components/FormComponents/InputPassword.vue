@@ -10,7 +10,9 @@
       placeholder="m38rmF$"
       class="input-password__input"
       name="password"
+      :value="modelValue"
       required
+      @input="$emit('update:modelValue', $event.target.value)"
     >
     <svg
       width="17"
@@ -35,13 +37,23 @@
 import { getUniqId } from "@/utils/common"
 export default {
   name: "InputPassword",
+
   props: {
     text: {
       type: String,
       default: () => "Password",
       reqired: true,
     },
+
+	 modelValue: {
+		  type: String,
+		  reqired: true,
+		  default: () => "",
+	  },
   },
+
+  emits: ['update:modelValue'],
+
   data() {
     return {
       type: "password",
