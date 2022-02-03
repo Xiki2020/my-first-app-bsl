@@ -1,14 +1,14 @@
 <template>
   <div class="sign-up-page">
     <form class="sign-up-page__form">
-      <InputName />
+      <Input />
       <InputEmail class="sign-up-page__input-mail" />
       <InputPassword class="sign-up-page__input-password" />
       <Button
         class="sign-up-page__btn"
         text="Sign Up"
         type="button"
-        @click="test"
+        @click="$router.push({ name: 'TempPage' })"
       />
     </form>
     <LoginWith
@@ -22,11 +22,10 @@
 <script>
 import Button from "@/components/Button.vue"
 import InputEmail from "@/components/FormComponents/InputEmail.vue"
-import InputName from "@/components/FormComponents/InputName.vue"
+import Input from "@/components/FormComponents/Input.vue"
 import InputPassword from "@/components/FormComponents/InputPassword.vue"
 import LoginWith from "@/components/LoginWith.vue"
 
-import fakeApiService from '@/services/FakeApiService.js'
 
 export default {
   name: "SignUpPage",
@@ -34,24 +33,10 @@ export default {
   components: {
     Button,
     InputEmail,
-    InputName,
+    Input,
     InputPassword,
     LoginWith,
   },
-
-	methods:{
-		test() {
-			fakeApiService.getProducts()
-				.then(response => {
-					console.log(response.data)
-					this.$toast.success("Invalid email address and/or password", {position: 'bottom'})
-				})
-				.catch(error => {
-					this.$toast.warning(error, {position: 'bottom'})
-				.finally(this.$toast.clear())
-		  })
-	  },
-  }
 }
 </script>
 
