@@ -94,7 +94,7 @@ export default {
 				.catch((error) => {
 					console.log(error)
 					this.$toast.clear()
-					this.$toast.error(error, {position: 'top'})
+					this.$toast.error(error.message, {position: 'top'})
 				})
 				.finally(() => {
 					this.isLoading = false
