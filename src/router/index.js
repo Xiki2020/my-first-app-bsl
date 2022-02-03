@@ -139,7 +139,7 @@ const routes = [
 			headerTitle: "Заглушка",
 			layout: 'main-layout',
 			navBar: true,
-			roles: ["user",],
+			roles: ["guest",],
 		},
 	},
 	{

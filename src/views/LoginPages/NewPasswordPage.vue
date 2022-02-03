@@ -4,10 +4,24 @@
       Your new password must be different from previously used passwords.
     </TitleHeader>
     <form class="new-password-page__form">
-      <InputPassword text="New password" />
-      <InputPassword
-        text="Confirm password"
+      <Input
+        v-model="password"
+        :model-input="{
+          placeholder: 'm38rmF$',
+          required: true,
+          text: 'New password',
+          type: 'password',
+        }"
+      />
+      <Input
+        v-model="repPassword"
         class="new-password-page__input-passwrod"
+        :model-input="{
+          placeholder: 'm38rmF$',
+          required: true,
+          text: 'Confirm password',
+          type: 'password',
+        }"
       />
       <Button
         text="Update"
@@ -20,14 +34,21 @@
 
 <script>
 import Button from "@/components/Button.vue"
-import InputPassword from "@/components/FormComponents/InputPassword.vue"
+import Input from "@/components/FormComponents/Input.vue"
 import TitleHeader from "@/components/TitleHeader.vue"
 export default {
   name: "NewPasswordPage",
   components: {
     Button,
-    InputPassword,
+    Input,
     TitleHeader,
+  },
+
+  data() {
+	  return {
+		  password: '',
+		  repPassword: '',
+	  }
   },
 }
 </script>

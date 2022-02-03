@@ -1,26 +1,27 @@
 <template>
-  <div class="input-password">
+  <div class="input">
     <label
       :for="uuid"
-      class="input-password__label"
-    >{{ text }}</label>
+      class="input__label"
+    >{{ modelInput.text }}</label>
     <input
       :id="uuid"
       :type="type"
-      placeholder="m38rmF$"
-      class="input-password__input"
-      name="password"
-      :value="modelValue"
+      :placeholder="modelInput.placeholder"
+      class="input__input"
+      :name="`input__${modelInput.type}`"
       required
+      :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
     >
     <svg
+      v-if="modelInput.type === 'password'"
       width="17"
       height="17"
       viewBox="0 0 17 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      class="input-password__btn-show"
+      class="input__btn-show"
       @click="showPassword"
     >
       <path
@@ -36,34 +37,43 @@
 <script>
 import { getUniqId } from "@/utils/common"
 export default {
-  name: "InputPassword",
+  name: "Input",
 
   props: {
-    text: {
-      type: String,
-      default: () => "Password",
-      reqired: true,
-    },
+	  modelInput: {
+		  type: Object,
+		  reqired: true,
+		  default: () => {
+			  return {
+				  placeholder: 'johnd',
+				  required: true,
+				  text: 'Name',
+				  type: 'text',
+			  }
+		  }
+	  },
 
-	 modelValue: {
+	  modelValue: {
 		  type: String,
 		  reqired: true,
 		  default: () => "",
-	  },
+	  }
   },
 
   emits: ['update:modelValue'],
 
   data() {
     return {
-      type: "password",
+      type: this.modelInput.type,
     }
   },
+
   computed: {
     uuid() {
       return getUniqId()
     },
   },
+
   methods: {
     showPassword() {
       this.type === "password"
@@ -75,13 +85,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.input-password {
+.input {
   position: relative;
   text-align: right;
 }
-
-.input-password__label,
-.input-password__input {
+.input__label,
+.input__input {
   display: block;
   color: $fc-gray;
   font-weight: 500;
@@ -89,8 +98,7 @@ export default {
   transition: $transition-base;
   width: 100%;
 }
-
-.input-password__input {
+.input__input {
   background-color: #f7f8f9;
   border: 0.5px solid $secondary;
   border-radius: 14px;
@@ -107,8 +115,7 @@ export default {
     font-size: $font-size-base;
   }
 }
-
-.input-password__btn-show {
+.input__btn-show {
   cursor: pointer;
   position: absolute;
   right: 18px;

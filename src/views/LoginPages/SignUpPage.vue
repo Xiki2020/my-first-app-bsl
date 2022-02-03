@@ -1,14 +1,31 @@
 <template>
   <div class="sign-up-page">
     <form class="sign-up-page__form">
-      <InputName />
-      <InputEmail class="sign-up-page__input-mail" />
-      <InputPassword class="sign-up-page__input-password" />
+      <Input />
+      <Input
+        class="sign-up-page__input-mail"
+        :model-input="{
+          placeholder: 'example@gmail.com',
+          required: true,
+          text: 'E-mail',
+          type: 'email',
+        }"
+      />
+      <Input
+        v-model="password"
+        class="sign-up-page__input-password"
+        :model-input="{
+          placeholder: 'm38rmF$',
+          required: true,
+          text: 'Password',
+          type: 'password',
+        }"
+      />
       <Button
         class="sign-up-page__btn"
         text="Sign Up"
         type="button"
-        @click="test"
+        @click="$router.push({ name: 'TempPage' })"
       />
     </form>
     <LoginWith
@@ -21,37 +38,24 @@
 
 <script>
 import Button from "@/components/Button.vue"
-import InputEmail from "@/components/FormComponents/InputEmail.vue"
-import InputName from "@/components/FormComponents/InputName.vue"
-import InputPassword from "@/components/FormComponents/InputPassword.vue"
+import Input from "@/components/FormComponents/Input.vue"
 import LoginWith from "@/components/LoginWith.vue"
 
-import fakeApiService from '@/services/FakeApiService.js'
 
 export default {
   name: "SignUpPage",
 
   components: {
     Button,
-    InputEmail,
-    InputName,
-    InputPassword,
+    Input,
     LoginWith,
   },
 
-	methods:{
-		test() {
-			fakeApiService.getProducts()
-				.then(response => {
-					console.log(response.data)
-					this.$toast.success("Invalid email address and/or password", {position: 'bottom'})
-				})
-				.catch(error => {
-					this.$toast.warning(error, {position: 'bottom'})
-				.finally(this.$toast.clear())
-		  })
-	  },
-  }
+  data() {
+	  return {
+		  password: ''
+	  }
+  },
 }
 </script>
 

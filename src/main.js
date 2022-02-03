@@ -6,6 +6,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueToast from 'vue-toast-notification'
 import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js"
+import { Field, Form, ErrorMessage } from 'vee-validate'
 
 import 'vue-toast-notification/dist/theme-sugar.css'
 
@@ -25,6 +26,10 @@ app.use(VueToast)
 
 app.component('Swiper', Swiper)
 app.component('SwiperSlide', SwiperSlide)
+
+app.component('Field', Field)
+app.component('Form', Form)
+app.component('ErrorMessage', ErrorMessage)
 
 app.mount('body')
 
